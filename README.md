@@ -10,5 +10,5 @@
   - WebSocket Interface
 - Development Framework
   - ROS Package
-  - Python Script
+  - Python Scripting Support
   - C++ Scripting Support
