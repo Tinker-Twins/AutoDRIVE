@@ -11,4 +11,4 @@
 - Development Framework
   - ROS Package
   - Python Script
-  - C++ Script
+  - C++ Scripting Support
