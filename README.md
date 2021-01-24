@@ -9,6 +9,6 @@
   - Digital Twin of AutoDRIVE Testbed
   - WebSocket Interface
 - Development Framework
-  - ROS Support
+  - ROS Package
   - Python Scripting Support
   - C++ Scripting Support
