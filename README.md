@@ -25,14 +25,17 @@
   - System Integration
 - AutoDRIVE Simulator
   - Update Vehcile
-  - Single and Dual Lane Road Kits
-  - Static & Dynamic Obstacles
-  - Traffic Signs and Signals
   - Add Testbed Environment Scene
+  - Single and Dual Lane Road Kits
+  - Battery Status Indicator for Vehicle
+  - Settings (Simulation Settings, Vehicle Settings, Environment Settings)
+  - Active and Passive Environment Elements (Traffic Signs, Signals, etc.)
+  - Controller Settings [Keyboard, Mouse, Joystick, etc.)
   - [Optional] HIL Simulation Capability
   - [Optional] Stand Alone Scene Reconfiguration Capability
   - [Optional] Multi-Vehicle Support
   - [Optional] V2X Implementation
+  - [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   
 ### Demonstrations (TODO)
 - Modular Approach
