@@ -13,7 +13,7 @@
   - Python Scripting Support
   - C++ Scripting Support
 
-### To Do
+### Development (TODO)
 - AutoDRIVE Testbed
   - Component Finalization
   - AprilTag Localization
@@ -33,3 +33,28 @@
   - [Optional] Stand Alone Scene Reconfiguration Capability
   - [Optional] Multi-Vehicle Support
   - [Optional] V2X Implementation
+  
+### Demonstrations (TODO)
+- Modular Approach
+  - Perception Module
+    - Lane Detection & Tracking (Basic & Advanced)
+    - Object Detection & Tracking
+    - Semantic Segmentation
+    - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
+    - Odometry (Wheel Encoder, Visual)
+    - Localization (LiDAR, AptilTag)
+  - Planning Module
+    - Global Planning (Hybrid A*)
+    - Local Planning (FSM, Dynamic Window Approach, etc.)
+  - Control Module
+    - PID Control
+    - Pure Pursuit Control
+    - Stanley Control
+    - MPC
+    - Novel Approach
+- End-to-End Approach
+  - Imitation Learning
+    - Behavioral Cloning (Possibly Sim2Real)
+  - Reinfrocement Learning
+    - On-Road Navigation
+    - Intersection Management
