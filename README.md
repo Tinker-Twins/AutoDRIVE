@@ -23,3 +23,13 @@
   - Chassis Fabrication
   - Auxiliary PCB Fabrication
   - System Integration
+- AutoDRIVE Simulator
+  - Update Vehcile
+  - Single and Dual Lane Road Kits
+  - Static & Dynamic Obstacles
+  - Traffic Signs and Signals
+  - Add Testbed Environment Scene
+  - [Optional] HIL Simulation Capability
+  - [Optional] Stand Alone Scene Reconfiguration Capability
+  - [Optional] Multi-Vehicle Support
+  - [Optional] V2X Implementation
