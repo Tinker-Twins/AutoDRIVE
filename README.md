@@ -12,3 +12,14 @@
   - ROS Package
   - Python Scripting Support
   - C++ Scripting Support
+
+### To Do
+- AutoDRIVE Testbed
+  - Component Finalization
+  - AprilTag Localization
+  - Auxiliary PCB Design
+  - Mechanical Design Revision
+  - Environment Design Finalization
+  - Chassis Fabrication
+  - Auxiliary PCB Fabrication
+  - System Integration
