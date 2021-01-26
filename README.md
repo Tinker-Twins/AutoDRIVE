@@ -57,7 +57,7 @@
     - Novel Approach
 - End-to-End Approach
   - Imitation Learning
-    - Behavioral Cloning (Possibly Sim2Real)
+    - Behavioral Cloning (Sim2Real)
   - Reinfrocement Learning
     - On-Road Navigation
     - Intersection Management
