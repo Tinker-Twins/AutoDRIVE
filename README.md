@@ -60,4 +60,4 @@
     - Behavioral Cloning (Sim2Real)
   - Reinfrocement Learning
     - On-Road Navigation
-    - Intersection Management
+    - Intersection Management (Intersection Traversal Scenario)
