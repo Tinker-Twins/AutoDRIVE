@@ -13,7 +13,7 @@
   - Python Scripting Support
   - C++ Scripting Support
 
-### Development (TODO)
+### Development
 - AutoDRIVE Testbed
   - Component Finalization
   - AprilTag Localization
