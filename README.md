@@ -37,7 +37,7 @@
   - [Optional] V2X Implementation
   - [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   
-### Demonstrations (TODO)
+### Demonstrations
 - Modular Approach
   - Perception Module
     - Lane Detection & Tracking (Basic & Advanced)
