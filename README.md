@@ -31,8 +31,8 @@
   - Settings (Simulation Settings, Vehicle Settings, Environment Settings)
   - Active and Passive Environment Elements (Traffic Signs, Signals, etc.)
   - Controller Settings [Keyboard, Mouse, Joystick, etc.)
-  - [Optional] HIL Simulation Capability
-  - [Optional] Stand Alone Scene Reconfiguration Capability
+  - [Optional] HIL Simulation
+  - [Optional] Stand Alone Scene Reconfiguration
   - [Optional] Multi-Vehicle Support
   - [Optional] V2X Implementation
   - [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
