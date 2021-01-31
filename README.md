@@ -53,7 +53,7 @@
     - PID Control
     - Pure Pursuit Control
     - Stanley Control
-    - MPC
+    - Model Predictive Control
     - Novel Approach
 - [ ] End-to-End Approach
   - [ ] Imitation Learning
