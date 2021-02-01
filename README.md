@@ -1,2 +1,2 @@
 # AutoDRIVE Testbed
-### A Testbed for Scaled Autonomous Vehicle Research and Education
+### A Testbed for Autonomous Vehicle Research and Education
