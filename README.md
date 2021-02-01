@@ -8,7 +8,7 @@
 - AutoDRIVE Simulator
   - Digital Twin of AutoDRIVE Testbed
   - WebSocket Interface
-- Development Framework
+- AutoDRIVE SDK
   - ROS Package
   - Python Scripting Support
   - C++ Scripting Support
