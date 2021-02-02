@@ -30,7 +30,7 @@
   - [ ] Battery Status Indicator for Vehicle
   - [ ] Settings (Simulation Settings, Vehicle Settings, Environment Settings)
   - [ ] Active and Passive Environment Elements (Traffic Signs, Signals, etc.)
-  - [ ] Controller Settings [Keyboard, Mouse, Joystick, etc.)
+  - [ ] Controller Settings (Keyboard, Mouse, Joystick, etc.)
   - [ ] [Optional] HIL Simulation
   - [ ] [Optional] Stand Alone Scene Reconfiguration
   - [ ] [Optional] Multi-Vehicle Support
