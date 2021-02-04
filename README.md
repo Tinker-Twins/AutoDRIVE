@@ -8,21 +8,22 @@
 - AutoDRIVE Simulator
   - Digital Twin of AutoDRIVE Testbed
   - WebSocket Interface
-- AutoDRIVE SDK
+- AutoDRIVE DevKit
   - ROS Package
-  - Python Scripting Support
-  - C++ Scripting Support
-
+  - Python API
+  - C++ API
+  
 ### Development
 - [ ] AutoDRIVE Testbed
-  - [ ] Component Finalization
+  - [x] Component Finalization
   - [ ] AprilTag Localization
   - [ ] Auxiliary PCB Design
   - [ ] Mechanical Design Revision
-  - [ ] Environment Design Finalization
   - [ ] Chassis Fabrication
   - [ ] Auxiliary PCB Fabrication
   - [ ] System Integration
+  - [ ] Environment Design Finalization
+  - [x] Environment Map Printing
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
   - [ ] Update Scene Lighting
