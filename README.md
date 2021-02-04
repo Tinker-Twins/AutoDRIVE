@@ -1,3 +1,3 @@
 # AutoDRIVE Devkit
 
-The AutoDRIVE SDK is a toolkit that enables rapid development of autonomous driving algorithms to be tested on AutoDRIVE Simulator or AutoDRIVE Testbed. The AutoDRIVE SDK currently supports Robot Operating System (ROS) and also offers a direct scripting support for Python and C++.
+The AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIVE Simulator or AutoDRIVE Testbed for rapid development of autonomous driving algorithms. The AutoDRIVE DevKit currently supports Robot Operating System (ROS) and also offers a direct scripting support for Python and C++.
