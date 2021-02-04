@@ -25,6 +25,7 @@
   - [ ] System Integration
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
+  - [ ] Update Scene Lighting
   - [ ] Add Testbed Environment Scene
   - [ ] Single and Dual Lane Road Kits
   - [ ] Battery Status Indicator for Vehicle
