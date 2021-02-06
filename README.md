@@ -47,7 +47,7 @@
     - Semantic Segmentation
     - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
     - Odometry (Wheel Encoder, Visual)
-    - Localization (LiDAR, AptilTag)
+    - Localization (AMCL, AptilTag)
   - [ ] Planning Module
     - Global Planning (Hybrid A*)
     - Local Planning (FSM, Dynamic Window Approach, etc.)
