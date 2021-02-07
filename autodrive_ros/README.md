@@ -21,11 +21,11 @@ $ catkin_make
 ## USAGE
 
 - **Headless Mode:** Launch the `autodrive.launch` file.
-```bash
-$ roslaunch autodrive autodrive.launch
-```
+  ```bash
+  $ roslaunch autodrive autodrive.launch
+  ```
 
 - **RViz Mode:** Launch the `autodrive_rviz.launch` file.
-```bash
-$ roslaunch autodrive autodrive_rviz.launch
-```
+  ```bash
+  $ roslaunch autodrive autodrive_rviz.launch
+  ```
