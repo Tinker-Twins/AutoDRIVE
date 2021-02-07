@@ -19,7 +19,7 @@
   - [ ] AprilTag Localization
   - [ ] Auxiliary PCB Design
   - [x] Mechanical Design Revision
-  - [ ] Chassis Fabrication
+  - [x] Chassis Fabrication
   - [ ] Auxiliary PCB Fabrication
   - [ ] System Integration
   - [ ] Environment Design Finalization
