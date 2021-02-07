@@ -18,7 +18,7 @@
   - [x] Component Finalization
   - [ ] AprilTag Localization
   - [ ] Auxiliary PCB Design
-  - [ ] Mechanical Design Revision
+  - [x] Mechanical Design Revision
   - [ ] Chassis Fabrication
   - [ ] Auxiliary PCB Fabrication
   - [ ] System Integration
