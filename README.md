@@ -27,8 +27,8 @@
     - [x] Auxiliary PCB Fabrication
     - [ ] System Integration
   - [ ] Environment
-    - [ ] Environment Design Finalization
-    - [x] Environment Map Printing
+    - [x] Map Design Finalization
+    - [x] Map Printing
     - [ ] AprilTag Localization
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
