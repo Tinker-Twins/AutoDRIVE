@@ -20,3 +20,10 @@ This directory hosts the C++ API for AutoDRIVE, which can be used to develop hig
     $ ./clean.sh
     $ ./build.sh
     ```
+## USAGE
+
+Execute the compiled API using the `run.sh` shell script.
+```bash
+$ cd ~/autodrive_cpp
+$ ./run.sh
+```
