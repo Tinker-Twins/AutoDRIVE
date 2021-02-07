@@ -20,7 +20,7 @@
   - [ ] Auxiliary PCB Design
   - [x] Mechanical Design Revision
   - [x] Chassis Fabrication
-  - [ ] Auxiliary PCB Fabrication
+  - [x] Auxiliary PCB Fabrication
   - [ ] System Integration
   - [ ] Environment Design Finalization
   - [x] Environment Map Printing
