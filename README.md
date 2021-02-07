@@ -7,4 +7,4 @@ AutoDRIVE DevKit consists of the following software components:
 - [Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/autodrive_py)
 - [C++ API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/autodrive_cpp)
 
-_**Note:** This version of AutoDRIVE DevKit has been tested with [AutoDRIVE Simulator v0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.0) only, since AutoDRIVE Testbed is currently under development._
+_**Note:** This version of AutoDRIVE DevKit has been tested with [AutoDRIVE Simulator 0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.0) only, since AutoDRIVE Testbed is currently under development._
