@@ -17,8 +17,12 @@
 - [ ] AutoDRIVE Testbed
   - [ ] Vehicle (MAVE)
     - [x] Component Finalization
-    - [x] Mechanical Design Revision
+    - [x] Part Modelling
+    - [x] CAD Assembly
+    - [x] Mechanical System Testing
     - [x] Chassis Fabrication
+    - [x] Electrical System Layout
+    - [x] Electrical System Testing
     - [x] Auxiliary PCB Design
     - [x] Auxiliary PCB Fabrication
     - [ ] System Integration
