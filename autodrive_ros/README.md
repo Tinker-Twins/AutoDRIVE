@@ -17,3 +17,15 @@ $ mv ~/AutoDRIVE-DevKit/autodrive_ros/autodrive ~/catkin_ws/src/
 $ cd ~/catkin_ws
 $ catkin_make
 ```
+
+## USAGE
+
+- **Headless Mode:** Launch the `autodrive.launch` file.
+```bash
+$ roslaunch autodrive autodrive.launch
+```
+
+- **RViz Mode:** Launch the `autodrive_rviz.launch` file.
+```bash
+$ roslaunch autodrive autodrive_rviz.launch
+```
