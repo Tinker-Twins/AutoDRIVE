@@ -29,6 +29,9 @@
   - [ ] Environment
     - [x] Map Design Finalization
     - [x] Map Printing
+    - [ ] Obstacle Layout Finalization
+    - [ ] Traffic Sign Design
+    - [ ] Trafic Light Design
     - [ ] AprilTag Localization
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
