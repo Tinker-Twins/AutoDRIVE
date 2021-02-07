@@ -17,12 +17,12 @@
 - [ ] AutoDRIVE Testbed
   - [ ] Vehicle (MAVE)
     - [x] Component Finalization
-    - [ ] Auxiliary PCB Design
     - [x] Mechanical Design Revision
     - [x] Chassis Fabrication
+    - [x] Auxiliary PCB Design
     - [x] Auxiliary PCB Fabrication
     - [ ] System Integration
-  - Environment
+  - [ ] Environment
     - [ ] Environment Design Finalization
     - [x] Environment Map Printing
     - [ ] AprilTag Localization
