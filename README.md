@@ -70,5 +70,5 @@
   - [ ] Imitation Learning
     - Behavioral Cloning (Sim2Real)
   - [ ] Reinfrocement Learning
-    - On-Road Navigation
+    - On-Road Navigation Scenario
     - Intersection Management (Intersection Traversal Scenario)
