@@ -4,7 +4,7 @@
 ### Project Outline:
 - AutoDRIVE Testbed
   - Vehicle
-  - Scaled and Modular Environment
+  - Environment
 - AutoDRIVE Simulator
   - Digital Twin of AutoDRIVE Testbed
   - WebSocket Interface
