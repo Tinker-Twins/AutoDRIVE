@@ -27,7 +27,7 @@
     - [x] Auxiliary PCB Fabrication
     - [ ] System Integration
   - [ ] Environment
-    - [x] Map Design Finalization
+    - [x] Map Design Finalization (Driving School)
     - [x] Map Fabrication
     - [ ] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
