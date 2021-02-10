@@ -3,7 +3,7 @@
 
 ### Project Outline:
 - AutoDRIVE Testbed
-  - Scaled Vehicle
+  - Vehicle
   - Scaled and Modular Environment
 - AutoDRIVE Simulator
   - Digital Twin of AutoDRIVE Testbed
