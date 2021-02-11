@@ -32,7 +32,7 @@
     - [ ] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
     - [ ] Trafic Light Design
-    - [ ] AprilTag Localization (IPS)
+    - [ ] AprilTag Localization (IPS/PseudoGPS)
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
   - [ ] Update Scene Lighting
