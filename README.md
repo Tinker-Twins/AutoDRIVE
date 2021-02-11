@@ -53,6 +53,7 @@
   - [ ] Perception Module
     - Lane Detection & Tracking (Basic & Advanced)
     - Object Detection & Tracking
+    - Traffic Light Detection
     - Semantic Segmentation
     - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
     - Odometry (Wheel Encoder, Visual)
