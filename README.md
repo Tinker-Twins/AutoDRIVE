@@ -54,6 +54,7 @@
     - Lane Detection & Tracking (Basic & Advanced)
     - Object Detection & Tracking
     - Traffic Light Detection
+    - Traffic Sign Detection and Classification (Sim2Real)
     - Semantic Segmentation
     - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
     - Odometry (Wheel Encoder, Visual)
