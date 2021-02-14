@@ -26,6 +26,7 @@
     - [x] Auxiliary PCB Design
     - [x] Auxiliary PCB Fabrication
     - [ ] System Integration
+    - [ ] Vehicle Teleoperation
   - [ ] Environment
     - [x] Map Design Finalization (Driving School)
     - [x] Map Printing (Flex)
