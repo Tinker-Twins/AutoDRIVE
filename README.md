@@ -32,7 +32,7 @@
     - [ ] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
     - [ ] Trafic Light Design
-    - [ ] IPS Camera Fixture Installation
+    - [x] IPS Camera Fixture Installation
     - [ ] IPS AprilTag Localization
 - [ ] AutoDRIVE Simulator
   - [ ] Update Vehcile
