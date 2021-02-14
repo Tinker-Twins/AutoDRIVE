@@ -28,7 +28,7 @@
     - [ ] System Integration
   - [ ] Environment
     - [x] Map Design Finalization (Driving School)
-    - [x] Map Fabrication
+    - [x] Map Printing (Flex)
     - [ ] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
     - [ ] Trafic Light Design
