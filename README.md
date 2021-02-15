@@ -26,6 +26,7 @@
     - [x] Auxiliary PCB Design
     - [x] Auxiliary PCB Fabrication
     - [x] System Integration
+    - [ ] Subsystem Testing
     - [ ] Vehicle Teleoperation
   - [ ] Environment
     - [x] Map Design Finalization (Driving School)
