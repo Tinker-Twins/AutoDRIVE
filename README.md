@@ -61,7 +61,7 @@
     - Semantic Segmentation
     - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
     - Odometry (Wheel Encoder, Visual)
-    - Dead Reckoning
+    - Dead Reckoning (Wheel Encoder + IMU)
     - Localization (AMCL, AptilTag)
   - [ ] Planning Module
     - Global Planning (Hybrid A*)
