@@ -15,7 +15,7 @@
   
 ### Development
 - [ ] AutoDRIVE Testbed
-  - [ ] Vehicle (MAVE)
+  - [ ] Vehicle (Nigel)
     - [x] Component Finalization
     - [x] Part Modelling
     - [x] CAD Assembly
