@@ -5,8 +5,6 @@
 
 ### Project Outline:
 
-![System Architecture](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20System%20Architecture.png)
-
 #### AutoDRIVE Testbed:
 <p align="justify">
 It is the hardware setup comprising of a scaled vehicle model (called Nigel) and a modular environment development kit. The vehicle is equipped with a comprehensive sensor suite for redundant perception, a set of actuators for constrained motion control and a fully functional lighting system for illumination and signalling. It can be teleoperated (in manual mode) or self-driven (in autonomous mode). The environment development kit comprises of various environment modules along with active and passive traffic elements.
