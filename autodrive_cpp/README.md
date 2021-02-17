@@ -1,6 +1,8 @@
 # AutoDRIVE DevKit | C++ API
 
+<p align="justify">
 This directory hosts the C++ API for AutoDRIVE, which can be used to develop high performance autonomous driving algorithms.
+</p>
 
 ## SETUP
 
