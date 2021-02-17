@@ -1,6 +1,8 @@
 # AutoDRIVE DevKit | ROS Package
 
-This directory hosts the `autodrive` ROS package, which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
+<p align="justify">
+This directory hosts the <code>autodrive</code> ROS package, which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
+</p>
 
 ## SETUP
 
