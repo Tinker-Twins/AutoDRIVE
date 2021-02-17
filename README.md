@@ -1,5 +1,7 @@
 # AutoDRIVE DevKit
 
+![AutoDRIVE DevKit](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20DevKit.png)
+
 <p align="justify">
 AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIVE Simulator or AutoDRIVE Testbed for rapid and flexible development of autonomous driving algorithms.
 </p>
