@@ -36,6 +36,7 @@ It is a developer's kit that enables the users to exploit AutoDRIVE Simulator or
   - [ ] Environment
     - [x] Map Design Finalization (Driving School)
     - [x] Map Printing (Flex)
+    - [ ] Map (Flex) Trimming
     - [ ] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
     - [ ] Trafic Light Design
