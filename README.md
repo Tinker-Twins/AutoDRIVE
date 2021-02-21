@@ -30,7 +30,7 @@ It is a developer's kit that enables the users to exploit AutoDRIVE Simulator or
     - [x] Electrical System Testing
     - [x] Auxiliary PCB Design
     - [x] Auxiliary PCB Fabrication
-    - [ ] System Integration
+    - [x] System Integration
     - [ ] Subsystem Testing
     - [ ] Vehicle Teleoperation
   - [ ] Environment
