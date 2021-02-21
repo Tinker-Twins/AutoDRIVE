@@ -73,7 +73,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - Localization (AMCL, AptilTag)
   - [ ] Planning Module
     - Global Planning (Hybrid A*)
-    - Local Planning (FSM, Dynamic Window Approach, etc.)
+    - Local Planning (FSM, DWA, etc.)
   - [ ] Control Module
     - PID Control
     - Pure Pursuit Control
