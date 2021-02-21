@@ -43,6 +43,7 @@ It is a developer's kit that enables the users to exploit AutoDRIVE Simulator or
     - [x] IPS Camera Fixture Installation
     - [ ] IPS AprilTag Localization
 - [ ] AutoDRIVE Simulator
+  - [ ] Port to Unity HDRP Project
   - [ ] Update Vehcile
   - [ ] Update Scene Lighting
   - [ ] Add Testbed Environment Scene
