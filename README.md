@@ -37,7 +37,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] Map Design Finalization (Driving School)
     - [x] Map Printing (Flex)
     - [x] Map (Flex) Trimming
-    - [ ] Obstacle Layout Finalization
+    - [x] Obstacle Layout Finalization
     - [ ] Traffic Sign Design
     - [ ] Trafic Light Design
     - [x] IPS Camera Fixture Installation
