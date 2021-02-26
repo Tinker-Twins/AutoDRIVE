@@ -72,7 +72,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - Traffic Light Detection
     - Traffic Sign Detection and Classification (Sim2Real)
     - Semantic Segmentation
-    - SLAM (HectorSLAM, Cartographer, ORBSLAM, etc.)
+    - SLAM (HectorSLAM, Cartographer, ORB-SLAM, etc.)
     - Odometry (Wheel Encoder, Visual)
     - Dead Reckoning (Wheel Encoder + IMU)
     - Localization (AMCL, AptilTag)
