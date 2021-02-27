@@ -46,6 +46,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [ ] Trafic Light Design
     - [x] IPS Camera Fixture Installation
     - [ ] IPS Camera Calibration
+    - [x] IPS AprilTag Library Integration
     - [ ] IPS AprilTag Based Localization
 - [ ] AutoDRIVE Simulator
   - [ ] Port to Unity HDRP Project
