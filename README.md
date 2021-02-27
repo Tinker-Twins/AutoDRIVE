@@ -24,6 +24,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] Component Finalization
     - [x] Part Modelling
     - [x] CAD Assembly
+    - [ ] [Optional] Wiring in CAD Assembly
     - [x] Mechanical System Testing
     - [x] Chassis Fabrication
     - [x] Electrical System Layout
