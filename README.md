@@ -37,7 +37,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] Finishing Touches
     - [ ] Vehicle Teleoperation (Keyboard, Joystick)
     - [ ] Software Development
-  - [ ] Environment
+  - [ ] Infrastructure
     - [x] Map Design Finalization (Driving School)
     - [x] Map Printing (Flex)
     - [x] Map (Flex) Trimming
