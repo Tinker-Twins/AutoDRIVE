@@ -57,7 +57,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [ ] Single and Dual Lane Road Kits
   - [ ] Battery Status Indicator for Vehicle
   - [ ] Settings (Simulation Settings, Vehicle Settings, Environment Settings)
-  - [ ] Active and Passive Environment Elements (Traffic Lights, Traffic Signs, etc.)
+  - [ ] Active and Passive Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [ ] Controller Settings (Keyboard, Mouse, Joystick, etc.)
   - [ ] [Optional] HIL Simulation
   - [ ] [Optional] AR/VR
