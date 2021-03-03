@@ -51,8 +51,8 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [ ] IPS AprilTag Based Localization
 - [ ] AutoDRIVE Simulator
   - [ ] Port to Unity HDRP Project
-  - [ ] Update Vehcile
   - [ ] Update Scene Lighting
+  - [ ] Update Vehcile
   - [ ] Add Driving School Map
   - [ ] Single and Dual Lane Road Kits
   - [ ] Battery Status Indicator for Vehicle
