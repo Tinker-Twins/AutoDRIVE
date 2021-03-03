@@ -53,8 +53,8 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [ ] Port to Unity HDRP Project
   - [ ] Update Scene Lighting
   - [ ] Update Vehcile
+  - [ ] Update Environment Modules
   - [ ] Add Driving School Map
-  - [ ] Single and Dual Lane Road Kits
   - [ ] Battery Status Indicator for Vehicle
   - [ ] Settings (Simulation Settings, Vehicle Settings, Infrastructure Settings)
   - [ ] Active and Passive Traffic Elements (Traffic Lights, Traffic Signs, etc.)
