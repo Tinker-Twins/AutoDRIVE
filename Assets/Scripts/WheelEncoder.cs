@@ -6,12 +6,14 @@ public class WheelEncoder : MonoBehaviour
 {
     /*
     This script attaches an incrementel encoder to a 'WheelCollider' component.
-    The property `TicksPerRevolution` sets the encoder resolution and is used to
-    measure the encoder ticks and the angle turned by the wheel.
+    The property `PPR` sets the encoder resolution while `GearRatio` sets the
+    multiplier due to the motor gearbox. The two parameters are used to compute
+    the encoder ticks and the angle turned by the wheel.
     */
 
     public WheelCollider Wheel;
-    public int TicksPerRevolution;
+    public int PPR;
+    public int GearRatio;
 
     private float TotalRevolutions = 0f;
     private int TotalTicks = 0;
@@ -31,8 +33,8 @@ public class WheelEncoder : MonoBehaviour
     {
         float RPS = Wheel.rpm/60f; // Read the current wheel RPM and convert to RPS
         TotalRevolutions += RPS * Time.deltaTime; // Scale by time since the last frame and add to the total revolutions
-        TotalTicks = (int)(TotalRevolutions*TicksPerRevolution); // Compute ticks of the encoder
-        TotalAngle = ((TotalTicks*2*Mathf.PI)/TicksPerRevolution); // Angle turned by the wheel (rad)
+        TotalTicks = (int)(TotalRevolutions*PPR*GearRatio); // Compute ticks of the encoder
+        TotalAngle = ((TotalTicks*2*Mathf.PI)/(PPR*GearRatio)); // Angle turned by the wheel (rad)
         //Debug.Log("Encoder Ticks: "+TotalTicks);
         //Debug.Log("Wheel Angle: "+TotalAngle);
     }
