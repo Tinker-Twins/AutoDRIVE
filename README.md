@@ -50,7 +50,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] IPS AprilTag Library Integration
     - [ ] IPS AprilTag Based Localization
 - [ ] AutoDRIVE Simulator
-  - [x] Update Vehcile
+  - [x] Update Vehcile Model
   - [ ] Update Environment Modules
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [ ] Add Driving School Map
