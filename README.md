@@ -99,4 +99,4 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - Behavioral Cloning (Sim2Real)
   - [ ] Reinfrocement Learning
     - On-Road Navigation (LKA Scenario)
-    - Intersection Management (Intersection Traversal Scenario)
+    - Intersection Navigation (Intersection Traversal Scenario)
