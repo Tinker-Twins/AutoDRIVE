@@ -76,27 +76,27 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 ### Demonstrations
 - [ ] Modular Approach
   - [ ] Perception Module
-    - Lane Detection & Tracking (Basic & Advanced)
-    - Object Detection & Tracking
-    - Traffic Light Detection
-    - Traffic Sign Detection and Classification (Sim2Real)
-    - Semantic Segmentation
-    - SLAM (HectorSLAM, Cartographer, ORB-SLAM)
-    - Odometry (Wheel Encoder, Visual)
-    - Dead Reckoning (Wheel Encoder + IMU)
-    - Localization (AMCL, AptilTag)
+    - [ ] Lane Detection & Tracking (Basic & Advanced)
+    - [ ] Object Detection & Tracking
+    - [ ] Traffic Light Detection
+    - [ ] Traffic Sign Detection and Classification (Sim2Real)
+    - [ ] Semantic Segmentation
+    - [ ] SLAM (HectorSLAM, Cartographer, ORB-SLAM)
+    - [ ] Odometry (Wheel Encoder, Visual)
+    - [ ] Dead Reckoning (Wheel Encoder + IMU)
+    - [ ] Localization (AMCL, AptilTag)
   - [ ] Planning Module
-    - Global Planning (Hybrid A*)
-    - Local Planning (FSM, DWA, etc.)
+    - [ ] Global Planning (Hybrid A*)
+    - [ ] Local Planning (FSM, DWA, etc.)
   - [ ] Control Module
-    - PID Control
-    - Pure Pursuit Control
-    - Stanley Control
-    - Model Predictive Control
-    - Novel Control Algorithm
+    - [ ] PID Control
+    - [ ] Pure Pursuit Control
+    - [ ] Stanley Control
+    - [ ] Model Predictive Control
+    - [ ] Novel Control Algorithm
 - [ ] End-to-End Approach
   - [ ] Imitation Learning
-    - Behavioral Cloning (Sim2Real)
+    - [ ] Behavioral Cloning (Sim2Real)
   - [ ] Reinfrocement Learning
-    - On-Road Navigation (LKA Scenario)
-    - Intersection Navigation (Intersection Traversal Scenario)
+    - [ ] On-Road Navigation (LKA Scenario)
+    - [ ] Intersection Navigation (Intersection Traversal Scenario)
