@@ -35,6 +35,9 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] System Integration
     - [x] Subsystem Testing
     - [x] Finishing Touches
+    - [ ] Sensors Test
+    - [ ] Actuators Test
+    - [ ] Lights Test
     - [ ] Firmware Development
     - [ ] Software Development
     - [ ] Vehicle Teleoperation (Keyboard, Joystick)
