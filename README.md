@@ -75,6 +75,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [ ] [Optional] V2X Implementation
   - [ ] [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   - [ ] [Optional] Ground Truth Data Streaming
+  - [ ] [Optional] Create Gym Environment(s)
   
 ### Demonstrations
 - [ ] Modular Approach
