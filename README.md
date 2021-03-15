@@ -66,7 +66,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [ ] Add Rendering Quality Toggle Functionality
   - [ ] Add Data Recording Functionality
   - [ ] Integrate with Unity ML-Agents
-  - [x] [Optional] Port Simulator to Unity HDRP
+  - [x] Port Simulator to Unity HDRP (with Post-Processing)
   - [ ] [Optional] Battery Status Indicator for Vehicle
   - [ ] [Optional] Settings (Simulation Settings, Vehicle Settings, Infrastructure Settings)
   - [ ] [Optional] Controller Settings (Keyboard, Mouse, Joystick, etc.)
