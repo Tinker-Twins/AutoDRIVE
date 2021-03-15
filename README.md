@@ -54,6 +54,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
     - [x] IPS AprilTag Library Integration
     - [ ] IPS AprilTag Based Localization
 - [ ] AutoDRIVE Simulator
+  - [x] Port Simulator to Unity HDRP (with Post-Processing)
   - [x] Update Vehcile Models
   - [x] Update Vehicle Material Properties
   - [x] Port Vehicle Gameobjects and Behavior Scripts (Sensors, Actuators, Lighting, etc.)
@@ -65,7 +66,6 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [x] Add Rendering Quality Toggle Functionality
   - [ ] Add Data Recording Functionality
   - [ ] Integrate with Unity ML-Agents
-  - [x] Port Simulator to Unity HDRP (with Post-Processing)
   - [ ] [Optional] Battery Status Indicator for Vehicle
   - [ ] [Optional] Settings (Simulation Settings, Vehicle Settings, Infrastructure Settings)
   - [ ] [Optional] Controller Settings (Keyboard, Mouse, Joystick, etc.)
