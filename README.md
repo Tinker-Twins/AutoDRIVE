@@ -60,6 +60,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [x] Port Vehicle Gameobjects and Behavior Scripts (Sensors, Actuators, Lighting, etc.)
   - [ ] Update Environment Modules
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
+  - [ ] Update Tiny Town Map
   - [ ] Add Driving School Map
   - [x] Update GUI
   - [x] Add Quit Button
