@@ -61,7 +61,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [ ] Add Driving School Map
   - [x] Update GUI
-  - [ ] Add Quit Button
+  - [x] Add Quit Button
   - [x] Add Rendering Quality Toggle Functionality
   - [ ] Add Data Recording Functionality
   - [ ] Integrate with Unity ML-Agents
