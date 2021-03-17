@@ -89,6 +89,7 @@
 
 ### Documentation
 - [x] India Connect@NTU Research Internship [Report]
+- [ ] SRMIST Major Project [Report]
 - [ ] AutoDRIVE Simulator [Paper]
 - [ ] AutoDRIVE [Paper]
 
