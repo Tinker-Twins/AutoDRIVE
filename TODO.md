@@ -88,6 +88,7 @@
     - [ ] Intersection Navigation (Intersection Traversal Scenario)
 
 ### Documentation
-- [x] India Connect@NTU Research Internship Project Report
-- [ ] AutoDRIVE Simulator Paper
+- [x] India Connect@NTU Research Internship [Report]
+- [ ] AutoDRIVE Simulator [Paper]
+- [ ] AutoDRIVE [Paper]
 
