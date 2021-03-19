@@ -23,3 +23,6 @@ AutoDRIVE Simulator is the digital twin of the AutoDRIVE Testbed, which enables 
 <p align="justify">
 AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIVE Simulator or AutoDRIVE Testbed for rapid and flexible development of autonomy algorithms. It supports local (decentralized) as well as distributed (centralized) computing and is compatible with Robot Operating System (ROS), while also offering a direct scripting support for Python and C++.
 </p>
+
+- **Latest Release:** [AutoDRIVE DevKit v0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/DevKit-0.1.0)
+- **Upcoming Release:** AutoDRIVE DevKit v0.2.0 is currently under development.
