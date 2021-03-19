@@ -58,7 +58,7 @@
   - [ ] [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   - [ ] [Optional] Ground Truth Data Streaming
   - [ ] [Optional] Create Gym Environment(s)
-  
+
 ### Demonstrations
 - [ ] Modular Approach
   - [ ] Perception Module
@@ -90,7 +90,6 @@
 ### Documentation
 - [x] India Connect@NTU Research Internship [Report]
 - [ ] SRMIST Major Project [Report]
-- [ ] AutoDRIVE Simulator [Paper]
+- [x] AutoDRIVE Simulator [Paper]
 - [ ] AutoDRIVE [Paper]
 - [ ] GitHub Wiki
-
