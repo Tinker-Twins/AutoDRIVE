@@ -16,6 +16,9 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 AutoDRIVE Simulator is the digital twin of the AutoDRIVE Testbed, which enables the users to virtually prototype their algorithms either due to hardware limitations or as a part of the reiterative development cycle. It is developed atop the Unity game engine and offers a WebSocket interface for bilateral communication with the autonomy algorithms developed independently using the AutoDRIVE DevKit. The standalone simulator application is targeted at Full HD resolution (1920x1080p) with cross-platform support (Windows, macOS and Linux). It is light-weight (~110 MB) and utilizes system resources wisely, which enables deployment of the simulator application and autonomy algorithms on a single machine; nonetheless, distributed computing is also supported.
 </p>
 
+- **Latest Release:** [AutoDRIVE Simulator v0.1.1](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.1)
+- **Upcoming Release:** AutoDRIVE Simulator v0.2.0 is currently under development.
+
 #### [AutoDRIVE DevKit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit)
 <p align="justify">
 AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIVE Simulator or AutoDRIVE Testbed for rapid and flexible development of autonomy algorithms. It supports local (decentralized) as well as distributed (centralized) computing and is compatible with Robot Operating System (ROS), while also offering a direct scripting support for Python and C++.
