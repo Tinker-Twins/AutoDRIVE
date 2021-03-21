@@ -13,3 +13,5 @@ The AutoDRIVE Simulator is a pseudo-realistic simulator for scaled autonomous ve
 <p align="justify">
 The simulator can be exploited by the users (particularly targeting students and researchers in the field) in order to develop and test their algorithms aimed at autonomous driving.
 </p>
+
+**Video:** https://youtu.be/i7R79jwnqlg
