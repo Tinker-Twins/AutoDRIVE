@@ -26,3 +26,18 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 
 - **Latest Release:** [AutoDRIVE DevKit v0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/DevKit-0.1.0)
 - **Upcoming Release:** AutoDRIVE DevKit v0.2.0 is currently under development.
+
+## Citation
+
+We encourage you to cite the following paper if you use any part of this project for your research:
+
+```bibtex
+@eprint{autodrive-simulator,
+      title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education}, 
+      author={Tanmay Vilas Samak and Chinmay Vilas Samak and Ming Xie},
+      year={2021},
+      eprint={2103.10030},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
+}
+```
