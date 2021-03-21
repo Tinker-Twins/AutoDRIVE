@@ -32,7 +32,7 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 We encourage you to cite the following paper if you use any part of this project for your research:
 
 ```bibtex
-@eprint{autodrive-simulator,
+@eprint{AutoDRIVE-Simulator-2021,
       title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education}, 
       author={Tanmay Vilas Samak and Chinmay Vilas Samak and Ming Xie},
       year={2021},
