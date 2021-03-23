@@ -16,7 +16,7 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 
 - **Source Branch:** [AutoDRIVE Testbed](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed)
 - **Latest Release:** None
-- **Upcoming Release:** AutoDRIVE Testbed v0.1.0 is currently under development.
+- **Upcoming Release:** AutoDRIVE Testbed 0.1.0 is currently under development.
 
 ## AutoDRIVE Simulator
 <p align="justify">
@@ -24,8 +24,8 @@ AutoDRIVE Simulator is the digital twin of the AutoDRIVE Testbed, which enables 
 </p>
 
 - **Source Branch:** [AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Simulator)
-- **Latest Release:** [AutoDRIVE Simulator v0.1.1](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.1)
-- **Upcoming Release:** AutoDRIVE Simulator v0.2.0 is currently under development.
+- **Latest Release:** [AutoDRIVE Simulator 0.1.1](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.1)
+- **Upcoming Release:** AutoDRIVE Simulator 0.2.0 is currently under development.
 
 ## AutoDRIVE DevKit
 <p align="justify">
@@ -33,8 +33,8 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 </p>
 
 - **Source Branch:** [AutoDRIVE DevKit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit)
-- **Latest Release:** [AutoDRIVE DevKit v0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/DevKit-0.1.0)
-- **Upcoming Release:** AutoDRIVE DevKit v0.2.0 is currently under development.
+- **Latest Release:** [AutoDRIVE DevKit 0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/DevKit-0.1.0)
+- **Upcoming Release:** AutoDRIVE DevKit 0.2.0 is currently under development.
 
 ## Demonstrations
 
@@ -46,7 +46,7 @@ We encourage you to cite the following paper if you use any part of this project
 
 ```bibtex
 @eprint{AutoDRIVE-Simulator-2021,
-      title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education}, 
+      title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education},
       author={Tanmay Vilas Samak and Chinmay Vilas Samak and Ming Xie},
       year={2021},
       eprint={2103.10030},
