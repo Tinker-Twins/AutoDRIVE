@@ -86,6 +86,7 @@
   - [ ] Reinfrocement Learning
     - [ ] On-Road Navigation (LKA Scenario)
     - [ ] Intersection Navigation (Intersection Traversal Scenario)
+- [ ] Demonstrations for Major Project @ SRMIST
 
 ### Documentation
 - [x] India Connect@NTU Research Internship [Report]
