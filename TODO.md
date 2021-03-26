@@ -47,6 +47,7 @@
   - [x] Add Rendering Quality Toggle Functionality
   - [ ] Add Data Recording Functionality
   - [ ] Integrate with Unity ML-Agents
+  - [ ] [Optional] Add 1, 2, 4 and 6 Lane Road Modules
   - [ ] [Optional] Battery Status Indicator for Vehicle
   - [ ] [Optional] Settings (Simulation Settings, Vehicle Settings, Infrastructure Settings)
   - [ ] [Optional] Controller Settings (Keyboard, Mouse, Joystick, etc.)
