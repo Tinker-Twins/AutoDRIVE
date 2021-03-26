@@ -38,7 +38,7 @@
   - [x] Update Vehcile Models
   - [x] Update Vehicle Material Properties
   - [x] Port Vehicle Gameobjects and Behavior Scripts (Sensors, Actuators, Lighting, etc.)
-  - [ ] Update Environment Modules
+  - [x] Update Environment Modules
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [ ] Update Tiny Town Map
   - [ ] Add Driving School Map
