@@ -42,6 +42,7 @@
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [ ] Update Tiny Town Map
   - [ ] Add Driving School Map
+  - [ ] Develop Intersection Navigation Scenario
   - [x] Update GUI
   - [x] Add Quit Button
   - [x] Add Rendering Quality Toggle Functionality
