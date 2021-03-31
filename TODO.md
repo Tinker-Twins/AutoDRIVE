@@ -48,7 +48,7 @@
   - [x] Add Quit Button
   - [x] Add Rendering Quality Toggle Functionality
   - [ ] Add Data Recording Functionality
-  - [ ] Integrate with Unity ML-Agents
+  - [x] Integrate with Unity ML-Agents
   - [ ] [Optional] Add `Encoder.RPM`, `Encoder.SpeedFromRPM` and `Encoder.SpeedFromTicks` to `Socket.cs` script.
   - [x] [Optional] Add 1, 2, 4 and 6 Lane Road Modules
   - [ ] [Optional] Battery Status Indicator for Vehicle
