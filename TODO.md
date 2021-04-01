@@ -17,7 +17,7 @@
     - [x] Finishing Touches
     - [ ] Sensors Test
     - [ ] Actuators Test
-    - [ ] Lights Test
+    - [x] Lights Test
     - [ ] Firmware Development
     - [ ] Software Development
     - [ ] Vehicle Teleoperation (Keyboard, Joystick)
