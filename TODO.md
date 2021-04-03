@@ -89,7 +89,7 @@
     - [ ] Behavioral Cloning (Sim2Real)
   - [ ] Reinfrocement Learning
     - [ ] On-Road Navigation (LKA Scenario)
-    - [ ] Intersection Navigation (Intersection Traversal Scenario)
+    - [x] Intersection Navigation (Intersection Traversal Scenario)
 - [ ] Demonstrations for Major Project @ SRMIST
   - [ ] Probabilistic Mapping and Map-Based Navigation
   - [ ] Behavioral Cloning using CV and DIL
