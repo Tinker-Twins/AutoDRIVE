@@ -16,7 +16,7 @@
     - [x] Subsystem Testing
     - [x] Finishing Touches
     - [ ] Sensors Test
-    - [x] Actuators Test
+    - [ ] Actuators Test
     - [ ] Lights Test
     - [ ] Firmware Development
     - [ ] Software Development
