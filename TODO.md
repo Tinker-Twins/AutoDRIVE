@@ -83,7 +83,7 @@
     - [ ] Pure Pursuit Control
     - [ ] Stanley Control
     - [ ] Model Predictive Control
-    - [ ] Novel Control Algorithm
+    - [ ] POP Control Algorithm
 - [ ] End-to-End Approach
   - [ ] Imitation Learning
     - [ ] Behavioral Cloning (Sim2Real)
