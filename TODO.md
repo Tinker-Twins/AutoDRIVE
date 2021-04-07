@@ -41,7 +41,7 @@
   - [x] Tune Vehicular Dynamics
   - [x] Update Environment Modules
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
-  - [ ] Update Tiny Town Map
+  - [x] Update Tiny Town Map
   - [ ] Add Driving School Map
   - [x] Add Cross Junction Map
   - [x] Update GUI
