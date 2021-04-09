@@ -4,7 +4,6 @@
     - [x] Component Finalization
     - [x] Part Modelling
     - [x] CAD Assembly
-    - [ ] [Optional] Wiring in CAD Assembly
     - [x] Rendering
     - [x] Mechanical System Testing
     - [x] Chassis Fabrication
@@ -20,7 +19,7 @@
     - [x] Lights Test
     - [ ] Firmware Development
     - [ ] Software Development
-    - [ ] Vehicle Teleoperation (Keyboard, Joystick)
+    - [ ] [Optional] Wiring in CAD Assembly
   - [ ] Infrastructure
     - [x] Map Design Finalization (Driving School)
     - [x] Map Printing (Flex)
