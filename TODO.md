@@ -56,7 +56,7 @@
   - [ ] [Optional] HIL Simulation
   - [ ] [Optional] AR/VR
   - [ ] [Optional] Stand Alone Scene Reconfiguration
-  - [ ] [Optional] Multi-Vehicle Support
+  - [x] [Optional] Multi-Vehicle Support
   - [ ] [Optional] V2X Implementation
   - [ ] [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   - [ ] [Optional] Ground Truth Data Streaming
