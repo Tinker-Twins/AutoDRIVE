@@ -42,7 +42,7 @@
   - [x] Update Environment Modules
   - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [x] Update Tiny Town Map
-  - [ ] Add Driving School Map
+  - [x] Add Driving School Map
   - [x] Add Cross Junction Map
   - [x] Update GUI
   - [x] Add Quit Button
