@@ -85,7 +85,7 @@
     - [ ] Model Predictive Control
     - [ ] POP Control Algorithm
 - [ ] End-to-End Approach
-  - [ ] Imitation Learning
+  - [x] Imitation Learning
     - [x] Behavioral Cloning (Sim2Real)
   - [ ] Reinfrocement Learning
     - [ ] On-Road Navigation (LKA Scenario)
