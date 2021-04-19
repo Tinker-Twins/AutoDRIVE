@@ -92,7 +92,7 @@
     - [x] Intersection Navigation (Intersection Traversal Scenario)
 - [ ] Demonstrations for Major Project @ SRMIST
   - [ ] Probabilistic Mapping and Map-Based Navigation
-  - [x] Behavioral Cloning using CV and DIL
+  - [x] Behavioral Cloning using DIL
   - [x] Intersection Navigation using DRL
 
 ### Documentation
