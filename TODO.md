@@ -86,7 +86,7 @@
     - [ ] POP Control Algorithm
 - [ ] End-to-End Approach
   - [x] Imitation Learning
-    - [x] Behavioral Cloning (Sim2Real)
+    - [x] Behavioral Cloning [Optional: Sim2Real]
   - [ ] Reinfrocement Learning
     - [ ] On-Road Navigation (LKA Scenario)
     - [x] Intersection Navigation (Intersection Traversal Scenario)
