@@ -14,7 +14,7 @@
     - [x] System Integration
     - [x] Subsystem Testing
     - [x] Finishing Touches
-    - [ ] Sensors Test
+    - [x] Sensors Test
     - [x] Actuators Test
     - [x] Lights Test
     - [ ] Firmware Development
