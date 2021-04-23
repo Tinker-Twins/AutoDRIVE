@@ -1,8 +1,14 @@
 # AutoDRIVE Smart City Manager
 
 ## Install
-pip install flask
-pip install sqlite3
+Flask
+```bash
+$ pip install flask
+```
+Flask
+```bash
+$ pip install sqlite3
+```
 
 ## Setup
 Unix Bash (Linux, Mac, etc.):
