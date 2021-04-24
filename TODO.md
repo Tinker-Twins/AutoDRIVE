@@ -17,7 +17,7 @@
     - [x] Sensors Test
     - [x] Actuators Test
     - [x] Lights Test
-    - [ ] Firmware Development
+    - [x] Firmware Development
     - [ ] Software Development
     - [ ] [Optional] Wiring in CAD Assembly
   - [ ] Infrastructure
