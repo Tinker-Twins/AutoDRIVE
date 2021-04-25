@@ -1,6 +1,6 @@
 ### Platform Development
 - [ ] AutoDRIVE Testbed
-  - [ ] Vehicle (Nigel)
+  - [x] Vehicle (Nigel)
     - [x] Component Finalization
     - [x] Part Modelling
     - [x] CAD Assembly
@@ -18,7 +18,7 @@
     - [x] Actuators Test
     - [x] Lights Test
     - [x] Firmware Development
-    - [ ] Software Development
+    - [x] Software Development
     - [ ] [Optional] Wiring in CAD Assembly
   - [ ] Infrastructure
     - [x] Map Design Finalization (Driving School)
