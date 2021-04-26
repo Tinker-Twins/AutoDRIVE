@@ -25,7 +25,7 @@
     - [x] Map Printing (Flex)
     - [x] Map (Flex) Trimming
     - [x] Obstacle Layout Finalization
-    - [ ] Traffic Sign Catalog Finalization
+    - [x] Traffic Sign Catalog Finalization
     - [ ] Traffic Sign Stand Design
     - [ ] Trafic Light Design
     - [ ] Traffic Control IoT Web App
