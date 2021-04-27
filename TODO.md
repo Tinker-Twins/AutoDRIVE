@@ -26,7 +26,7 @@
     - [x] Map (Flex) Trimming
     - [x] Obstacle Layout Finalization
     - [x] Traffic Sign Catalog Finalization
-    - [ ] Traffic Sign Stand Design
+    - [x] Traffic Sign Stand Design
     - [ ] Trafic Light Design
     - [ ] Traffic Control IoT Web App
     - [x] IPS Camera Fixture Installation
