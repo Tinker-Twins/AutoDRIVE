@@ -58,7 +58,7 @@
   - [ ] [Optional] AR/VR
   - [ ] [Optional] Stand Alone Scene Reconfiguration
   - [x] [Optional] Multi-Vehicle Support
-  - [x] [Optional] V2X Implementation
+  - [x] [Optional] V2X Support
   - [ ] [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   - [ ] [Optional] Ground Truth Data Streaming
   - [ ] [Optional] Create Gym Environment(s)
