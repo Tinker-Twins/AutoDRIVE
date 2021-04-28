@@ -33,7 +33,7 @@
     - [x] IPS Camera Calibration
     - [x] IPS AprilTag Library Integration
     - [x] IPS AprilTag Based Localization
-- [ ] AutoDRIVE Simulator
+- [x] AutoDRIVE Simulator
   - [x] Port Simulator to Unity HDRP (with Post-Processing)
   - [x] Update Vehcile Models
   - [x] Update Vehicle Material Properties
