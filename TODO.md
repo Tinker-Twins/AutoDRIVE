@@ -40,7 +40,7 @@
   - [x] Port Vehicle Gameobjects and Behavior Scripts (Sensors, Actuators, Lighting, etc.)
   - [x] Tune Vehicular Dynamics
   - [x] Update Environment Modules
-  - [ ] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
+  - [x] Add Traffic Elements (Traffic Lights, Traffic Signs, etc.)
   - [x] Update Tiny Town Map
   - [x] Add Driving School Map
   - [x] Add Cross Junction Map
