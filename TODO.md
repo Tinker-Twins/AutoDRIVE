@@ -72,7 +72,7 @@
     - [ ] Traffic Sign Detection and Classification (Sim2Real)
     - [ ] Semantic Segmentation
     - [ ] SLAM (HectorSLAM, Cartographer, ORB-SLAM)
-    - [ ] Odometry (Wheel Encoder, Visual)
+    - [ ] Odometry (Wheel Encoder, Visual, Laser Range Flow)
     - [ ] Dead Reckoning (Wheel Encoder + IMU)
     - [ ] Localization (AMCL, AptilTag)
   - [ ] Planning Module
