@@ -35,7 +35,7 @@
     - [x] IPS AprilTag Based Localization
 - [x] AutoDRIVE Simulator
   - [x] Port Simulator to Unity HDRP (with Post-Processing)
-  - [x] Update Vehcile Models
+  - [x] Update Vehicle Models
   - [x] Update Vehicle Material Properties
   - [x] Port Vehicle Gameobjects and Behavior Scripts (Sensors, Actuators, Lighting, etc.)
   - [x] Tune Vehicular Dynamics
@@ -87,7 +87,7 @@
 - [ ] End-to-End Approach
   - [x] Imitation Learning
     - [x] Behavioral Cloning [Optional: Sim2Real]
-  - [ ] Reinfrocement Learning
+  - [ ] Reinforcement Learning
     - [ ] On-Road Navigation (LKA Scenario)
     - [x] Intersection Traversal
 - [ ] Demonstrations for Major Project @ SRMIST
@@ -98,7 +98,7 @@
 
 
 ### Documentation
-- [x] India Connect@NTU Research Internship [Report]
+- [x] India Connect @ NTU Research Internship [Report]
 - [ ] SRMIST Major Project [Report]
 - [x] AutoDRIVE Simulator [Paper]
 - [ ] AutoDRIVE [Paper]
