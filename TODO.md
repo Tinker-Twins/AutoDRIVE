@@ -28,7 +28,7 @@
     - [x] Traffic Sign Catalog Finalization
     - [x] Traffic Sign Stand Design
     - [x] Trafic Light Design
-    - [ ] Traffic Control IoT Web App
+    - [x] Traffic Control IoT Web App
     - [x] IPS Camera Fixture Installation
     - [x] IPS Camera Calibration
     - [x] IPS AprilTag Library Integration
