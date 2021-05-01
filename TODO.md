@@ -20,10 +20,10 @@
     - [x] Firmware Development
     - [x] Software Development
     - [ ] [Optional] Wiring in CAD Assembly
-  - [ ] Infrastructure
+  - [x] Infrastructure
     - [x] Map Design Finalization (Driving School)
-    - [x] Map Printing (Flex)
-    - [x] Map (Flex) Trimming
+    - [x] Flex Printing (Driving School)
+    - [x] Flex Trimming (Driving School)
     - [x] Obstacle Layout Finalization
     - [x] Traffic Sign Catalog Finalization
     - [x] Traffic Sign Stand Design
