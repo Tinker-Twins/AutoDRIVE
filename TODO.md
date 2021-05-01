@@ -27,7 +27,7 @@
     - [x] Obstacle Layout Finalization
     - [x] Traffic Sign Catalog Finalization
     - [x] Traffic Sign Stand Design
-    - [x] Trafic Light Design
+    - [x] Traffic Light Design
     - [x] Traffic Control IoT Web App
     - [x] IPS Camera Fixture Installation
     - [x] IPS Camera Calibration
