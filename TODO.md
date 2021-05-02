@@ -1,5 +1,5 @@
 ### Platform Development
-- [ ] AutoDRIVE Testbed
+- [x] AutoDRIVE Testbed
   - [x] Vehicle (Nigel)
     - [x] Component Finalization
     - [x] Part Modelling
