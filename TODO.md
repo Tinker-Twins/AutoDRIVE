@@ -94,7 +94,7 @@
   - [ ] Probabilistic Mapping and Map-Based Navigation
   - [x] Behavioral Cloning using DIL
   - [x] Intersection Traversal using DRL
-  - [ ] Smart City Management using V2I and IoT
+  - [x] Smart City Management using V2I and IoT
 
 
 ### Documentation
