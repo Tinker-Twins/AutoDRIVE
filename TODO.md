@@ -92,8 +92,8 @@
     - [x] Intersection Traversal
 - [ ] Demonstrations for Major Project @ SRMIST
   - [ ] Probabilistic Mapping and Map-Based Navigation
-  - [x] Behavioral Cloning using DIL
-  - [x] Intersection Traversal using DRL
+  - [x] Behavioral Cloning using CV and DIL
+  - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
 
 
