@@ -63,7 +63,7 @@
   - [ ] [Optional] Ground Truth Data Streaming
   - [ ] [Optional] Create Gym Environment(s)
 
-### Demonstrations
+### Platform Exploitation
 - [ ] Modular Approach
   - [ ] Perception Module
     - [ ] Lane Detection & Tracking (Basic & Advanced)
@@ -95,7 +95,6 @@
   - [x] Behavioral Cloning using CV and DIL
   - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
-
 
 ### Documentation
 - [x] India Connect @ NTU Research Internship [Report]
