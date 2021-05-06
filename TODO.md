@@ -61,7 +61,7 @@
   - [x] [Optional] V2X Support
   - [ ] [Optional] Visualization Overlay (Sensors, Planners, Dynamics, etc.)
   - [ ] [Optional] Ground Truth Data Streaming
-  - [ ] [Optional] Create Gym Environment(s)
+  - [ ] [Optional] Create Gym Environment(s) for DRL
 
 ### Platform Exploitation
 - [ ] Modular Approach
