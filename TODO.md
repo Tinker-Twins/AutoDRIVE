@@ -91,7 +91,7 @@
     - [ ] On-Road Navigation (LKA Scenario)
     - [x] Intersection Traversal
 - [ ] Demonstrations for Major Project @ SRMIST
-  - [ ] Probabilistic Mapping and Map-Based Navigation
+  - [ ] Autonomous Parking using SLAM, Path Planning and Control
   - [x] Behavioral Cloning using CV and DIL
   - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
