@@ -71,13 +71,13 @@
     - [ ] Traffic Light Detection
     - [ ] Traffic Sign Detection and Classification (Sim2Real)
     - [ ] Semantic Segmentation
-    - [ ] SLAM (HectorSLAM, Cartographer, ORB-SLAM)
-    - [ ] Odometry (Wheel Encoder, Visual, Laser Range Flow)
+    - [x] SLAM (HectorSLAM, Cartographer, ORB-SLAM)
+    - [x] Odometry (Wheel Encoder, Visual, Laser Range Flow)
     - [ ] Dead Reckoning (Wheel Encoder + IMU)
-    - [ ] Localization (AMCL, AptilTag)
-  - [ ] Planning Module
-    - [ ] Global Planning (Hybrid A*)
-    - [ ] Local Planning (FSM, DWA, etc.)
+    - [x] Localization (AMCL, AptilTag)
+  - [x] Planning Module
+    - [x] Global Planning (Hybrid A*)
+    - [x] Local Planning (FSM, DWA, etc.)
   - [ ] Control Module
     - [ ] PID Control
     - [ ] Pure Pursuit Control
@@ -90,8 +90,8 @@
   - [ ] Reinforcement Learning
     - [ ] On-Road Navigation (LKA Scenario)
     - [x] Intersection Traversal
-- [ ] Demonstrations for Major Project @ SRMIST
-  - [ ] Autonomous Parking using SLAM, Path Planning and Control
+- [x] Demonstrations for Major Project @ SRMIST
+  - [x] Autonomous Parking using SLAM, Path Planning and Control
   - [x] Behavioral Cloning using CV and DIL
   - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
