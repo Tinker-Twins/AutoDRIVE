@@ -86,13 +86,13 @@
     - [ ] POP Control Algorithm
 - [ ] End-to-End Approach
   - [x] Imitation Learning
-    - [x] Behavioral Cloning [Optional: Sim2Real]
+    - [x] Behavioral Cloning
   - [ ] Reinforcement Learning
     - [ ] On-Road Navigation (LKA Scenario)
     - [x] Intersection Traversal
 - [x] Demonstrations for Major Project @ SRMIST
   - [x] Autonomous Parking using SLAM, Path Planning and Control
-  - [x] Behavioral Cloning using CV and DIL
+  - [x] Behavioral Cloning using CV and DIL with Sim2Real Transfer
   - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
 
