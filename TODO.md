@@ -92,7 +92,7 @@
     - [x] Intersection Traversal
 - [x] Demonstrations for Major Project @ SRMIST
   - [x] Autonomous Parking using SLAM, Path Planning and Control
-  - [x] Behavioral Cloning using CV and DIL with Sim2Real Transfer
+  - [x] Behavioral Cloning using DIL with Sim2Real Transfer
   - [x] Intersection Traversal using V2V and DRL
   - [x] Smart City Management using V2I and IoT
 
