@@ -88,7 +88,7 @@
   - [x] Imitation Learning
     - [x] Behavioral Cloning
   - [ ] Reinforcement Learning
-    - [ ] On-Road Navigation (LKA Scenario)
+    - [ ] Lane-Keeping Assistance
     - [x] Intersection Traversal
 - [x] Demonstrations for Major Project @ SRMIST
   - [x] Autonomous Parking using SLAM, Path Planning and Control
