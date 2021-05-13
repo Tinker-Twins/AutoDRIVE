@@ -40,6 +40,10 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 
 Implementation demonstrations are available on [YouTube](https://youtube.com/playlist?list=PLY45pkzWzH9_iRlOqmqvFdQPASwevTtbW).
 
+|[![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Autonomous%20Parking.png)](https://youtu.be/oBqIZZA0wkc)   |[![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Behavioural%20Cloning.png)](https://youtu.be/rejpoogaXOE)|[![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Intersection%20Traversal.png)](https://youtu.be/AEFJbDzOpcM)|[![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Smart%20City%20Management.png)](https://youtu.be/fnxOpV1gFXo)|
+|:------------------:|:-------------------:|:----------------------:|:---------------------:|
+| Autonomous Parking | Behavioural Cloning | Intersection Traversal | Smart City Management |
+
 ## Citation
 
 We encourage you to cite the following papers if you use any part of this project for your research:
