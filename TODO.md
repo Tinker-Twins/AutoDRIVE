@@ -98,7 +98,7 @@
 
 ### Documentation
 - [x] India Connect @ NTU Research Internship [Report]
-- [ ] SRMIST Major Project [Report]
+- [x] SRMIST Major Project [Report]
 - [x] AutoDRIVE Simulator [Paper]
 - [ ] AutoDRIVE [Paper]
 - [ ] GitHub Wiki
