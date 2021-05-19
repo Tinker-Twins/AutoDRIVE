@@ -13,7 +13,7 @@ AutoDRIVE is envisioned to be an integrated platform for autonomous driving rese
 
 ## AutoDRIVE Testbed
 
-| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Infrastructure.png" width="600"> |
+| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Infrastructure.png" width="500"> |
 |:--------:|:-------------:|
 | Vehicle | Infrastructure |
 
