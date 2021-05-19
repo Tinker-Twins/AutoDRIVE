@@ -12,6 +12,11 @@ AutoDRIVE is envisioned to be an integrated platform for autonomous driving rese
 </p>
 
 ## AutoDRIVE Testbed
+
+| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Infrastructure.png" width="600"> |
+|:--------:|:-------------:|
+| Vehicle | Infrastructure |
+
 <p align="justify">
 AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (called Nigel) and a modular infrastructure development kit. The vehicle is equipped with a comprehensive sensor suite for redundant perception, a set of actuators for constrained motion control and a fully functional lighting system for illumination and signaling. It can be teleoperated (in manual mode) or self-driven (in autonomous mode). The infrastructure development kit comprises of various environment modules along with active and passive traffic elements.
 </p>
@@ -44,9 +49,9 @@ Implementation demonstrations are available on [YouTube](https://youtube.com/pla
 
 |                    |                     |
 |:------------------:|:-------------------:|
-| [![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Autonomous%20Parking.png)](https://youtu.be/oBqIZZA0wkc) | [![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Behavioural%20Cloning.png)](https://youtu.be/rejpoogaXOE) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Autonomous%20Parking.png" width="500">](https://youtu.be/oBqIZZA0wkc) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Behavioural%20Cloning.png" width="500">](https://youtu.be/rejpoogaXOE) |
 | [Autonomous Parking](https://youtu.be/oBqIZZA0wkc) | [Behavioural Cloning](https://youtu.be/rejpoogaXOE) |
-| [![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Intersection%20Traversal.png)](https://youtu.be/AEFJbDzOpcM) | [![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Smart%20City%20Management.png)](https://youtu.be/fnxOpV1gFXo) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Intersection%20Traversal.png" width="500">](https://youtu.be/AEFJbDzOpcM) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Smart%20City%20Management.png" width="500">](https://youtu.be/fnxOpV1gFXo) |
 | [Intersection Traversal](https://youtu.be/AEFJbDzOpcM) | [Smart City Management](https://youtu.be/fnxOpV1gFXo) |
 |                    |                     |
 
