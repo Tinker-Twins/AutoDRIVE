@@ -8,10 +8,10 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 
 AutoDRIVE DevKit consists of the following software components:
 
-- [ADSS Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/ADSS%20Toolkit)
+- [Autonomous Driving Software Stack (ADSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/ADSS%20Toolkit)
   - [ROS Package](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/ADSS%20Toolkit/autodrive_ros)
   - [Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/ADSS%20Toolkit/autodrive_py)
   - [C++ API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/ADSS%20Toolkit/autodrive_cpp)
 
-- [SCSS Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/SCSS%20Toolkit)
+- [Smart City Software Stack (SCSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/SCSS%20Toolkit)
   - [SCM Webapp](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/SCSS%20Toolkit/autodrive_scm)
