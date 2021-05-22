@@ -27,7 +27,6 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 
 ## AutoDRIVE Simulator
 
-
 | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator%20Infrastructure.png" width="500"> |
 |:--------:|:-------------:|
 | Vehicle | Infrastructure |
@@ -54,9 +53,11 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 - **Latest Release:** [AutoDRIVE DevKit 0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/DevKit-0.1.0)
 - **Upcoming Release:** AutoDRIVE DevKit 0.2.0 is currently under development.
 
-## Demonstrations
+## Resources
 
-Implementation demonstrations are available on [YouTube](https://youtube.com/playlist?list=PLY45pkzWzH9_iRlOqmqvFdQPASwevTtbW).
+### Demonstrations
+
+We encourage you to take a look at the following research projects developed using the AutoDRIVE platform.
 
 |                    |                     |
 |:------------------:|:-------------------:|
@@ -66,9 +67,9 @@ Implementation demonstrations are available on [YouTube](https://youtube.com/pla
 | [Intersection Traversal](https://youtu.be/AEFJbDzOpcM) | [Smart City Management](https://youtu.be/fnxOpV1gFXo) |
 |                    |                     |
 
-## Citation
+### Publications
 
-We encourage you to cite the following papers if you use any part of this project for your research:
+We encourage you to read and cite the following papers if you use any part of this project for your research:
 
 #### [AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education](https://arxiv.org/abs/2103.10030)
 ```bibtex
