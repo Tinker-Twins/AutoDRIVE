@@ -55,6 +55,16 @@ AutoDRIVE DevKit is a developer's kit that enables the users to exploit AutoDRIV
 
 ## Resources
 
+### Presentations
+
+We encourage you to take a look at the following presentations to gain a better insight into the AutoDRIVE project.
+
+|                    |                     |
+|:------------------:|:-------------------:|
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Simulator%20Pitch%20Video.png" width="500">](https://youtu.be/i7R79jwnqlg) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Testbed%20Pitch%20Video.png" width="500">](https://youtu.be/YFQzyfXV6Rw) |
+| [AutoDRIVE Simulator Pitch Video](https://youtu.be/i7R79jwnqlg) | [AutoDRIVE Testbed Pitch Video](https://youtu.be/YFQzyfXV6Rw) |
+|                    |                     |
+
 ### Demonstrations
 
 We encourage you to take a look at the following research projects developed using the AutoDRIVE platform.
