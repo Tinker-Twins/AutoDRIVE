@@ -101,4 +101,5 @@
 - [x] SRMIST Major Project [Report]
 - [x] AutoDRIVE Simulator [Paper]
 - [ ] AutoDRIVE [Paper]
+- [x] GitHub README
 - [ ] GitHub Wiki
