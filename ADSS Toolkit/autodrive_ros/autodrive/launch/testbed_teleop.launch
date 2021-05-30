@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Global Parameter -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- ROS Serial -->
+  <node pkg="rosserial_python" type="serial_node.py" name="nigel">
+  <param name="port" value="/dev/ttyUSB0"/>
+  </node>
+
+  <!-- Nigel Teleoperation -->
+  <node pkg="autodrive" type="teleop.py" name="testbed_teleop" output="screen">
+  </node>
+
+</launch>

@@ -10,13 +10,16 @@ project(autodrive)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+	std_msgs
   sensor_msgs
-  std_msgs
+	nav_msgs
+  tf
+	cmake_modules
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
-
+find_package(Boost REQUIRED COMPONENTS system)
+find_package(Eigen3 REQUIRED)
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -103,11 +106,17 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package(
+#catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES autodrive
 #  CATKIN_DEPENDS roscpp rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
+#)
+catkin_package(
+ INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIRS}
+ LIBRARIES ${PROJECT_NAME}
+ CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs nav_msgs tf
+ DEPENDS #Eigen3
 )
 
 ###########
@@ -116,15 +125,24 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
+#include_directories(
 # include
+#  ${catkin_INCLUDE_DIRS}
+#)
+include_directories(include)
+include_directories(
+  SYSTEM
   ${catkin_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/autodrive.cpp
 # )
+add_library(${PROJECT_NAME} src/lidar_odometry.cpp)
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -136,6 +154,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/autodrive_node.cpp)
 add_executable(ad_stack src/ad_stack.cpp)
+add_executable(lidar_odometer src/lidar_odometer.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -151,9 +170,8 @@ add_executable(ad_stack src/ad_stack.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(ad_stack
-  ${catkin_LIBRARIES}
-)
+target_link_libraries(ad_stack ${catkin_LIBRARIES})
+target_link_libraries(lidar_odometer ${PROJECT_NAME} ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -172,6 +190,7 @@ catkin_install_python(PROGRAMS
   scripts/server.py
   scripts/bridge.py
   scripts/config.py
+  scripts/teleop.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -202,6 +221,9 @@ catkin_install_python(PROGRAMS
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+install(DIRECTORY launch rviz
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 
 #############
 ## Testing ##

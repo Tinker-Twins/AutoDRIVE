@@ -1,0 +1,352 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url("../img/driving_school.png");
+    background-size: cover;
+    background-position: center;
+    font-family: open sans;
+}
+
+.trafficLight {
+    width: 30px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.redLight {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+.redLight:hover {
+    background-color: red;
+    box-shadow: 0 0 20px red;
+}
+
+.redLightActive {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    box-shadow: 0 0 20px red;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+.yellowLight {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+.yellowLight:hover {
+    background-color: gold;
+    box-shadow: 0 0 20px gold;
+}
+
+.yellowLightActive {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: gold;
+    box-shadow: 0 0 20px gold;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+.greenLight {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+.greenLight:hover {
+    background-color: lime;
+    box-shadow: 0 0 20px lime;
+}
+
+.greenLightActive {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 20px;
+    background-color: lime;
+    box-shadow: 0 0 20px lime;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+}
+
+#TL1.trafficLight {
+  top: calc(50% - 335px);
+  left: calc(50% - 125px);
+}
+
+#TL1.redLight {
+    top: calc(50% - 330px);
+    left: calc(50% - 120px);
+}
+
+#TL1.redLightActive {
+    top: calc(50% - 330px);
+    left: calc(50% - 120px);
+}
+
+#TL1.yellowLight {
+    top: calc(50% - 305px);
+    left: calc(50% - 120px);
+}
+
+#TL1.yellowLightActive {
+    top: calc(50% - 305px);
+    left: calc(50% - 120px);
+}
+
+#TL1.greenLight {
+    top: calc(50% - 280px);
+    left: calc(50% - 120px);
+}
+
+#TL1.greenLightActive {
+    top: calc(50% - 280px);
+    left: calc(50% - 120px);
+}
+
+#TL2.trafficLight {
+  top: calc(50% - 335px);
+  left: calc(50% + 95px);
+}
+
+#TL2.redLight {
+    top: calc(50% - 330px);
+    left: calc(50% + 100px);
+}
+
+#TL2.redLightActive {
+    top: calc(50% - 330px);
+    left: calc(50% + 100px);
+}
+
+#TL2.yellowLight {
+    top: calc(50% - 305px);
+    left: calc(50% + 100px);
+}
+
+#TL2.yellowLightActive {
+    top: calc(50% - 305px);
+    left: calc(50% + 100px);
+}
+
+#TL2.greenLight {
+    top: calc(50% - 280px);
+    left: calc(50% + 100px);
+}
+
+#TL2.greenLightActive {
+    top: calc(50% - 280px);
+    left: calc(50% + 100px);
+}
+
+#TL3.trafficLight {
+  top: calc(50% + 255px);
+  left: calc(50% - 125px);
+}
+
+#TL3.redLight {
+    top: calc(50% + 260px);
+    left: calc(50% - 120px);
+}
+
+#TL3.redLightActive {
+    top: calc(50% + 260px);
+    left: calc(50% - 120px);
+}
+
+#TL3.yellowLight {
+    top: calc(50% + 285px);
+    left: calc(50% - 120px);
+}
+
+#TL3.yellowLightActive {
+    top: calc(50% + 285px);
+    left: calc(50% - 120px);
+}
+
+#TL3.greenLight {
+    top: calc(50% + 310px);
+    left: calc(50% - 120px);
+}
+
+#TL3.greenLightActive {
+    top: calc(50% + 310px);
+    left: calc(50% - 120px);
+}
+
+#TL4.trafficLight {
+  top: calc(50% + 255px);
+  left: calc(50% + 95px);
+}
+
+#TL4.redLight {
+    top: calc(50% + 260px);
+    left: calc(50% + 100px);
+}
+
+#TL4.redLightActive {
+    top: calc(50% + 260px);
+    left: calc(50% + 100px);
+}
+
+#TL4.yellowLight {
+    top: calc(50% + 285px);
+    left: calc(50% + 100px);
+}
+
+#TL4.yellowLightActive {
+    top: calc(50% + 285px);
+    left: calc(50% + 100px);
+}
+
+#TL4.greenLight {
+    top: calc(50% + 310px);
+    left: calc(50% + 100px);
+}
+
+#TL4.greenLightActive {
+    top: calc(50% + 310px);
+    left: calc(50% + 100px);
+}
+
+.infoPanel{
+    width: 720px;
+    height: 480px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 60px 40px;
+}
+.autodriveLogo {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 64px);
+}
+
+.clock {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 25;
+  right: 25;
+}
+
+.dataButton {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 200px;
+    background: #1c8adb;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.dataButton:hover {
+    box-shadow: 0 0 20px #4aa6e8;
+}
+
+.dataButtonActive {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 200px;
+  background: white;
+  box-shadow: 0 0 20px white;
+  color: #1c8adb;
+  font-size: 18px;
+  border-radius: 20px;
+  position: absolute;
+}
+
+#VData.dataButton {
+    top: 150px;
+    left: 50px;
+}
+
+#VData.dataButtonActive {
+    top: 150px;
+    left: 50px;
+}
+
+#TSData.dataButton {
+    top: 150px;
+    left: calc(50% - 100px);
+}
+
+#TSData.dataButtonActive {
+    top: 150px;
+    left: calc(50% - 100px);
+}
+
+#TLData.dataButton {
+    top: 150px;
+    right: 50px;
+}
+
+#TLData.dataButtonActive {
+    top: 150px;
+    right: 50px;
+}
+
+table {
+    position: relative;
+    top: 50px;
+    width: 100%;
+}
+
+th {
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-size: 18px;
+}
+
+td {
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.tableColumn {
+  width: 25%;
+  text-align: center;
+}
