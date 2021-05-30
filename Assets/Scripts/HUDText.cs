@@ -10,10 +10,11 @@ public class HUDText : MonoBehaviour
     */
 
     public Text HUD; // HUD data
+    public DataRecorder DataRecorder;
 
     public Timer Timer; // `Timer` reference
     public FPSCounter FPSCounter; // `FPSCounter` reference
-    public VehicleTeleoperation VehicleTeleoperation; // `VehicleTeleoperation` reference
+    public VehicleController VehicleController; // `VehicleController` reference
     public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
     public IPS IPS; // `IPS` reference
@@ -21,6 +22,17 @@ public class HUDText : MonoBehaviour
     public LIDAR LIDAR; // `LIDAR` reference
 
     void Start()
+    {
+        ResetHUDText();
+    }
+
+    void Update()
+    {
+        if (DataRecorder.getSaveStatus()) ResetHUDText();
+        else UpdateHUDText();
+    }
+
+    void ResetHUDText()
     {
         HUD.text =
         "Simulation Time:\t\t" + "00:00:00" + "\n" +
@@ -44,14 +56,14 @@ public class HUDText : MonoBehaviour
         "LIDAR Measurement:\t" + "inf" + " m";
     }
 
-    void Update()
+    void UpdateHUDText()
     {
         string simulation_time = Timer.SimulationTime;
 
         string frame_rate = FPSCounter.FPS.ToString();
 
         string driving_mode = "";
-        if(VehicleTeleoperation.DrivingMode==0)
+        if(VehicleController.DrivingMode==0)
         {
             driving_mode = "Manual";
         }
@@ -61,7 +73,7 @@ public class HUDText : MonoBehaviour
         }
 
         string gear = "";
-        if(System.Math.Round((VehicleTeleoperation.RearLeftWheelCollider.rpm + VehicleTeleoperation.RearRightWheelCollider.rpm)/2, 1) < 0)
+        if(System.Math.Round((VehicleController.RearLeftWheelCollider.rpm + VehicleController.RearRightWheelCollider.rpm)/2, 1) < 0)
         {
             gear = "R";
         }
@@ -70,11 +82,11 @@ public class HUDText : MonoBehaviour
             gear = "D";
         }
 
-        string speed = System.Math.Abs(System.Math.Round(VehicleTeleoperation.Vehicle.transform.InverseTransformDirection(VehicleTeleoperation.Vehicle.GetComponent<Rigidbody>().velocity).z,2)).ToString("F2");
+        string speed = System.Math.Abs(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,2)).ToString("F2");
 
-        string throttle = (System.Math.Abs(VehicleTeleoperation.CurrentThrottle)*100).ToString("F2");
+        string throttle = (System.Math.Abs(VehicleController.CurrentThrottle)*100).ToString("F2");
 
-        string steering_angle = VehicleTeleoperation.CurrentSteeringAngle.ToString("F2");
+        string steering_angle = VehicleController.CurrentSteeringAngle.ToString("F2");
 
         string encoder_ticks = "[" + LeftWheelEncoder.Ticks.ToString() + ", " + RightWheelEncoder.Ticks.ToString() + "]";
 

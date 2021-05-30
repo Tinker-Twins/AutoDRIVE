@@ -12,7 +12,11 @@ public class Socket : MonoBehaviour
     application and an external interface.
     */
 
-    public VehicleTeleoperation VehicleTeleoperation; // `VehicleTeleoperation` reference
+    private SocketIOComponent socket; // Socket.IO instance
+    public Button ConnectionButton; // GUI button
+    public Text ConnectionLabel; // GUI button label
+
+    public VehicleController VehicleController; // `VehicleController` reference
     public VehicleLighting VehicleLighting; // `VehicleLighting` reference
     public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
@@ -20,14 +24,14 @@ public class Socket : MonoBehaviour
     public IMU IMU; // `IMU` reference
     public LIDAR LIDAR; // `LIDAR` reference
     public Camera FrontCamera; // Vehicle front camera
-    public Camera RearCamera; // Vehicle rear camera
-    private SocketIOComponent socket; // Socket.IO instance
-
-    public Button ConnectionButton; // GUI button
-    public Text ConnectionLabel; // GUI button label
-
     private string LIDARRangeArray;
     private string LIDARIntensityArray;
+    public Camera RearCamera; // Vehicle rear camera
+
+    public TLController TL1; // Traffic light controller
+    public TLController TL2; // Traffic light controller
+    public TLController TL3; // Traffic light controller
+    public TLController TL4; // Traffic light controller
 
     // Use this for initialization
     void Start()
@@ -57,12 +61,18 @@ public class Socket : MonoBehaviour
     void OnBridge(SocketIOEvent obj)
     {
         //Debug.Log("Bridge");
-        if(VehicleTeleoperation.CurrentDrivingMode == 1)
+        JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
+        //Debug.Log(obj.data);
+
+        TL1.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 1").str); // Set traffic light
+        TL2.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 2").str); // Set traffic light
+        TL3.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 3").str); // Set traffic light
+        TL4.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 4").str); // Set traffic light
+
+        if(VehicleController.CurrentDrivingMode == 1)
         {
-            JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
-            //Debug.Log(obj.data);
-            VehicleTeleoperation.CurrentThrottle = float.Parse(jsonObject.GetField("Throttle").str); // Set throttle
-            VehicleTeleoperation.CurrentSteeringAngle = float.Parse(jsonObject.GetField("Steering").str); // Set steering angle
+            VehicleController.CurrentThrottle = float.Parse(jsonObject.GetField("Throttle").str); // Set throttle
+            VehicleController.CurrentSteeringAngle = float.Parse(jsonObject.GetField("Steering").str); // Set steering angle
             VehicleLighting.Headlights = int.Parse(jsonObject.GetField("Headlights").str); // Set headlights
             VehicleLighting.Indicators = int.Parse(jsonObject.GetField("Indicators").str); // Set indicators
         }
@@ -75,8 +85,8 @@ public class Socket : MonoBehaviour
         {
             //Debug.Log("Attempting to write data...");
             Dictionary<string, string> data = new Dictionary<string, string>(); // Create new `data` dictionary
-            data["Throttle"] = VehicleTeleoperation.CurrentThrottle.ToString("F3"); // Get throttle
-            data["Steering"] = VehicleTeleoperation.CurrentSteeringAngle.ToString("F3"); // Get steering angle
+            data["Throttle"] = VehicleController.CurrentThrottle.ToString("F3"); // Get throttle
+            data["Steering"] = VehicleController.CurrentSteeringAngle.ToString("F3"); // Get steering angle
             data["Encoder Ticks"] = LeftWheelEncoder.Ticks.ToString() + " " + RightWheelEncoder.Ticks.ToString(); // Get encoder ticks
             data["Encoder Angles"] = LeftWheelEncoder.Angle.ToString("F3") + " " + RightWheelEncoder.Angle.ToString("F3"); // Get encoder angles
             data["Position"] = IPS.CurrentPosition[0].ToString("F3") + " " + IPS.CurrentPosition[1].ToString("F3") + " " + IPS.CurrentPosition[2].ToString("F3"); // Get vehicle position
@@ -95,7 +105,6 @@ public class Socket : MonoBehaviour
                 LIDARRangeArray += LIDAR.CurrentRangeArray[359];
                 LIDARIntensityArray += LIDAR.CurrentIntensityArray[359];
             }
-
             data["LIDAR Range Array"] = LIDARRangeArray; // Get LIDAR range array
             data["LIDAR Intensity Array"] = LIDARIntensityArray; // Get LIDAR intensity array
             LIDARRangeArray = ""; // Reset LIDAR range array for next measurement

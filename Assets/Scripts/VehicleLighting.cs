@@ -5,8 +5,7 @@ using UnityEngine;
 public class VehicleLighting : MonoBehaviour
 {
     /*
-    This script controls the vehicle lighting. The designed vehicle has the
-    following functional lights and indicators:
+    This script controls the vehicle lighting. The designed vehicle has the following functional lights and indicators:
 
     1. Headlights: Switched between 3 states, viz. OFF, Low-Beam and High-Beam.
     2. Taillights: Automatically switched between OFF, Partially ON (when Headlights are switched ON) and ON (when brakes are applied).
@@ -15,7 +14,8 @@ public class VehicleLighting : MonoBehaviour
     4. Hazard Indicators: Toggled ON and OFF.
     */
 
-    public VehicleTeleoperation VehicleTeleoperation;
+    public VehicleController VehicleController;
+    public DataRecorder DataRecorder;
 
     private float timer = 0f;
 
@@ -26,6 +26,14 @@ public class VehicleLighting : MonoBehaviour
     public Renderer HeadlightLeft2;
     public Renderer HeadlightRight1;
     public Renderer HeadlightRight2;
+    public Light SpotLightHeadlightLeft1;
+    public Light SpotLightHeadlightLeft2;
+    public Light SpotLightHeadlightRight1;
+    public Light SpotLightHeadlightRight2;
+    public Light PointLightHeadlightLeft1;
+    public Light PointLightHeadlightLeft2;
+    public Light PointLightHeadlightRight1;
+    public Light PointLightHeadlightRight2;
     public Material HeadlightOFF;
     public Material HeadlightON;
 
@@ -33,6 +41,8 @@ public class VehicleLighting : MonoBehaviour
     private bool Taillights = false;
     public Renderer TaillightLeft;
     public Renderer TaillightRight;
+    public Light PointLightTaillightLeft;
+    public Light PointLightTaillightRight;
     public Material TaillightOFF;
     public Material TaillightPartiallyON;
     public Material TaillightON;
@@ -45,6 +55,10 @@ public class VehicleLighting : MonoBehaviour
     public Renderer TurnIndicatorFrontRight;
     public Renderer TurnIndicatorRearLeft;
     public Renderer TurnIndicatorRearRight;
+    public Light PointLightTurnIndicatorFrontLeft;
+    public Light PointLightTurnIndicatorFrontRight;
+    public Light PointLightTurnIndicatorRearLeft;
+    public Light PointLightTurnIndicatorRearRight;
     public Material TurnIndicatorOFF;
     public Material TurnIndicatorON;
 
@@ -52,6 +66,10 @@ public class VehicleLighting : MonoBehaviour
     private bool ReverseIndicators = false;
     public Renderer ReverseIndicatorLeft;
     public Renderer ReverseIndicatorRight;
+    public Light SpotLightReverseIndicatorLeft;
+    public Light SpotLightReverseIndicatorRight;
+    public Light PointLightReverseIndicatorLeft;
+    public Light PointLightReverseIndicatorRight;
     public Material ReverseIndicatorOFF;
     public Material ReverseIndicatorON;
 
@@ -78,24 +96,24 @@ public class VehicleLighting : MonoBehaviour
         // ============================================== //
 
         // Light Control (Manual Mode)
-        if(VehicleTeleoperation.CurrentDrivingMode == 0)
+        if(VehicleController.CurrentDrivingMode == 0)
         {
             // Headlights - Low Beam
-            if(Input.GetKeyDown(KeyCode.G))
+            if(Input.GetKeyDown(KeyCode.K))
             {
                 HeadlightsHighBeam = false;
                 HeadlightsLowBeam = !HeadlightsLowBeam;
             }
 
             // Headlights - High Beam
-            if(Input.GetKeyDown(KeyCode.H))
+            if(Input.GetKeyDown(KeyCode.I))
             {
                 HeadlightsLowBeam = false;
                 HeadlightsHighBeam = !HeadlightsHighBeam;
             }
 
             // Indicators - Left Turn Indicators
-            if(Input.GetKeyDown(KeyCode.L))
+            if(Input.GetKeyDown(KeyCode.J))
             {
                 RightTurnIndicators = false;
                 HazardIndicators = false;
@@ -103,7 +121,7 @@ public class VehicleLighting : MonoBehaviour
             }
 
             // Indicators - Right Turn Indicators
-            if(Input.GetKeyDown(KeyCode.R))
+            if(Input.GetKeyDown(KeyCode.L))
             {
                 LeftTurnIndicators = false;
                 HazardIndicators = false;
@@ -111,7 +129,7 @@ public class VehicleLighting : MonoBehaviour
             }
 
             // Indicators - Hazard Indicators
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.M))
             {
                 LeftTurnIndicators = false;
                 RightTurnIndicators = false;
@@ -120,7 +138,7 @@ public class VehicleLighting : MonoBehaviour
         }
 
         // Light Control (Autonomous Mode)
-        if(VehicleTeleoperation.CurrentDrivingMode == 1)
+        if(VehicleController.CurrentDrivingMode == 1)
         {
             // Headlights - Disabled
             if(HeadlightState == 0)
@@ -177,25 +195,49 @@ public class VehicleLighting : MonoBehaviour
         }
 
         // Automatic Light Control
-
-        // Brake Lights
-        if(System.Math.Round((VehicleTeleoperation.RearLeftWheelCollider.rpm + VehicleTeleoperation.RearRightWheelCollider.rpm)/2, 2) == 0)
+        if (DataRecorder.getSaveStatus())
         {
-            Taillights = true;
+            // Brake Lights
+            if(System.Math.Round(DataRecorder.getSavedVelocity(),1) == 0)
+            {
+                Taillights = true;
+            }
+            else
+            {
+                Taillights = false;
+            }
+
+            // Reverse Indicators
+            if(System.Math.Round(DataRecorder.getSavedVelocity(),1) < 0)
+            {
+                ReverseIndicators = true;
+            }
+            else
+            {
+                ReverseIndicators = false;
+            }
         }
         else
         {
-            Taillights = false;
-        }
+            // Brake Lights
+            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,1) == 0)
+            {
+                Taillights = true;
+            }
+            else
+            {
+                Taillights = false;
+            }
 
-        // Reverse Indicators
-        if(System.Math.Round((VehicleTeleoperation.RearLeftWheelCollider.rpm + VehicleTeleoperation.RearRightWheelCollider.rpm)/2, 1) < 0)
-        {
-            ReverseIndicators = true;
-        }
-        else
-        {
-            ReverseIndicators = false;
+            // Reverse Indicators
+            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,1) < 0)
+            {
+                ReverseIndicators = true;
+            }
+            else
+            {
+                ReverseIndicators = false;
+            }
         }
 
         // =================================== //
@@ -206,67 +248,79 @@ public class VehicleLighting : MonoBehaviour
         if(HeadlightsLowBeam)
         {
             HeadlightLeft1.material = HeadlightON;
-            HeadlightLeft1.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightLeft1.enabled = true;
+            PointLightHeadlightLeft1.enabled = true;
             HeadlightLeft2.material = HeadlightOFF;
-            HeadlightLeft2.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightLeft2.enabled = false;
+            PointLightHeadlightLeft2.enabled = false;
             HeadlightRight1.material = HeadlightON;
-            HeadlightRight1.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightRight1.enabled = true;
+            PointLightHeadlightRight1.enabled = true;
             HeadlightRight2.material = HeadlightOFF;
-            HeadlightRight2.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightRight2.enabled = false;
+            PointLightHeadlightRight2.enabled = false;
         }
 
         // Headlights - High Beam
         else if(HeadlightsHighBeam)
         {
             HeadlightLeft1.material = HeadlightON;
-            HeadlightLeft1.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightLeft1.enabled = true;
+            PointLightHeadlightLeft1.enabled = true;
             HeadlightLeft2.material = HeadlightON;
-            HeadlightLeft2.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightLeft2.enabled = true;
+            PointLightHeadlightLeft2.enabled = true;
             HeadlightRight1.material = HeadlightON;
-            HeadlightRight1.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightRight1.enabled = true;
+            PointLightHeadlightRight1.enabled = true;
             HeadlightRight2.material = HeadlightON;
-            HeadlightRight2.GetComponent<Light>().enabled = true;
+            SpotLightHeadlightRight2.enabled = true;
+            PointLightHeadlightRight2.enabled = true;
         }
 
         else
         {
             HeadlightLeft1.material = HeadlightOFF;
-            HeadlightLeft1.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightLeft1.enabled = false;
+            PointLightHeadlightLeft1.enabled = false;
             HeadlightLeft2.material = HeadlightOFF;
-            HeadlightLeft2.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightLeft2.enabled = false;
+            PointLightHeadlightLeft2.enabled = false;
             HeadlightRight1.material = HeadlightOFF;
-            HeadlightRight1.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightRight1.enabled = false;
+            PointLightHeadlightRight1.enabled = false;
             HeadlightRight2.material = HeadlightOFF;
-            HeadlightRight2.GetComponent<Light>().enabled = false;
+            SpotLightHeadlightRight2.enabled = false;
+            PointLightHeadlightRight2.enabled = false;
         }
 
         // Brake Lights
         if(Taillights)
         {
             TaillightLeft.material = TaillightON;
-            TaillightLeft.GetComponent<Light>().intensity = 1f;
-            TaillightLeft.GetComponent<Light>().enabled = true;
+            PointLightTaillightLeft.intensity = 0.05f;
+            PointLightTaillightLeft.enabled = true;
             TaillightRight.material = TaillightON;
-            TaillightRight.GetComponent<Light>().intensity = 1f;
-            TaillightRight.GetComponent<Light>().enabled = true;
+            PointLightTaillightRight.intensity = 0.05f;
+            PointLightTaillightRight.enabled = true;
         }
         else
         {
             if(HeadlightsLowBeam || HeadlightsHighBeam)
             {
                 TaillightLeft.material = TaillightPartiallyON;
-                TaillightLeft.GetComponent<Light>().intensity = 0.5f;
-                TaillightLeft.GetComponent<Light>().enabled = true;
+                PointLightTaillightLeft.intensity = 0.025f;
+                PointLightTaillightLeft.enabled = true;
                 TaillightRight.material = TaillightPartiallyON;
-                TaillightRight.GetComponent<Light>().intensity = 0.5f;
-                TaillightRight.GetComponent<Light>().enabled = true;
+                PointLightTaillightRight.intensity = 0.025f;
+                PointLightTaillightRight.enabled = true;
             }
             else
             {
                 TaillightLeft.material = TaillightOFF;
-                TaillightLeft.GetComponent<Light>().enabled = false;
+                PointLightTaillightLeft.enabled = false;
                 TaillightRight.material = TaillightOFF;
-                TaillightRight.GetComponent<Light>().enabled = false;
+                PointLightTaillightRight.enabled = false;
             }
         }
 
@@ -277,24 +331,24 @@ public class VehicleLighting : MonoBehaviour
             if(timer >= 0.5)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorON;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorFrontLeft.enabled = true;
                 TurnIndicatorRearLeft.material = TurnIndicatorON;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorRearLeft.enabled = true;
                 TurnIndicatorFrontRight.material = TurnIndicatorOFF;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontRight.enabled = false;
                 TurnIndicatorRearRight.material = TurnIndicatorOFF;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearRight.enabled = false;
             }
             if(timer >= 1)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorOFF;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontLeft.enabled = false;
                 TurnIndicatorRearLeft.material = TurnIndicatorOFF;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearLeft.enabled = false;
                 TurnIndicatorFrontRight.material = TurnIndicatorOFF;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontRight.enabled = false;
                 TurnIndicatorRearRight.material = TurnIndicatorOFF;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearRight.enabled = false;
                 timer = 0;
             }
         }
@@ -306,24 +360,24 @@ public class VehicleLighting : MonoBehaviour
             if(timer >= 0.5)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorOFF;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontLeft.enabled = false;
                 TurnIndicatorRearLeft.material = TurnIndicatorOFF;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearLeft.enabled = false;
                 TurnIndicatorFrontRight.material = TurnIndicatorON;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorFrontRight.enabled = true;
                 TurnIndicatorRearRight.material = TurnIndicatorON;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorRearRight.enabled = true;
             }
             if(timer >= 1)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorOFF;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontLeft.enabled = false;
                 TurnIndicatorRearLeft.material = TurnIndicatorOFF;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearLeft.enabled = false;
                 TurnIndicatorFrontRight.material = TurnIndicatorOFF;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontRight.enabled = false;
                 TurnIndicatorRearRight.material = TurnIndicatorOFF;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearRight.enabled = false;
                 timer = 0;
             }
         }
@@ -335,24 +389,24 @@ public class VehicleLighting : MonoBehaviour
             if(timer >= 0.5)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorON;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorFrontLeft.enabled = true;
                 TurnIndicatorRearLeft.material = TurnIndicatorON;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorRearLeft.enabled = true;
                 TurnIndicatorFrontRight.material = TurnIndicatorON;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorFrontRight.enabled = true;
                 TurnIndicatorRearRight.material = TurnIndicatorON;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = true;
+                PointLightTurnIndicatorRearRight.enabled = true;
             }
             if(timer >= 1)
             {
                 TurnIndicatorFrontLeft.material = TurnIndicatorOFF;
-                TurnIndicatorFrontLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontLeft.enabled = false;
                 TurnIndicatorRearLeft.material = TurnIndicatorOFF;
-                TurnIndicatorRearLeft.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearLeft.enabled = false;
                 TurnIndicatorFrontRight.material = TurnIndicatorOFF;
-                TurnIndicatorFrontRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorFrontRight.enabled = false;
                 TurnIndicatorRearRight.material = TurnIndicatorOFF;
-                TurnIndicatorRearRight.GetComponent<Light>().enabled = false;
+                PointLightTurnIndicatorRearRight.enabled = false;
                 timer = 0;
             }
         }
@@ -360,29 +414,33 @@ public class VehicleLighting : MonoBehaviour
         else
         {
             TurnIndicatorFrontLeft.material = TurnIndicatorOFF;
-            TurnIndicatorFrontLeft.GetComponent<Light>().enabled = false;
+            PointLightTurnIndicatorFrontLeft.enabled = false;
             TurnIndicatorRearLeft.material = TurnIndicatorOFF;
-            TurnIndicatorRearLeft.GetComponent<Light>().enabled = false;
+            PointLightTurnIndicatorRearLeft.enabled = false;
             TurnIndicatorFrontRight.material = TurnIndicatorOFF;
-            TurnIndicatorFrontRight.GetComponent<Light>().enabled = false;
+            PointLightTurnIndicatorFrontRight.enabled = false;
             TurnIndicatorRearRight.material = TurnIndicatorOFF;
-            TurnIndicatorRearRight.GetComponent<Light>().enabled = false;
+            PointLightTurnIndicatorRearRight.enabled = false;
         }
 
         // Reverse Indicators
         if(ReverseIndicators)
         {
             ReverseIndicatorLeft.material = ReverseIndicatorON;
-            ReverseIndicatorLeft.GetComponent<Light>().enabled = true;
+            SpotLightReverseIndicatorLeft.enabled = true;
+            PointLightReverseIndicatorLeft.enabled = true;
             ReverseIndicatorRight.material = ReverseIndicatorON;
-            ReverseIndicatorRight.GetComponent<Light>().enabled = true;
+            SpotLightReverseIndicatorRight.enabled = true;
+            PointLightReverseIndicatorRight.enabled = true;
         }
         else
         {
           ReverseIndicatorLeft.material = ReverseIndicatorOFF;
-          ReverseIndicatorLeft.GetComponent<Light>().enabled = false;
+          SpotLightReverseIndicatorLeft.enabled = false;
+          PointLightReverseIndicatorLeft.enabled = false;
           ReverseIndicatorRight.material = ReverseIndicatorOFF;
-          ReverseIndicatorRight.GetComponent<Light>().enabled = false;
+          SpotLightReverseIndicatorRight.enabled = false;
+          PointLightReverseIndicatorRight.enabled = false;
         }
     }
 }

@@ -10,13 +10,14 @@ public class DrivingMode : MonoBehaviour
     Autonomous.
     */
 
-    public VehicleTeleoperation VehicleTeleoperation;
+    public VehicleController VehicleController;
     public Text Label;
     private bool Mode;
 
-    private void OnEnable()
+    private void Start()
     {
-        Label.text = "Manual";
+        VehicleController.DrivingMode = 1;
+        Label.text = "Autonomous";
     }
 
     public void ToggleDrivingMode()
@@ -24,13 +25,13 @@ public class DrivingMode : MonoBehaviour
         Mode = !Mode;
         if(Mode)
         {
-            VehicleTeleoperation.DrivingMode = 1;
-            Label.text = "Autonomous";
+            VehicleController.DrivingMode = 0;
+            Label.text = "Manual";
         }
         else
         {
-            VehicleTeleoperation.DrivingMode = 0;
-            Label.text = "Manual";
+            VehicleController.DrivingMode = 1;
+            Label.text = "Autonomous";
         }
     }
 }
