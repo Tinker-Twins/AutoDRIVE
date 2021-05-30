@@ -15,6 +15,3 @@ AutoDRIVE DevKit consists of the following software components:
 
 - [SCSS Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/SCSS%20Toolkit)
   - [SCM Webapp](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-DevKit/SCSS%20Toolkit/autodrive_scm)
-
-<p align="justify">
-<i><b>Note:</b> This version of AutoDRIVE DevKit has been tested with AutoDRIVE Simulator only, since AutoDRIVE Testbed is currently under development.</i>
