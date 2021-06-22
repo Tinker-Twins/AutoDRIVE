@@ -63,6 +63,8 @@ We encourage you to take a look at the following presentations to gain a better 
 |:------------------:|:-------------------:|
 | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Simulator%20Pitch%20Video.png" width="500">](https://youtu.be/i7R79jwnqlg) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Testbed%20Pitch%20Video.png" width="500">](https://youtu.be/YFQzyfXV6Rw) |
 | [AutoDRIVE Simulator Pitch Video](https://youtu.be/i7R79jwnqlg) | [AutoDRIVE Testbed Pitch Video](https://youtu.be/YFQzyfXV6Rw) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/SRMIST%20FYP%20Viva%20Voce.png" width="500">](https://youtu.be/2FByDOkDxMc) |  |
+| [SRMIST UG Final Year Project Viva Voce](https://youtu.be/2FByDOkDxMc) |  |
 |                    |                     |
 
 ### Demonstrations
