@@ -42,7 +42,7 @@ Implementation demonstrations are available on [YouTube](https://youtube.com/pla
 
 ## Citation
 
-We encourage you to cite the following paper if you use any part of this project for your research:
+We encourage you to cite the [following paper](https://arxiv.org/abs/2103.10030) if you use any part of this project for your research:
 
 ```bibtex
 @eprint{AutoDRIVE-Simulator-2021,
