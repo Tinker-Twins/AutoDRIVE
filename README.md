@@ -42,8 +42,9 @@ Implementation demonstrations are available on [YouTube](https://youtube.com/pla
 
 ## Citation
 
-We encourage you to cite the [following paper](https://arxiv.org/abs/2103.10030) if you use any part of this project for your research:
+We encourage you to cite the following papers if you use any part of this project for your research:
 
+#### [AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education](https://arxiv.org/abs/2103.10030)
 ```bibtex
 @eprint{AutoDRIVE-Simulator-2021,
       title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education},
@@ -54,3 +55,4 @@ We encourage you to cite the [following paper](https://arxiv.org/abs/2103.10030)
       primaryClass={cs.RO}
 }
 ```
+This work has been published in 2021 International Conference on Control, Robotics and Intelligent System (CCRIS). The publication can be found on [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3483845.3483846).
