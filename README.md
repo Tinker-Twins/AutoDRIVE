@@ -62,4 +62,4 @@ location = {Qingdao, China},
 series = {CCRIS'21}
 }
 ```
-This work has been published in 2021 International Conference on Control, Robotics and Intelligent System (CCRIS). The publication can be found on [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3483845.3483846).
+This work has been published in **2021 International Conference on Control, Robotics and Intelligent System (CCRIS).** The publication can be found on [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3483845.3483846).
