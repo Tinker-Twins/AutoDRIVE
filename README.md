@@ -42,15 +42,24 @@ Implementation demonstrations are available on [YouTube](https://youtube.com/pla
 
 ## Citation
 
-We encourage you to cite the following paper if you use any part of this project for your research:
+We encourage you to cite the following papers if you use any part of this project for your research:
 
+#### [AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education](https://arxiv.org/abs/2103.10030)
 ```bibtex
-@eprint{AutoDRIVE-Simulator-2021,
-      title={AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education},
-      author={Tanmay Vilas Samak and Chinmay Vilas Samak and Ming Xie},
-      year={2021},
-      eprint={2103.10030},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
+@inproceedings{AutoDRIVE-Simulator-2021,
+author = {Samak, Tanmay Vilas and Samak, Chinmay Vilas and Xie, Ming},
+title = {AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education},
+year = {2021},
+isbn = {9781450390453},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3483845.3483846},
+doi = {10.1145/3483845.3483846},
+booktitle = {2021 2nd International Conference on Control, Robotics and Intelligent System},
+pages = {1–5},
+numpages = {5},
+location = {Qingdao, China},
+series = {CCRIS'21}
 }
 ```
+This work has been published in **2021 International Conference on Control, Robotics and Intelligent System (CCRIS).** The publication can be found on [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3483845.3483846).
