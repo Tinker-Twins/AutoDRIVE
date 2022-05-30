@@ -1,4 +1,4 @@
-# AutoDRIVE DevKit | ROS Package
+# AutoDRIVE Devkit | ROS Package
 
 <p align="justify">
 This directory hosts the <code>autodrive</code> ROS package, which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
@@ -6,13 +6,13 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 ## SETUP
 
-1. Clone `AutoDRIVE-DevKit` branch of the `AutoDRIVE` repository.
+1. Clone `AutoDRIVE-Devkit` branch of the `AutoDRIVE` repository.
     ```bash
-    $ git clone --single-branch --branch AutoDRIVE-DevKit https://github.com/Tinker-Twins/AutoDRIVE.git
+    $ git clone --single-branch --branch AutoDRIVE-Devkit https://github.com/Tinker-Twins/AutoDRIVE.git
     ```
 2. Move the `autodrive` ROS package to the source space (`src`) of your catkin workspace.
     ```bash
-    $ mv ~/AutoDRIVE-DevKit/autodrive_ros/autodrive ~/catkin_ws/src/
+    $ mv ~/AutoDRIVE-Devkit/autodrive_ros/autodrive ~/catkin_ws/src/
     ```
 3. Build the package.
     ```bash
