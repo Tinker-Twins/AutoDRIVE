@@ -1,4 +1,4 @@
-# AutoDRIVE DevKit | C++ API
+# AutoDRIVE Devkit | C++ API
 
 <p align="justify">
 This directory hosts the C++ API for AutoDRIVE, which can be used to develop high performance autonomous driving algorithms.
@@ -6,9 +6,9 @@ This directory hosts the C++ API for AutoDRIVE, which can be used to develop hig
 
 ## SETUP
 
-1. Clone `AutoDRIVE-DevKit` branch of the `AutoDRIVE` repository.
+1. Clone `AutoDRIVE-Devkit` branch of the `AutoDRIVE` repository.
     ```bash
-    $ git clone --single-branch --branch AutoDRIVE-DevKit https://github.com/Tinker-Twins/AutoDRIVE.git
+    $ git clone --single-branch --branch AutoDRIVE-Devkit https://github.com/Tinker-Twins/AutoDRIVE.git
     ```
 2. Build the source code using the `build.sh` shell script.
     ```bash
