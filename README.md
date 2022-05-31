@@ -36,8 +36,8 @@ AutoDRIVE Simulator is the digital twin of the AutoDRIVE Testbed, which enables 
 </p>
 
 - **Source Branch:** [AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Simulator)
-- **Latest Release:** [AutoDRIVE Simulator 0.1.1](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.1.1)
-- **Upcoming Release:** AutoDRIVE Simulator 0.2.0 is currently under development.
+- **Latest Release:** [AutoDRIVE Simulator 0.2.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.2.0)
+- **Upcoming Release:** AutoDRIVE Simulator 0.3.0 is currently under development.
 
 ## AutoDRIVE Devkit
 
