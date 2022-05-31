@@ -1,0 +1,9 @@
+<launch>
+
+	<!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive" type="server.py" />
+
+	<!-- AutoDRIVE AD Stack -->
+	<node name="autodrive_ad_stack" pkg="autodrive" type="ad_stack" output="screen" />
+
+</launch>
