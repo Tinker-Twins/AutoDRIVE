@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Global Parameter -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- Nigel Remote Teleoperation -->
+  <node pkg="autodrive" type="teleop.py" name="testbed_teleop" output="screen">
+  </node>
+
+</launch>
