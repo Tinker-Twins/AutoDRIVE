@@ -14,4 +14,6 @@ AutoDRIVE Devkit consists of the following software components:
   - [C++ API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_cpp)
 
 - [Smart City Software Stack (SCSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit)
+  - [SCM Server](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
+  - [SCM Database](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
   - [SCM Webapp](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
