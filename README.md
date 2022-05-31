@@ -22,8 +22,8 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 </p>
 
 - **Source Branch:** [AutoDRIVE Testbed](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed)
-- **Latest Release:** None
-- **Upcoming Release:** AutoDRIVE Testbed 0.1.0 is currently under development.
+- **Latest Release:** [AutoDRIVE Testbed 0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Testbed-0.1.0)
+- **Upcoming Release:** AutoDRIVE Testbed 0.2.0 is currently under development.
 
 ## AutoDRIVE Simulator
 
