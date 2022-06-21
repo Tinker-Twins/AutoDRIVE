@@ -3,6 +3,9 @@
   <b>An Integrated Platform for Autonomous Driving Research and Education</b>
 </p>
 
+![Github Stars](https://badgen.net/github/stars/Tinker-Twins/AutoDRIVE?icon=github&label=stars)
+![Github Forks](https://badgen.net/github/forks/Tinker-Twins/AutoDRIVE?icon=github&label=forks)
+
 ## Project Overview
 
 ![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Overview.png)
