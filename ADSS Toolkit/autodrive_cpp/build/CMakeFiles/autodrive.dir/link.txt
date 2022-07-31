@@ -1,2 +1,0 @@
-/usr/bin/ar qc libautodrive.a  CMakeFiles/autodrive.dir/src/autodrive.cpp.o
-/usr/bin/ranlib libautodrive.a
