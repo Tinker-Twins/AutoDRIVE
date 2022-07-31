@@ -5,7 +5,10 @@
 	<!-- AutoDRIVE-ROS Bridge -->
 	<node name="autodrive_ros_bridge" pkg="autodrive" type="server.py"/>
 
-	<!-- AutoDRIVE AD Stack -->
-	<node name="autodrive_ad_stack" pkg="autodrive" type="ad_stack"/>
+	<!-- AutoDRIVE ADSS -->
+	<node name="autodrive_adss" pkg="autodrive" type="adss"/>
+
+	<!-- AutoDRIVE SCSS -->
+	<node name="autodrive_scss" pkg="autodrive" type="scss"/>
 
 </launch>

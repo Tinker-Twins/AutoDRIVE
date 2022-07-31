@@ -5,8 +5,22 @@
 # Go into the directory where this bash script is contained.
 cd `dirname $0`
 
-# Build (compile) the project and store output in the dedicated output directory.
+# Install required dependencies
+sudo apt-get install -y libuv1-dev libssl-dev libz-dev
+git clone https://github.com/uWebSockets/uWebSockets
+cd uWebSockets
+git checkout e94b6e1
+cd ..
+
+# Build (compile) the project and store output in the dedicated `build` directory.
 mkdir -p build
 cd build
 cmake ..
-make $*
+make
+cd ..
+
+# Create symbolic links to websocket library
+sudo ln -sf /usr/lib64/libuWS.so /usr/lib/libuWS.so
+
+# Clean the repository
+sudo rm -r uWebSockets

@@ -4,22 +4,21 @@ DROP TABLE IF EXISTS TrafficLights;
 
 CREATE TABLE Vehicles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    posX FLOAT NOT NULL,
-    posY FLOAT NOT NULL,
+    pos_x FLOAT NOT NULL,
+    pos_y FLOAT NOT NULL,
     yaw FLOAT NOT NULL
 );
 
 CREATE TABLE TrafficSigns (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    posX FLOAT NOT NULL,
-    posY FLOAT NOT NULL,
+    pos_x FLOAT NOT NULL,
+    pos_y FLOAT NOT NULL,
     name TEXT NOT NULL
 );
 
-
 CREATE TABLE TrafficLights (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    posX FLOAT NOT NULL,
-    posY FLOAT NOT NULL,
+    pos_x FLOAT NOT NULL,
+    pos_y FLOAT NOT NULL,
     status TEXT NOT NULL
 );

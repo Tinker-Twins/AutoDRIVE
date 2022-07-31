@@ -5,4 +5,4 @@
 cd build
 
 # Run the compiled executable
-./autodrive
+./example

@@ -2,9 +2,9 @@ import sqlite3
 from flask import Flask, render_template, request
 
 DTState = 'Vehicles'
-VData = [(1, 1.384, 0.655, 5.498)] # (id, posX, posY, yaw)
-TSData = [(1, 0.901, 0.835, 'Left Curve'), (2, 1.859, 0.835, 'Right Curve'), (3, 0.901, 0.475, 'Right Curve'), (4, 1.859, 0.475, 'Left Curve')] # (id, posX, posY, name)
-TLData = [(1, 1.204, 1.130, 'Green'), (2, 1.564, 1.130, 'Green'), (3, 1.204, 0.180, 'Green'), (4, 1.564, 0.180, 'Green')] # (id, posX, posY, status)
+VData = [(1, 1.384, 0.655, 5.498)] # (id, pos_x, pos_y, yaw)
+TSData = [(1, 0.901, 0.835, 'Left Curve'), (2, 1.859, 0.835, 'Right Curve'), (3, 0.901, 0.475, 'Right Curve'), (4, 1.859, 0.475, 'Left Curve')] # (id, pos_x, pos_y, name)
+TLData = [(1, 1.204, 1.130, 'Green'), (2, 1.564, 1.130, 'Green'), (3, 1.204, 0.180, 'Green'), (4, 1.564, 0.180, 'Green')] # (id, pos_x, pos_y, status)
 TL1State = TL2State = TL3State = TL4State = 'Green'
 
 app = Flask(__name__)

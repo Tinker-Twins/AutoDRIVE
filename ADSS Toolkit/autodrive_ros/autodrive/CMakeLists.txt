@@ -10,11 +10,11 @@ project(autodrive)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-	std_msgs
+  std_msgs
   sensor_msgs
-	nav_msgs
+  nav_msgs
   tf
-	cmake_modules
+  cmake_modules
 )
 
 ## System dependencies are found with CMake's conventions
@@ -153,7 +153,8 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/autodrive_node.cpp)
-add_executable(ad_stack src/ad_stack.cpp)
+add_executable(adss src/adss.cpp)
+add_executable(scss src/scss.cpp)
 add_executable(lidar_odometer src/lidar_odometer.cpp)
 
 ## Rename C++ executable without prefix
@@ -170,7 +171,8 @@ add_executable(lidar_odometer src/lidar_odometer.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(ad_stack ${catkin_LIBRARIES})
+target_link_libraries(adss ${catkin_LIBRARIES})
+target_link_libraries(scss ${catkin_LIBRARIES})
 target_link_libraries(lidar_odometer ${PROJECT_NAME} ${catkin_LIBRARIES})
 
 #############
@@ -191,6 +193,7 @@ catkin_install_python(PROGRAMS
   scripts/bridge.py
   scripts/config.py
   scripts/teleop.py
+  scripts/nav_ctrl.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

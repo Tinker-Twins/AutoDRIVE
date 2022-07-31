@@ -25,10 +25,16 @@ class Bridge(object):
         rospy.init_node('autodrive_ros_bridge') # Initialize node
         self.cv_bridge = CvBridge()
         self.callbacks = {
-            '/autodrive/ego_vehicle/throttle_command': self.callback_throttle_command,
-            '/autodrive/ego_vehicle/steering_command': self.callback_steering_command,
-            '/autodrive/ego_vehicle/headlights_command': self.callback_headlights_command,
-            '/autodrive/ego_vehicle/indicators_command': self.callback_indicators_command
+            # Vehicle data subscriber callbacks
+            '/autodrive/v1/throttle_command': self.callback_throttle_command,
+            '/autodrive/v1/steering_command': self.callback_steering_command,
+            '/autodrive/v1/headlights_command': self.callback_headlights_command,
+            '/autodrive/v1/indicators_command': self.callback_indicators_command,
+            # Traffic light data subscriber callbacks
+            '/autodrive/tl1/command': self.callback_tl1_command,
+            '/autodrive/tl2/command': self.callback_tl2_command,
+            '/autodrive/tl3/command': self.callback_tl3_command,
+            '/autodrive/tl4/command': self.callback_tl4_command
         }
         # Subscribers
         self.subscribers = [rospy.Subscriber(e.topic, msg_types[e.type], self.callbacks[e.topic])
@@ -40,6 +46,11 @@ class Bridge(object):
     #########################################################
     # ROS MESSAGE GENERATING FUNCTIONS
     #########################################################
+
+    def create_int_msg(self, val):
+        i = Int32()
+        i.data = val
+        return i
 
     def create_float_msg(self, val):
         f = Float32()
@@ -115,9 +126,11 @@ class Bridge(object):
     # ROS PUBLISHER FUNCTIONS
     #########################################################
 
-    def publish_actuator_feedbacks(self, throttle, steering_angle):
+    # VEHICLE DATA PUBLISHER FUNCTIONS
+
+    def publish_actuator_feedbacks(self, throttle, steering):
         self.publishers['pub_throttle'].publish(self.create_float_msg(throttle))
-        self.publishers['pub_steering_angle'].publish(self.create_float_msg(steering_angle))
+        self.publishers['pub_steering'].publish(self.create_float_msg(steering))
 
     def publish_encoder_data(self, encoder_angles):
         self.publishers['pub_left_encoder'].publish(self.create_joint_state_msg(encoder_angles[0], "left_encoder", "left_encoder"))
@@ -132,13 +145,23 @@ class Bridge(object):
     def publish_lidar_scan(self, lidar_scan_rate, lidar_range_array, lidar_intensity_array):
         self.publishers['pub_lidar'].publish(self.create_laser_scan_msg(lidar_scan_rate, lidar_range_array, lidar_intensity_array))
 
-    def publish_camera_images(self, front_image, rear_image):
-        self.publishers['pub_front_camera'].publish(self.create_image_msg(front_image, "front_camera"))
-        self.publishers['pub_rear_camera'].publish(self.create_image_msg(rear_image, "rear_camera"))
+    def publish_camera_images(self, front_camera_image, rear_camera_image):
+        self.publishers['pub_front_camera'].publish(self.create_image_msg(front_camera_image, "front_camera"))
+        self.publishers['pub_rear_camera'].publish(self.create_image_msg(rear_camera_image, "rear_camera"))
+
+    # TRAFFIC LIGHT DATA PUBLISHER FUNCTIONS
+
+    def publish_tl_states(self, tl1_state, tl2_state, tl3_state, tl4_state):
+        self.publishers['pub_tl1_state'].publish(self.create_int_msg(tl1_state))
+        self.publishers['pub_tl2_state'].publish(self.create_int_msg(tl2_state))
+        self.publishers['pub_tl3_state'].publish(self.create_int_msg(tl3_state))
+        self.publishers['pub_tl4_state'].publish(self.create_int_msg(tl4_state))
 
     #########################################################
     # ROS SUBSCRIBER CALLBACKS
     #########################################################
+
+    # VEHICLE DATA SUBSCRIBER CALLBACKS
 
     def callback_throttle_command(self, throttle_command):
         config.throttle_command = np.round(throttle_command.data, 3)
@@ -151,3 +174,17 @@ class Bridge(object):
 
     def callback_indicators_command(self, indicators_command):
         config.indicators_command = indicators_command.data
+
+    # TRAFFIC LIGHT DATA SUBSCRIBER CALLBACKS
+
+    def callback_tl1_command(self, tl1_command):
+        config.tl1_command = tl1_command.data
+
+    def callback_tl2_command(self, tl2_command):
+        config.tl2_command = tl2_command.data
+
+    def callback_tl3_command(self, tl3_command):
+        config.tl3_command = tl3_command.data
+
+    def callback_tl4_command(self, tl4_command):
+        config.tl4_command = tl4_command.data
