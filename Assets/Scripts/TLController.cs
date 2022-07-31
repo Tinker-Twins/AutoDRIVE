@@ -23,7 +23,7 @@ public class TLController : MonoBehaviour
     public Material GreenLightOFF;
     public Material GreenLightON;
 
-    private int TLState = 0; // 0 = Red, 1 = Yellow, 2 = Green
+    public int TLState = 0; // 0 = Red, 1 = Yellow, 2 = Green
 
     public int CurrentState
     {

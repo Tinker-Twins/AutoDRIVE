@@ -16,22 +16,19 @@ public class Socket : MonoBehaviour
     public Button ConnectionButton; // GUI button
     public Text ConnectionLabel; // GUI button label
 
-    public VehicleController VehicleController; // `VehicleController` reference
-    public VehicleLighting VehicleLighting; // `VehicleLighting` reference
-    public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
-    public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
-    public IPS IPS; // `IPS` reference
-    public IMU IMU; // `IMU` reference
-    public LIDAR LIDAR; // `LIDAR` reference
-    public Camera FrontCamera; // Vehicle front camera
+    public VehicleController[] VehicleControllers; // `VehicleController` references
+    public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
+    public WheelEncoder[] LeftWheelEncoders; // `WheelEncoder` references for left wheel
+    public WheelEncoder[] RightWheelEncoders; // `WheelEncoder` references for right wheel
+    public IPS[] IndoorPositioningSystems; // `IPS` references
+    public IMU[] InertialMeasurementUnits; // `IMU` references
+    public LIDAR[] LIDARUnits; // `LIDAR` references
     private string LIDARRangeArray;
     private string LIDARIntensityArray;
-    public Camera RearCamera; // Vehicle rear camera
+    public Camera[] FrontCameras; // Vehicle front camera references
+    public Camera[] RearCameras; // Vehicle rear camera references
 
-    public TLController TL1; // Traffic light controller
-    public TLController TL2; // Traffic light controller
-    public TLController TL3; // Traffic light controller
-    public TLController TL4; // Traffic light controller
+    public TLController[] TrafficLightControllers; // Traffic light controller references
 
     // Use this for initialization
     void Start()
@@ -40,6 +37,15 @@ public class Socket : MonoBehaviour
         socket.On("connect", OnConnect); // Declare connection event `connect` and corresponding event handler `OnConnect`
         socket.On("Bridge", OnBridge); // Declare event `AutonomousMode` and corresponding event handler `OnAutonomousMode`
         socket.On("disconnect", OnDisconnect); // Declare disconnection event `disconnect` and corresponding event handler `OnDisconnect`
+        // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
+        for(int i=1;i<FrontCameras.Length;i++)
+        {
+            FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        }
+        for(int i=1;i<RearCameras.Length;i++)
+        {
+            RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        }
     }
 
     void OnConnect(SocketIOEvent obj)
@@ -63,18 +69,27 @@ public class Socket : MonoBehaviour
         //Debug.Log("Bridge");
         JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
         //Debug.Log(obj.data);
-
-        TL1.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 1").str); // Set traffic light
-        TL2.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 2").str); // Set traffic light
-        TL3.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 3").str); // Set traffic light
-        TL4.CurrentState = int.Parse(jsonObject.GetField("Traffic Light 4").str); // Set traffic light
-
-        if(VehicleController.CurrentDrivingMode == 1)
+        // Write data to traffic lights
+        if(TrafficLightControllers.Length != 0)
         {
-            VehicleController.CurrentThrottle = float.Parse(jsonObject.GetField("Throttle").str); // Set throttle
-            VehicleController.CurrentSteeringAngle = float.Parse(jsonObject.GetField("Steering").str); // Set steering angle
-            VehicleLighting.Headlights = int.Parse(jsonObject.GetField("Headlights").str); // Set headlights
-            VehicleLighting.Indicators = int.Parse(jsonObject.GetField("Indicators").str); // Set indicators
+            for(int i=0;i<TrafficLightControllers.Length;i++)
+            {
+                TrafficLightControllers[i].CurrentState = int.Parse(jsonObject.GetField("TL"+(i+1).ToString()+" State").str); // Set traffic light
+            }
+        }
+        // Write data to vehicles
+        if(VehicleControllers.Length != 0)
+        {
+            for(int i=0;i<VehicleControllers.Length;i++)
+            {
+              if(VehicleControllers[i].CurrentDrivingMode == 1)
+              {
+                  VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                  VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                  VehicleLightings[i].Headlights = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Headlights").str); // Set headlights
+                  VehicleLightings[i].Indicators = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Indicators").str); // Set indicators
+              }
+            }
         }
         EmitTelemetry(obj); // Emit telemetry data
     }
@@ -85,32 +100,47 @@ public class Socket : MonoBehaviour
         {
             //Debug.Log("Attempting to write data...");
             Dictionary<string, string> data = new Dictionary<string, string>(); // Create new `data` dictionary
-            data["Throttle"] = VehicleController.CurrentThrottle.ToString("F3"); // Get throttle
-            data["Steering"] = VehicleController.CurrentSteeringAngle.ToString("F3"); // Get steering angle
-            data["Encoder Ticks"] = LeftWheelEncoder.Ticks.ToString() + " " + RightWheelEncoder.Ticks.ToString(); // Get encoder ticks
-            data["Encoder Angles"] = LeftWheelEncoder.Angle.ToString("F3") + " " + RightWheelEncoder.Angle.ToString("F3"); // Get encoder angles
-            data["Position"] = IPS.CurrentPosition[0].ToString("F3") + " " + IPS.CurrentPosition[1].ToString("F3") + " " + IPS.CurrentPosition[2].ToString("F3"); // Get vehicle position
-            data["Orientation Quaternion"] = IMU.CurrentOrientationQuaternion[0].ToString("F3") + " " + IMU.CurrentOrientationQuaternion[1].ToString("F3") + " " + IMU.CurrentOrientationQuaternion[2].ToString("F3") + " " + IMU.CurrentOrientationQuaternion[3].ToString("F3"); // Get vehicle orientation (Quaternion)
-            data["Orientation Euler Angles"] = IMU.CurrentOrientationEulerAngles[0].ToString("F3") + " " + IMU.CurrentOrientationEulerAngles[1].ToString("F3") + " " + IMU.CurrentOrientationEulerAngles[2].ToString("F3"); // Get vehicle orientation (Euler Angles)
-            data["Angular Velocity"] = IMU.CurrentAngularVelocity[0].ToString("F3") + " " + IMU.CurrentAngularVelocity[1].ToString("F3") + " " + IMU.CurrentAngularVelocity[2].ToString("F3"); // Get angular velocity of the vehicle
-            data["Linear Acceleration"] = IMU.CurrentLinearAcceleration[0].ToString("F3") + " " + IMU.CurrentLinearAcceleration[1].ToString("F3") + " " + IMU.CurrentLinearAcceleration[2].ToString("F3"); // Get linear acceleration of the vehicle
-            data["LIDAR Scan Rate"] = LIDAR.CurrentScanRate.ToString("F3"); // Get LIDAR scan rate
-            if(LIDAR.CurrentRangeArray[359] != null)
+            // Read data from traffic lights
+            if(TrafficLightControllers.Length != 0)
             {
-                for(int i=0;i<359;i++)
+                for(int i=0;i<TrafficLightControllers.Length;i++)
                 {
-                      LIDARRangeArray += LIDAR.CurrentRangeArray[i] + " ";
-                      LIDARIntensityArray += LIDAR.CurrentIntensityArray[i] + " ";
+                    data["TL"+(i+1).ToString()+" State"] = TrafficLightControllers[i].CurrentState.ToString(); // Get status
                 }
-                LIDARRangeArray += LIDAR.CurrentRangeArray[359];
-                LIDARIntensityArray += LIDAR.CurrentIntensityArray[359];
             }
-            data["LIDAR Range Array"] = LIDARRangeArray; // Get LIDAR range array
-            data["LIDAR Intensity Array"] = LIDARIntensityArray; // Get LIDAR intensity array
-            LIDARRangeArray = ""; // Reset LIDAR range array for next measurement
-            LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
-            data["Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCamera)); // Get front camera image
-            data["Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCamera)); // Get rear camera image
+            // Read data from vehicles
+            if(VehicleControllers.Length != 0)
+            {
+                for(int i=0;i<VehicleControllers.Length;i++) // Assumed that VehicleControllers.Length >= others
+                {
+                    data["V"+(i+1).ToString()+" Throttle"] = VehicleControllers[i].CurrentThrottle.ToString("F3"); // Get throttle
+                    data["V"+(i+1).ToString()+" Steering"] = VehicleControllers[i].CurrentSteeringAngle.ToString("F3"); // Get steering angle
+                    data["V"+(i+1).ToString()+" Encoder Ticks"] = LeftWheelEncoders[i].Ticks.ToString() + " " + RightWheelEncoders[i].Ticks.ToString(); // Get encoder ticks
+                    data["V"+(i+1).ToString()+" Encoder Angles"] = LeftWheelEncoders[i].Angle.ToString("F3") + " " + RightWheelEncoders[i].Angle.ToString("F3"); // Get encoder angles
+                    data["V"+(i+1).ToString()+" Position"] = IndoorPositioningSystems[i].CurrentPosition[0].ToString("F3") + " " + IndoorPositioningSystems[i].CurrentPosition[1].ToString("F3") + " " + IndoorPositioningSystems[i].CurrentPosition[2].ToString("F3"); // Get vehicle position
+                    data["V"+(i+1).ToString()+" Orientation Quaternion"] = InertialMeasurementUnits[i].CurrentOrientationQuaternion[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[2].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[3].ToString("F3"); // Get vehicle orientation (Quaternion)
+                    data["V"+(i+1).ToString()+" Orientation Euler Angles"] = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2].ToString("F3"); // Get vehicle orientation (Euler Angles)
+                    data["V"+(i+1).ToString()+" Angular Velocity"] = InertialMeasurementUnits[i].CurrentAngularVelocity[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[2].ToString("F3"); // Get angular velocity of the vehicle
+                    data["V"+(i+1).ToString()+" Linear Acceleration"] = InertialMeasurementUnits[i].CurrentLinearAcceleration[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[2].ToString("F3"); // Get linear acceleration of the vehicle
+                    data["V"+(i+1).ToString()+" LIDAR Scan Rate"] = LIDARUnits[i].CurrentScanRate.ToString("F3"); // Get LIDAR scan rate
+                    if(LIDARUnits[i].CurrentRangeArray[359] != null)
+                    {
+                        for(int j=0;j<359;j++)
+                        {
+                            LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
+                            LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[j] + " ";
+                        }
+                        LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
+                        LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[359];
+                    }
+                    data["V"+(i+1).ToString()+" LIDAR Range Array"] = LIDARRangeArray; // Get LIDAR range array
+                    data["V"+(i+1).ToString()+" LIDAR Intensity Array"] = LIDARIntensityArray; // Get LIDAR intensity array
+                    LIDARRangeArray = ""; // Reset LIDAR range array for next measurement
+                    LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
+                    data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image
+                    data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image
+                }
+            }
             socket.Emit("Bridge", new JSONObject(data)); // Write data to server
         });
     }

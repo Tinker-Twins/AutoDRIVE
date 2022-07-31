@@ -9,37 +9,44 @@ using UnityEngine.UI;
 public class DataRecorder : MonoBehaviour
 {
     /*
-    This script logs sensory data of the ego vehicle and saves it to the specified directory.
+    This script records sensory data of the all vehicles and states of all
+    traffic lights, and logs it to the specified directory.
     */
 
-    public const string CSVFileName = "Driving Log.csv";
-    public const string CameraFramesDirectory = "Camera Frames";
-    private string saveLocation = "";
-    public Text RecordStatus;
+    public float RecordRate = 10.0f; // Data recording rate (Hz)
+    public Text RecordStatus; // Data recording status
+    private string saveLocation = ""; // Data saving location
 
-    public GameObject Vehicle; // Vehicle gameobject
-    public Rigidbody VehicleRigidBody; // Rigidbody component of the vehicle
-    public VehicleController VehicleController; // `VehicleController` reference
-    public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
-    public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
-    public IPS IPS; // `IPS` reference
-    public IMU IMU; // `IMU` reference
-    public LIDAR LIDAR; // `LIDAR` reference
-    public Camera FrontCamera; // Vehicle front camera
-    public Camera RearCamera; // Vehicle rear camera
+    [HideInInspector] public string[] VehicleDataFileNames; // CSV file names for storing data of vehicle(s)
+    [HideInInspector] public string[] VehicleCameraDirectories; // Directory names for storing camera frames from vehicle(s)
+    [HideInInspector] public string[] TrafficLightDataFileNames; // CSV file names for storing data of traffic light(s)
 
+    public GameObject[] Vehicles; // Vehicle gameobject references
+    public Rigidbody[] VehicleRigidBodies; // Rigidbody component of the vehicles
+    public VehicleController[] VehicleControllers; // `VehicleController` references
+    public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
+    public WheelEncoder[] LeftWheelEncoders; // `WheelEncoder` references for left wheel
+    public WheelEncoder[] RightWheelEncoders; // `WheelEncoder` references for right wheel
+    public IPS[] IndoorPositioningSystems; // `IPS` references
+    public IMU[] InertialMeasurementUnits; // `IMU` references
+    public LIDAR[] LIDARUnits; // `LIDAR` references
     private string LIDARRangeArray;
+    public Camera[] FrontCameras; // Vehicle front camera references
+    public Camera[] RearCameras; // Vehicle rear camera references
 
-    private Queue<DataSample> dataSamples;
+    public TLController[] TrafficLightControllers; // Traffic light controller references
+
     private int totalSamples;
+    private int recordedSamples;
     private bool recording = false;
     private bool saveRecording = false;
     private bool isRecording = false;
     private bool isSaving = false;
-    private Vector3 saved_position;
-    private Quaternion saved_rotation;
-    private float saved_velocity;
 
+    private List<Queue<VehicleDataSample>> VehicleDataSamples = new List<Queue<VehicleDataSample>>();
+    private List<Queue<TrafficLightDataSample>> TrafficLightDataSamples = new List<Queue<TrafficLightDataSample>>();
+    private List<Vector3> saved_positions = new List<Vector3>();
+    private List<Quaternion> saved_rotations = new List<Quaternion>();
 
     public bool RecordingStatus
     {
@@ -50,7 +57,16 @@ public class DataRecorder : MonoBehaviour
             if(value == true)
             {
           			//Debug.Log("Starting data recording...");
-          			dataSamples = new Queue<DataSample>();
+                // Create data sample queues for storing data of all vehicles
+                for(int i=0;i<VehicleControllers.Length;i++)
+                {
+                    VehicleDataSamples.Add(new Queue<VehicleDataSample>());
+                }
+                // Create data sample queues for storing data of all traffic lights
+                for(int i=0;i<TrafficLightControllers.Length;i++)
+                {
+                    TrafficLightDataSamples.Add(new Queue<TrafficLightDataSample>());
+                }
           			StartCoroutine(Sample());
             }
             else
@@ -58,11 +74,26 @@ public class DataRecorder : MonoBehaviour
                 //Debug.Log("Stopping data recording...");
                 StopCoroutine(Sample());
                 //Debug.Log("Writing data to disk...");
-          			// Save the vehicle coordinate parameters so as to reset after capturing data
-          			saved_position = Vehicle.transform.position;
-          			saved_rotation = Vehicle.transform.rotation;
-          			// Count samples captured to compute save percentage
-          			totalSamples = dataSamples.Count;
+          			// Save the vehicle(s) pose parameters so as to reset after capturing data
+                saved_positions = new List<Vector3>(); // Reset for next iteration
+                saved_rotations = new List<Quaternion>(); // Reset for next iteration
+                for(int i=0;i<Vehicles.Length;i++)
+                {
+                    saved_positions.Add(Vehicles[i].transform.position);
+                    saved_rotations.Add(Vehicles[i].transform.rotation);
+                }
+                // Count data samples captured to compute save percentage
+                totalSamples = 0; // Reset for next iteration
+          			// Count data samples captured from all vehicles
+                for(int i=0;i<VehicleControllers.Length;i++)
+                {
+                    totalSamples += VehicleDataSamples[i].Count;
+                }
+                // Count data samples captured from all traffic lights
+                for(int i=0;i<TrafficLightControllers.Length;i++)
+                {
+                    totalSamples += TrafficLightDataSamples[i].Count;
+                }
           			isSaving = true;
           			StartCoroutine(WriteSamplesToDisk());
             }
@@ -71,7 +102,18 @@ public class DataRecorder : MonoBehaviour
 
     public float getSavePercent()
     {
-        return (float)(totalSamples-dataSamples.Count)/totalSamples;
+        recordedSamples = 0; // Reset for next iteration
+        // Count data samples written from all vehicles
+        for(int i=0;i<VehicleControllers.Length;i++)
+        {
+            recordedSamples += VehicleDataSamples[i].Count;
+        }
+        // Count data samples written from all traffic lights
+        for(int i=0;i<TrafficLightControllers.Length;i++)
+        {
+            recordedSamples += TrafficLightDataSamples[i].Count;
+        }
+        return (float)(totalSamples-recordedSamples)/totalSamples;
     }
 
     public bool getSaveStatus()
@@ -86,17 +128,35 @@ public class DataRecorder : MonoBehaviour
       	return false;
     }
 
-    public float getSavedVelocity()
-    {
-        return saved_velocity;
-    }
-
     void Start() {
         recording = false;
         saveRecording = false;
         isRecording = false;
         isSaving = false;
         RecordStatus.text = "Record Data";
+        // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
+        for(int i=1;i<FrontCameras.Length;i++)
+        {
+            FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        }
+        for(int i=1;i<RearCameras.Length;i++)
+        {
+            RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        }
+        // Create CSV files and directories for storing data and camera frames of all vehicles
+        VehicleDataFileNames = new string[VehicleControllers.Length];
+        VehicleCameraDirectories = new string[VehicleControllers.Length];
+        for(int i=0;i<VehicleControllers.Length;i++)
+        {
+            VehicleDataFileNames[i] = "V"+(i+1).ToString()+" Log.csv";
+            VehicleCameraDirectories[i] = "V"+(i+1).ToString()+" Camera Frames";
+        }
+        // Create CSV files for storing data of all traffic lights
+        TrafficLightDataFileNames = new string[TrafficLightControllers.Length];
+        for(int i=0;i<TrafficLightControllers.Length;i++)
+        {
+            TrafficLightDataFileNames[i] = "TL"+(i+1).ToString()+" Log.csv";
+        }
     }
 
     void Update () {
@@ -130,28 +190,40 @@ public class DataRecorder : MonoBehaviour
 
     public IEnumerator Sample()
     {
-        // Start the co-routine to capture data every second.
-        yield return new WaitForSeconds(0.0666666666666667f);
+        // Start the co-routine to capture data at approximately every second.
+        yield return new WaitForSeconds(1/RecordRate);
 
         if (saveLocation != "")
         {
-            DataSample sample = new DataSample();
-            sample.timeStamp = System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff");
-            sample.position = Vehicle.transform.position;
-            sample.rotation = Vehicle.transform.rotation;
-            sample.throttle = VehicleController.CurrentThrottle;
-            sample.steeringAngle = VehicleController.CurrentSteeringAngle;
-            sample.leftEncoderTicks = LeftWheelEncoder.Ticks;
-            sample.rightEncoderTicks = RightWheelEncoder.Ticks;;
-            sample.positionX = IPS.CurrentPosition[0];
-            sample.positionY = IPS.CurrentPosition[1];
-            sample.yaw = IMU.CurrentOrientationEulerAngles[2];
-            sample.velocity = (float)System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleRigidBody.velocity).z,2);
-            dataSamples.Enqueue(sample);
-            sample = null; // Nullify the `sample` variable to avoid recording same data in next loop (may or may not be needed)
+            // Sample data from all vehicles
+            for(int i=0;i<VehicleControllers.Length;i++)
+            {
+                VehicleDataSample sample = new VehicleDataSample();
+                sample.timeStamp = System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff");
+                sample.position = Vehicles[i].transform.position;
+                sample.rotation = Vehicles[i].transform.rotation;
+                sample.throttle = VehicleControllers[i].CurrentThrottle;
+                sample.steeringAngle = VehicleControllers[i].CurrentSteeringAngle;
+                sample.leftEncoderTicks = LeftWheelEncoders[i].Ticks;
+                sample.rightEncoderTicks = RightWheelEncoders[i].Ticks;;
+                sample.positionX = IndoorPositioningSystems[i].CurrentPosition[0];
+                sample.positionY = IndoorPositioningSystems[i].CurrentPosition[1];
+                sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
+                sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z,2);
+                VehicleDataSamples[i].Enqueue(sample);
+                sample = null; // Nullify the `sample` variable to avoid recording same data in next loop (may or may not be needed)
+            }
+            // Sample data from all traffic lights
+            for(int i=0;i<TrafficLightControllers.Length;i++)
+            {
+                TrafficLightDataSample sample = new TrafficLightDataSample();
+                sample.timeStamp = System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff");
+                sample.state = TrafficLightControllers[i].CurrentState;
+                TrafficLightDataSamples[i].Enqueue(sample);
+                sample = null; // Nullify the `sample` variable to avoid recording same data in next loop (may or may not be needed)
+            }
         }
-
-        // Only reschedule if the data recording button hasn't toggled
+        // Only reschedule if the data recording button hasn't been toggled
         if (RecordingStatus)
         {
             StartCoroutine(Sample());
@@ -161,48 +233,67 @@ public class DataRecorder : MonoBehaviour
     public IEnumerator WriteSamplesToDisk()
     {
       	yield return new WaitForSeconds(0.000f); // Retrieve as fast as possible, while still allowing communication of main thread with screen
-      	if (dataSamples.Count > 0) {
-        		// Pull off a data sample from the queue
-        		DataSample sample = dataSamples.Dequeue();
-
-        		// Pysically move the vehicle to get the correct camera frame(s)
-        		Vehicle.transform.position = sample.position;
-        		Vehicle.transform.rotation = sample.rotation;
-
-            saved_velocity = sample.velocity; // Update `saved_velocity` variable
-
-        		// Capture and store the camera frame(s)
-        		string FrontCameraPath = WriteImage(FrontCamera, "Front_Camera_Frame", sample.timeStamp);
-        		string RearCameraPath = WriteImage(RearCamera, "Rear_Camera_Frame", sample.timeStamp);
-            if(LIDAR.CurrentRangeArray[359] != null)
+        // Write data from all vehicles to disk
+        for(int i=0;i<VehicleControllers.Length;i++)
+        {
+            while(VehicleDataSamples[i].Count > 0)
             {
-                for(int i=0;i<359;i++) LIDARRangeArray += LIDAR.CurrentRangeArray[i] + " ";
-                LIDARRangeArray += LIDAR.CurrentRangeArray[359];
+            		// Pull off a data sample from the queue
+            		VehicleDataSample sample = VehicleDataSamples[i].Dequeue();
+            		// Pysically move the vehicle(s) to get the correct camera frame(s)
+            		Vehicles[i].transform.position = sample.position;
+            		Vehicles[i].transform.rotation = sample.rotation;
+                // Update recorded velocity variable for i-th vehicle
+                VehicleLightings[i].RecordedVelocity = sample.velocity;
+            		// Capture and store the camera frame(s)
+            		string FrontCameraPath = WriteImage(FrontCameras[i], VehicleCameraDirectories[i], "Front_Camera_Frame", sample.timeStamp);
+            		string RearCameraPath = WriteImage(RearCameras[i], VehicleCameraDirectories[i], "Rear_Camera_Frame", sample.timeStamp);
+                if(LIDARUnits[i].CurrentRangeArray[359] != null)
+                {
+                    for(int j=0;j<359;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
+                    LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
+                }
+                // Log data
+            		string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}\n", sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks, sample.positionX, sample.positionY, sample.yaw, sample.velocity, FrontCameraPath, RearCameraPath, LIDARRangeArray);
+            		File.AppendAllText(Path.Combine(saveLocation, VehicleDataFileNames[i]), row);
+                LIDARRangeArray = ""; // Nullify the `LIDARRangeArray` variable to avoid concatinating new data with the old one
+                // Yield after each pass to avoid freezing the simulator upon entering the while loop
+                yield return new WaitForSeconds(0.000f);
             }
-            // Log data
-        		string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n", sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks, sample.positionX, sample.positionY, sample.yaw, sample.velocity, FrontCameraPath, RearCameraPath, LIDARRangeArray);
-        		File.AppendAllText(Path.Combine(saveLocation, CSVFileName), row);
-            LIDARRangeArray = ""; // Nullify the `LIDARRangeArray` variable to avoid concatinating new data with the old one
-    	}
-    	if (dataSamples.Count > 0) {
-      		// Request if there are more data samples to pull
-      		StartCoroutine(WriteSamplesToDisk());
-    	}
-    	else
-    	{
-      		// All data samples have been pulled, stop the recording
-      		StopCoroutine(WriteSamplesToDisk());
-      		isSaving = false;
-
-      		// Reset the vehicle to its saved coordinate parameters
-      		Vehicle.transform.position = saved_position;
-      		Vehicle.transform.rotation = saved_rotation;
-      		VehicleRigidBody.velocity = Vector3.zero;
-    	}
+            // Reset the vehicle(s) to corresponding saved pose parameters [sanity check]
+            Vehicles[i].transform.position = saved_positions[i];
+            Vehicles[i].transform.rotation = saved_rotations[i];
+            VehicleRigidBodies[i].velocity = Vector3.zero;
+        }
+        // Write data from all traffic lights to disk
+        for(int i=0;i<TrafficLightControllers.Length;i++)
+        {
+            while(TrafficLightDataSamples[i].Count > 0)
+            {
+            		// Pull off a data sample from the queue
+            		TrafficLightDataSample sample = TrafficLightDataSamples[i].Dequeue();
+                // Log data
+            		string row = string.Format("{0},{1}\n", sample.timeStamp, sample.state);
+            		File.AppendAllText(Path.Combine(saveLocation, TrafficLightDataFileNames[i]), row);
+                // Yield after each pass to avoid freezing the simulator upon entering the while loop
+                yield return new WaitForSeconds(0.000f);
+            }
+        }
+    		// All data samples have been pulled, stop the recording
+    		StopCoroutine(WriteSamplesToDisk());
+    		isSaving = false;
+    		// Reset the vehicle(s) to corresponding saved pose parameters
+        for(int i=0;i<Vehicles.Length;i++)
+        {
+            Vehicles[i].transform.position = saved_positions[i];
+            Vehicles[i].transform.rotation = saved_rotations[i];
+            VehicleRigidBodies[i].velocity = Vector3.zero;
+        }
     }
 
-    private string WriteImage(Camera camera, string prepend, string timestamp)
+    private string WriteImage(Camera camera, string folder, string prepend, string timestamp)
     {
+        // Create data sample queues for storing data of all vehicles
         camera.Render(); // Force camera update
         RenderTexture targetTexture = camera.targetTexture;
         RenderTexture.active = targetTexture;
@@ -211,7 +302,7 @@ public class DataRecorder : MonoBehaviour
         texture2D.Apply();
         byte[] image = texture2D.EncodeToJPG();
         UnityEngine.Object.DestroyImmediate(texture2D);
-        string directory = Path.Combine(saveLocation, CameraFramesDirectory);
+        string directory = Path.Combine(saveLocation, folder);
         string path = Path.Combine(directory, prepend + "_" + timestamp + ".jpg");
         File.WriteAllBytes(path, image);
         image = null; // Nullify the `image` variable to avoid recording same frame in next loop (may or may not be needed)
@@ -221,11 +312,15 @@ public class DataRecorder : MonoBehaviour
     private void OpenFolder(string location)
     {
         saveLocation = location;
-        Directory.CreateDirectory(Path.Combine(saveLocation, CameraFramesDirectory));
+        // Create directories
+        for(int i=0;i<VehicleCameraDirectories.Length;i++)
+        {
+            Directory.CreateDirectory(Path.Combine(saveLocation, VehicleCameraDirectories[i]));
+        }
     }
 }
 
-internal class DataSample
+internal class VehicleDataSample
 {
     public string timeStamp;
     public Vector3 position;
@@ -239,4 +334,11 @@ internal class DataSample
     public float positionY;
     public float yaw;
     public float velocity;
+}
+
+internal class TrafficLightDataSample
+{
+    public string timeStamp;
+    // State data
+    public int state;
 }

@@ -31,6 +31,8 @@ public class LIDAR : MonoBehaviour
 		public string[] CurrentRangeArray{get{return RangeArray;}}
 		public string[] CurrentIntensityArray{get{return IntensityArray;}}
 
+		private int layer_mask = 1 << 0; // Mask the `Default` layer to allow raycasting only against it
+
 		void FixedUpdate()
 		{
 			// LASER SCAN
@@ -40,7 +42,7 @@ public class LIDAR : MonoBehaviour
 			Ray LaserRay = new Ray(Scanner.transform.position, LaserVector); // Initialize a ray w.r.t. the vector at the origin of the `Scanner` transform
 			//Debug.DrawRay(Scanner.transform.position, LaserVector, Color.red); // Visually draw the raycast in scene for debugging purposes
 			RaycastHit MeasurementRayHit; // Initialize a raycast hit object
-			if(Physics.Raycast(LaserRay, out MeasurementRayHit)) CurrentMeasurement = (MeasurementRayHit.distance+MinimumRange).ToString("F2"); // Update the `CurrentMeasurement` value to the `hit distance` if the ray is colliding
+			if(Physics.Raycast(LaserRay, out MeasurementRayHit, layer_mask)) CurrentMeasurement = (MeasurementRayHit.distance+MinimumRange).ToString("F2"); // Update the `CurrentMeasurement` value to the `hit distance` if the ray is colliding
 			else CurrentMeasurement = "inf"; // Update the `CurrentMeasurement` value to `inf`, otherwise
 
 			timer = timer + Time.deltaTime; // Update timer
@@ -81,7 +83,7 @@ public class LIDAR : MonoBehaviour
 								Debug.DrawRay(Head.transform.position, LaserRayDirection, Color.red); // Visually draw the raycast in scene for debugging purposes (red color to indicate other rays)
 						}
 						*/
-						if(Physics.Raycast(Head.transform.position, LaserRayDirection, out hit, MaximumRange) && hit.distance>MinimumRange) RangeArray[i] = (hit.distance).ToString(); // Update the range measurement to the `hit distance` if the ray is colliding
+						if(Physics.Raycast(Head.transform.position, LaserRayDirection, out hit, MaximumRange, layer_mask) && hit.distance>MinimumRange) RangeArray[i] = (hit.distance).ToString(); // Update the range measurement to the `hit distance` if the ray is colliding
 						else RangeArray[i] = "inf"; // Update the range measurement to `inf`, otherwise
 
 						IntensityArray[i] = Intensity.ToString(); // Update the intensity

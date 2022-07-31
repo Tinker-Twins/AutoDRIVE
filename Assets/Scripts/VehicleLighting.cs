@@ -16,6 +16,7 @@ public class VehicleLighting : MonoBehaviour
 
     public VehicleController VehicleController;
     public DataRecorder DataRecorder;
+    [HideInInspector] public float RecordedVelocity;
 
     private float timer = 0f;
 
@@ -26,10 +27,6 @@ public class VehicleLighting : MonoBehaviour
     public Renderer HeadlightLeft2;
     public Renderer HeadlightRight1;
     public Renderer HeadlightRight2;
-    public Light SpotLightHeadlightLeft1;
-    public Light SpotLightHeadlightLeft2;
-    public Light SpotLightHeadlightRight1;
-    public Light SpotLightHeadlightRight2;
     public Light PointLightHeadlightLeft1;
     public Light PointLightHeadlightLeft2;
     public Light PointLightHeadlightRight1;
@@ -66,8 +63,6 @@ public class VehicleLighting : MonoBehaviour
     private bool ReverseIndicators = false;
     public Renderer ReverseIndicatorLeft;
     public Renderer ReverseIndicatorRight;
-    public Light SpotLightReverseIndicatorLeft;
-    public Light SpotLightReverseIndicatorRight;
     public Light PointLightReverseIndicatorLeft;
     public Light PointLightReverseIndicatorRight;
     public Material ReverseIndicatorOFF;
@@ -198,7 +193,7 @@ public class VehicleLighting : MonoBehaviour
         if (DataRecorder.getSaveStatus())
         {
             // Brake Lights
-            if(System.Math.Round(DataRecorder.getSavedVelocity(),1) == 0)
+            if(System.Math.Round(RecordedVelocity,1) == 0)
             {
                 Taillights = true;
             }
@@ -208,7 +203,7 @@ public class VehicleLighting : MonoBehaviour
             }
 
             // Reverse Indicators
-            if(System.Math.Round(DataRecorder.getSavedVelocity(),1) < 0)
+            if(System.Math.Round(RecordedVelocity,1) < 0)
             {
                 ReverseIndicators = true;
             }
@@ -248,16 +243,12 @@ public class VehicleLighting : MonoBehaviour
         if(HeadlightsLowBeam)
         {
             HeadlightLeft1.material = HeadlightON;
-            SpotLightHeadlightLeft1.enabled = true;
             PointLightHeadlightLeft1.enabled = true;
             HeadlightLeft2.material = HeadlightOFF;
-            SpotLightHeadlightLeft2.enabled = false;
             PointLightHeadlightLeft2.enabled = false;
             HeadlightRight1.material = HeadlightON;
-            SpotLightHeadlightRight1.enabled = true;
             PointLightHeadlightRight1.enabled = true;
             HeadlightRight2.material = HeadlightOFF;
-            SpotLightHeadlightRight2.enabled = false;
             PointLightHeadlightRight2.enabled = false;
         }
 
@@ -265,32 +256,24 @@ public class VehicleLighting : MonoBehaviour
         else if(HeadlightsHighBeam)
         {
             HeadlightLeft1.material = HeadlightON;
-            SpotLightHeadlightLeft1.enabled = true;
             PointLightHeadlightLeft1.enabled = true;
             HeadlightLeft2.material = HeadlightON;
-            SpotLightHeadlightLeft2.enabled = true;
             PointLightHeadlightLeft2.enabled = true;
             HeadlightRight1.material = HeadlightON;
-            SpotLightHeadlightRight1.enabled = true;
             PointLightHeadlightRight1.enabled = true;
             HeadlightRight2.material = HeadlightON;
-            SpotLightHeadlightRight2.enabled = true;
             PointLightHeadlightRight2.enabled = true;
         }
 
         else
         {
             HeadlightLeft1.material = HeadlightOFF;
-            SpotLightHeadlightLeft1.enabled = false;
             PointLightHeadlightLeft1.enabled = false;
             HeadlightLeft2.material = HeadlightOFF;
-            SpotLightHeadlightLeft2.enabled = false;
             PointLightHeadlightLeft2.enabled = false;
             HeadlightRight1.material = HeadlightOFF;
-            SpotLightHeadlightRight1.enabled = false;
             PointLightHeadlightRight1.enabled = false;
             HeadlightRight2.material = HeadlightOFF;
-            SpotLightHeadlightRight2.enabled = false;
             PointLightHeadlightRight2.enabled = false;
         }
 
@@ -427,19 +410,15 @@ public class VehicleLighting : MonoBehaviour
         if(ReverseIndicators)
         {
             ReverseIndicatorLeft.material = ReverseIndicatorON;
-            SpotLightReverseIndicatorLeft.enabled = true;
             PointLightReverseIndicatorLeft.enabled = true;
             ReverseIndicatorRight.material = ReverseIndicatorON;
-            SpotLightReverseIndicatorRight.enabled = true;
             PointLightReverseIndicatorRight.enabled = true;
         }
         else
         {
           ReverseIndicatorLeft.material = ReverseIndicatorOFF;
-          SpotLightReverseIndicatorLeft.enabled = false;
           PointLightReverseIndicatorLeft.enabled = false;
           ReverseIndicatorRight.material = ReverseIndicatorOFF;
-          SpotLightReverseIndicatorRight.enabled = false;
           PointLightReverseIndicatorRight.enabled = false;
         }
     }

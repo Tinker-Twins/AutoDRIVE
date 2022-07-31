@@ -1003,7 +1003,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 16
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3969,7 +3969,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4190,7 +4190,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -4975,7 +4975,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5751,7 +5751,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6101,19 +6101,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectionButton: {fileID: 541364192}
   ConnectionLabel: {fileID: 934434870}
-  VehicleController: {fileID: 1284891601}
-  VehicleLighting: {fileID: 1284891602}
-  LeftWheelEncoder: {fileID: 1735463099}
-  RightWheelEncoder: {fileID: 534535144}
-  IPS: {fileID: 1747026399}
-  IMU: {fileID: 1443154192}
-  LIDAR: {fileID: 1503347955}
-  FrontCamera: {fileID: 960366900}
-  RearCamera: {fileID: 1071074426}
-  TL1: {fileID: 0}
-  TL2: {fileID: 0}
-  TL3: {fileID: 0}
-  TL4: {fileID: 0}
+  VehicleControllers:
+  - {fileID: 1284891601}
+  VehicleLightings:
+  - {fileID: 4818090606104298155}
+  LeftWheelEncoders:
+  - {fileID: 1735463099}
+  RightWheelEncoders:
+  - {fileID: 534535144}
+  IndoorPositioningSystems:
+  - {fileID: 1747026399}
+  InertialMeasurementUnits:
+  - {fileID: 1443154192}
+  LIDARUnits:
+  - {fileID: 1503347955}
+  FrontCameras:
+  - {fileID: 960366900}
+  RearCameras:
+  - {fileID: 1071074426}
+  TrafficLightControllers: []
 --- !u!114 &971678325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6855,7 +6861,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -6924,7 +6930,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7277,7 +7283,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -7535,18 +7541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d42172b8710de4494d9433386d5be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1284891602 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4818090607386534264, guid: ae60c501189b45f4db41056d6f37592e,
-    type: 3}
-  m_PrefabInstance: {fileID: 4818090606104298154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284891600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35222a6d4814bf143a6ecdc0967fbdf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1284891604 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 4818090607386534270, guid: ae60c501189b45f4db41056d6f37592e,
@@ -7771,7 +7765,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -8785,7 +8779,7 @@ BoxCollider:
   m_GameObject: {fileID: 1508899631}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -9742,17 +9736,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d29ee24681aa7a4cbe55becf07105f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecordRate: 10
   RecordStatus: {fileID: 1933895406}
-  Vehicle: {fileID: 1284891600}
-  VehicleRigidBody: {fileID: 1284891604}
-  VehicleController: {fileID: 1284891601}
-  LeftWheelEncoder: {fileID: 1735463099}
-  RightWheelEncoder: {fileID: 534535144}
-  IPS: {fileID: 1747026399}
-  IMU: {fileID: 1443154192}
-  LIDAR: {fileID: 1503347955}
-  FrontCamera: {fileID: 960366900}
-  RearCamera: {fileID: 1071074426}
+  VehicleDataFileNames: []
+  VehicleCameraDirectories: []
+  TrafficLightDataFileNames: []
+  Vehicles:
+  - {fileID: 1284891600}
+  VehicleRigidBodies:
+  - {fileID: 1284891604}
+  VehicleControllers:
+  - {fileID: 1284891601}
+  VehicleLightings:
+  - {fileID: 4818090606104298155}
+  LeftWheelEncoders:
+  - {fileID: 1735463099}
+  RightWheelEncoders:
+  - {fileID: 534535144}
+  IndoorPositioningSystems:
+  - {fileID: 1747026399}
+  InertialMeasurementUnits:
+  - {fileID: 1443154192}
+  LIDARUnits:
+  - {fileID: 1503347955}
+  FrontCameras:
+  - {fileID: 960366900}
+  RearCameras:
+  - {fileID: 1071074426}
+  TrafficLightControllers: []
 --- !u!4 &1713118895
 Transform:
   m_ObjectHideFlags: 0
@@ -9829,7 +9840,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 36
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -10873,9 +10884,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 25aaafcbc690d3a49aef0354e6fe2ace, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 16
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -11780,6 +11791,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4818090607386534267, guid: ae60c501189b45f4db41056d6f37592e,
+        type: 3}
+      propertyPath: SteeringLimit
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4818090607386534271, guid: ae60c501189b45f4db41056d6f37592e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11847,3 +11863,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae60c501189b45f4db41056d6f37592e, type: 3}
+--- !u!114 &4818090606104298155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4818090607386534264, guid: ae60c501189b45f4db41056d6f37592e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4818090606104298154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284891600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35222a6d4814bf143a6ecdc0967fbdf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
