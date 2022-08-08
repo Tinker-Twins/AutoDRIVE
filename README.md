@@ -5,6 +5,7 @@
 
 ![Github Stars](https://badgen.net/github/stars/Tinker-Twins/AutoDRIVE?icon=github&label=stars)
 ![Github Forks](https://badgen.net/github/forks/Tinker-Twins/AutoDRIVE?icon=github&label=forks)
+![Github Downloads](https://img.shields.io/github/downloads/Tinker-Twins/AutoDRIVE/total?color=blue&label=downloads&logo=github&logoColor=white)
 
 ## Project Overview
 
