@@ -1,6 +1,13 @@
+# GLOBAL PLANNER:
+NavfnROS:
+  allow_unknown: false # whether or not to allow global planner to create paths that traverse unknown spaces
+  default_tolerance: 0.1 # global planner will attempt to plan path that is no further away than this value from the specified goal point
+  use_dijkstra: false # if true, use Dijkstra's algorithm, otherwise use A* algorithm
+
+# LOCAL PLANNER:
 TebLocalPlannerROS:
   odom_topic: /odom
-  map_frame: /map  
+  map_frame: /map
   # Trajectory
   teb_autosize: True
   dt_ref: 0.4
@@ -8,14 +15,14 @@ TebLocalPlannerROS:
   global_plan_overwrite_orientation: True
   max_global_plan_lookahead_dist: 3.0
   feasibility_check_no_poses: 2
-  allow_init_backward_motion: false  
-  # Robot      
+  allow_init_backward_motion: false
+  # Robot
   max_vel_x: 0.2 # [sim max: 0.26 m/s]
   max_vel_x_backwards: 0.2 # [sim max: 0.23 m/s]
   max_vel_theta: 0.5236 # [sim max: 0.67 rad/s] angular velocity is also bounded by min_turning_radius in case of a carlike robot (omega = v/r)
   acc_lim_x: 0.15
   acc_lim_theta: 0.3927
-  # ***************** Carlike robot parameters ********************
+  # Carlike robot parameters
   min_turning_radius: 0.24515 # min turning radius of the carlike robot (compute value using a model or adjust with rqt_reconfigure manually)
   wheelbase: 0.14154 # wheelbase of the carlike robot
   cmd_angle_instead_rotvel: True # return steering angle instead of the rotvel (angular.z of twist message)
@@ -23,11 +30,11 @@ TebLocalPlannerROS:
     type: "line"
     line_start: [-0.07077, 0.0] # for type "line"
     line_end: [0.07077, 0.0] # for type "line"
-  # GoalTolerance   
+  # GoalTolerance
   xy_goal_tolerance: 0.1
   yaw_goal_tolerance: 0.1
-  free_goal_vel: False 
-  # Obstacles  
+  free_goal_vel: False
+  # Obstacles
   min_obstacle_dist: 0.2 # this value must also include our robot's expansion, since footprint_model is set to "line".
   include_costmap_obstacles: True
   costmap_obstacles_behind_robot_dist: 1.5
@@ -35,7 +42,7 @@ TebLocalPlannerROS:
   costmap_converter_plugin: ""
   costmap_converter_spin_thread: True
   costmap_converter_rate: 5
-  # Optimization  
+  # Optimization
   no_inner_iterations: 3
   no_outer_iterations: 3
   optimization_activate: True
