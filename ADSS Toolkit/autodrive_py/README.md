@@ -1,7 +1,7 @@
 # Python API
 
 <p align="justify">
-This directory hosts the Python API `autodrive.py` for AutoDRIVE, which can be used to easily develop autonomous driving algorithms, especially those employing learning-based techniques.
+This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, which can be used to easily develop autonomous driving algorithms, especially those employing learning-based techniques.
 </p>
 
 ## USAGE
