@@ -1,7 +1,7 @@
 # C++ API
 
 <p align="justify">
-This directory hosts the C++ API for AutoDRIVE, which can be used to develop high performance autonomous driving algorithms.
+This directory hosts the C++ API <code>autodrive.cpp</code> for AutoDRIVE, which can be used to develop high performance autonomous driving algorithms.
 </p>
 
 ## SETUP
