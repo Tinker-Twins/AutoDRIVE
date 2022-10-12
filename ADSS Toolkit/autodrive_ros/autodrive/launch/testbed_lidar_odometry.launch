@@ -21,7 +21,7 @@
   <node pkg="autodrive" type="lidar_odometer" name="lidar_odometer">
     <param name="laser_scan_topic" value="/scan"/> # topic where the lidar scans are being published
     <param name="odom_topic" value="/odom"/>       # topic where to publish the odometry estimations
-    <param name="publish_tf" value="true"/>        # wheter or not to publish the tf::transform (base_frame->odom_frame)
+    <param name="publish_tf" value="true"/>        # whether or not to publish the tf::transform (base_frame->odom_frame)
     <param name="base_frame_id" value="/nigel"/>   # frame_id (tf) of the mobile base
     <param name="odom_frame_id" value="/odom"/>    # frame_id (tf) to publish the odometry estimations
     <param name="init_pose_from_topic" value=""/>  # leave empty to start at point (0,0)
