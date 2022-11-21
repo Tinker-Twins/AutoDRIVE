@@ -83,6 +83,38 @@ We encourage you to take a look at the following research projects developed usi
 | [Intersection Traversal](https://youtu.be/AEFJbDzOpcM) | [Smart City Management](https://youtu.be/fnxOpV1gFXo) |
 |                    |                     |
 
+### Technical Reports
+
+We encourage you to read and cite the following technical reports if you use any part of this project for your research (these can serve as a good source of documentation as well):
+
+#### [AutoDRIVE - Technical Report](https://arxiv.org/abs/2211.08475)
+```bibtex
+@misc{AutoDRIVE-Technical-Report,
+doi = {10.48550/ARXIV.2211.08475},
+url = {https://arxiv.org/abs/2211.08475},
+author = {Samak, Tanmay Vilas and Samak, Chinmay Vilas},
+keywords = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
+title = {AutoDRIVE - Technical Report},
+publisher = {arXiv},
+year = {2022},
+copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
+
+#### [AutoDRIVE Simulator - Technical Report](https://arxiv.org/abs/2211.07022)
+```bibtex
+@misc{AutoDRIVE-Simulator-Technical-Report,
+doi = {10.48550/ARXIV.2211.07022},
+url = {https://arxiv.org/abs/2211.07022},
+author = {Samak, Tanmay Vilas and Samak, Chinmay Vilas},
+keywords = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
+title = {AutoDRIVE Simulator - Technical Report},
+publisher = {arXiv},
+year = {2022},
+copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
+
 ### Publications
 
 We encourage you to read and cite the following papers if you use any part of this project for your research:
