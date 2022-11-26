@@ -1,6 +1,6 @@
 # AutoDRIVE Simulator
 
-![AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Simulator.png)
+![AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE-Simulator.png)
 
 <p align="justify">
 AutoDRIVE Simulator is a digital twin of the AutoDRIVE Testbed, which enables the users to virtually prototype their algorithms either due to hardware limitations or as a part of the reiterative development cycle.
