@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Logo.png" width="256" height="256"><br>
+  <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE-Logo.png" width="256" height="256"><br>
   <b>An Integrated Platform for Autonomous Driving Research and Education</b>
 </p>
 
@@ -9,7 +9,7 @@
 
 ## Project Overview
 
-![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Overview.png)
+![](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE-Overview.png)
 
 <p align="justify">
 AutoDRIVE is envisioned to be an integrated platform for autonomous driving research and education. It bridges the gap between software simulation and hardware deployment by providing the AutoDRIVE Simulator and AutoDRIVE Testbed, a well-suited duo for sim2real applications. It also offers AutoDRIVE Devkit, a developer's kit for rapid and flexible development of autonomy algorithms. Although the platform is primarily targeted towards autonomous driving, it also supports the development of smart-city solutions for managing the traffic flow.
@@ -17,7 +17,7 @@ AutoDRIVE is envisioned to be an integrated platform for autonomous driving rese
 
 ## AutoDRIVE Testbed
 
-| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed%20Infrastructure.png" width="500"> |
+| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed-Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Testbed-Infrastructure.png" width="500"> |
 |:--------:|:-------------:|
 | Vehicle | Infrastructure |
 
@@ -31,7 +31,7 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 
 ## AutoDRIVE Simulator
 
-| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator%20Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator%20Infrastructure.png" width="500"> |
+| <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator-Vehicle.png" width="500"> | <img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Simulator-Infrastructure.png" width="500"> |
 |:--------:|:-------------:|
 | Vehicle | Infrastructure |
 
@@ -65,9 +65,9 @@ We encourage you to take a look at the following presentations to gain a better 
 
 |                    |                     |
 |:------------------:|:-------------------:|
-| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Simulator%20Pitch%20Video.png" width="500">](https://youtu.be/i7R79jwnqlg) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE%20Testbed%20Pitch%20Video.png" width="500">](https://youtu.be/YFQzyfXV6Rw) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE-Simulator-Pitch-Video.png" width="500">](https://youtu.be/i7R79jwnqlg) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/AutoDRIVE-Testbed-Pitch-Video.png" width="500">](https://youtu.be/YFQzyfXV6Rw) |
 | [AutoDRIVE Simulator Pitch Video](https://youtu.be/i7R79jwnqlg) | [AutoDRIVE Testbed Pitch Video](https://youtu.be/YFQzyfXV6Rw) |
-| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/SRMIST%20FYP%20Viva%20Voce.png" width="500">](https://youtu.be/2FByDOkDxMc) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/CCRIS%202021%20Presentation.png" width="500">](https://youtu.be/whTH6VyVtHE) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/SRMIST-FYP-Viva-Voce.png" width="500">](https://youtu.be/2FByDOkDxMc) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/CCRIS-2021-Presentation.png" width="500">](https://youtu.be/whTH6VyVtHE) |
 | [SRMIST UG Final Year Project Viva Voce](https://youtu.be/2FByDOkDxMc) | [CCRIS 2021 Virtual Presentation](https://youtu.be/whTH6VyVtHE) |
 |                    |                     |
 
@@ -77,9 +77,9 @@ We encourage you to take a look at the following research projects developed usi
 
 |                    |                     |
 |:------------------:|:-------------------:|
-| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Autonomous%20Parking.png" width="500">](https://youtu.be/oBqIZZA0wkc) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Behavioural%20Cloning.png" width="500">](https://youtu.be/rejpoogaXOE) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Autonomous-Parking.png" width="500">](https://youtu.be/oBqIZZA0wkc) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Behavioural-Cloning.png" width="500">](https://youtu.be/rejpoogaXOE) |
 | [Autonomous Parking](https://youtu.be/oBqIZZA0wkc) | [Behavioural Cloning](https://youtu.be/rejpoogaXOE) |
-| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Intersection%20Traversal.png" width="500">](https://youtu.be/AEFJbDzOpcM) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Smart%20City%20Management.png" width="500">](https://youtu.be/fnxOpV1gFXo) |
+| [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Intersection-Traversal.png" width="500">](https://youtu.be/AEFJbDzOpcM) | [<img src="https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE/Images/Smart-City-Management.png" width="500">](https://youtu.be/fnxOpV1gFXo) |
 | [Intersection Traversal](https://youtu.be/AEFJbDzOpcM) | [Smart City Management](https://youtu.be/fnxOpV1gFXo) |
 |                    |                     |
 
