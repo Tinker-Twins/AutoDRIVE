@@ -1,6 +1,6 @@
 <p align="center">
   <img src="Images/AutoDRIVE-Logo.png" width="256" height="256"><br>
-  <b>An Integrated Platform for Autonomous Driving Research and Education</b>
+  <b>A Comprehensive, Flexible and Integrated Cyber-Physical Ecosystem for Enhancing Autonomous Driving Research and Education</b>
 </p>
 
 ![Github Stars](https://badgen.net/github/stars/Tinker-Twins/AutoDRIVE?icon=github&label=stars)
