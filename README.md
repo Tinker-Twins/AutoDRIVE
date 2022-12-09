@@ -4,9 +4,9 @@
 </p>
 
 <p align="center">
-<img src="https://badgen.net/github/stars/Tinker-Twins/AutoDRIVE?icon=github&label=stars">
-<img src="https://badgen.net/github/forks/Tinker-Twins/AutoDRIVE?icon=github&label=forks">
-<img src="https://img.shields.io/github/downloads/Tinker-Twins/AutoDRIVE/total?color=blue&label=downloads&logo=github&logoColor=white">
+<img src="https://badgen.net/github/stars/Tinker-Twins/AutoDRIVE?icon=github&label=Stars">
+<img src="https://badgen.net/github/forks/Tinker-Twins/AutoDRIVE?icon=github&label=Forks">
+<img src="https://img.shields.io/github/downloads/Tinker-Twins/AutoDRIVE/total?color=blue&label=Downloads&logo=github&logoColor=white">
 </p>
 
 ## Project Overview
