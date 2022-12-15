@@ -121,6 +121,20 @@ copyright = {arXiv.org perpetual, non-exclusive license}
 
 We encourage you to read and cite the following papers if you use any part of this project for your research:
 
+#### [AutoDRIVE: A Comprehensive, Flexible and Integrated Cyber-Physical Ecosystem for Enhancing Autonomous Driving Research and Education](https://arxiv.org/abs/2212.05241)
+```bibtex
+@eprint{https://doi.org/10.48550/arxiv.2212.05241,
+doi = {10.48550/ARXIV.2212.05241},
+url = {https://arxiv.org/abs/2212.05241},
+author = {Samak, Tanmay Vilas and Samak, Chinmay Vilas and Kandhasamy, Sivanathan and Krovi, Venkat and Xie, Ming},
+keywords = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
+title = {AutoDRIVE: A Comprehensive, Flexible and Integrated Cyber-Physical Ecosystem for Enhancing Autonomous Driving Research and Education},
+publisher = {arXiv},
+year = {2022},
+copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
+
 #### [AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education](https://arxiv.org/abs/2103.10030)
 ```bibtex
 @inproceedings{AutoDRIVE-Simulator-2021,
