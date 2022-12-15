@@ -123,7 +123,7 @@ We encourage you to read and cite the following papers if you use any part of th
 
 #### [AutoDRIVE: A Comprehensive, Flexible and Integrated Cyber-Physical Ecosystem for Enhancing Autonomous Driving Research and Education](https://arxiv.org/abs/2212.05241)
 ```bibtex
-@eprint{https://doi.org/10.48550/arxiv.2212.05241,
+@eprint{AutoDRIVE-Ecosystem-2022,
 doi = {10.48550/ARXIV.2212.05241},
 url = {https://arxiv.org/abs/2212.05241},
 author = {Samak, Tanmay Vilas and Samak, Chinmay Vilas and Kandhasamy, Sivanathan and Krovi, Venkat and Xie, Ming},
