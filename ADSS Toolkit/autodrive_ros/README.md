@@ -22,12 +22,33 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 ## USAGE
 
-- **Headless Mode:** Launch the `autodrive.launch` file.
+### Usage with AutoDRIVE Simulator
+
+- **Headless Mode Bringup:**
   ```bash
-  $ roslaunch autodrive autodrive.launch
+  $ roslaunch autodrive simulator.launch
   ```
 
-- **RViz Mode:** Launch the `autodrive_rviz.launch` file.
+- **RViz Mode Bringup:**
   ```bash
-  $ roslaunch autodrive autodrive_rviz.launch
+  $ roslaunch autodrive simulator_rviz.launch
+  ```
+
+### Usage with AutoDRIVE Testbed
+
+- **Direct Teleoperation:**
+  ```bash
+  $ roslaunch autodrive testbed_teleop.launch
+  ```
+
+- **Remote Teleoperation:**
+
+  **On Vehicle PC:**
+  ```bash
+  $ roslaunch autodrive testbed_bringup.launch
+  ```
+  
+  **On Remote PC:**
+  ```bash
+  $ roslaunch autodrive testbed_teleop_remote.launch
   ```
