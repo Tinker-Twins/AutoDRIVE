@@ -8,12 +8,12 @@ AutoDRIVE Devkit is a developer's kit that enables the users to exploit AutoDRIV
 
 AutoDRIVE Devkit consists of the following software components:
 
-- [Autonomous Driving Software Stack (ADSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS-Toolkit)
-  - [ROS Package](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS-Toolkit/autodrive_ros)
-  - [Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS-Toolkit/autodrive_py)
-  - [C++ API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS-Toolkit/autodrive_cpp)
+- [Autonomous Driving Software Stack (ADSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit)
+  - [ROS Package](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_ros)
+  - [Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_py)
+  - [C++ API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_cpp)
 
-- [Smart City Software Stack (SCSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS-Toolkit)
-  - [SCM Server](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS-Toolkit/autodrive_scm)
-  - [SCM Database](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS-Toolkit/autodrive_scm)
-  - [SCM Webapp](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS-Toolkit/autodrive_scm)
+- [Smart City Software Stack (SCSS) Toolkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit)
+  - [SCM Server](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
+  - [SCM Database](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
+  - [SCM Webapp](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/SCSS%20Toolkit/autodrive_scm)
