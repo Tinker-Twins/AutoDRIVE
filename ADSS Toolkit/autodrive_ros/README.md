@@ -36,12 +36,12 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 ### Usage with AutoDRIVE Testbed
 
-- **Direct Teleoperation:**
+- **Central Teleoperation (From Vehicle PC)**
   ```bash
   $ roslaunch autodrive testbed_teleop.launch
   ```
 
-- **Remote Teleoperation:**
+- **Remote Teleoperation (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
@@ -52,3 +52,12 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   ```bash
   $ roslaunch autodrive testbed_teleop_remote.launch
   ```
+
+## TROUBLESHOOTING
+
+Upon execution of any launch file, if you encounter an error saying "Make sure file exists in package path and permission is set to executable (chmod +x)", set the executable flag on the process for all scripts and executables by running `chmod` on the entire workspace directory (won't hurt if it's already set)
+
+```bash
+$ cd <path/to/AutoDRIVE/Workspace>
+$ sudo chmod +x -R *
+```
