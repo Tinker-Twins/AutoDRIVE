@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
 
 public class CrossJunctionNavigation : Agent
 {
@@ -112,11 +113,11 @@ public class CrossJunctionNavigation : Agent
         sensor.AddObservation((float)System.Math.Round((V3_LeftEncoder.SpeedFromTicks+V3_RightEncoder.SpeedFromTicks)/2f, 3)); // Velocity estimate
     }
 
-    public override void OnActionReceived(float[] vectorAction)
+    public override void OnActionReceived(ActionBuffers actions)
     {
         // DISCRETE ACTION SPACE
-        //int DriveAction = Mathf.FloorToInt(vectorAction[0]);
-        int SteerAction = Mathf.FloorToInt(vectorAction[0]);
+        //int DriveAction = Mathf.FloorToInt(actions.DiscreteActions[0]);
+        int SteerAction = Mathf.FloorToInt(actions.DiscreteActions[0]);
         /*
         switch (DriveAction)
         {
@@ -146,8 +147,8 @@ public class CrossJunctionNavigation : Agent
         V0_ActuatorController.CurrentThrottle = 1.0f;
 
         // CONTINUOUS ACTION SPACE
-        //V0_ActuatorController.CurrentThrottle = Mathf.Clamp(vectorAction[0], 0.4f, 1f); // Drive
-        //V0_ActuatorController.CurrentSteeringAngle = Mathf.Clamp(vectorAction[1], -1f, 1f); // Steer
+        //V0_ActuatorController.CurrentThrottle = Mathf.Clamp(actions.ContinuousActions[0], 0.4f, 1f); // Drive
+        //V0_ActuatorController.CurrentSteeringAngle = Mathf.Clamp(actions.ContinuousActions[1], -1f, 1f); // Steer
 
         // REWARD FUNCTION
         if (CollisionFlag)
@@ -221,21 +222,23 @@ public class CrossJunctionNavigation : Agent
         CollisionFlag = false;
     }
 
-    public override void Heuristic(float[] actionsOut)
+    public override void Heuristic(in ActionBuffers actionsOut)
     {
         // DISCRETE ACTION SPACE
+        var discreteActionsOut = actionsOut.DiscreteActions;
         // Drive
-        //if (Input.GetKey(KeyCode.W)) actionsOut[0] = 2;
-        //else actionsOut[0] = 0;
+        //if (Input.GetKey(KeyCode.W)) discreteActionsOut[0] = 2;
+        //else discreteActionsOut[0] = 0;
         // Steer
-        if (Input.GetKey(KeyCode.A)) actionsOut[0] = 0;
-        else if (Input.GetKey(KeyCode.D)) actionsOut[0] = 2;
-        else actionsOut[0] = 1;
+        if (Input.GetKey(KeyCode.A)) discreteActionsOut[0] = 0;
+        else if (Input.GetKey(KeyCode.D)) discreteActionsOut[0] = 2;
+        else discreteActionsOut[0] = 1;
 
 
         // CONTINUOUS ACTION SPACE
-        //actionsOut[0] = 0.4f+0.6f*Input.GetAxis("Vertical"); // Drive
-        //actionsOut[1] = Input.GetAxis("Horizontal"); // Steer
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        //actionsOut.ContinuousActions[0] = 0.4f+0.6f*Input.GetAxis("Vertical"); // Drive
+        //actionsOut.ContinuousActions[1] = Input.GetAxis("Horizontal"); // Steer
     }
 
     void OnCollisionEnter(Collision collision)

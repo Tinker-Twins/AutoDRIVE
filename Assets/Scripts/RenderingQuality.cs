@@ -12,8 +12,8 @@ public class RenderingQuality : MonoBehaviour
     also affects the shadows being generated in real-time.
     */
 
-    public GameObject PostProcessVolume;
-    public GameObject SceneSettings;
+    //public GameObject PostProcessVolume;
+    public GameObject HDRPSettings;
     public Light SceneLight;
     public Text Label;
 
@@ -21,8 +21,8 @@ public class RenderingQuality : MonoBehaviour
 
     private void Start()
     {
-        PostProcessVolume.SetActive(false);
-        SceneSettings.SetActive(false);
+        //PostProcessVolume.SetActive(false);
+        HDRPSettings.SetActive(false);
         SceneLight.shadows = LightShadows.None;
         Label.text = "Low Quality";
     }
@@ -30,30 +30,32 @@ public class RenderingQuality : MonoBehaviour
     public void ToggleRenderingQuality()
     {
         Mode += 1;
-        if(Mode > 2)
+        if(Mode > 1)
         {
             Mode = 0;
         }
         if(Mode == 0)
         {
-            PostProcessVolume.SetActive(false);
-            SceneSettings.SetActive(false);
+            //PostProcessVolume.SetActive(false);
+            HDRPSettings.SetActive(false);
             SceneLight.shadows = LightShadows.None;
             Label.text = "Low Quality";
         }
         else if(Mode == 1)
         {
-            PostProcessVolume.SetActive(false);
-            SceneSettings.SetActive(true);
+            //PostProcessVolume.SetActive(false);
+            HDRPSettings.SetActive(true);
             SceneLight.shadows = LightShadows.Hard;
             Label.text = "High Quality";
         }
+        /*
         else
         {
-            PostProcessVolume.SetActive(true);
-            SceneSettings.SetActive(true);
+            //PostProcessVolume.SetActive(true);
+            HDRPSettings.SetActive(true);
             SceneLight.shadows = LightShadows.Soft;
             Label.text = "Ultra Quality";
         }
+        */
     }
 }

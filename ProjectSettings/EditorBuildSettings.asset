@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tiny Town.unity
     guid: 06200b38df1bf9d40835632ca6023dac
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c36ad154ed0f055488e6b0be18f3b26a,
+      type: 2}
