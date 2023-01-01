@@ -21,3 +21,5 @@ The simulator can be exploited by the users (particularly targeting students and
 **Paper Preprint:** https://arxiv.org/abs/2103.10030
 
 **Published Article:** https://dl.acm.org/doi/abs/10.1145/3483845.3483846
+
+**Technical Report:** https://arxiv.org/abs/2211.07022
