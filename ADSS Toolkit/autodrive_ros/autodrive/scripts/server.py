@@ -46,13 +46,18 @@ def bridge(sid, data):
         linear_acceleration = np.fromstring(data["V1 Linear Acceleration"], dtype=float, sep=' ')
         autodrive_ros_bridge.publish_imu_data(orientation_quaternion, angular_velocity, linear_acceleration)
         # Cooordinate transforms
-        autodrive_ros_bridge.broadcast_transform("v1", "map", position, orientation_quaternion)
-        autodrive_ros_bridge.broadcast_transform("left_encoder", "v1", np.asarray([-0.08, 0.0745, -0.015]), tf.transformations.quaternion_from_euler(0, encoder_angles[0]%6.283, 0))
-        autodrive_ros_bridge.broadcast_transform("right_encoder", "v1", np.asarray([-0.08, -0.0745, -0.015]), tf.transformations.quaternion_from_euler(0, encoder_angles[1]%6.283, 0))
-        autodrive_ros_bridge.broadcast_transform("imu", "v1", np.asarray([0, 0, 0]), np.asarray([0, 0, 0, 1]))
-        autodrive_ros_bridge.broadcast_transform("lidar", "v1", np.asarray([0.012, 0, 0.12475]), np.asarray([0, 0, -1, 0]))
-        autodrive_ros_bridge.broadcast_transform("front_camera", "v1", np.asarray([0.1034, 0, 0.06]), np.asarray([0, 0, 0, 1]))
-        autodrive_ros_bridge.broadcast_transform("rear_camera", "v1", np.asarray([-0.1034, 0, 0.06]), np.asarray([0, 0, -1, 0]))
+        autodrive_ros_bridge.broadcast_transform("v1", "map", position, orientation_quaternion) # Vehicle frame defined at center of rear axle
+        autodrive_ros_bridge.broadcast_transform("left_encoder", "v1", np.asarray([0.05915, 0.0472, 0]), tf.transformations.quaternion_from_euler(120*encoder_angles[0]%6.283, 0, 0))
+        autodrive_ros_bridge.broadcast_transform("right_encoder", "v1", np.asarray([0.05915, -0.0472, 0]), tf.transformations.quaternion_from_euler(120*encoder_angles[1]%6.283, 0, 0))
+        autodrive_ros_bridge.broadcast_transform("ips", "v1", np.asarray([0.035125, 0, 0.129165]), np.asarray([0, 0, 0, 1]))
+        autodrive_ros_bridge.broadcast_transform("imu", "v1", np.asarray([0.0399523, 0, 0.0831286]), np.asarray([0, 0, 0, 1]))
+        autodrive_ros_bridge.broadcast_transform("lidar", "v1", np.asarray([0.1445, 0, 0.1757]), np.asarray([0, 0, 1, 0]))
+        autodrive_ros_bridge.broadcast_transform("front_camera", "v1", np.asarray([0.195276, 0, 0.110486]), np.asarray([0, 0.0636092, 0, 0.9979749]))
+        autodrive_ros_bridge.broadcast_transform("rear_camera", "v1", np.asarray([-0.035276, 0, 0.110486]), np.asarray([-0.0636092, 0, 0.9979749, 0]))
+        autodrive_ros_bridge.broadcast_transform("front_left_wheel", "v1", np.asarray([0.141537, 0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan(0.141537/((0.141537/np.tan(steering))+0.0765))))
+        autodrive_ros_bridge.broadcast_transform("front_right_wheel", "v1", np.asarray([0.141537, -0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan(0.141537/((0.141537/np.tan(steering))-0.0765))))
+        autodrive_ros_bridge.broadcast_transform("rear_left_wheel", "v1", np.asarray([0, 0.0765, 0]), tf.transformations.quaternion_from_euler(0, encoder_angles[0]%6.283, 0))
+        autodrive_ros_bridge.broadcast_transform("rear_right_wheel", "v1", np.asarray([0, -0.0765, 0]), tf.transformations.quaternion_from_euler(0, encoder_angles[1]%6.283, 0))
         # LIDAR
         lidar_scan_rate = float(data["V1 LIDAR Scan Rate"])
         lidar_range_array = np.fromstring(data["V1 LIDAR Range Array"], dtype=float, sep=' ')
@@ -67,11 +72,11 @@ def bridge(sid, data):
         # TRAFFIC LIGHT DATA
         ########################################################################
         # Traffic light states
-        tl1_state = int(data["TL1 State"])
-        tl2_state = int(data["TL2 State"])
-        tl3_state = int(data["TL3 State"])
-        tl4_state = int(data["TL4 State"])
-        autodrive_ros_bridge.publish_tl_states(tl1_state, tl2_state, tl3_state, tl4_state)
+        #tl1_state = int(data["TL1 State"])
+        #tl2_state = int(data["TL2 State"])
+        #tl3_state = int(data["TL3 State"])
+        #tl4_state = int(data["TL4 State"])
+        #autodrive_ros_bridge.publish_tl_states(tl1_state, tl2_state, tl3_state, tl4_state)
 
         ########################################################################
         # CONTROL COMMANDS

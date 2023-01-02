@@ -75,9 +75,9 @@ if __name__=="__main__":
     if os.name != 'nt':
         settings = termios.tcgetattr(sys.stdin)
 
-    rospy.init_node('testbed_teleop')
-    steer_pub = rospy.Publisher('steer_cmd', Float32, queue_size=10)
-    drive_pub = rospy.Publisher('drive_cmd', Float32, queue_size=10)
+    rospy.init_node('teleop_keyboard')
+    pub_steering_command = rospy.Publisher('/autodrive/v1/steering_command', Float32, queue_size=1) # Testbed topic name was `steer_cmd`
+    pub_throttle_command = rospy.Publisher('/autodrive/v1/throttle_command', Float32, queue_size=1) # Testbed topic name was `drive_cmd`
 
     throttle = 0.0
     steering = 0.0
@@ -106,8 +106,8 @@ if __name__=="__main__":
                 if (key == '\x03'): # CTRL+C
                     break
 
-            drive_pub.publish(throttle)
-            steer_pub.publish(steering)
+            pub_throttle_command.publish(throttle)
+            pub_steering_command.publish(steering)
 
     except:
         print(error)
@@ -115,8 +115,8 @@ if __name__=="__main__":
     finally:
         throttle = 0.0
         steering = 0.0
-        drive_pub.publish(throttle)
-        steer_pub.publish(steering)
+        pub_throttle_command.publish(throttle)
+        pub_steering_command.publish(steering)
 
     if os.name != 'nt':
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)

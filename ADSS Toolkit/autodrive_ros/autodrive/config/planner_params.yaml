@@ -15,7 +15,7 @@ TebLocalPlannerROS:
   global_plan_overwrite_orientation: True
   max_global_plan_lookahead_dist: 3.0
   feasibility_check_no_poses: 2
-  allow_init_backward_motion: false
+  allow_init_backward_motion: False
   # Robot
   max_vel_x: 0.2 # [sim max: 0.26 m/s]
   max_vel_x_backwards: 0.2 # [sim max: 0.23 m/s]

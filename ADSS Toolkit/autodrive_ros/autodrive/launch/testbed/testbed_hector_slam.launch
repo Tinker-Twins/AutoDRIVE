@@ -6,7 +6,16 @@
   <param name="/use_sim_time" value="false"/>
 
   <!-- Transforms -->
-  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1767 3.1416 0 0 nigel lidar 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1757 3.1416 0 0 nigel lidar 100"/>
+
+  <!-- LIDAR -->
+  <node name="lidar"                  pkg="rplidar_ros"  type="rplidarNode">
+    <param name="serial_port"         type="string"      value="/dev/ttyUSB0"/>
+    <param name="serial_baudrate"     type="int"         value="115200"/>
+    <param name="frame_id"            type="string"      value="lidar"/>
+    <param name="inverted"            type="bool"        value="false"/>
+    <param name="angle_compensate"    type="bool"        value="true"/>
+  </node>
 
   <!-- Hector SLAM -->
   <arg name="tf_map_scanmatch_transform_frame_name" default="map_scan_match"/>
@@ -16,7 +25,7 @@
   <arg name="scan_subscriber_queue_size" default="5"/>
   <arg name="scan_topic" default="scan"/>
   <arg name="map_size" default="80"/>
-  
+
   <node pkg="hector_mapping" type="hector_mapping" name="hector_slam">
     <!-- Frame names -->
     <param name="map_frame" value="map" />
@@ -34,19 +43,19 @@
     <param name="map_multi_res_levels" value="2" />
     <!-- Map update parameters -->
     <param name="update_factor_free" value="0.4"/>
-    <param name="update_factor_occupied" value="0.9" />    
+    <param name="update_factor_occupied" value="0.9" />
     <param name="map_update_distance_thresh" value="0.4"/>
     <param name="map_update_angle_thresh" value="0.06" />
     <param name="laser_z_min_value" value = "-1.0" />
     <param name="laser_z_max_value" value = "1.0" />
-    <!-- Advertising config --> 
+    <!-- Advertising config -->
     <param name="advertise_map_service" value="true"/>
-    <!-- Misc config --> 
+    <!-- Misc config -->
     <param name="scan_subscriber_queue_size" value="$(arg scan_subscriber_queue_size)"/>
     <param name="scan_topic" value="$(arg scan_topic)"/>
     <param name="tf_map_scanmatch_transform_frame_name" value="$(arg tf_map_scanmatch_transform_frame_name)" />
   </node>
-  
+
   <arg name="geotiff_map_file_path" default="$(find autodrive)/maps"/>
   <arg name="trajectory_source_frame_name" value="map_scan_match"/>
   <arg name="trajectory_update_rate" default="4"/>
@@ -72,6 +81,6 @@
   </node>
 
   <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/testbed_hector_slam.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/testbed/testbed_hector_slam.rviz"/>
 
 </launch>

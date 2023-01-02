@@ -5,23 +5,8 @@
   <!-- Global Parameter -->
   <param name="/use_sim_time" value="false"/>
 
-  <!-- Map -->
-  <arg name="map_file" value="$(find autodrive)/maps/map.yaml"/>
-  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
-    <param name="frame_id" value="map" />
-  </node>
-
-  <!-- LIDAR -->
-  <node name="lidar"                  pkg="rplidar_ros"  type="rplidarNode">
-    <param name="serial_port"         type="string"      value="/dev/ttyUSB0"/>
-    <param name="serial_baudrate"     type="int"         value="115200"/>
-    <param name="frame_id"            type="string"      value="lidar"/>
-    <param name="inverted"            type="bool"        value="false"/>
-    <param name="angle_compensate"    type="bool"        value="true"/>
-  </node>
-
   <!-- Transform -->
-  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1767 3.1416 0 0 nigel lidar 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1757 3.1416 0 0 nigel lidar 100"/>
 
   <!-- Odometer -->
   <node pkg="autodrive" type="lidar_odometer" name="lidar_odometer">
@@ -29,10 +14,16 @@
     <param name="odom_topic" value="/odom"/>       # topic where to publish the odometry estimations
     <param name="publish_tf" value="true"/>        # whether or not to publish the tf::transform (base_frame->odom_frame)
     <param name="base_frame_id" value="/nigel"/>   # frame_id (tf) of the mobile base
-    <param name="odom_frame_id" value="/odom"/>    # frame_id (tf) to publish the odometry estimations
+    <param name="odom_frame_id" value="/odom"/>    # frame_id (tf) to publish the odometry estimations w.r.t.
     <param name="init_pose_from_topic" value=""/>  # leave empty to start at point (0,0)
     <param name="freq" value="6.0"/>               # execution frequency
     <param name="verbose" value="false"/>          # verbose
+  </node>
+
+  <!-- Map -->
+  <arg name="map_file" value="$(find autodrive)/maps/parking_school_testbed.yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
+    <param name="frame_id" value="map" />
   </node>
 
   <!-- AMCL -->
@@ -78,6 +69,6 @@
   </node>
 
   <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/testbed_amcl.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/testbed/testbed_amcl.rviz"/>
 
 </launch>

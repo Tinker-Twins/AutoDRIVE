@@ -2,37 +2,32 @@
 
 <launch>
 
-  <!-- Global Parameter -->
-  <param name="/use_sim_time" value="false"/>
+  <!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive" type="server.py" output="screen"/>
 
-  <!-- Frames -->
-  <param name="map_frame" value="map"/>
-  <param name="odom_frame" value="odom"/>
-  <param name="base_frame" value="nigel"/>
+	<!-- Transform -->
+	<node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1757 3.1416 0 0 /v1 /lidar 100"/>
 
-  <!-- Transforms -->
-  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1767 3.1416 0 0 nigel lidar 100"/>
-
-  <!-- Odometry -->
+	<!-- Odometer -->
   <node pkg="autodrive" type="lidar_odometer" name="lidar_odometer">
-    <param name="laser_scan_topic" value="/scan"/> # topic where the lidar scans are being published
-    <param name="odom_topic" value="/odom"/>       # topic where to publish the odometry estimations
-    <param name="publish_tf" value="true"/>        # whether or not to publish the tf::transform (base_frame->odom_frame)
-    <param name="base_frame_id" value="/nigel"/>   # frame_id (tf) of the mobile base
-    <param name="odom_frame_id" value="/odom"/>    # frame_id (tf) to publish the odometry estimations
-    <param name="init_pose_from_topic" value=""/>  # leave empty to start at point (0,0)
-    <param name="freq" value="6.0"/>               # execution frequency
-    <param name="verbose" value="false"/>          # verbose
+    <param name="laser_scan_topic" value="/autodrive/v1/lidar"/> # topic where the lidar scans are being published
+    <param name="odom_topic" value="/odom"/>                     # topic where to publish the odometry estimations
+    <param name="publish_tf" value="true"/>                      # whether or not to publish the tf::transform (base_frame->odom_frame)
+    <param name="base_frame_id" value="/v1"/>                    # frame_id (tf) of the mobile base
+    <param name="odom_frame_id" value="/odom"/>                  # frame_id (tf) to publish the odometry estimations w.r.t.
+    <param name="init_pose_from_topic" value=""/>                # leave empty to start at point (0,0)
+    <param name="freq" value="6.0"/>                             # execution frequency
+    <param name="verbose" value="false"/>                        # verbose
   </node>
 
   <!-- Map -->
-  <arg name="map_file" value="$(find autodrive)/maps/map.yaml"/>
+  <arg name="map_file" value="$(find autodrive)/maps/parking_school_simulator_obstacles.yaml"/>
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
     <param name="frame_id" value="map" />
   </node>
 
   <!-- AMCL -->
-  <arg name="scan_topic"     default="scan"/>
+  <arg name="scan_topic"     default="/autodrive/v1/lidar"/>
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
   <arg name="initial_pose_a" default="0.0"/>
@@ -67,9 +62,9 @@
     <param name="odom_alpha2"               value="0.1"/>
     <param name="odom_alpha3"               value="0.1"/>
     <param name="odom_alpha4"               value="0.1"/>
-    <param name="global_frame_id"           value="map"/>
-    <param name="odom_frame_id"             value="odom"/>
-    <param name="base_frame_id"             value="nigel"/>
+    <param name="global_frame_id"           value="/map"/>
+    <param name="odom_frame_id"             value="/odom"/>
+    <param name="base_frame_id"             value="/v1"/>
   </node>
 
   <!-- Navigation -->
@@ -90,6 +85,6 @@
   <node pkg="autodrive" type="nav_ctrl.py" name="controller"/>
 
   <!-- RViz -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/testbed_navigation.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive)/rviz/simulator/simulator_navigation.rviz"/>
 
 </launch>

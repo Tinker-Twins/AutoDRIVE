@@ -12,6 +12,6 @@
 	<node name="autodrive_scss" pkg="autodrive" type="scss"/>
 
 	<!-- AutoDRIVE RViz -->
-	<node name="autodrive_rviz" pkg="rviz" type="rviz" args="-d $(find autodrive)/rviz/simulator.rviz"/>
+	<node name="autodrive_rviz" pkg="rviz" type="rviz" args="-d $(find autodrive)/rviz/simulator/simulator.rviz"/>
 
 </launch>

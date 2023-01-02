@@ -30,15 +30,21 @@ def boundDrive(drive_cmd):
 
 ################################################################################
 
-steer_pub = rospy.Publisher('steer_cmd', Float32, queue_size=10)
-drive_pub = rospy.Publisher('drive_cmd', Float32, queue_size=10)
+pub_steering_command = rospy.Publisher('/autodrive/v1/steering_command', Float32, queue_size=1) # Testbed topic name was `steer_cmd`
+pub_throttle_command = rospy.Publisher('/autodrive/v1/throttle_command', Float32, queue_size=1) # Testbed topic name was `drive_cmd`
 
 def navCtrlCallback(data):
     global throttle, steering
+    # Simulator
+    throttle = boundDrive((THROTTLE_CONST * data.linear.x))
+    steering = boundSteer(STEERING_CONST * data.angular.z)
+    # Testbed
+    '''
     throttle = boundDrive(0.2 + (THROTTLE_CONST * data.linear.x))
     steering = boundSteer(STEERING_CONST * data.angular.z)
-    drive_pub.publish(Float32(throttle))
-    steer_pub.publish(Float32(steering))
+    '''
+    pub_throttle_command.publish(Float32(throttle))
+    pub_steering_command.publish(Float32(steering))
 
 ################################################################################
 
