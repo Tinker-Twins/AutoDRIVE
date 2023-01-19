@@ -54,8 +54,8 @@ def bridge(sid, data):
         autodrive_ros_bridge.broadcast_transform("lidar", "v1", np.asarray([0.1445, 0, 0.1757]), np.asarray([0, 0, 1, 0]))
         autodrive_ros_bridge.broadcast_transform("front_camera", "v1", np.asarray([0.195276, 0, 0.110486]), np.asarray([0, 0.0636092, 0, 0.9979749]))
         autodrive_ros_bridge.broadcast_transform("rear_camera", "v1", np.asarray([-0.035276, 0, 0.110486]), np.asarray([-0.0636092, 0, 0.9979749, 0]))
-        autodrive_ros_bridge.broadcast_transform("front_left_wheel", "v1", np.asarray([0.141537, 0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan(0.141537/((0.141537/np.tan(steering))+0.0765))))
-        autodrive_ros_bridge.broadcast_transform("front_right_wheel", "v1", np.asarray([0.141537, -0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan(0.141537/((0.141537/np.tan(steering))-0.0765))))
+        autodrive_ros_bridge.broadcast_transform("front_left_wheel", "v1", np.asarray([0.141537, 0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan((2*0.141537*np.tan(steering))/(2*0.141537+2*0.0765*np.tan(steering)))))
+        autodrive_ros_bridge.broadcast_transform("front_right_wheel", "v1", np.asarray([0.141537, -0.0765, 0]), tf.transformations.quaternion_from_euler(0, 0, -np.arctan((2*0.141537*np.tan(steering))/(2*0.141537-2*0.0765*np.tan(steering)))))
         autodrive_ros_bridge.broadcast_transform("rear_left_wheel", "v1", np.asarray([0, 0.0765, 0]), tf.transformations.quaternion_from_euler(0, encoder_angles[0]%6.283, 0))
         autodrive_ros_bridge.broadcast_transform("rear_right_wheel", "v1", np.asarray([0, -0.0765, 0]), tf.transformations.quaternion_from_euler(0, encoder_angles[1]%6.283, 0))
         # LIDAR
