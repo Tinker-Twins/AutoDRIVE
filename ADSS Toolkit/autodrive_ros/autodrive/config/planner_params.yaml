@@ -30,12 +30,14 @@ TebLocalPlannerROS:
     type: "line"
     line_start: [-0.07077, 0.0] # for type "line"
     line_end: [0.07077, 0.0] # for type "line"
-  # GoalTolerance
-  xy_goal_tolerance: 0.1
-  yaw_goal_tolerance: 0.1
+  # Goal Tolerance
+  xy_goal_tolerance: 0.05
+  yaw_goal_tolerance: 0.0873
   free_goal_vel: False
   # Obstacles
-  min_obstacle_dist: 0.2 # this value must also include our robot's expansion, since footprint_model is set to "line".
+  min_obstacle_dist: 0.1 # this value must also include our robot's expansion, since footprint_model is set to "line".
+  inflation_dist: 0.15 # buffer zone around obstacles with non-zero penalty costs (should be larger than min_obstacle_dist)
+  include_dynamic_obstacles: True # motion of obstacles with non-zero velocity is predicted and considered during optimization
   include_costmap_obstacles: True
   costmap_obstacles_behind_robot_dist: 1.5
   obstacle_poses_affected: 30
@@ -57,6 +59,7 @@ TebLocalPlannerROS:
   weight_kinematics_turning_radius: 1
   weight_optimaltime: 1
   weight_obstacle: 50
+  weight_inflation: 0.1
   weight_dynamic_obstacle: 10
   # Homotopy Class Planner
   enable_homotopy_class_planning: True
