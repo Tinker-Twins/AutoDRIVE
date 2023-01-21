@@ -21,7 +21,7 @@
   </node>
 
 	<!-- Map -->
-  <arg name="map_file" value="$(find autodrive)/maps/parking_school_simulator.yaml"/>
+  <arg name="map_file" value="$(find autodrive)/maps/parking_school_perfect_simulator.yaml"/>
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)">
     <param name="frame_id" value="map" />
   </node>
