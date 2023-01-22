@@ -3,7 +3,8 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /LIDAR Scan1
       Splitter Ratio: 0.6000000238418579
     Tree Height: 523
   - Class: rviz/Selection
@@ -24,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LIDAR Scan
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -65,9 +66,7 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 47
       Min Color: 0; 0; 0
-      Min Intensity: 47
       Name: LIDAR Scan
       Position Transformer: XYZ
       Queue Size: 10
@@ -75,7 +74,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.009999999776482582
       Style: Points
-      Topic: /scan
+      Topic: /autodrive/v1/lidar
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
