@@ -154,3 +154,17 @@ series = {CCRIS'21}
 }
 ```
 This work has been published in **2021 International Conference on Control, Robotics and Intelligent System (CCRIS).** The publication can be found on [ACM Digital Library](https://dl.acm.org/doi/abs/10.1145/3483845.3483846).
+
+#### [Towards Mechatronics Approach of System Design, Verification and Validation for Autonomous Vehicles](https://arxiv.org/abs/2301.13425)
+```bibtex
+@eprint{AutoDRIVE-Mechatronics-2023,
+doi = {10.48550/ARXIV.2301.13425},
+url = {https://arxiv.org/abs/2301.13425},
+author = {Samak, Chinmay Vilas and Samak, Tanmay Vilas and Krovi, Venkat},
+keywords = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
+title = {Towards Mechatronics Approach of System Design, Verification and Validation for Autonomous Vehicles},
+publisher = {arXiv},
+year = {2023},
+copyright = {arXiv.org perpetual, non-exclusive license}
+}
+```
