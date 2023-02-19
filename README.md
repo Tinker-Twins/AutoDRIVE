@@ -87,8 +87,8 @@ We encourage you to take a look at the following research projects developed usi
 
 |                    |                     |
 |:------------------:|:-------------------:|
-| [<img src="Images/Autonomous-Parking.png" width="500">](https://youtu.be/oBqIZZA0wkc) | [<img src="Images/Behavioural-Cloning.png" width="500">](https://youtu.be/rejpoogaXOE) |
-| [Autonomous Parking](https://youtu.be/oBqIZZA0wkc) | [Behavioural Cloning](https://youtu.be/rejpoogaXOE) |
+| [<img src="Images/Autonomous-Parking.png" width="500">](https://youtu.be/piCyvTM2dek) | [<img src="Images/Behavioural-Cloning.png" width="500">](https://youtu.be/rejpoogaXOE) |
+| [Autonomous Parking](https://youtu.be/piCyvTM2dek) | [Behavioural Cloning](https://youtu.be/rejpoogaXOE) |
 | [<img src="Images/Intersection-Traversal.png" width="500">](https://youtu.be/AEFJbDzOpcM) | [<img src="Images/Smart-City-Management.png" width="500">](https://youtu.be/fnxOpV1gFXo) |
 | [Intersection Traversal](https://youtu.be/AEFJbDzOpcM) | [Smart City Management](https://youtu.be/fnxOpV1gFXo) |
 |                    |                     |
