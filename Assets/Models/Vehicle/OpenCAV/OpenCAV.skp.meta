@@ -1,0 +1,505 @@
+fileFormatVersion: 2
+guid: a60d6449e85abef46b79686ea7f3fbda
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f0000003000000031000000
+  assetHash:
+    serializedVersion: 2
+    Hash: b690b894cbcd5da94351574302bcf117
+  longitude: -105.283
+  latitude: 40.017
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 4.539529, y: 1.0836477, z: 1.8574029}
+      lookAt: {x: 2.2091503, y: -0.08154165, z: -0.47297582}
+      up: {x: -0.23570226, y: 0.94280905, z: -0.23570226}
+      fov: 50
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Group 1
+    100002: Group 10
+    100004: Group 12
+    100006: Group 14
+    100008: Group 16
+    100010: Group 18
+    100012: Group 2
+    100014: Group 20
+    100016: Group 22
+    100018: Group 24
+    100020: Group 26
+    100022: Group 28
+    100024: Group 30
+    100026: Group 32
+    100028: Group 34
+    100030: Group 36
+    100032: Group 38
+    100034: Group 4
+    100036: Group 40
+    100038: Group 42
+    100040: Group 44
+    100042: Group 46
+    100044: Group 48
+    100046: Group 6
+    100048: Group 8
+    100050: //RootNode
+    400000: Group 1
+    400002: Group 10
+    400004: Group 12
+    400006: Group 14
+    400008: Group 16
+    400010: Group 18
+    400012: Group 2
+    400014: Group 20
+    400016: Group 22
+    400018: Group 24
+    400020: Group 26
+    400022: Group 28
+    400024: Group 30
+    400026: Group 32
+    400028: Group 34
+    400030: Group 36
+    400032: Group 38
+    400034: Group 4
+    400036: Group 40
+    400038: Group 42
+    400040: Group 44
+    400042: Group 46
+    400044: Group 48
+    400046: Group 6
+    400048: Group 8
+    400050: //RootNode
+    2100000: _defaultMat
+    2100002: Interior
+    2100004: Underbody
+    2100006: Interior Dark Plastic
+    2100008: Chrome
+    2100010: Interior Light Plastic
+    2100012: Body
+    2100014: Inner Body
+    2100016: Exhaust
+    2100018: Gear Labels
+    2100020: Gear D
+    2100022: Window Glass
+    2100024: RL Indicator Glass
+    2100026: RR Indicator Glass
+    2100028: Windshield
+    2100030: Headlight Glass
+    2100032: Taillight Glass
+    2100034: Dials
+    2100036: AC Vent
+    2100038: Glass Border
+    2100040: Side Reflector
+    2100042: Rear Reflector
+    2100044: Axle
+    2100046: Mirror
+    2100048: Gear N
+    2100050: Gear R
+    2100052: Gear P
+    2100054: Gear L
+    2100056: RL Indicator
+    2100058: RR Indicator
+    2100060: Taillight
+    2100062: Brake Light
+    2100064: FL Indicator
+    2100066: FR Indicator
+    2100068: Reverse Indicator
+    2100070: Headlight Bulb
+    2100072: Headlight Projector
+    2100074: Foglight
+    2100076: DRL
+    2100078: Rim Face
+    2100080: Rims Interior
+    2100082: Brake Disc
+    2100084: Tire
+    2100086: Brake Rotor
+    2100088: Brake Caliper
+    2300000: Group 10
+    2300002: Group 12
+    2300004: Group 14
+    2300006: Group 16
+    2300008: Group 18
+    2300010: Group 2
+    2300012: Group 20
+    2300014: Group 22
+    2300016: Group 24
+    2300018: Group 26
+    2300020: Group 28
+    2300022: Group 30
+    2300024: Group 32
+    2300026: Group 34
+    2300028: Group 36
+    2300030: Group 38
+    2300032: Group 4
+    2300034: Group 40
+    2300036: Group 42
+    2300038: Group 44
+    2300040: Group 46
+    2300042: Group 48
+    2300044: Group 6
+    2300046: Group 8
+    3300000: Group 10
+    3300002: Group 12
+    3300004: Group 14
+    3300006: Group 16
+    3300008: Group 18
+    3300010: Group 2
+    3300012: Group 20
+    3300014: Group 22
+    3300016: Group 24
+    3300018: Group 26
+    3300020: Group 28
+    3300022: Group 30
+    3300024: Group 32
+    3300026: Group 34
+    3300028: Group 36
+    3300030: Group 38
+    3300032: Group 4
+    3300034: Group 40
+    3300036: Group 42
+    3300038: Group 44
+    3300040: Group 46
+    3300042: Group 48
+    3300044: Group 6
+    3300046: Group 8
+    4300000: Mesh Group 2
+    4300002: Mesh Group 4
+    4300004: Mesh Group 6
+    4300006: Mesh Group 8
+    4300008: Mesh Group 10
+    4300010: Mesh Group 12
+    4300012: Mesh Group 14
+    4300014: Mesh Group 16
+    4300016: Mesh Group 18
+    4300018: Mesh Group 20
+    4300020: Mesh Group 22
+    4300022: Mesh Group 24
+    4300024: Mesh Group 26
+    4300026: Mesh Group 28
+    4300028: Mesh Group 30
+    4300030: Mesh Group 32
+    4300032: Mesh Group 34
+    4300034: Mesh Group 36
+    4300036: Mesh Group 38
+    4300038: Mesh Group 40
+    4300040: Mesh Group 42
+    4300042: Mesh Group 44
+    4300044: Mesh Group 46
+    4300046: Mesh Group 48
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AC Vent
+    second: {fileID: 2100000, guid: 6ffd5122f7a9c7b4fa7d9367b366bb8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Axle
+    second: {fileID: 2100000, guid: b8a0f8ebe5421b24a9ddad451a6f0ddc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 5949269281e03ee4193e8cf88b64324d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brake Caliper
+    second: {fileID: 2100000, guid: e574a62cd5e7db14abe7df9694424a1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brake Disc
+    second: {fileID: 2100000, guid: 2b217ba489ee2134d987d9977913b6eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brake Light
+    second: {fileID: 2100000, guid: 8b650b1253e8f3146a2e4021d99500e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brake Rotor
+    second: {fileID: 2100000, guid: 695826e83f93a1441b9c5b8b35d977b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: 2100000, guid: 35ae57e058a3bdf439f09e499b3bbc5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DRL
+    second: {fileID: 2100000, guid: 5a809cc931d18b346813e349a477b6b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dials
+    second: {fileID: 2100000, guid: c43e64025868b914095732f89d563340, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Exhaust
+    second: {fileID: 2100000, guid: 1f91feeeda9659047afff9598e86385e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FL Indicator
+    second: {fileID: 2100000, guid: 629cf49c9c4df90468c3de2d2404bed5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FR Indicator
+    second: {fileID: 2100000, guid: f32d313cf6d4d3b4bac5282d4cd50a40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Foglight
+    second: {fileID: 2100000, guid: 3e99fa0e675438644aff315718f5bd82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear D
+    second: {fileID: 2100000, guid: 31062b36e31f73047b76ed7ae4cb249c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear L
+    second: {fileID: 2100000, guid: 801927074d0a8054d9df7bed1b48fcf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear Labels
+    second: {fileID: 2100000, guid: 6dc3223e430b18244a26c4833d77bceb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear N
+    second: {fileID: 2100000, guid: 05cf38a36fa0064448afa4ff86d53223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear P
+    second: {fileID: 2100000, guid: 829ccc534fc7d41429367c6f7417405e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gear R
+    second: {fileID: 2100000, guid: 89997fc42bb5e6c49bfa66456d6d7f4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass Border
+    second: {fileID: 2100000, guid: b9f650cbabb3d3c40aed1fbb6e4e27f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Headlight Bulb
+    second: {fileID: 2100000, guid: 1e416e221dd7f6a43b1a2934403c617e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Headlight Glass
+    second: {fileID: 2100000, guid: 928705dde8758a64cac5f0314359ab9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Headlight Projector
+    second: {fileID: 2100000, guid: 5ed43542bb5d43d42a1dfc7a1c726b47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Inner Body
+    second: {fileID: 2100000, guid: b3052c22393cb1745b94f7690ccac05e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior
+    second: {fileID: 2100000, guid: a2b19e49db908744fb2819ffc46b7c43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior Dark Plastic
+    second: {fileID: 2100000, guid: 5682c9814c25c4c4da1c60853ff4d1b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior Light Plastic
+    second: {fileID: 2100000, guid: 94c38682c5eafe146bf62f8cb01e8db7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mirror
+    second: {fileID: 2100000, guid: d70752602c8e95a46b83f1694243ce17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RL Indicator
+    second: {fileID: 2100000, guid: 73566dbb41dcb3a4089c5d535741ec43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RL Indicator Glass
+    second: {fileID: 2100000, guid: 9345fbab146cbbc4cbded6b67c692b79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RR Indicator
+    second: {fileID: 2100000, guid: b11c847ec3230aa458487fb714815ef1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RR Indicator Glass
+    second: {fileID: 2100000, guid: 330b2f9f62518a144b531a8191604fcb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rear Reflector
+    second: {fileID: 2100000, guid: b17c58b464192d14f9b5a59a627e5750, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Reverse Indicator
+    second: {fileID: 2100000, guid: 95ba3424cec169f408fe06c94d4fc693, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rim Face
+    second: {fileID: 2100000, guid: 196d0a49e037ae8429853b68ab02c8f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rims Interior
+    second: {fileID: 2100000, guid: c53581346401a144ab2d29c013361ecc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Side Reflector
+    second: {fileID: 2100000, guid: f2bba40a29cb5344093dc3282ab92aef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Taillight
+    second: {fileID: 2100000, guid: 9eeebd0940f15864784ab0b447b6a4ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Taillight Glass
+    second: {fileID: 2100000, guid: 93ac3512f1c63d7468e04802e08dd91d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tire
+    second: {fileID: 2100000, guid: 00f2f5a77172d3c4cba5823fa8d43195, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Underbody
+    second: {fileID: 2100000, guid: 98ee2deb5d8973c4493c94c2828ffbb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window Glass
+    second: {fileID: 2100000, guid: d6ea4db52763b8c458b6c99ade1ab71a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Windshield
+    second: {fileID: 2100000, guid: 5ae4ef626b64f514fa7cabe1b0460ddc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 339034793cbb2e144a968ed388233a33, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 0
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

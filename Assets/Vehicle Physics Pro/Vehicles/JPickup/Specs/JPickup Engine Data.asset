@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 940510796, guid: b8873f7cd5fec6f49a4b37228b9b23ac, type: 3}
+  m_Name: JPickup Engine Data
+  m_EditorClassIdentifier: 
+  notes: Reference data for configuring the JPickup engine.
+  specifications:
+    maxTorque: 207.76
+    maxTorqueRpm: 4000
+    maxPower: 108.13
+    maxPowerRpm: 5250
+  curveData: []

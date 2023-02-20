@@ -90,8 +90,8 @@ public class VehicleController : MonoBehaviour
         //Debug.Log("Steering Angle: " + SteeringAngle);
         //Debug.Log("Left Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
         //Debug.Log("Right Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
-    		FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
-    		FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
   	}
 
     private void Drive()

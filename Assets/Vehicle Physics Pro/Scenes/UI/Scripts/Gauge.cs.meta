@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 3bdb99cd3cc3cff409ce8c819132c6ae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mainMark: {fileID: 8180050392878498129, guid: 464315f0387118e4f8416e2ca8faddd4,
+      type: 3}
+  - secondaryMark: {fileID: 8180050392878498129, guid: 29b98001316a71a4baf22f4df1097dd2,
+      type: 3}
+  - markText: {fileID: 6876804394596152502, guid: 0e5fe7dab1b400741b919a201447376b,
+      type: 3}
+  - redZoneMark: {fileID: 8180050392878498129, guid: dbbabe86753f34145949265823e1f03b,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

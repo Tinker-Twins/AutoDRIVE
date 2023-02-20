@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Material C World
+  m_Shader: {fileID: 4800000, guid: 2f3f0ef8c0891d241a18b50ae00d0346, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTexFlr2
+      second:
+        m_Texture: {fileID: 2800000, guid: dad61da0dcec13e48a2ee7f5f5c2b6bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTexWall
+      second:
+        m_Texture: {fileID: 2800000, guid: dad61da0dcec13e48a2ee7f5f5c2b6bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTexWall2
+      second:
+        m_Texture: {fileID: 2800000, guid: dad61da0dcec13e48a2ee7f5f5c2b6bc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Scale
+      second: 1
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 0.4638841, g: 0.9558824, b: 0.89480674, a: 1}

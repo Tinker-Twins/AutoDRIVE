@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &181188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486938}
+  - component: {fileID: 2092530}
+  - component: {fileID: 12492322}
+  - component: {fileID: 8110198}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &486938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 417744}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2092530
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181188}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 1000
+  field of view: 64
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!124 &12492322
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181188}
+  m_Enabled: 1
+--- !u!81 &8110198
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181188}
+  m_Enabled: 1
+--- !u!1 &198026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417744}
+  - component: {fileID: 11499500}
+  m_Layer: 0
+  m_Name: Camera Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &417744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198026}
+  m_LocalRotation: {x: -0.042385604, y: -0.94231206, z: 0.13087067, w: -0.30516273}
+  m_LocalPosition: {x: -2.9181025, y: 1.7511439, z: 7.629786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 486938}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11499500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1403093141, guid: b8873f7cd5fec6f49a4b37228b9b23ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  target: {fileID: 0}
+  changeCameraKey: 99
+  customCameraIndex: 0
+  timeMode: 1
+  attachTo:
+    hotKey: 282
+    attachTarget: {fileID: 0}
+  smoothFollow:
+    hotKey: 283
+    distance: 10
+    height: 3.5
+    heightMultiplier: 1
+    heightDamping: 4.25
+    rotationDamping: 3
+    followVelocity: 1
+    velocityDamping: 5
+  orbit:
+    hotKey: 284
+    distance: 14
+    minVerticalAngle: 1.8
+    maxVerticalAngle: 70
+    horizontalSpeed: 5
+    verticalSpeed: 2.5
+    orbitDamping: 4
+    minDistance: 3.8
+    maxDistance: 50
+    distanceSpeed: 10
+    distanceDamping: 4
+    horizontalAxis: Mouse X
+    verticalAxis: Mouse Y
+    distanceAxis: Mouse ScrollWheel
+  lookAt:
+    hotKey: 285
+    damping: 8
+    adjustFov: 1
+    minFov: 1
+    maxFov: 60
+    fovSpeed: 20
+    fovDamping: 4
+    autoFov: 1
+    targetRadius: 5
+    targetRadiusSpeed: 5
+    adjustNearPlane: 0
+    nearPlaneAtMinFov: 1.5
+    fovAxis: Mouse ScrollWheel
+    enableMovement: 0
+    movementSpeed: 10
+    movementDamping: 5
+    forwardAxis: Forwards
+    sidewaysAxis: Sideways
+    upwardsAxis: Upwards
+  free:
+    hotKey: 0
+    minVerticalAngle: -60
+    maxVerticalAngle: 60
+    horizontalSpeed: 4
+    verticalSpeed: 2
+    damping: 4
+    adjustFov: 1
+    minFov: 10
+    maxFov: 60
+    fovSpeed: 20
+    fovDamping: 4
+    adjustNearPlane: 0
+    nearPlaneAtMinFov: 1.5
+    horizontalAxis: Mouse X
+    verticalAxis: Mouse Y
+    fovAxis: Mouse ScrollWheel
+    enableMovement: 0
+    movementSpeed: 2
+    movementDamping: 5
+    forwardAxis: Forwards
+    sidewaysAxis: Sideways
+    upwardsAxis: Upwards

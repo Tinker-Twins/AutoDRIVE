@@ -1,0 +1,1081 @@
+fileFormatVersion: 2
+guid: c55a07a3ced26a04ca8b8be1a457c36f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Direction Icon
+  - first:
+      213: 21300002
+    second: Tail Lights Icon
+  - first:
+      213: 21300004
+    second: Headlights icon
+  - first:
+      213: 21300006
+    second: Full Beam Icon
+  - first:
+      213: 21300008
+    second: Retarder Icon
+  - first:
+      213: 21300010
+    second: Parking Brake Icon
+  - first:
+      213: 21300012
+    second: ESP Off Icon
+  - first:
+      213: 21300014
+    second: Dashboard Icons_7
+  - first:
+      213: 21300016
+    second: Warning Icon
+  - first:
+      213: 21300018
+    second: ECU Icon
+  - first:
+      213: 21300020
+    second: ABS Icon
+  - first:
+      213: 21300022
+    second: ESC Icon
+  - first:
+      213: 21300024
+    second: TCS Icon
+  - first:
+      213: 21300026
+    second: ASR Icon
+  - first:
+      213: 21300028
+    second: ESP Icon
+  - first:
+      213: 21300030
+    second: Dashboard Icons_15
+  - first:
+      213: 21300032
+    second: Hazard Icon
+  - first:
+      213: 21300034
+    second: Battery Icon
+  - first:
+      213: 21300036
+    second: Water Temp Icon
+  - first:
+      213: 21300038
+    second: Oil Icon
+  - first:
+      213: 21300040
+    second: Handbrake Icon
+  - first:
+      213: 21300042
+    second: Fuel Icon
+  - first:
+      213: 21300044
+    second: Dashboard Icons_22
+  - first:
+      213: 21300046
+    second: Dashboard Icons_23
+  - first:
+      213: 21300048
+    second: Dashboard Icons_24
+  - first:
+      213: 21300050
+    second: Dashboard Icons_25
+  - first:
+      213: 21300052
+    second: Dashboard Icons_26
+  - first:
+      213: 21300054
+    second: Dashboard Icons_27
+  - first:
+      213: 21300056
+    second: Dashboard Icons_28
+  - first:
+      213: 21300058
+    second: Dashboard Icons_29
+  - first:
+      213: 21300060
+    second: Dashboard Icons_30
+  - first:
+      213: 21300062
+    second: Dashboard Icons_31
+  - first:
+      213: 21300064
+    second: Dashboard Icons_32
+  - first:
+      213: 21300066
+    second: Dashboard Icons_33
+  - first:
+      213: 21300068
+    second: Dashboard Icons_34
+  - first:
+      213: 21300070
+    second: Dashboard Icons_35
+  - first:
+      213: 21300072
+    second: Dashboard Icons_36
+  - first:
+      213: 21300074
+    second: Dashboard Icons_37
+  - first:
+      213: 21300076
+    second: Dashboard Icons_38
+  - first:
+      213: 21300078
+    second: Dashboard Icons_39
+  - first:
+      213: 21300080
+    second: Dashboard Icons_40
+  - first:
+      213: 21300082
+    second: Dashboard Icons_41
+  - first:
+      213: 21300084
+    second: Dashboard Icons_42
+  - first:
+      213: 21300086
+    second: Dashboard Icons_43
+  - first:
+      213: 21300088
+    second: Dashboard Icons_44
+  - first:
+      213: 21300090
+    second: Dashboard Icons_45
+  - first:
+      213: 21300092
+    second: Dashboard Icons_46
+  - first:
+      213: 21300094
+    second: Dashboard Icons_47
+  - first:
+      213: 21300096
+    second: Dashboard Icons_48
+  - first:
+      213: 21300098
+    second: Dashboard Icons_49
+  - first:
+      213: 21300100
+    second: Dashboard Icons_50
+  - first:
+      213: 21300102
+    second: Dashboard Icons_51
+  - first:
+      213: 21300104
+    second: Dashboard Icons_52
+  - first:
+      213: 21300106
+    second: Dashboard Icons_53
+  - first:
+      213: 21300108
+    second: Dashboard Icons_54
+  - first:
+      213: 21300110
+    second: Dashboard Icons_55
+  - first:
+      213: 21300112
+    second: Dashboard Icons_56
+  - first:
+      213: 21300114
+    second: Dashboard Icons_57
+  - first:
+      213: 21300116
+    second: Dashboard Icons_58
+  - first:
+      213: 21300118
+    second: Dashboard Icons_59
+  - first:
+      213: 21300120
+    second: Dashboard Icons_60
+  - first:
+      213: 21300122
+    second: Dashboard Icons_61
+  - first:
+      213: 21300124
+    second: Dashboard Icons_62
+  - first:
+      213: 21300126
+    second: Dashboard Icons_63
+  - first:
+      213: 21300128
+    second: Dashboard Icons_64
+  - first:
+      213: 21300130
+    second: Dashboard Icons_65
+  - first:
+      213: 21300132
+    second: Dashboard Icons_66
+  - first:
+      213: 21300134
+    second: Dashboard Icons_67
+  - first:
+      213: 21300136
+    second: Dashboard Icons_68
+  - first:
+      213: 21300138
+    second: Dashboard Icons_69
+  - first:
+      213: 21300140
+    second: Dashboard Icons_70
+  - first:
+      213: 21300142
+    second: Dashboard Icons_71
+  - first:
+      213: 21300144
+    second: Dashboard Icons_72
+  - first:
+      213: 21300146
+    second: Dashboard Icons_73
+  - first:
+      213: 21300148
+    second: Dashboard Icons_74
+  - first:
+      213: 21300150
+    second: Dashboard Icons_75
+  - first:
+      213: 21300152
+    second: Dashboard Icons_76
+  - first:
+      213: 21300154
+    second: Dashboard Icons_77
+  - first:
+      213: 21300156
+    second: Dashboard Icons_78
+  - first:
+      213: 21300158
+    second: Dashboard Icons_79
+  - first:
+      213: 21300160
+    second: Dashboard Icons_80
+  - first:
+      213: 21300162
+    second: Dashboard Icons_81
+  - first:
+      213: 21300164
+    second: Dashboard Icons_82
+  - first:
+      213: 21300166
+    second: Dashboard Icons_83
+  - first:
+      213: 21300168
+    second: Dashboard Icons_84
+  - first:
+      213: 21300170
+    second: Dashboard Icons_85
+  - first:
+      213: 21300172
+    second: Dashboard Icons_86
+  - first:
+      213: 21300174
+    second: Dashboard Icons_87
+  - first:
+      213: 21300176
+    second: Dashboard Icons_88
+  - first:
+      213: 21300178
+    second: Dashboard Icons_89
+  - first:
+      213: 21300180
+    second: Dashboard Icons_90
+  - first:
+      213: 21300182
+    second: Dashboard Icons_91
+  - first:
+      213: 21300184
+    second: Dashboard Icons_92
+  - first:
+      213: 21300186
+    second: Dashboard Icons_93
+  - first:
+      213: 21300188
+    second: Dashboard Icons_94
+  - first:
+      213: 21300190
+    second: Dashboard Icons_95
+  - first:
+      213: 21300192
+    second: Dashboard Icons_96
+  - first:
+      213: 21300194
+    second: Dashboard Icons_97
+  - first:
+      213: 21300196
+    second: Steering
+  - first:
+      213: 21300198
+    second: AWD Full Lock Icon
+  - first:
+      213: 21300200
+    second: AWD Center Lock Icon
+  - first:
+      213: 21300202
+    second: AWD Axle Lock Icon
+  - first:
+      213: 21300204
+    second: AWD Front Lock Icon
+  - first:
+      213: 21300206
+    second: AWD Rear Lock Icon
+  - first:
+      213: 21300208
+    second: Rear Diff Lock Icon
+  - first:
+      213: 21300210
+    second: Front Diff Lock Icon
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Direction Icon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e5b9870f99dcf4c9640b1936966e88
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tail Lights Icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5df9427e5dae0b542b37a09396cb3b8d
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Headlights icon
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1b8c91a34a303488ffbd35f9211ee9
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full Beam Icon
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55557342e0bdfe44da7b806dda3ab63f
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retarder Icon
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2468cab53688946b006faf711c4e52
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parking Brake Icon
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9897fe9207b7120418ce80e1f43bdd1c
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ESP Off Icon
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01bc5cf937e21e04ebd398e9df870b4e
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Warning Icon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8066453c9976f9458465d1fada8df33
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ECU Icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efb2eac2481cc27438f1bcd347d50be0
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ABS Icon
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8aa9d804b0bea54c9c7c2e6502cfeef
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ESC Icon
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2933354ff13837544b9771976033a1f3
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TCS Icon
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c276f50f112870429e39a41bd5f7466
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ASR Icon
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1cbcf8c1326154395349405a715ef3
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ESP Icon
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57d1ac4c84eb9a4d8fd6408a8d69211
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazard Icon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbe3d2d93826a646b0d1ab331277e23
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battery Icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff30a1eacfd72e4ba825acd4a43dd38
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water Temp Icon
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5094d6ff86b4984438824e73d6e2d173
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Oil Icon
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6474a0c97d217c44da03cdbdff4abaa8
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Handbrake Icon
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7506005c5c28954bb10ad2eb311341a
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fuel Icon
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f07084182ad6f745b49500859295858
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Steering
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce738e4fd0bbe49438f681b8e8b1a679
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWD Full Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3515a128b1653c4e82ef923c0a42446
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWD Center Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c037cdb4ce10b22419e5c8d998651e08
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWD Axle Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff8468e37978b7d45872cd1342e2f3b5
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWD Front Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d999671709adcda47944da6cc17e69cc
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AWD Rear Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821624fe4034a814f90f4eb975d2294b
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rear Diff Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf150b676b5ebd4196dfd57f2598ae7
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Front Diff Lock Icon
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc703181b1dbfc4cbb33b5652b063b3
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 2873f18ce7fcc8a409b821de8bc227ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      AWD Rear Lock Icon: 21300206
+      Tail Lights Icon: 21300002
+      Parking Brake Icon: 21300010
+      ESP Icon: 21300028
+      AWD Axle Lock Icon: 21300202
+      Handbrake Icon: 21300040
+      ASR Icon: 21300026
+      ESP Off Icon: 21300012
+      ESC Icon: 21300022
+      Hazard Icon: 21300032
+      TCS Icon: 21300024
+      AWD Center Lock Icon: 21300200
+      Fuel Icon: 21300042
+      ECU Icon: 21300018
+      Warning Icon: 21300016
+      Rear Diff Lock Icon: 21300208
+      ABS Icon: 21300020
+      Headlights icon: 21300004
+      Steering: 21300196
+      Water Temp Icon: 21300036
+      Full Beam Icon: 21300006
+      AWD Full Lock Icon: 21300198
+      Battery Icon: 21300034
+      Retarder Icon: 21300008
+      Direction Icon: 21300000
+      Oil Icon: 21300038
+      AWD Front Lock Icon: 21300204
+      Front Diff Lock Icon: 21300210
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 67f567dc2cac78248aaae038bc8f4676
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Glass
+    100002: //RootNode
+    100004: TruckBody
+    100006: WheelFL
+    100008: WheelFR
+    100010: WheelRL
+    100012: WheelRR
+    100014: WiperLeft
+    100016: WiperRight
+    400000: Glass
+    400002: //RootNode
+    400004: TruckBody
+    400006: WheelFL
+    400008: WheelFR
+    400010: WheelRL
+    400012: WheelRR
+    400014: WiperLeft
+    400016: WiperRight
+    2300000: Glass
+    2300002: TruckBody
+    2300004: WheelFL
+    2300006: WheelFR
+    2300008: WheelRL
+    2300010: WheelRR
+    2300012: WiperLeft
+    2300014: WiperRight
+    3300000: Glass
+    3300002: TruckBody
+    3300004: WheelFL
+    3300006: WheelFR
+    3300008: WheelRL
+    3300010: WheelRR
+    3300012: WiperLeft
+    3300014: WiperRight
+    4300000: TruckBody
+    4300002: WheelRR
+    4300004: WheelRL
+    4300006: WheelFR
+    4300008: WheelFL
+    4300010: WiperRight
+    4300012: WiperLeft
+    4300014: Glass
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: a21ed10148ecd944db02ad1814362ba0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: L200 Pickup - Glass
+    second: {fileID: 2100000, guid: 1ec21e05d31ce3242b4a6185b436b090, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel
+    second: {fileID: 2100000, guid: a993095f4e1e3c340a1ef25a85a84c7a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
