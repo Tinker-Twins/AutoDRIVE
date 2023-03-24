@@ -208,8 +208,17 @@ public class DataRecorder : MonoBehaviour
                 sample.rightEncoderTicks = RightWheelEncoders[i].Ticks;;
                 sample.positionX = IndoorPositioningSystems[i].CurrentPosition[0];
                 sample.positionY = IndoorPositioningSystems[i].CurrentPosition[1];
+                sample.positionZ = IndoorPositioningSystems[i].CurrentPosition[2];
+                sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
+                sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
-                sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z,2);
+                sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z, 2);
+                sample.angularX = InertialMeasurementUnits[i].CurrentAngularVelocity[0];
+                sample.angularY = InertialMeasurementUnits[i].CurrentAngularVelocity[1];
+                sample.angularZ = InertialMeasurementUnits[i].CurrentAngularVelocity[2];
+                sample.accelX = InertialMeasurementUnits[i].CurrentLinearAcceleration[0];
+                sample.accelY = InertialMeasurementUnits[i].CurrentLinearAcceleration[1];
+                sample.accelZ = InertialMeasurementUnits[i].CurrentLinearAcceleration[2];
                 VehicleDataSamples[i].Enqueue(sample);
                 sample = null; // Nullify the `sample` variable to avoid recording same data in next loop (may or may not be needed)
             }
@@ -246,15 +255,19 @@ public class DataRecorder : MonoBehaviour
                 // Update recorded velocity variable for i-th vehicle
                 VehicleLightings[i].RecordedVelocity = sample.velocity;
             		// Capture and store the camera frame(s)
-            		string FrontCameraPath = WriteImage(FrontCameras[i], VehicleCameraDirectories[i], "Front_Camera_Frame", sample.timeStamp);
-            		string RearCameraPath = WriteImage(RearCameras[i], VehicleCameraDirectories[i], "Rear_Camera_Frame", sample.timeStamp);
+            		string FrontCameraPath = WriteImage(FrontCameras[i], VehicleCameraDirectories[i], "Camera0_Frame", sample.timeStamp);
+            		string RearCameraPath = WriteImage(RearCameras[i], VehicleCameraDirectories[i], "Camera1_Frame", sample.timeStamp);
                 if(LIDARUnits[i].CurrentRangeArray[359] != null)
                 {
                     for(int j=0;j<359;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
                     LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
                 }
                 // Log data
-            		string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11}\n", sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks, sample.positionX, sample.positionY, sample.yaw, sample.velocity, FrontCameraPath, RearCameraPath, LIDARRangeArray);
+            		string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20}\n",
+                        sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                        sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
+                        sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
+                        FrontCameraPath, RearCameraPath, LIDARRangeArray);
             		File.AppendAllText(Path.Combine(saveLocation, VehicleDataFileNames[i]), row);
                 LIDARRangeArray = ""; // Nullify the `LIDARRangeArray` variable to avoid concatinating new data with the old one
                 // Yield after each pass to avoid freezing the simulator upon entering the while loop
@@ -332,7 +345,16 @@ internal class VehicleDataSample
     public float rightEncoderTicks;
     public float positionX;
     public float positionY;
+    public float positionZ;
+    public float roll;
+    public float pitch;
     public float yaw;
+    public float angularX;
+    public float angularY;
+    public float angularZ;
+    public float accelX;
+    public float accelY;
+    public float accelZ;
     public float velocity;
 }
 
