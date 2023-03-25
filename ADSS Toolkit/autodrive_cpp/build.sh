@@ -6,6 +6,7 @@
 cd `dirname $0`
 
 # Install required dependencies
+sudo apt-get update
 sudo apt-get install -y git libuv1-dev libssl-dev libz-dev gcc g++ cmake make
 git clone https://github.com/uWebSockets/uWebSockets
 cd uWebSockets
