@@ -14,19 +14,21 @@ public class VehicleController : MonoBehaviour
 
     The individual turning angles for left and right wheels are calculated
     using the commanded steering angle based on the Ackermann steering geometry
-    defined by the wheelbase and king pin intersection (KPI) parameters.
+    defined by the wheelbase and track width parameters.
     */
 
     private float ThrottleInput;
     private float SteeringInput;
 
     public GameObject Vehicle;
+    public Rigidbody VehicleRigidBody;
+    public Vector3 COM;
     public WheelCollider FrontLeftWheelCollider, FrontRightWheelCollider;
     public WheelCollider RearLeftWheelCollider, RearRightWheelCollider;
     public Transform FrontLeftWheelTransform, FrontRightWheelTransform;
     public Transform RearLeftWheelTransform, RearRightWheelTransform;
     public float Wheelbase = 141.54f; // mm
-    public float KPI = 90; // mm
+    public float TrackWidth = 153; // mm
     public float MotorTorque = 2.352f; // N-m
     public float SteeringLimit = 30; // deg
     [Range(-1,1)] public float AutonomousThrottle = 0;
@@ -51,8 +53,13 @@ public class VehicleController : MonoBehaviour
 
     public float CurrentSteeringAngle
     {
-        get { return SteeringAngle*(Mathf.PI/180); }
-        set { AutonomousSteering = value; }
+        get { return -SteeringAngle*(Mathf.PI/180); }
+        set { AutonomousSteering = -value; }
+    }
+
+    void Start()
+    {
+        VehicleRigidBody.centerOfMass = COM; // Set COM
     }
 
     public void GetInput()
@@ -72,26 +79,26 @@ public class VehicleController : MonoBehaviour
                 MouseHold = true; // The mouse button is held down
                 MouseStart = MousePosition;   // Set the reference position for tracking mouse movement
             }
-            SteeringInput = Mathf.Clamp((MousePosition - MouseStart)/(Screen.width/6), -1, 1); // Clamp the steering command in range of [-1, 1]
+            SteeringInput = -Mathf.Clamp((MousePosition - MouseStart)/(Screen.width/6), -1, 1); // Clamp the steering command in range of [-1, 1]
         }
 
         // Discrete control using keyboard
         else
         {
             MouseHold = false; // The mouse button is released
-            SteeringInput = Input.GetAxis("Horizontal");
+            SteeringInput = -Input.GetAxis("Horizontal");
         }
   	}
 
   	private void Steer()
   	{
-        if(DrivingMode == 0) SteeringAngle = SteeringInput*SteeringLimit; // Manual Driving
-        else SteeringAngle = AutonomousSteering*SteeringLimit; // Autonomous Driving
+        if(DrivingMode == 0) SteeringAngle = -SteeringInput*SteeringLimit; // Manual Driving
+        else SteeringAngle = -AutonomousSteering*SteeringLimit; // Autonomous Driving
         //Debug.Log("Steering Angle: " + SteeringAngle);
-        //Debug.Log("Left Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
-        //Debug.Log("Right Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
-    	FrontLeftWheelCollider.steerAngle = 1.5f*Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
-    	FrontRightWheelCollider.steerAngle = 1.5f*Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(KPI*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+        //Debug.Log("Left Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
+        //Debug.Log("Right Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
+    	FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
   	}
 
     private void Drive()
