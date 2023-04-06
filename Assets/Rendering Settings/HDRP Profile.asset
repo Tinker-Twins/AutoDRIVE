@@ -77,7 +77,7 @@ MonoBehaviour:
       maxLocalVolumetricFogSize: 32
       maxLocalVolumetricFogOnScreen: 64
     hdShadowInitParams:
-      maxShadowRequests: 1024
+      maxShadowRequests: 2048
       directionalShadowsDepthBits: 32
       shadowFilteringQuality: 2
       punctualLightShadowAtlas:

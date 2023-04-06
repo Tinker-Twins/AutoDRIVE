@@ -16,6 +16,7 @@ public class CarController : MonoBehaviour
 	public TextMeshProUGUI gearText;
 	public float Wheelbase = 3.09f; // m
 	public float Trackwidth = 1.734f; // m
+	public Vector3 COM;
 	public float topSpeed;
 	public float accleration;
 	public float brakingPower;
@@ -98,6 +99,7 @@ public class CarController : MonoBehaviour
 	void Awake ()
 	{
 		car = GetComponent<Rigidbody> ();
+		car.centerOfMass = COM; // Set COM
 	}
 
 	void FixedUpdate ()
@@ -258,7 +260,7 @@ public class CarController : MonoBehaviour
 	{
 		idlingRPM ();
 		getWheelRPM ();
-		float velocity = 0.0f;
+		float velocity = currSpeed;
 		engineRPM = Mathf.SmoothDamp (engineRPM, iRPM + (Mathf.Abs (wheelRPM) * local_finalDrive * gearRatios.Evaluate (gearNum)), ref velocity, smoothTime);
 	}
 

@@ -598,34 +598,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   maxShadowDistance:
-    m_OverrideState: 1
-    m_Value: 500
+    m_OverrideState: 0
+    m_Value: 5000
   directionalTransmissionMultiplier:
     m_OverrideState: 0
     m_Value: 1
   cascadeShadowSplitCount:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 4
   cascadeShadowSplit0:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.05
   cascadeShadowSplit1:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.15
   cascadeShadowSplit2:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.3
   cascadeShadowBorder0:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   cascadeShadowBorder1:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   cascadeShadowBorder2:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   cascadeShadowBorder3:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &781206895839050672
 MonoBehaviour:
@@ -904,10 +904,10 @@ MonoBehaviour:
   active: 0
   quality:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 3
   focusMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
   focusDistance:
     m_OverrideState: 0
     m_Value: 10
@@ -919,13 +919,13 @@ MonoBehaviour:
     m_Value: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 1
   farFocusStart:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 99.99999
   farFocusEnd:
     m_OverrideState: 1
-    m_Value: 25
+    m_Value: 1000
   m_NearSampleCount:
     m_OverrideState: 0
     m_Value: 5
