@@ -13,7 +13,9 @@ public class RenderingQuality : MonoBehaviour
     */
 
     //public GameObject PostProcessVolume;
-    public GameObject HDRPSettings;
+    public GameObject HQ_HDRPSettings;
+    public GameObject UQ_HDRPSettings;
+    public GameObject ReflectionProbe;
     public Light SceneLight;
     public Text Label;
 
@@ -22,7 +24,9 @@ public class RenderingQuality : MonoBehaviour
     private void Start()
     {
         //PostProcessVolume.SetActive(false);
-        HDRPSettings.SetActive(false);
+        HQ_HDRPSettings.SetActive(false);
+        UQ_HDRPSettings.SetActive(false);
+        ReflectionProbe.SetActive(false);
         SceneLight.shadows = LightShadows.None;
         Label.text = "Low Quality";
     }
@@ -30,32 +34,36 @@ public class RenderingQuality : MonoBehaviour
     public void ToggleRenderingQuality()
     {
         Mode += 1;
-        if(Mode > 1)
+        if(Mode > 2)
         {
             Mode = 0;
         }
         if(Mode == 0)
         {
             //PostProcessVolume.SetActive(false);
-            HDRPSettings.SetActive(false);
+            HQ_HDRPSettings.SetActive(false);
+            UQ_HDRPSettings.SetActive(false);
+            ReflectionProbe.SetActive(false);
             SceneLight.shadows = LightShadows.None;
             Label.text = "Low Quality";
         }
         else if(Mode == 1)
         {
             //PostProcessVolume.SetActive(false);
-            HDRPSettings.SetActive(true);
+            HQ_HDRPSettings.SetActive(true);
+            UQ_HDRPSettings.SetActive(false);
+            ReflectionProbe.SetActive(false);
             SceneLight.shadows = LightShadows.Hard;
             Label.text = "High Quality";
         }
-        /*
         else
         {
             //PostProcessVolume.SetActive(true);
-            HDRPSettings.SetActive(true);
+            HQ_HDRPSettings.SetActive(false);
+            UQ_HDRPSettings.SetActive(true);
+            ReflectionProbe.SetActive(true);
             SceneLight.shadows = LightShadows.Soft;
             Label.text = "Ultra Quality";
         }
-        */
     }
 }

@@ -19,6 +19,7 @@ public class HUDText : MonoBehaviour
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
     public IPS IPS; // `IPS` reference
     public IMU IMU; // `IMU` reference
+    public bool EnableLIDAR = true; // Choose whether to display LIDAR data on HUD
     public LIDAR LIDAR; // `LIDAR` reference
 
     void Start()
@@ -34,26 +35,52 @@ public class HUDText : MonoBehaviour
 
     void ResetHUDText()
     {
-        HUD.text =
-        "Simulation Time:\t\t" + "00:00:00" + "\n" +
-        "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+        if (EnableLIDAR)
+        {
+            HUD.text =
+            "Simulation Time:\t\t" + "00:00:00" + "\n" +
+            "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
 
-        "Driving Mode:\t\t" + "Manual" + "\n" +
-        "Gear:\t\t\t\t\t\t" + "D" + "\n" +
-        "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+            "Driving Mode:\t\t" + "Manual" + "\n" +
+            "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+            "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
 
-        "Throttle:\t\t" + "0.00" + "%\n" +
-        "Steering:\t\t" + "0.00" + " rad\n\n" +
+            "Throttle:\t\t" + "0.00" + "%\n" +
+            "Steering:\t\t" + "0.00" + " rad\n\n" +
 
-        "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+            "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
 
-        "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+            "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
 
-        "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
-        "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
-        "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+            "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+            "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+            "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
 
-        "LIDAR Measurement:\t" + "inf" + " m";
+            "LIDAR Measurement:\t" + "inf" + " m";
+        }
+        else
+        {
+            HUD.text =
+            "Simulation Time:\t\t" + "00:00:00" + "\n" +
+            "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+
+            "Driving Mode:\t\t" + "Manual" + "\n" +
+            "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+            "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+
+            "Throttle:\t\t" + "0.00" + "%\n" +
+            "Steering:\t\t" + "0.00" + " rad\n\n" +
+
+            "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+
+            "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+
+            "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+            "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+            "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+
+            "";
+        }
     }
 
     void UpdateHUDText()
@@ -96,27 +123,52 @@ public class HUDText : MonoBehaviour
         string angular_velocity = "[" + IMU.CurrentAngularVelocity[0].ToString("F2") + ", " + IMU.CurrentAngularVelocity[1].ToString("F2") + ", " + IMU.CurrentAngularVelocity[2].ToString("F2") + "]";
         string linear_acceleration = "[" + IMU.CurrentLinearAcceleration[0].ToString("F2") + ", " + IMU.CurrentLinearAcceleration[1].ToString("F2") + ", " + IMU.CurrentLinearAcceleration[2].ToString("F2") + "]";
 
-        string lidar_measurement = LIDAR.CurrentMeasurement;
+        if (EnableLIDAR)
+        {
+            string lidar_measurement = LIDAR.CurrentMeasurement;
+            HUD.text =
+            "Simulation Time:\t\t" + simulation_time + "\n" +
+            "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
 
-        HUD.text =
-        "Simulation Time:\t\t" + simulation_time + "\n" +
-        "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+            "Driving Mode:\t\t" + driving_mode + "\n" +
+            "Gear:\t\t\t\t\t\t" + gear + "\n" +
+            "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
 
-        "Driving Mode:\t\t" + driving_mode + "\n" +
-        "Gear:\t\t\t\t\t\t" + gear + "\n" +
-        "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+            "Throttle:\t\t" + throttle + "%\n" +
+            "Steering:\t\t" + steering_angle + " rad\n\n" +
 
-        "Throttle:\t\t" + throttle + "%\n" +
-        "Steering:\t\t" + steering_angle + " rad\n\n" +
+            "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
 
-        "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+            "IPS Data:\t\t" + position + " m\n\n" +
 
-        "IPS Data:\t\t" + position + " m\n\n" +
+            "IMU Data:\t" + orientation + " rad\n" +
+            "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+            "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
 
-        "IMU Data:\t" + orientation + " rad\n" +
-        "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
-        "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+            "LIDAR Measurement:\t" + lidar_measurement + " m";
+        }
+        else
+        {
+            HUD.text =
+            "Simulation Time:\t\t" + simulation_time + "\n" +
+            "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
 
-        "LIDAR Measurement:\t" + lidar_measurement + " m";
+            "Driving Mode:\t\t" + driving_mode + "\n" +
+            "Gear:\t\t\t\t\t\t" + gear + "\n" +
+            "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+
+            "Throttle:\t\t" + throttle + "%\n" +
+            "Steering:\t\t" + steering_angle + " rad\n\n" +
+
+            "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+
+            "IPS Data:\t\t" + position + " m\n\n" +
+
+            "IMU Data:\t" + orientation + " rad\n" +
+            "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+            "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+
+            "";
+        }
     }
 }
