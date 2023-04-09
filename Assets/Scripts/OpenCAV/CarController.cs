@@ -501,8 +501,8 @@ public class CarController : MonoBehaviour
 									{
 											m_WheelEffects[i].PlayAudio();
 									}
+									m_WheelEffects[i].EmitTyreSmoke();
 							}
-							m_WheelEffects[i].EmitTyreSmoke();
 							continue;
 					}
 
