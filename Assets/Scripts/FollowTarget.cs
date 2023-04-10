@@ -16,6 +16,7 @@ public class FollowTarget : MonoBehaviour
     public GameObject Follower;
     public float ZoomOutLimit = 5.0f;
     public float ZoomInLimit = 0.5f;
+    public float ZoomingStep = 0.1f;
 
     // Update is called once per frame
     void Update()
@@ -24,11 +25,11 @@ public class FollowTarget : MonoBehaviour
 
         if(zoom < 0)
         {
-            Follower.transform.position = new Vector3(Target.transform.position.x, Follower.transform.position.y+0.1f, Target.transform.position.z); // Follow the target while zooming in
+            Follower.transform.position = new Vector3(Target.transform.position.x, Follower.transform.position.y+ZoomingStep, Target.transform.position.z); // Follow the target while zooming in
         }
         else if(zoom > 0)
         {
-            Follower.transform.position = new Vector3(Target.transform.position.x, Follower.transform.position.y-0.1f, Target.transform.position.z); // Follow the target while zooming out
+            Follower.transform.position = new Vector3(Target.transform.position.x, Follower.transform.position.y-ZoomingStep, Target.transform.position.z); // Follow the target while zooming out
         }
         else
         {

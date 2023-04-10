@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class CarController : MonoBehaviour
@@ -93,6 +94,8 @@ public class CarController : MonoBehaviour
 	private float upClamp = 0;
 	private float prevAngularVelocity;
 	private float angularAcclY;
+	private bool MouseHold;
+	private float MouseStart;
 
 	[SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
 
@@ -136,9 +139,31 @@ public class CarController : MonoBehaviour
 
 	void getInput ()
 	{
+		// THROTTLE INPUT
 		fwdInput = (Input.GetAxis("Vertical") > 0) ? Input.GetAxis("Vertical") : 0;
 		backInput = (Input.GetAxis("Vertical") < 0) ? Input.GetAxis("Vertical") : 0;
-		horizontalInput = Input.GetAxis("Horizontal"); //AIAgent.SteeringCommand;
+
+		// STEERING INPUT
+
+        // Continuous control using mouse
+        if (Input.GetMouseButton(0))
+        {
+            float MousePosition = Input.mousePosition.x; // Get the mouse position
+            // Check if its the first time pressing down on mouse button
+            if (!MouseHold)
+            {
+                MouseHold = true; // The mouse button is held down
+                MouseStart = MousePosition;   // Set the reference position for tracking mouse movement
+            }
+            horizontalInput = -Mathf.Clamp((MousePosition - MouseStart)/(Screen.width/6), -1, 1); // Clamp the steering command in range of [-1, 1]
+        }
+
+        // Discrete control using keyboard
+        else
+        {
+            MouseHold = false; // The mouse button is released
+            horizontalInput = -Input.GetAxis("Horizontal");
+        }
 	}
 
 	void moveCar ()
@@ -167,16 +192,16 @@ public class CarController : MonoBehaviour
 
 	void steerCar ()
 	{
-		float x = horizontalInput * (maxSteerAngle - (currSpeed / topSpeed) * steerAngleLimitingFactor);
+		float x = -horizontalInput * (maxSteerAngle - (currSpeed / topSpeed) * steerAngleLimitingFactor);
 		float steerSpeed = steerSensitivity + (currSpeed / topSpeed) * speedDependencyFactor;
 
 		steerAngle = Mathf.SmoothStep (steerAngle, x, steerSpeed);
 
-		wheelColliders [0].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)+(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
-		wheelColliders [1].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)-(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
+		wheelColliders[0].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)+(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
+		wheelColliders[1].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)-(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
 
 		if (!isFlying ())
-			car.AddRelativeTorque (transform.up * turnPower * currSpeed * horizontalInput);
+			car.AddRelativeTorque (transform.up * turnPower * currSpeed * -horizontalInput);
 	}
 
 	void brakeCar ()
@@ -196,9 +221,9 @@ public class CarController : MonoBehaviour
 
 	void driftCar ()
 	{
-		if (currSpeed > 0 && Mathf.Abs (horizontalInput) > 0 && (backInput < 0 || Input.GetKey (KeyCode.Space)) && (!isFlying ())) {
+		if (currSpeed > 0 && Mathf.Abs (-horizontalInput) > 0 && (backInput < 0 || Input.GetKey (KeyCode.Space)) && (!isFlying ())) {
 			float localDriftPower = Input.GetKey (KeyCode.Space) ? driftPower : 0.8f * driftPower;
-			float torque = Mathf.Clamp (localDriftPower * horizontalInput * currSpeed, -15000, 15000);
+			float torque = Mathf.Clamp (localDriftPower * -horizontalInput * currSpeed, -15000, 15000);
 			car.AddRelativeTorque (transform.up * torque);
 		}
 	}
@@ -390,7 +415,7 @@ public class CarController : MonoBehaviour
 
 	void steerHelper ()
 	{
-		localSteerHelper = Mathf.SmoothStep (localSteerHelper, _steerHelper * Mathf.Abs (horizontalInput), 0.1f);
+		localSteerHelper = Mathf.SmoothStep (localSteerHelper, _steerHelper * Mathf.Abs (-horizontalInput), 0.1f);
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
 			_steerHelper *= -1;
 		}
