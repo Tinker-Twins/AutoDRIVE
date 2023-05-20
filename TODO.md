@@ -49,7 +49,7 @@
   - [x] Add Rendering Quality Toggle Functionality
   - [x] Add Data Recording Functionality
   - [x] Integrate with Unity ML-Agents
-  - [ ] Update White LEDs on Nigel from Spot Light Sources to Point Light Sources
+  - [x] Update White LEDs on Nigel from Spot Light Sources to Point Light Sources
   - [ ] [Optional] Add `Encoder.RPM`, `Encoder.SpeedFromRPM` and `Encoder.SpeedFromTicks` to `Socket.cs` script.
   - [x] [Optional] Add 1, 2, 4 and 6 Lane Road Modules
   - [ ] [Optional] Battery Status Indicator for Vehicle
