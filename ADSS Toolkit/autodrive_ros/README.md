@@ -15,8 +15,8 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   | eventlet | 0.25.0 |
   | Flask | 1.1.1 |
   | Flask-SocketIO | 4.1.0 |
-  | python-engineio | 3.13.0 |
   | python-socketio | 4.2.0 |
+  | python-engineio | 3.13.0 |
 
 - Generic dependencies for data processing and visualization:
 
