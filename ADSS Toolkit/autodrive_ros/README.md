@@ -6,7 +6,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 ## DEPENDENCIES
 
-[AutoDRIVE Devkit's Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_py) has the following dependencies (tested with Python 3.6.5):
+[AutoDRIVE Devkit's ROS Package](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_ros) has the following dependencies (tested with Python 3.6.5):
 
 - Websocket-related dependencies for communication bridge between [AutoDRIVE Simulator 0.2.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.2.0) and [AutoDRIVE Devkit 0.2.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Devkit-0.2.0):
 
