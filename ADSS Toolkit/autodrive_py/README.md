@@ -12,7 +12,7 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
 
   | Package | Tested Version |
   |---------|----------------|
-  | eventlet | 0.25.0 |
+  | eventlet | 0.33.3 |
   | Flask | 1.1.1 |
   | Flask-SocketIO | 4.1.0 |
   | python-engineio | 3.13.0 |
