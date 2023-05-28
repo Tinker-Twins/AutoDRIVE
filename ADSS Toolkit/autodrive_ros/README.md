@@ -17,6 +17,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   | Flask-SocketIO | 4.1.0 |
   | python-socketio | 4.2.0 |
   | python-engineio | 3.13.0 |
+  | greenlet | 1.0.0 |
+  | gevent | 21.1.2 |
+  | gevent-websocket | 0.10.1 |
 
 - Generic dependencies for data processing and visualization:
 
