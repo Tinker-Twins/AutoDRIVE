@@ -12,7 +12,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
   | Package | Tested Version |
   |---------|----------------|
-  | eventlet | 0.25.0 |
+  | eventlet | 0.33.3 |
   | Flask | 1.1.1 |
   | Flask-SocketIO | 4.1.0 |
   | python-socketio | 4.2.0 |
