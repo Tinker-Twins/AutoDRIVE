@@ -144,6 +144,55 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ roslaunch autodrive testbed_teleop_remote.launch
   ```
 
+- **Remote Odometry (From Remote PC)**
+
+  **On Vehicle PC:**
+  ```bash
+  $ roslaunch autodrive testbed_bringup.launch
+  ```
+  
+  **On Remote PC:**
+  ```bash
+  $ roslaunch autodrive testbed_lidar_odometry_remote.launch
+  ```
+  
+- **Remote Simultaneous Localization & Mappint (SLAM) (From Remote PC)**
+
+  **On Vehicle PC:**
+  ```bash
+  $ roslaunch autodrive testbed_bringup.launch
+  ```
+  
+  **On Remote PC:**
+  ```bash
+  $ roslaunch autodrive testbed_hector_slam_remote.launch
+  ```
+
+- **Remote Map-Based Localization (From Remote PC)**
+
+  **On Vehicle PC:**
+  ```bash
+  $ roslaunch autodrive testbed_bringup.launch
+  ```
+  
+  **On Remote PC:**
+  ```bash
+  $ roslaunch autodrive testbed_amcl_remote.launch
+  ```
+
+- **Remote Autonomous Navigation (From Remote PC)**
+
+  **On Vehicle PC:**
+  ```bash
+  $ roslaunch autodrive testbed_bringup.launch
+  ```
+  
+  **On Remote PC:**
+  ```bash
+  $ roslaunch autodrive testbed_navigation_remote.launch
+  $ roslaunch autodrive testbed_navigation_goal.launch
+  ```
+
 ## TROUBLESHOOTING
 
 Upon execution of any launch file, if you encounter an error saying "Make sure file exists in package path and permission is set to executable (chmod +x)", set the executable flag on the process for all scripts and executables by running `chmod` on the entire workspace directory (won't hurt if it's already set)
