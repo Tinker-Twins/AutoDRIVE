@@ -9,8 +9,8 @@ import base64
 from io import BytesIO
 from PIL import Image
 import tf
-import config
-from bridge import Bridge
+import autodrive.config as config
+from autodrive.bridge import Bridge
 
 # AutoDRIVE-ROS Bridge instance
 autodrive_ros_bridge = Bridge(config.pub_sub_dict)

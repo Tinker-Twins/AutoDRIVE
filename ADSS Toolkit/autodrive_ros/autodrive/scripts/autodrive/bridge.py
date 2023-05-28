@@ -8,7 +8,7 @@ from geometry_msgs.msg import Point
 from sensor_msgs.msg import JointState, Imu, LaserScan, Image
 from cv_bridge import CvBridge, CvBridgeError
 import numpy as np
-import config
+import autodrive.config as config
 
 msg_types = {
     'int': Int32,
