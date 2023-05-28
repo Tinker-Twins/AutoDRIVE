@@ -111,6 +111,27 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ roslaunch autodrive testbed_teleop.launch
   ```
 
+- **Central Odometry (From Vehicle PC)**
+  ```bash
+  $ roslaunch autodrive testbed_lidar_odometry.launch
+  ```
+
+- **Central Simultaneous Localization & Mappint (SLAM) (From Vehicle PC)**
+  ```bash
+  $ roslaunch autodrive testbed_hector_slam.launch
+  ```
+  
+- **Central Map-Based Localization (From Vehicle PC)**
+  ```bash
+  $ roslaunch autodrive testbed_amcl.launch
+  ```
+
+- **Central Autonomous Navigation (From Vehicle PC)**
+  ```bash
+  $ roslaunch autodrive testbed_navigation.launch
+  $ roslaunch autodrive testbed_navigation_goal.launch
+  ```
+
 - **Remote Teleoperation (From Remote PC)**
 
   **On Vehicle PC:**
