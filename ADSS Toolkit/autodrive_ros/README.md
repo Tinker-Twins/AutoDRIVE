@@ -22,7 +22,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   | gevent-websocket | 0.10.1 |
   
   ```bash
-  $ pip3 install eventlet==0.25.0 | 0.33.3
+  $ pip3 install eventlet==0.33.3
   $ pip3 install Flask==1.1.1
   $ pip3 install Flask-SocketIO==4.1.0
   $ pip3 install python-socketio==4.2.0
