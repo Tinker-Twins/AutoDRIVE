@@ -77,6 +77,32 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   ```bash
   $ roslaunch autodrive simulator_bringup_rviz.launch
   ```
+  
+- **Teleoperation:**
+  ```bash
+  $ roslaunch autodrive simulator_teleop.launch
+  ```
+  
+- **Odometry:**
+  ```bash
+  $ roslaunch autodrive simulator_lidar_odometry.launch
+  ```
+
+- **Simultaneous Localization & Mappint (SLAM):**
+  ```bash
+  $ roslaunch autodrive simulator_hector_slam.launch
+  ``` 
+  
+- **Map-Based Localization:**
+  ```bash
+  $ roslaunch autodrive simulator_amcl.launch
+  ``` 
+
+- **Autonomous Navigation:**
+  ```bash
+  $ roslaunch autodrive simulator_navigation.launch
+  $ roslaunch autodrive simulator_navigation_goal.launch
+  ```
 
 ### Usage with AutoDRIVE Testbed
 
