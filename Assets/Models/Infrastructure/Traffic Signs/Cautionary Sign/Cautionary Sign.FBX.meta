@@ -1,0 +1,260 @@
+fileFormatVersion: 2
+guid: b1c506715c831534a8cf3d6b929f790c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Base 1
+    100002: Base 2
+    100004: Boss-Extrude1
+    100006: //RootNode
+    100008: Cautionary Sign 1
+    100010: Cautionary Sign Stand
+    100012: Cautionary Sign Sticker
+    100014: Cut-Extrude1
+    100016: Cut-Extrude1 1
+    100018: Cut-Extrude1 2
+    100020: Cut-Extrude1 3
+    100022: Cut-Extrude1 4
+    100024: Cut-Extrude1 5
+    100026: Cut-Extrude1 6
+    100028: Cut-Extrude1 7
+    100030: Cut-Extrude2
+    100032: Cut-Extrude2 1
+    100034: Cut-Extrude2 2
+    100036: Cut-Extrude2 3
+    100038: Cut-Extrude2 4
+    100040: Cut-Extrude2 5
+    100042: Cut-Extrude2 6
+    100044: Cut-Extrude2 7
+    100046: Fillet1
+    100048: Fillet1 1
+    100050: Fillet1 2
+    100052: Fillet2
+    100054: M2 Nut
+    100056: M2 Nut 1
+    100058: M2 Nut 2
+    100060: M2 Nut 3
+    100062: M2 Nut 4
+    100064: M2 Nut 5
+    100066: M2 Nut 6
+    100068: M2 Nut 7
+    100070: M2x10 Bolt
+    100072: M2x10 Bolt 1
+    100074: M2x10 Bolt 2
+    100076: M2x10 Bolt 3
+    100078: M2x10 Bolt 4
+    100080: M2x10 Bolt 5
+    100082: M2x10 Bolt 6
+    100084: M2x10 Bolt 7
+    100086: Support
+    400000: Base 1
+    400002: Base 2
+    400004: Boss-Extrude1
+    400006: //RootNode
+    400008: Cautionary Sign 1
+    400010: Cautionary Sign Stand
+    400012: Cautionary Sign Sticker
+    400014: Cut-Extrude1
+    400016: Cut-Extrude1 1
+    400018: Cut-Extrude1 2
+    400020: Cut-Extrude1 3
+    400022: Cut-Extrude1 4
+    400024: Cut-Extrude1 5
+    400026: Cut-Extrude1 6
+    400028: Cut-Extrude1 7
+    400030: Cut-Extrude2
+    400032: Cut-Extrude2 1
+    400034: Cut-Extrude2 2
+    400036: Cut-Extrude2 3
+    400038: Cut-Extrude2 4
+    400040: Cut-Extrude2 5
+    400042: Cut-Extrude2 6
+    400044: Cut-Extrude2 7
+    400046: Fillet1
+    400048: Fillet1 1
+    400050: Fillet1 2
+    400052: Fillet2
+    400054: M2 Nut
+    400056: M2 Nut 1
+    400058: M2 Nut 2
+    400060: M2 Nut 3
+    400062: M2 Nut 4
+    400064: M2 Nut 5
+    400066: M2 Nut 6
+    400068: M2 Nut 7
+    400070: M2x10 Bolt
+    400072: M2x10 Bolt 1
+    400074: M2x10 Bolt 2
+    400076: M2x10 Bolt 3
+    400078: M2x10 Bolt 4
+    400080: M2x10 Bolt 5
+    400082: M2x10 Bolt 6
+    400084: M2x10 Bolt 7
+    400086: Support
+    2100000: 'Material #28'
+    2100002: 'Material #29'
+    2100004: 'Material #30'
+    2300000: Boss-Extrude1
+    2300002: Cut-Extrude1
+    2300004: Cut-Extrude1 1
+    2300006: Cut-Extrude1 2
+    2300008: Cut-Extrude1 3
+    2300010: Cut-Extrude1 4
+    2300012: Cut-Extrude1 5
+    2300014: Cut-Extrude1 6
+    2300016: Cut-Extrude1 7
+    2300018: Cut-Extrude2
+    2300020: Cut-Extrude2 1
+    2300022: Cut-Extrude2 2
+    2300024: Cut-Extrude2 3
+    2300026: Cut-Extrude2 4
+    2300028: Cut-Extrude2 5
+    2300030: Cut-Extrude2 6
+    2300032: Cut-Extrude2 7
+    2300034: Fillet1
+    2300036: Fillet1 1
+    2300038: Fillet1 2
+    2300040: Fillet2
+    3300000: Boss-Extrude1
+    3300002: Cut-Extrude1
+    3300004: Cut-Extrude1 1
+    3300006: Cut-Extrude1 2
+    3300008: Cut-Extrude1 3
+    3300010: Cut-Extrude1 4
+    3300012: Cut-Extrude1 5
+    3300014: Cut-Extrude1 6
+    3300016: Cut-Extrude1 7
+    3300018: Cut-Extrude2
+    3300020: Cut-Extrude2 1
+    3300022: Cut-Extrude2 2
+    3300024: Cut-Extrude2 3
+    3300026: Cut-Extrude2 4
+    3300028: Cut-Extrude2 5
+    3300030: Cut-Extrude2 6
+    3300032: Cut-Extrude2 7
+    3300034: Fillet1
+    3300036: Fillet1 1
+    3300038: Fillet1 2
+    3300040: Fillet2
+    4300000: Fillet1
+    4300002: Fillet1
+    4300004: Cut-Extrude1
+    4300006: Cut-Extrude2
+    4300008: Cut-Extrude1
+    4300010: Cut-Extrude2
+    4300012: Cut-Extrude1
+    4300014: Cut-Extrude2
+    4300016: Cut-Extrude1
+    4300018: Cut-Extrude2
+    4300020: Fillet2
+    4300022: Cut-Extrude1
+    4300024: Cut-Extrude2
+    4300026: Cut-Extrude1
+    4300028: Cut-Extrude2
+    4300030: Fillet1
+    4300032: Cut-Extrude1
+    4300034: Cut-Extrude2
+    4300036: Cut-Extrude1
+    4300038: Cut-Extrude2
+    4300040: Boss-Extrude1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #28'
+    second: {fileID: 2100000, guid: 5f1ff5c7c0118c443bae6018f18140e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #29'
+    second: {fileID: 2100000, guid: 44b36262e44488244b08c4107b8084d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #30'
+    second: {fileID: 2100000, guid: af32e8b93b13a7a4fb5a59fe0a431f61, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

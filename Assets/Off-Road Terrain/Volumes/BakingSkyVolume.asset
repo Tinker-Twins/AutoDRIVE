@@ -1,0 +1,334 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2820790835837621113
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d877ec3e844f2ca46830012e8e79319b, type: 3}
+  m_Name: PhysicallyBasedSky
+  m_EditorClassIdentifier: 
+  active: 1
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+  skyIntensityMode:
+    m_OverrideState: 1
+    m_Value: 0
+  exposure:
+    m_OverrideState: 1
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+  upperHemisphereLuxColor:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 1
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  type:
+    m_OverrideState: 1
+    m_Value: 1
+  sphericalMode:
+    m_OverrideState: 1
+    m_Value: 0
+  seaLevel:
+    m_OverrideState: 1
+    m_Value: -50
+  planetaryRadius:
+    m_OverrideState: 0
+    m_Value: 6378100
+  planetCenterPosition:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: -6378100, z: 0}
+  airDensityR:
+    m_OverrideState: 0
+    m_Value: 0.04534
+  airDensityG:
+    m_OverrideState: 0
+    m_Value: 0.10237241
+  airDensityB:
+    m_OverrideState: 0
+    m_Value: 0.23264056
+  airTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.9, g: 0.9, b: 1, a: 1}
+  airMaximumAltitude:
+    m_OverrideState: 0
+    m_Value: 55261.973
+  aerosolDensity:
+    m_OverrideState: 1
+    m_Value: 0.035
+  aerosolTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.91194963, g: 0.97256786, b: 1, a: 1}
+  aerosolMaximumAltitude:
+    m_OverrideState: 0
+    m_Value: 1500
+  aerosolAnisotropy:
+    m_OverrideState: 0
+    m_Value: 0.5
+  numberOfBounces:
+    m_OverrideState: 1
+    m_Value: 4
+  groundTint:
+    m_OverrideState: 1
+    m_Value: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
+  groundColorTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  groundEmissionTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  groundEmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 0
+  planetRotation:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  spaceEmissionTexture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  spaceEmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+  spaceRotation:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  colorSaturation:
+    m_OverrideState: 1
+    m_Value: 1
+  alphaSaturation:
+    m_OverrideState: 1
+    m_Value: 1
+  alphaMultiplier:
+    m_OverrideState: 1
+    m_Value: 1
+  horizonTint:
+    m_OverrideState: 1
+    m_Value: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+  zenithTint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  horizonZenithShift:
+    m_OverrideState: 0
+    m_Value: -0.19
+  m_SkyVersion: 1
+  m_ObsoleteEarthPreset:
+    m_OverrideState: 0
+    m_Value: 1
+--- !u!114 &-102946529629552838
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88178bb13f64a54f90d6cd6ef7aa9a1, type: 3}
+  m_Name: CloudLayer
+  m_EditorClassIdentifier: 
+  active: 1
+  opacity:
+    m_OverrideState: 1
+    m_Value: 0.073
+  upperHemisphereOnly:
+    m_OverrideState: 1
+    m_Value: 1
+  layers:
+    m_OverrideState: 1
+    m_Value: 0
+  resolution:
+    m_OverrideState: 1
+    m_Value: 1024
+  shadowMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.2
+  shadowTint:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  shadowResolution:
+    m_OverrideState: 1
+    m_Value: 256
+  shadowSize:
+    m_OverrideState: 1
+    m_Value: 500
+  layerA:
+    cloudMap:
+      m_OverrideState: 1
+      m_Value: {fileID: 2800000, guid: 57a33fc2476a01644865bfde5f06e2f4, type: 3}
+    opacityR:
+      m_OverrideState: 1
+      m_Value: 1
+    opacityG:
+      m_OverrideState: 1
+      m_Value: 0.002
+    opacityB:
+      m_OverrideState: 1
+      m_Value: 0.116
+    opacityA:
+      m_OverrideState: 1
+      m_Value: 0
+    rotation:
+      m_OverrideState: 1
+      m_Value: 0
+    tint:
+      m_OverrideState: 1
+      m_Value: {r: 1, g: 1, b: 1, a: 1}
+    exposure:
+      m_OverrideState: 1
+      m_Value: 0
+    distortionMode:
+      m_OverrideState: 1
+      m_Value: 0
+    scrollOrientation:
+      m_OverrideState: 1
+      m_Value:
+        mode: 1
+        customValue: 0
+        additiveValue: 0
+        multiplyValue: 1
+    scrollSpeed:
+      m_OverrideState: 1
+      m_Value:
+        mode: 1
+        customValue: 100
+        additiveValue: 0
+        multiplyValue: 1
+    flowmap:
+      m_OverrideState: 1
+      m_Value: {fileID: 0}
+    lighting:
+      m_OverrideState: 1
+      m_Value: 0
+    steps:
+      m_OverrideState: 1
+      m_Value: 4
+    thickness:
+      m_OverrideState: 1
+      m_Value: 0.5
+    castShadows:
+      m_OverrideState: 1
+      m_Value: 1
+  layerB:
+    cloudMap:
+      m_OverrideState: 1
+      m_Value: {fileID: 2800000, guid: 57a33fc2476a01644865bfde5f06e2f4, type: 3}
+    opacityR:
+      m_OverrideState: 1
+      m_Value: 1
+    opacityG:
+      m_OverrideState: 1
+      m_Value: 0
+    opacityB:
+      m_OverrideState: 1
+      m_Value: 0
+    opacityA:
+      m_OverrideState: 1
+      m_Value: 0
+    rotation:
+      m_OverrideState: 1
+      m_Value: 0
+    tint:
+      m_OverrideState: 1
+      m_Value: {r: 1, g: 1, b: 1, a: 1}
+    exposure:
+      m_OverrideState: 1
+      m_Value: 0
+    distortionMode:
+      m_OverrideState: 1
+      m_Value: 0
+    scrollOrientation:
+      m_OverrideState: 1
+      m_Value:
+        mode: 1
+        customValue: 0
+        additiveValue: 0
+        multiplyValue: 1
+    scrollSpeed:
+      m_OverrideState: 1
+      m_Value:
+        mode: 1
+        customValue: 100
+        additiveValue: 0
+        multiplyValue: 1
+    flowmap:
+      m_OverrideState: 1
+      m_Value: {fileID: 0}
+    lighting:
+      m_OverrideState: 1
+      m_Value: 0
+    steps:
+      m_OverrideState: 1
+      m_Value: 4
+    thickness:
+      m_OverrideState: 1
+      m_Value: 0.5
+    castShadows:
+      m_OverrideState: 1
+      m_Value: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: BakingSkyVolume
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: -2820790835837621113}
+  - {fileID: 2657188844133875846}
+  - {fileID: -102946529629552838}
+--- !u!114 &2657188844133875846
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: 
+  active: 1
+  skyType:
+    m_OverrideState: 1
+    m_Value: 4
+  cloudType:
+    m_OverrideState: 1
+    m_Value: 1
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 1
+  windOrientation:
+    m_OverrideState: 0
+    m_Value: 0
+  windSpeed:
+    m_OverrideState: 0
+    m_Value: 100
+  fogType:
+    m_OverrideState: 0
+    m_Value: 0

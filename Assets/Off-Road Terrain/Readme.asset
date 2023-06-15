@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: a8b1368bae45fee4c979d8a905b18d5b, type: 3}
+  title: Unity Terrain - HDRP Demo Scene
+  sections:
+  - heading: 
+    text: 'This package includes a mix of example content to help you get the most out of the Unity Terrain system. You can use the textures, brushes, and models in this sample pack for your own projects.'
+    linkText: 
+    url: 
+  - heading:
+    text: 'This pack is designed to work with the Unity High Definition Render Pipeline (check the Asset Store for version of the package targeting the Universal Render Pipeline).'
+    linkText: 
+    url: 
+  - heading:
+    text: 'This scene includes a series of bookmarked locations with notes and tips.  Select any of the GameObjects under "Bookmarks" to see the details. The inspector for the bookmarks includes buttons which will focus the camera on points of interest and allow you to cycle through the bookmarks one at a time.'
+    linkText: 
+    url: 
+  - heading:
+    text: 'Foliage shaders used in this scene utilize the HDRP Diffusion Profile assets. Select any of the materials under Prefabs/Details/Materials and click the Fix button near the Diffusion Profile property field. This way the profile asset gets registered in the Render Pipeline Asset to show the correct subsurface scattering on the Details.'
+    linkText: 
+    url: 
+  - heading: 
+    text: 'Much of the content in this project was built using the '
+    linkText: Unity TerrainTools Package
+    url: https://docs.unity3d.com/Packages/com.unity.terrain-tools@latest/index.html
+  - heading: 
+    text: 'You can install TerrainTools using the Package Manager'
+    linkText: 
+    url: 
+  loadedLayout: 1
