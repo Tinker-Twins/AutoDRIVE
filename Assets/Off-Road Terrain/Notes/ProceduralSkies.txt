@@ -1,0 +1,3 @@
+In the HDRP version of this sample pack, we used the HDRP [Physcally_Based_Sky](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@12.1/manual/Override-Physically-Based-Sky.html) for a realistic, high dynamic range sky that reacts to the position of the sun.  We also used HDRP's new [Volumetric_Clouds](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@12.1/manual/Override-Volumetric-Clouds.html) to simulate realistic cloud behaviors on a sunny day.
+
+You'll find the sky and cloud settings in the hierarchy under *Volumes* *>* *SkyFog*.  You can learn more about Unity Volumetric Clouds in [our_YouTube_introduction](https://youtu.be/p48rNiJBFG0).

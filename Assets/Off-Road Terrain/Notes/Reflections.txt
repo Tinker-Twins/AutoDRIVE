@@ -1,0 +1,5 @@
+In this scene, we used standard Unity [Reflection_Probes](https://docs.unity3d.com/Manual/class-ReflectionProbe.html) to create the appearance of reflections on the lake surface.  
+
+We could have used a [Planar_Reflection_Probe](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@12.1/manual/Planar-Reflection-Probe.html) , which is very good for creating accurate reflections on flat surfaces like our lake.  However, because this scene is quite large, and can be viewed from many different angles, it’s easier to use conventional probes.
+
+On high-end hardware you can enable [Screen_Space_Reflections](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@12.1/manual/Override-Screen-Space-Reflection.html) to achieve very accurate reflections.  If you want to experiment with accurate reflections, we've included a high-end HDRP asset. If you edit the  project settings to use that asset, you can enable Screen Space Reflections from the hierarchy under *Volumes* *>* *Ray* *Tracing*.
