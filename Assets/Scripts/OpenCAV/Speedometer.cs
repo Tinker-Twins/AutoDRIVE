@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Speedometer : MonoBehaviour
 {
-	public CarController cc;
+	public ADCarController cc;
 
 	private Text digit0, digit1, digit2, gear;
 
