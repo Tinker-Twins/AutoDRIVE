@@ -110,7 +110,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 - **Simultaneous Localization & Mapping (SLAM):**
   ```bash
+  # Map the environment
   $ roslaunch autodrive simulator_hector_slam.launch
+  # Save the map
   $ rosrun map_server map_saver -f my_map
   ``` 
   
@@ -121,7 +123,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 - **Autonomous Navigation:**
   ```bash
+  # Begin autonomous navigation
   $ roslaunch autodrive simulator_navigation.launch
+  # Publish navigation goal from script
   $ roslaunch autodrive simulator_navigation_goal.launch
   ```
 
@@ -139,7 +143,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 - **Central Simultaneous Localization & Mapping (SLAM) (From Vehicle PC)**
   ```bash
+  # Map the environment
   $ roslaunch autodrive testbed_hector_slam.launch
+  # Save the map
   $ rosrun map_server map_saver -f my_map
   ```
   
@@ -150,7 +156,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 - **Central Autonomous Navigation (From Vehicle PC)**
   ```bash
+  # Begin autonomous navigation
   $ roslaunch autodrive testbed_navigation.launch
+  # Publish navigation goal from script
   $ roslaunch autodrive testbed_navigation_goal.launch
   ```
 
@@ -187,7 +195,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   
   **On Remote PC:**
   ```bash
+  # Map the environment
   $ roslaunch autodrive testbed_hector_slam_remote.launch
+  # Save the map
   $ rosrun map_server map_saver -f my_map
   ```
 
@@ -212,7 +222,9 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   
   **On Remote PC:**
   ```bash
+  # Begin autonomous navigation
   $ roslaunch autodrive testbed_navigation_remote.launch
+  # Publish navigation goal from script
   $ roslaunch autodrive testbed_navigation_goal.launch
   ```
 
