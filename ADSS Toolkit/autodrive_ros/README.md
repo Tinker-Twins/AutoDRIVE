@@ -87,7 +87,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ roslaunch autodrive simulator_lidar_odometry.launch
   ```
 
-- **Simultaneous Localization & Mappint (SLAM):**
+- **Simultaneous Localization & Mapping (SLAM):**
   ```bash
   $ roslaunch autodrive simulator_hector_slam.launch
   ``` 
@@ -115,7 +115,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ roslaunch autodrive testbed_lidar_odometry.launch
   ```
 
-- **Central Simultaneous Localization & Mappint (SLAM) (From Vehicle PC)**
+- **Central Simultaneous Localization & Mapping (SLAM) (From Vehicle PC)**
   ```bash
   $ roslaunch autodrive testbed_hector_slam.launch
   ```
@@ -155,7 +155,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ roslaunch autodrive testbed_lidar_odometry_remote.launch
   ```
   
-- **Remote Simultaneous Localization & Mappint (SLAM) (From Remote PC)**
+- **Remote Simultaneous Localization & Mapping (SLAM) (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
