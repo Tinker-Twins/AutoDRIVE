@@ -90,6 +90,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 - **Simultaneous Localization & Mapping (SLAM):**
   ```bash
   $ roslaunch autodrive simulator_hector_slam.launch
+  $ rosrun map_server map_saver -f my_map
   ``` 
   
 - **Map-Based Localization:**
@@ -118,6 +119,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 - **Central Simultaneous Localization & Mapping (SLAM) (From Vehicle PC)**
   ```bash
   $ roslaunch autodrive testbed_hector_slam.launch
+  $ rosrun map_server map_saver -f my_map
   ```
   
 - **Central Map-Based Localization (From Vehicle PC)**
@@ -165,6 +167,7 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   **On Remote PC:**
   ```bash
   $ roslaunch autodrive testbed_hector_slam_remote.launch
+  $ rosrun map_server map_saver -f my_map
   ```
 
 - **Remote Map-Based Localization (From Remote PC)**
