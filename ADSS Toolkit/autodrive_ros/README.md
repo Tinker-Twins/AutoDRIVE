@@ -47,6 +47,26 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ pip3 install opencv-contrib-python
   ```
 
+- ROS package dependencies:
+
+  | Package | Tested Version |
+  |---------|----------------|
+  | [rplidar_ros](http://wiki.ros.org/rplidar_ros) | Noetic |
+  | [hector_slam](http://wiki.ros.org/hector_slam) | Noetic |
+  | [map_server](http://wiki.ros.org/map_server) | Noetic |
+  | [amcl](http://wiki.ros.org/amcl) | Noetic |
+  | [navigation](https://wiki.ros.org/navigation) | Noetic |
+  | [teb_local_planner](http://wiki.ros.org/teb_local_planner) | Noetic |
+
+  ```bash
+  $ sudo apt-get install ros-$ROS_DISTRO-rplidar-ros
+  $ sudo apt-get install ros-$ROS_DISTRO-hector-slam
+  $ sudo apt-get install ros-$ROS_DISTRO-map-server
+  $ sudo apt-get install ros-$ROS_DISTRO-amcl
+  $ sudo apt-get install ros-$ROS_DISTRO-navigation
+  $ sudo apt-get install ros-$ROS_DISTRO-teb-local-planner
+  ```
+
 ## SETUP
 
 1. Clone `AutoDRIVE-Devkit` branch of the `AutoDRIVE` repository.
