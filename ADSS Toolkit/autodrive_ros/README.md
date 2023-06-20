@@ -87,15 +87,16 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
 ### Usage with AutoDRIVE Simulator
 
-- **Headless Mode Bringup:**
-  ```bash
-  $ roslaunch autodrive simulator_bringup_headless.launch
-  ```
-
-- **RViz Mode Bringup:**
-  ```bash
-  $ roslaunch autodrive simulator_bringup_rviz.launch
-  ```
+- **Bringup:**
+  - **Headless Mode Bringup:**
+    ```bash
+    $ roslaunch autodrive simulator_bringup_headless.launch
+    ```
+    **[OR]**
+  - **RViz Mode Bringup:**
+    ```bash
+    $ roslaunch autodrive simulator_bringup_rviz.launch
+    ```
   
 - **Teleoperation:**
   ```bash
