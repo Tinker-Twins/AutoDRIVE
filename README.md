@@ -75,7 +75,7 @@ We encourage you to take a look at the following presentations to gain a better 
 
 |                    |
 |:------------------:|
-| [<img src="Images/AutoDRIVE-Simulator-Pitch-Video.png">](https://youtu.be/t0CgNR_LgrQ) |
+| [<img src="Images/AutoDRIVE-Ecosystem-Pitch-Video.png">](https://youtu.be/t0CgNR_LgrQ) |
 | [AutoDRIVE Ecosystem Pitch Video](https://youtu.be/t0CgNR_LgrQ) |
 |                    |
 
