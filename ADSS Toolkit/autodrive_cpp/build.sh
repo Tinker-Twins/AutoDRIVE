@@ -11,17 +11,20 @@ sudo apt-get install -y git libuv1-dev libssl-dev libz-dev gcc g++ cmake make
 git clone https://github.com/uWebSockets/uWebSockets
 cd uWebSockets
 git checkout e94b6e1
-cd ..
 
 # Build (compile) the project and store output in the dedicated `build` directory.
 mkdir -p build
 cd build
 cmake ..
 make
-cd ..
-
-# Create symbolic links to websocket library
+sudo make install
+cd ../..
 sudo ln -sf /usr/lib64/libuWS.so /usr/lib/libuWS.so
+
+mkdir -p build
+cd build
+cmake .. && make
+cd ..
 
 # Clean the repository
 sudo rm -r uWebSockets
