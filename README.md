@@ -155,6 +155,19 @@ copyright = {arXiv.org perpetual, non-exclusive license}
 ```
 This work has been accepted at **2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM).**
 
+#### [Towards Sim2Real Transfer of Autonomy Algorithms using AutoDRIVE Ecosystem](https://arxiv.org/abs/2307.13272)
+```bibtex
+@eprint{AutoDRIVE-Sim2Real-2023,
+title={Towards Sim2Real Transfer of Autonomy Algorithms using AutoDRIVE Ecosystem}, 
+author={Chinmay Vilas Samak and Tanmay Vilas Samak and Venkat Krovi},
+year={2023},
+eprint={2307.13272},
+archivePrefix={arXiv},
+primaryClass={cs.RO}
+}
+```
+This work has been accepted at **2023 AACC/IFAC Modeling, Estimation and Control Conference (MECC).**
+
 ### Technical Reports
 
 We encourage you to read and cite the following technical reports if you use any part of this project for your research (these can serve as a good source of documentation as well):
