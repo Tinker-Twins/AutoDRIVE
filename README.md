@@ -142,18 +142,19 @@ This work has been published at **2021 International Conference on Control, Robo
 
 #### [Towards Mechatronics Approach of System Design, Verification and Validation for Autonomous Vehicles](https://arxiv.org/abs/2301.13425)
 ```bibtex
-@eprint{AutoDRIVE-Mechatronics-2023,
-doi = {10.48550/ARXIV.2301.13425},
-url = {https://arxiv.org/abs/2301.13425},
-author = {Samak, Chinmay Vilas and Samak, Tanmay Vilas and Krovi, Venkat},
-keywords = {Robotics (cs.RO), FOS: Computer and information sciences, FOS: Computer and information sciences},
-title = {Towards Mechatronics Approach of System Design, Verification and Validation for Autonomous Vehicles},
-publisher = {arXiv},
+@inproceedings{AutoDRIVE-Mechatronics-2023,
+author = {Samak, Chinmay and Samak, Tanmay and Krovi, Venkat},
+booktitle = {2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)}, 
+title = {Towards Mechatronics Approach of System Design, Verification and Validation for Autonomous Vehicles}, 
 year = {2023},
-copyright = {arXiv.org perpetual, non-exclusive license}
+volume = {},
+number = {},
+pages = {1208-1213},
+doi = {10.1109/AIM46323.2023.10196233}
+url = {https://doi.org/10.1109/AIM46323.2023.10196233}
 }
 ```
-This work has been accepted at **2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM).**
+This work has been published at **2023 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM).** The publication can be found on [IEEE Xplore](https://ieeexplore.ieee.org/document/10196233).
 
 #### [Towards Sim2Real Transfer of Autonomy Algorithms using AutoDRIVE Ecosystem](https://arxiv.org/abs/2307.13272)
 ```bibtex
