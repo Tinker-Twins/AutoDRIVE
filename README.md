@@ -56,7 +56,7 @@ AutoDRIVE Devkit is a developer's kit that enables the users to exploit AutoDRIV
 </p>
 
 - **Source Branch:** [AutoDRIVE Devkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit)
-- **Latest Release:** [AutoDRIVE Devkit 0.2.1](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Devkit-0.2.1)
+- **Latest Release:** [AutoDRIVE Devkit 0.2.2](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Devkit-0.2.2)
 - **Upcoming Release:** AutoDRIVE Devkit 0.3.0 is currently under development.
 
 ## Awards and Recognition
