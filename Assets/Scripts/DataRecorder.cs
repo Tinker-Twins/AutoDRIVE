@@ -33,6 +33,8 @@ public class DataRecorder : MonoBehaviour
     private string LIDARRangeArray;
     public Camera[] FrontCameras; // Vehicle front camera references
     public Camera[] RearCameras; // Vehicle rear camera references
+    private string FrontCameraPath;
+    private string RearCameraPath;
 
     public TLController[] TrafficLightControllers; // Traffic light controller references
 
@@ -56,7 +58,7 @@ public class DataRecorder : MonoBehaviour
             isRecording = value;
             if(value == true)
             {
-          			//Debug.Log("Starting data recording...");
+          		//Debug.Log("Starting data recording...");
                 // Create data sample queues for storing data of all vehicles
                 for(int i=0;i<VehicleControllers.Length;i++)
                 {
@@ -135,13 +137,19 @@ public class DataRecorder : MonoBehaviour
         isSaving = false;
         RecordStatus.text = "Record Data";
         // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
-        for(int i=1;i<FrontCameras.Length;i++)
+        if(FrontCameras.Length != 0)
         {
-            FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+            for(int i=1;i<FrontCameras.Length;i++)
+            {
+                FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+            }
         }
-        for(int i=1;i<RearCameras.Length;i++)
+        if(RearCameras.Length != 0)
         {
-            RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+            for(int i=1;i<RearCameras.Length;i++)
+            {
+                RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+            }
         }
         // Create CSV files and directories for storing data and camera frames of all vehicles
         VehicleDataFileNames = new string[VehicleControllers.Length];
@@ -247,20 +255,49 @@ public class DataRecorder : MonoBehaviour
         {
             while(VehicleDataSamples[i].Count > 0)
             {
-            		// Pull off a data sample from the queue
-            		VehicleDataSample sample = VehicleDataSamples[i].Dequeue();
-            		// Pysically move the vehicle(s) to get the correct camera frame(s)
-            		Vehicles[i].transform.position = sample.position;
-            		Vehicles[i].transform.rotation = sample.rotation;
+                // Pull off a data sample from the queue
+                VehicleDataSample sample = VehicleDataSamples[i].Dequeue();
+                // Pysically move the vehicle(s) to get the correct camera frame(s)
+                Vehicles[i].transform.position = sample.position;
+                Vehicles[i].transform.rotation = sample.rotation;
                 // Update recorded velocity variable for i-th vehicle
                 VehicleLightings[i].RecordedVelocity = sample.velocity;
-            		// Capture and store the camera frame(s)
-            		string FrontCameraPath = WriteImage(FrontCameras[i], VehicleCameraDirectories[i], "Camera0_Frame", sample.timeStamp);
-            		string RearCameraPath = WriteImage(RearCameras[i], VehicleCameraDirectories[i], "Camera1_Frame", sample.timeStamp);
-                if(LIDARUnits[i].CurrentRangeArray[359] != null)
+                // Capture and store the camera frame(s)
+                if(FrontCameras.Length != 0)
                 {
-                    for(int j=0;j<359;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
-                    LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
+                    FrontCameraPath = WriteImage(FrontCameras[i], VehicleCameraDirectories[i], "Camera0_Frame", sample.timeStamp);
+                    for(int j=1;j<FrontCameras.Length;j++)
+                    {
+                        string _FrontCameraPath = WriteImage(FrontCameras[j], VehicleCameraDirectories[i], "Camera"+(j).ToString()+"_Frame", sample.timeStamp);
+                    }
+                }
+                else
+                {
+                    FrontCameraPath = "";
+                }
+                if(RearCameras.Length != 0)
+                {
+                    RearCameraPath = WriteImage(RearCameras[i], VehicleCameraDirectories[i], "Camera"+(FrontCameras.Length).ToString()+"_Frame", sample.timeStamp);
+                    for(int j=1;j<RearCameras.Length;j++)
+                    {
+                        string _RearCameraPath = WriteImage(RearCameras[j], VehicleCameraDirectories[i], "Camera"+(FrontCameras.Length+j).ToString()+"_Frame", sample.timeStamp);
+                    }
+                }
+                else
+                {
+                    RearCameraPath = "";
+                }
+                if(LIDARUnits.Length != 0)
+                {
+                    if(LIDARUnits[i].CurrentRangeArray[359] != null)
+                    {
+                        for(int j=0;j<359;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
+                        LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
+                    }
+                }
+                else
+                {
+                    LIDARRangeArray = "";
                 }
                 // Log data
             		string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20}\n",

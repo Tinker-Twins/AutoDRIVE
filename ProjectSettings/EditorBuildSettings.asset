@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tiny Town - Optimized.unity
     guid: d1eda36d89de2e74683d16a408457842
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing School - Optimized.unity
     guid: ea27ada31fefc474eb8fd1d33740ae33
+  - enabled: 1
+    path: Assets/Scenes/Multi-Agent Tiny Town - Optimized.unity
+    guid: ae8f686a4a876aa449a99222240f3eec
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c36ad154ed0f055488e6b0be18f3b26a,
       type: 2}

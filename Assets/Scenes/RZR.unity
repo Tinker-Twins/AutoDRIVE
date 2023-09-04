@@ -6874,6 +6874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 810303823}
+    - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
@@ -6885,12 +6890,12 @@ PrefabInstance:
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ToggleRecording
       objectReference: {fileID: 0}
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: DataRecorder, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
@@ -9831,6 +9836,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 197224676}
     m_Modifications:
+    - target: {fileID: 425797958840048914, guid: f0702830c1970764693293a91df9e61c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 425797958840048916, guid: f0702830c1970764693293a91df9e61c,
         type: 3}
       propertyPath: m_Name
