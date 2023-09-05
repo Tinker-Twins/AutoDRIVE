@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     */
 
     public string SimulationTime;
-    private float timer;
+    public float timer;
 
     void Update()
     {
