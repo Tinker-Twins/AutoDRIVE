@@ -27,6 +27,8 @@ public class VehicleController : MonoBehaviour
     public WheelCollider RearLeftWheelCollider, RearRightWheelCollider;
     public Transform FrontLeftWheelTransform, FrontRightWheelTransform;
     public Transform RearLeftWheelTransform, RearRightWheelTransform;
+    public enum DriveType {IRWD, IFWD, IAWD, CRWD, CFWD, CAWD};
+    public DriveType driveType = DriveType.IRWD; // Set drive type
     public float Wheelbase = 141.54f; // mm
     public float TrackWidth = 153; // mm
     public float MotorTorque = 2.352f; // N-m
@@ -122,12 +124,64 @@ public class VehicleController : MonoBehaviour
         }
         else
         {
-            FrontLeftWheelCollider.brakeTorque = 0;
-            FrontRightWheelCollider.brakeTorque = 0;
-            RearLeftWheelCollider.brakeTorque = 0;
-            RearRightWheelCollider.brakeTorque = 0;
-            RearLeftWheelCollider.motorTorque = DriveTorque;
-            RearRightWheelCollider.motorTorque = DriveTorque;
+            if(driveType==DriveType.IRWD)  // RWD with independent actuators
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.motorTorque = DriveTorque;
+                RearRightWheelCollider.motorTorque = DriveTorque;
+            }
+            else if(driveType==DriveType.IFWD) // FWD with independent actuators
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                FrontLeftWheelCollider.motorTorque = DriveTorque;
+                FrontRightWheelCollider.motorTorque = DriveTorque;
+            }
+            else if(driveType==DriveType.IAWD) // AWD with independent actuators
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                FrontLeftWheelCollider.motorTorque = DriveTorque;
+                FrontRightWheelCollider.motorTorque = DriveTorque;
+                RearLeftWheelCollider.motorTorque = DriveTorque;
+                RearRightWheelCollider.motorTorque = DriveTorque;
+            }
+            else if(driveType==DriveType.CRWD)  // FWD with common actuator
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.motorTorque = DriveTorque/2;
+                RearRightWheelCollider.motorTorque = DriveTorque/2;
+            }
+            else if(driveType==DriveType.CFWD) // FWD with common actuator
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                FrontLeftWheelCollider.motorTorque = DriveTorque/2;
+                FrontRightWheelCollider.motorTorque = DriveTorque/2;
+            }
+            else if(driveType==DriveType.CAWD) // AWD with common actuator
+            {
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+                RearLeftWheelCollider.brakeTorque = 0;
+                RearRightWheelCollider.brakeTorque = 0;
+                FrontLeftWheelCollider.motorTorque = DriveTorque/4;
+                FrontRightWheelCollider.motorTorque = DriveTorque/4;
+                RearLeftWheelCollider.motorTorque = DriveTorque/4;
+                RearRightWheelCollider.motorTorque = DriveTorque/4;
+            }
         }
   	}
 
