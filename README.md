@@ -110,11 +110,11 @@ We encourage you to take a look at the following presentations to gain a better 
 |:------------------:|:-------------------:|
 | [<img src="Images/SRMIST-FYP-Viva-Voce.png" width="500">](https://youtu.be/2FByDOkDxMc) | [<img src="Images/CCRIS-2021-Presentation.png" width="500">](https://youtu.be/whTH6VyVtHE) |
 | [SRMIST UG Final Year Project Viva Voce](https://youtu.be/2FByDOkDxMc) | [CCRIS 2021 Virtual Presentation](https://youtu.be/whTH6VyVtHE) |
-| [<img src="Images/CUICAR-AutoDRIVE-Technical-Discussion.png" width="500">](https://youtu.be/nV7HuLTjUY4) | [<img src="Images/CUICAR-Autoware-COE-Seminar.png" width="500">](https://youtu.be/WTGOAiRX4b0) |
+| [<img src="Images/AutoDRIVE-Technical-Discussion.png" width="500">](https://youtu.be/nV7HuLTjUY4) | [<img src="Images/Autoware-COE-Seminar.png" width="500">](https://youtu.be/WTGOAiRX4b0) |
 | [AutoDRIVE Technical Discussion @ ARMLab CU-ICAR](https://youtu.be/nV7HuLTjUY4) | [Autoware COE Seminar](https://youtu.be/WTGOAiRX4b0) |
-| [<img src="Images/CUICAR-ARMLab-AIM2023.png" width="500">](https://youtu.be/PV9k3-N_bvc) | [<img src="Images/CUICAR-OpenCAV-Technical-Discussion.png" width="500">](https://youtu.be/xihFoUxU7EU) |
+| [<img src="Images/AIM-2023-Presentation.png" width="500">](https://youtu.be/PV9k3-N_bvc) | [<img src="Images/OpenCAV-Technical-Discussion.png" width="500">](https://youtu.be/xihFoUxU7EU) |
 | [AIM 2023 Video Presentation](https://youtu.be/PV9k3-N_bvc) | [OpenCAV Technical Discussion @ ARMLab CU-ICAR](https://youtu.be/xihFoUxU7EU) |
-| [<img src="Images/CUICAR-OpenCAV-AuE-Seminar.png" width="500">](https://youtu.be/bk7lJfD4H0s) | [<img src="Images/CUICAR-ARMLab-SMRDC2023.png" width="500">](https://youtu.be/R_GZ1LkMWGQ) |
+| [<img src="Images/OpenCAV-AuE-Seminar.png" width="500">](https://youtu.be/bk7lJfD4H0s) | [<img src="Images/SMRDC-2023-Presentation.png" width="500">](https://youtu.be/R_GZ1LkMWGQ) |
 | [OpenCAV CUICAR AuE Seminar](https://youtu.be/bk7lJfD4H0s) | [SMRDC 2023 Finalist Pitch](https://youtu.be/R_GZ1LkMWGQ) |
 |                    |                     |
 
