@@ -84,11 +84,11 @@ We encourage you to take a look at the following quick highlights to keep up wit
 |:------------------:|:-------------------:|
 | [<img src="Images/AutoDRIVE-Simulator-Pitch-Video.png" width="500">](https://youtu.be/i7R79jwnqlg) | [<img src="Images/AutoDRIVE-Testbed-Pitch-Video.png" width="500">](https://youtu.be/YFQzyfXV6Rw) |
 | [AutoDRIVE Simulator Pitch Video](https://youtu.be/i7R79jwnqlg) | [AutoDRIVE Testbed Pitch Video](https://youtu.be/YFQzyfXV6Rw) |
-| [<img src="Nigel-Variability-Testing.png" width="500">](https://youtu.be/KtjZapz0OkE) | [<img src="Images/SMRDC2023-Video.png" width="500">](https://youtu.be/dCmxlOMqXZk) |
+| [<img src="Images/Nigel-Variability-Testing.png" width="500">](https://youtu.be/KtjZapz0OkE) | [<img src="Images/SMRDC2023-Video.png" width="500">](https://youtu.be/dCmxlOMqXZk) |
 | [Variability Testing using Nigel](https://youtu.be/KtjZapz0OkE) | [SMRDC 2023 Video Presentation](https://youtu.be/dCmxlOMqXZk) |
-| [<img src="OpenCAV-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/YIZz_8rLgZQ) | [<img src="Images/RZR-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/PLW1-sYW6Hw) |
+| [<img src="Images/OpenCAV-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/YIZz_8rLgZQ) | [<img src="Images/RZR-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/PLW1-sYW6Hw) |
 | [OpenCAV in AutoDRIVE Simulator](https://youtu.be/YIZz_8rLgZQ) | [RZR in AutoDRIVE Simulator](https://youtu.be/PLW1-sYW6Hw) |
-| [<img src="OpenCAV-Variability-Testing.png" width="500">](https://youtu.be/sW8Ic-XyufM) |  |
+| [<img src="Images/OpenCAV-Variability-Testing.png" width="500">](https://youtu.be/sW8Ic-XyufM) |  |
 | [Variability Testing using OpenCAV](https://youtu.be/sW8Ic-XyufM) |  |
 |                    |                     |
 
