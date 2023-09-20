@@ -116,6 +116,8 @@ We encourage you to take a look at the following presentations to gain a better 
 | [AIM 2023 Video Presentation](https://youtu.be/PV9k3-N_bvc) | [OpenCAV Technical Discussion @ ARMLab CU-ICAR](https://youtu.be/xihFoUxU7EU) |
 | [<img src="Images/OpenCAV-AuE-Seminar.png" width="500">](https://youtu.be/bk7lJfD4H0s) | [<img src="Images/SMRDC-2023-Presentation.png" width="500">](https://youtu.be/R_GZ1LkMWGQ) |
 | [OpenCAV CUICAR AuE Seminar](https://youtu.be/bk7lJfD4H0s) | [SMRDC 2023 Finalist Pitch](https://youtu.be/R_GZ1LkMWGQ) |
+| [<img src="Images/MECC-2023-Presentation.png" width="500">](https://youtu.be/0yS1-RpqhcE) |  |
+| [MECC 2023 Video Presentation](https://youtu.be/0yS1-RpqhcE) |  |
 |                    |                     |
 
 ### Publications
