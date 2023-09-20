@@ -190,6 +190,19 @@ primaryClass={cs.RO}
 ```
 This work has been accepted at **2023 AACC/IFAC Modeling, Estimation and Control Conference (MECC).**
 
+#### [Multi-Agent Deep Reinforcement Learning for Cooperative and Competitive Autonomous Vehicles using AutoDRIVE Ecosystem](https://arxiv.org/abs/2309.10007)
+```bibtex
+@eprint{AutoDRIVE-MARL-2023,
+title={Multi-Agent Deep Reinforcement Learning for Cooperative and Competitive Autonomous Vehicles using AutoDRIVE Ecosystem}, 
+author={Tanmay Vilas Samak and Chinmay Vilas Samak and Venkat Krovi},
+year={2023},
+eprint={2309.10007},
+archivePrefix={arXiv},
+primaryClass={cs.RO}
+}
+```
+This work has been submitted at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
+
 ### Technical Reports
 
 We encourage you to read and cite the following technical reports if you use any part of this project for your research (these can serve as a good source of documentation as well):
