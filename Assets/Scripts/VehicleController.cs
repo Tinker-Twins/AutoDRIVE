@@ -29,6 +29,7 @@ public class VehicleController : MonoBehaviour
     public Transform RearLeftWheelTransform, RearRightWheelTransform;
     public enum DriveType {IRWD, IFWD, IAWD, CRWD, CFWD, CAWD};
     public DriveType driveType = DriveType.IRWD; // Set drive type
+    public float SteeringRate = 315.789f; // deg/s (w.r.t. physics timestep)
     public float Wheelbase = 141.54f; // mm
     public float TrackWidth = 153; // mm
     public float MotorTorque = 2.352f; // N-m
@@ -36,11 +37,15 @@ public class VehicleController : MonoBehaviour
     [Range(-1,1)] public float AutonomousThrottle = 0;
     [Range(-1,1)] public float AutonomousSteering = 0;
     public int DrivingMode = 1; // Driving mode: 0 is manual, 1 is autonomous
+
     private float DriveTorque = 0; // N-m
     private float BrakeTorque = 0; // N-m
     private float SteeringAngle = 0; // deg
     private bool MouseHold;
 	private float MouseStart;
+
+    private float currentSteeringAngle = 0;
+    private float lastSteeringAngle = 0;
 
     public int CurrentDrivingMode
     {
@@ -95,7 +100,21 @@ public class VehicleController : MonoBehaviour
   	private void Steer()
   	{
         if(DrivingMode == 0) SteeringAngle = -SteeringInput*SteeringLimit; // Manual Driving
-        else SteeringAngle = -AutonomousSteering*SteeringLimit; // Autonomous Driving
+        else // Autonomous Driving
+        {
+            if(AutonomousSteering > (lastSteeringAngle/SteeringLimit))
+            {
+                SteeringAngle -= SteeringRate*Time.deltaTime; // Decrement steering angle
+                if(SteeringAngle <= -AutonomousSteering*SteeringLimit) SteeringAngle = -AutonomousSteering*SteeringLimit; // Limit to setpoint
+            }
+            else
+            {
+                SteeringAngle += SteeringRate*Time.deltaTime; // Increment steering angle
+                if(SteeringAngle >= -AutonomousSteering*SteeringLimit) SteeringAngle = -AutonomousSteering*SteeringLimit; // Limit to setpoint
+            }
+            lastSteeringAngle = SteeringAngle; // Update previous steering angle
+        }
+        // currentSteeringAngle = Mathf.LerpAngle(lastSteeringAngle, SteeringAngle, SteeringRate*Time.deltaTime);
         //Debug.Log("Steering Angle: " + SteeringAngle);
         //Debug.Log("Left Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
         //Debug.Log("Right Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
