@@ -201,7 +201,7 @@ archivePrefix={arXiv},
 primaryClass={cs.RO}
 }
 ```
-This work has been submitted at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
+This work has been accepted at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
 
 ### Technical Reports
 
