@@ -201,7 +201,7 @@ archivePrefix={arXiv},
 primaryClass={cs.RO}
 }
 ```
-This work has been accepted at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
+This work has been accepted as Multi-Agent Dynamic Games (MAD-Games) Workshop paper at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
 
 ### Technical Reports
 
