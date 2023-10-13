@@ -86,6 +86,8 @@ We encourage you to take a look at the following quick highlights to keep up wit
 | [AutoDRIVE Simulator Pitch Video](https://youtu.be/i7R79jwnqlg) | [AutoDRIVE Testbed Pitch Video](https://youtu.be/YFQzyfXV6Rw) |
 | [<img src="Images/OpenCAV-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/YIZz_8rLgZQ) | [<img src="Images/RZR-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/PLW1-sYW6Hw) |
 | [OpenCAV in AutoDRIVE Simulator](https://youtu.be/YIZz_8rLgZQ) | [RZR in AutoDRIVE Simulator](https://youtu.be/PLW1-sYW6Hw) |
+| [<img src="Images/F1TENTH-in-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/Rq7Wwcwn1uk) | [<img src="Images/Parallel-RL-using-AutoDRIVE-Simulator.png" width="500">](https://youtu.be/UAIcgeZ-at8) |
+| [F1TENTH in AutoDRIVE Simulator](https://youtu.be/Rq7Wwcwn1uk) | [Parallel RL using AutoDRIVE Simulator](https://youtu.be/UAIcgeZ-at8) |
 | [<img src="Images/Nigel-Variability-Testing.png" width="500">](https://youtu.be/KtjZapz0OkE) | [<img src="Images/OpenCAV-Variability-Testing.png" width="500">](https://youtu.be/sW8Ic-XyufM) |
 | [Variability Testing using Nigel](https://youtu.be/KtjZapz0OkE) | [Variability Testing using OpenCAV](https://youtu.be/sW8Ic-XyufM) |
 |                    |                     |
