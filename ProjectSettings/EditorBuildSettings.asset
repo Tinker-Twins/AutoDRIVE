@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/OpenCAV.unity
     guid: 3aaff73a5b9959c47a2050c8fc5b43ca
   - enabled: 0
-    path: Assets/Scenes/Tiny Town.unity
-    guid: 06200b38df1bf9d40835632ca6023dac
-  - enabled: 0
     path: Assets/Scenes/RZR.unity
     guid: c2523d663d211df49b15f5861b19163f
   - enabled: 1
@@ -30,5 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Intersection School.unity
     guid: f6270ad0e02ed604991217a2d9b3b883
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c36ad154ed0f055488e6b0be18f3b26a,
       type: 2}

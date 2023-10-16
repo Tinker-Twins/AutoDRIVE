@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: b619cb7943bf787478343f7a55e69809
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cine_Mark1_Bricks_geo
+    100004: Cine_Mark1_Building_geo
+    100006: Cine_Mark1_Concrete_geo
+    100008: Cine_Mark1_Details_geo
+    100010: Cine_Mark1_MetalParts_geo
+    100012: Cine_Mark1_Windows_geo
+    100014: Cine_Mark2_Brick_geo
+    100016: Cine_Mark2_Building_geo
+    100018: Cine_Mark2_Concrete_geo
+    100020: Cine_Mark2_Metal_geo
+    100022: Cine_Mark2_Windows_geo
+    400000: //RootNode
+    400002: Cine_Mark1_Bricks_geo
+    400004: Cine_Mark1_Building_geo
+    400006: Cine_Mark1_Concrete_geo
+    400008: Cine_Mark1_Details_geo
+    400010: Cine_Mark1_MetalParts_geo
+    400012: Cine_Mark1_Windows_geo
+    400014: Cine_Mark2_Brick_geo
+    400016: Cine_Mark2_Building_geo
+    400018: Cine_Mark2_Concrete_geo
+    400020: Cine_Mark2_Metal_geo
+    400022: Cine_Mark2_Windows_geo
+    2100000: Cine_Mark1_Concrete_mat
+    2100002: Cine_Mark1_windows_mat
+    2100004: Cine_Mark1_Metalparts_mat
+    2100006: typeBlinn
+    2100008: typeBlinn1
+    2100010: lambert1
+    2100012: Cine_Mark1_Bricks_mat
+    2100014: Cine_Mark1_DetailParts_mat
+    2300000: Cine_Mark1_Bricks_geo
+    2300002: Cine_Mark1_Concrete_geo
+    2300004: Cine_Mark1_Details_geo
+    2300006: Cine_Mark1_MetalParts_geo
+    2300008: Cine_Mark1_Windows_geo
+    2300010: Cine_Mark2_Brick_geo
+    2300012: Cine_Mark2_Concrete_geo
+    2300014: Cine_Mark2_Metal_geo
+    2300016: Cine_Mark2_Windows_geo
+    3300000: Cine_Mark1_Bricks_geo
+    3300002: Cine_Mark1_Concrete_geo
+    3300004: Cine_Mark1_Details_geo
+    3300006: Cine_Mark1_MetalParts_geo
+    3300008: Cine_Mark1_Windows_geo
+    3300010: Cine_Mark2_Brick_geo
+    3300012: Cine_Mark2_Concrete_geo
+    3300014: Cine_Mark2_Metal_geo
+    3300016: Cine_Mark2_Windows_geo
+    4300000: Cine_Mark2_Concrete_geo
+    4300002: Cine_Mark2_Windows_geo
+    4300004: Cine_Mark2_Metal_geo
+    4300006: Cine_Mark2_Brick_geo
+    4300008: Cine_Mark1_MetalParts_geo
+    4300010: Cine_Mark1_Concrete_geo
+    4300012: Cine_Mark1_Bricks_geo
+    4300014: Cine_Mark1_Details_geo
+    4300016: Cine_Mark1_Windows_geo
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cine_Mark1_Bricks_mat
+    second: {fileID: 2100000, guid: 2d2c0a0709a111840b59b66f8a5de72f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cine_Mark1_Concrete_mat
+    second: {fileID: 2100000, guid: 70962848c3b728f4aaab5951030f9824, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cine_Mark1_DetailParts_mat
+    second: {fileID: 2100000, guid: f2f6c52e9f3a7264587615badc652aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cine_Mark1_Metalparts_mat
+    second: {fileID: 2100000, guid: 48b35b4bab9d05f48b2d549f0ce7ffa3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cine_Mark1_windows_mat
+    second: {fileID: 2100000, guid: 3a21760466b2a464d8021791cf38903f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
