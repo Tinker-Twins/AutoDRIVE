@@ -233,3 +233,21 @@ year = {2022},
 copyright = {arXiv.org perpetual, non-exclusive license}
 }
 ```
+
+## Team
+
+#### Developers
+
+|                    |                     |
+|:------------------:|:-------------------:|
+| [<img src="Images/Developer-Tanmay-Samak.png" width="125">](https://www.linkedin.com/in/samaktanmay) | [<img src="Images/Developer-Chinmay-Samak.png" width="125">](https://www.linkedin.com/in/samakchinmay) |
+| [Tanmay Vilas Samak](https://www.linkedin.com/in/samaktanmay) | [Chinmay Vilas Samak](https://www.linkedin.com/in/samakchinmay) |
+|                    |                     |
+
+#### Contributers
+
+|                    |                     |
+|:------------------:|:-------------------:|
+| [<img src="Images/Contributer-Rohit-Ravikumar.png" width="125">](https://www.linkedin.com/in/rohitravikumar-) | [<img src="Images/Contributer-Parth-Shinde.png" width="125">](https://www.linkedin.com/in/parthshindelink) |
+| [Rohit Ravikumar](https://www.linkedin.com/in/rohitravikumar-) | [Parth Shinde](https://www.linkedin.com/in/parthshindelink) |
+|                    |                     |
