@@ -82,6 +82,14 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
     $ cd ~/catkin_ws
     $ catkin_make
     ```
+4. Install package dependencies.
+    ```bash
+    $ cd ~/catkin_ws
+    # For a specific package in the workspace
+    $ rosdep install autodrive
+    # For all packages in the workspace
+    $ rosdep install --from-paths src --ignore-src -r -y
+    ```
 
 ## USAGE
 
