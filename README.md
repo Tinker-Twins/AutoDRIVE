@@ -257,5 +257,13 @@ copyright = {arXiv.org perpetual, non-exclusive license}
 |                    |                     |                     |
 |:------------------:|:-------------------:|:-------------------:|
 | [<img src="Images/Mentor-Venkat-Krovi.png" width="125">](https://www.linkedin.com/in/venkatnkrovi) | [<img src="Images/Mentor-Sivanathan-Kandhasamy.png" width="125">](https://www.linkedin.com/in/dr-sivanathan-kandhasamy-a4703966) | [<img src="Images/Mentor-Ming-Xie.png" width="125">](https://www.linkedin.com/in/ming-xie-800a4aa1) |
-| [Dr. Venkat Krovi](https://www.linkedin.com/in/venkatnkrovi) | [Dr. Sivanathan Kandhasamy](https://www.linkedin.com/in/dr-sivanathan-kandhasamy-a4703966) | [Dr. Ming Xie](https://www.linkedin.com/in/ming-xie-800a4aa1/) |
+| [Dr. Venkat Krovi](https://www.linkedin.com/in/venkatnkrovi) | [Dr. Sivanathan Kandhasamy](https://www.linkedin.com/in/dr-sivanathan-kandhasamy-a4703966) | [Dr. Ming Xie](https://www.linkedin.com/in/ming-xie-800a4aa1) |
+|                    |                     |                     |
+
+#### Institutions
+
+|                    |                     |                     |
+|:------------------:|:-------------------:|:-------------------:|
+| [<img src="Images/Institution-CUICAR.png" width="250">](https://cuicar.com) | [<img src="Images/Institution-SRMIST.png" width="250">](https://www.srmist.edu.in/) | [<img src="Images/Institution-NTU.png" width="250">](https://www.ntu.edu.sg) |
+| [CU-ICAR](https://cuicar.com) | [SRM-IST](https://www.srmist.edu.in) | [NTU](https://www.ntu.edu.sg) |
 |                    |                     |                     |
