@@ -32,6 +32,21 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
   $ pip3 install gevent-websocket==0.10.1
   ```
 
+  Additionally, to ensure compatibility with the above libraries, following package versions are recommended:
+  | Package | Tested Version |
+  |---------|----------------|
+  | jinja2 | 2.11.3 |
+  | werkzeug | 2.0.3 |
+  | markupsafe | 2.0.1 |
+  | itsdangerous | 2.0.1 |
+  
+  ```bash
+  $ pip3 install jinja2==2.11.3
+  $ pip3 install werkzeug==2.0.3
+  $ pip3 install markupsafe==2.0.1
+  $ pip3 install itsdangerous==2.0.1
+  ```
+
 - Generic dependencies for data processing and visualization (usually any version will do the job):
 
   | Package | Tested Version |
