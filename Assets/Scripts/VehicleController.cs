@@ -12,7 +12,7 @@ public class VehicleController : MonoBehaviour
     be controlled manually/autonomously, the brakes are automatically applied
     unless the throttle input is non-zero.
 
-    The individual turning angles for left and right wheels are calculated
+    If steerable, the individual turning angles for left and right wheels are calculated
     using the commanded steering angle based on the Ackermann steering geometry
     defined by the wheelbase and track width parameters.
     */
@@ -27,13 +27,18 @@ public class VehicleController : MonoBehaviour
     public WheelCollider RearLeftWheelCollider, RearRightWheelCollider;
     public Transform FrontLeftWheelTransform, FrontRightWheelTransform;
     public Transform RearLeftWheelTransform, RearRightWheelTransform;
-    public enum DriveType {IRWD, IFWD, IAWD, CRWD, CFWD, CAWD};
+    public enum DriveType {IRWD, IFWD, IAWD, CRWD, CFWD, CAWD, SkidSteer};
     public DriveType driveType = DriveType.IRWD; // Set drive type
     public float SteeringRate = 315.789f; // deg/s (w.r.t. physics timestep)
     public float Wheelbase = 141.54f; // mm
-    public float TrackWidth = 153; // mm
+    public float TrackWidth = 153f; // mm
+    public float WheelRadius = 0.0325f;// m
     public float MotorTorque = 2.352f; // N-m
-    public float SteeringLimit = 30; // deg
+    public float SteeringLimit = 30f; // deg
+    public float LinearGain = 6.8f;
+    public float AngularGain = 0.008f;
+    public float LinearVelocityLimit = 0.26f; // m/s
+    public float AngularVelocityLimit = 0.42f; // rad/s
     [Range(-1,1)] public float AutonomousThrottle = 0;
     [Range(-1,1)] public float AutonomousSteering = 0;
     public int DrivingMode = 1; // Driving mode: 0 is manual, 1 is autonomous
@@ -46,6 +51,8 @@ public class VehicleController : MonoBehaviour
 
     private float currentSteeringAngle = 0;
     private float lastSteeringAngle = 0;
+    private float angularVelocity = 0; // deg
+    private float linearVelocity = 0; // deg
 
     public int CurrentDrivingMode
     {
@@ -204,6 +211,41 @@ public class VehicleController : MonoBehaviour
         }
   	}
 
+    private void ExtendedDifferentialDrive()
+  	{
+        //Debug.Log("RPM: " + (RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/2); // Average wheel speed (RPM)
+        //Debug.Log("Speed: " + (Mathf.PI*0.065)*((RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/120)); // Average vehicle speed (m/s)
+
+        if (DrivingMode == 0) linearVelocity = ThrottleInput; // Manual Driving
+        else linearVelocity = AutonomousThrottle; // Autonomous Driving
+
+        if (DrivingMode == 0) angularVelocity = SteeringInput; // Manual Driving
+        else angularVelocity = AutonomousSteering; // Autonomous Driving
+
+        if(linearVelocity == 0 && angularVelocity ==0)
+        {
+            RearLeftWheelCollider.motorTorque = 0;
+            RearRightWheelCollider.motorTorque = 0;
+            RearLeftWheelCollider.brakeTorque = MotorTorque;
+            RearRightWheelCollider.brakeTorque = MotorTorque;
+            FrontLeftWheelCollider.motorTorque = 0;
+            FrontRightWheelCollider.motorTorque = 0;
+            FrontLeftWheelCollider.brakeTorque = MotorTorque;
+            FrontRightWheelCollider.brakeTorque = MotorTorque;
+        }
+        else
+        {
+            FrontLeftWheelCollider.brakeTorque = 0;
+            FrontRightWheelCollider.brakeTorque = 0;
+            RearLeftWheelCollider.brakeTorque = 0;
+            RearRightWheelCollider.brakeTorque = 0;
+            FrontLeftWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) - (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
+            FrontRightWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) + (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
+            RearLeftWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) - (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
+            RearRightWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) + (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
+        }
+  	}
+
   	private void UpdateWheelPoses()
   	{
     		UpdateWheelPose(FrontLeftWheelCollider, FrontLeftWheelTransform);
@@ -224,8 +266,12 @@ public class VehicleController : MonoBehaviour
   	void FixedUpdate()
   	{
     		GetInput();
-    		Steer();
-    		Drive();
+            if(driveType!=DriveType.SkidSteer)
+            {
+                    Steer(); // Do not steer like a car for skid-steer configuration
+                    Drive(); // Do not drive like a car for skid-steer configuration
+            }
+            else ExtendedDifferentialDrive();
     		UpdateWheelPoses();
   	}
 }

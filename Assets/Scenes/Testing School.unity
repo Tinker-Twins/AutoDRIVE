@@ -16774,7 +16774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce442179ee3f22d498c32aa898ed2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
+  m_Target: {fileID: 1284891605}
   m_AutoTargetPlayer: 1
   m_UpdateType: 0
   m_RotationRange: {x: 180, y: 360}
@@ -20947,7 +20947,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
@@ -21023,7 +21023,7 @@ MonoBehaviour:
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
-  m_MinFilterSize: 0.01
+  m_MinFilterSize: 0.6
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -22381,6 +22381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SimulationTime: 
+  timer: 0
 --- !u!4 &2058475835
 Transform:
   m_ObjectHideFlags: 0

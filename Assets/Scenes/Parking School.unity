@@ -1049,6 +1049,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 305030020}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &155081357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3966812653236436652, guid: e54c30e5167bb3446b4c030fecf1999f,
+    type: 3}
+  m_PrefabInstance: {fileID: 305030020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &169750572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1923,7 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8473c5d07d00a104599bc2d3e6ce1997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
+  Target: {fileID: 155081356}
   Follower: {fileID: 376499548}
   ZoomOutLimit: 5
   ZoomInLimit: 0.5
@@ -4839,6 +4845,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 380836615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &737735598
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737735600}
+  - component: {fileID: 737735599}
+  m_Layer: 0
+  m_Name: StaticLightingSky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &737735599
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737735598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 11400000, guid: ea37ba2c7e543104eaaa6ca01224dd65, type: 2}
+  m_StaticLightingSkyUniqueID: 0
+  m_StaticLightingCloudsUniqueID: 0
+  m_StaticLightingVolumetricClouds: 0
+--- !u!4 &737735600
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737735598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &745396647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8924,7 +8978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc114ce5a656eb4c838638247a50857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
+  m_Target: {fileID: 155081357}
   m_AutoTargetPlayer: 1
   m_UpdateType: 0
   FOVAdjustTime: 1
@@ -8942,7 +8996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce442179ee3f22d498c32aa898ed2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
+  m_Target: {fileID: 155081357}
   m_AutoTargetPlayer: 1
   m_UpdateType: 0
   m_RotationRange: {x: 180, y: 360}
@@ -11362,7 +11416,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 1
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
@@ -11438,7 +11492,7 @@ MonoBehaviour:
   m_ShadowNearPlane: 0.1
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
-  m_MinFilterSize: 0.01
+  m_MinFilterSize: 0.6
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -11926,6 +11980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SimulationTime: 
+  timer: 0
 --- !u!4 &2058475835
 Transform:
   m_ObjectHideFlags: 0

@@ -261,7 +261,7 @@ public class DataRecorder : MonoBehaviour
                 Vehicles[i].transform.position = sample.position;
                 Vehicles[i].transform.rotation = sample.rotation;
                 // Update recorded velocity variable for i-th vehicle
-                VehicleLightings[i].RecordedVelocity = sample.velocity;
+                if(VehicleLightings.Length != 0) VehicleLightings[i].RecordedVelocity = sample.velocity;
                 // Capture and store the camera frame(s)
                 if(FrontCameras.Length != 0)
                 {
@@ -289,10 +289,10 @@ public class DataRecorder : MonoBehaviour
                 }
                 if(LIDARUnits.Length != 0)
                 {
-                    if(LIDARUnits[i].CurrentRangeArray[359] != null)
+                    if(LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1] != null)
                     {
-                        for(int j=0;j<359;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
-                        LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[359];
+                        for(int j=0;j<LIDARUnits[i].CurrentRangeArray.Length-1;j++) LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
+                        LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1];
                     }
                 }
                 else
