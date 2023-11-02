@@ -68,7 +68,7 @@ public class VehicleController : MonoBehaviour
     public float CurrentSteeringAngle
     {
         get { return -SteeringAngle*(Mathf.PI/180); }
-        set { AutonomousSteering = -value; }
+        set { AutonomousSteering = value; }
     }
 
     void Start()

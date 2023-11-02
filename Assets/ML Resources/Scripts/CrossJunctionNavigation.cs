@@ -135,13 +135,13 @@ public class CrossJunctionNavigation : Agent
         switch (SteerAction)
         {
             case 0:
-                V0_ActuatorController.CurrentSteeringAngle = -1f;
+                V0_ActuatorController.CurrentSteeringAngle = 1f;
                 break;
             case 1:
                 V0_ActuatorController.CurrentSteeringAngle = 0f;
                 break;
             case 2:
-                V0_ActuatorController.CurrentSteeringAngle = 1f;
+                V0_ActuatorController.CurrentSteeringAngle = -1f;
                 break;
         }
         V0_ActuatorController.CurrentThrottle = 1.0f;

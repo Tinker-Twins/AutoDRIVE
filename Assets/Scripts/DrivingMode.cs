@@ -16,8 +16,8 @@ public class DrivingMode : MonoBehaviour
 
     private void Start()
     {
-        VehicleController.DrivingMode = 1;
-        Label.text = "Autonomous";
+        VehicleController.DrivingMode = 0;
+            Label.text = "Manual";
     }
 
     public void ToggleDrivingMode()
@@ -25,13 +25,13 @@ public class DrivingMode : MonoBehaviour
         Mode = !Mode;
         if(Mode)
         {
-            VehicleController.DrivingMode = 0;
-            Label.text = "Manual";
+            VehicleController.DrivingMode = 1;
+            Label.text = "Autonomous";
         }
         else
         {
-            VehicleController.DrivingMode = 1;
-            Label.text = "Autonomous";
+            VehicleController.DrivingMode = 0;
+            Label.text = "Manual";
         }
     }
 }

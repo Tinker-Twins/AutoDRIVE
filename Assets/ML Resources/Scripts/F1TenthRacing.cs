@@ -115,13 +115,13 @@ public class F1TenthRacing : Agent
         switch (SteerAction)
         {
             case 0:
-                EV_ActuatorController.CurrentSteeringAngle = -1f; // Left turn
+                EV_ActuatorController.CurrentSteeringAngle = 1f; // Left turn
                 break;
             case 1:
                 EV_ActuatorController.CurrentSteeringAngle = 0f; // Straight
                 break;
             case 2:
-                EV_ActuatorController.CurrentSteeringAngle = 1f; // Right turn
+                EV_ActuatorController.CurrentSteeringAngle = -1f; // Right turn
                 break;
         }
 

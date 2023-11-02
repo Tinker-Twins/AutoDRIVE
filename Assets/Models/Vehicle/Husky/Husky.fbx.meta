@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff78f5807c2427442bf25163e8cc15f1
+guid: 9c4a2422cebc8cf4cb63ae06beeb3479
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,73 +7,68 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #25
-    second: {fileID: 2100000, guid: f1bd2e78424b08342931573e61f6f584, type: 2}
+      name: Material #167
+    second: {fileID: 2100000, guid: f16210aa8421bf24db48e39500a6b452, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #26
-    second: {fileID: 2100000, guid: e2d5ac1a5f722c4449a93b33c45b4d66, type: 2}
+      name: Material #168
+    second: {fileID: 2100000, guid: 99718c64299fb8b40bcfcba87377cbbd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #27
-    second: {fileID: 2100000, guid: 7c218bfd02132414fa0f1e45523de679, type: 2}
+      name: Material #175
+    second: {fileID: 2100000, guid: 76db4b88a86b45243a562c896f341828, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #28
-    second: {fileID: 2100000, guid: ea343bf00452a264db4d63fa35459452, type: 2}
+      name: Material #176
+    second: {fileID: 2100000, guid: 403bdba3ba50ed646a1b390e99184e69, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #34
-    second: {fileID: 2100000, guid: 93ac32aab06986f448ff6e8c6486d8d8, type: 2}
+      name: Material #177
+    second: {fileID: 2100000, guid: ec7da00e73c123a4ba4fbc258e31fa81, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #35
-    second: {fileID: 2100000, guid: 828102ee5b38fe74291f420775a1c88f, type: 2}
+      name: Material #178
+    second: {fileID: 2100000, guid: bcdc66cc5290da342811547cc50cae8b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #36
-    second: {fileID: 2100000, guid: d3e48cac74ccb8047871fa6d49eef63f, type: 2}
+      name: Material #179
+    second: {fileID: 2100000, guid: ec2206dd71e15544e97a385f952f1ac3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #37
-    second: {fileID: 2100000, guid: b5ac9dc24b89c6840949f18637501619, type: 2}
+      name: Material #180
+    second: {fileID: 2100000, guid: 6f69b483c4c9e34429fa521c12f7441f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #43
-    second: {fileID: 2100000, guid: f6244a9b776e1c64f9b5ee1a86e79756, type: 2}
+      name: Material #191
+    second: {fileID: 2100000, guid: 81f5ecf2e2e71184f930d1ab6d1235b5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #44
-    second: {fileID: 2100000, guid: 9b4d48621f6e22b46a7b5fda17937e13, type: 2}
+      name: Material #192
+    second: {fileID: 2100000, guid: 7302fb8f1987b514aa8f6f2ca5bb738e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #47
-    second: {fileID: 2100000, guid: ef3413626491dd34e9ded3f1b040d964, type: 2}
+      name: Material #195
+    second: {fileID: 2100000, guid: e33b0aa9bdfb1a24f9f2ed3de9177d03, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #48
-    second: {fileID: 2100000, guid: c2d5424a148235e4bbbfe735b731d88a, type: 2}
+      name: Material #198
+    second: {fileID: 2100000, guid: 0ac0321c951e37d448f259725ab7d702, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #49
-    second: {fileID: 2100000, guid: 46b59a5ce9eb48147bff9b95f483cc8e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material #50
-    second: {fileID: 2100000, guid: e4b691a3fe536b44ebbef58bdeaaada2, type: 2}
+      name: Material #199
+    second: {fileID: 2100000, guid: 51442b56cec51134694763d3655dc548, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -139,7 +134,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0

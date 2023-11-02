@@ -599,7 +599,7 @@ MonoBehaviour:
   active: 1
   maxShadowDistance:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 60
   directionalTransmissionMultiplier:
     m_OverrideState: 1
     m_Value: 1
