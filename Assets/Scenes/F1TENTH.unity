@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6e2516889986a9c48a00697a683f9fcf,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 3df91c5c3861947448c019c24e35c5a6,
     type: 2}
 --- !u!196 &5
@@ -56620,7 +56621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37, y: 0.33432066}
   m_AnchorMax: {x: 0.8211803, y: 0.5}
-  m_AnchoredPosition: {x: 0.000036239624, y: 0}
+  m_AnchoredPosition: {x: 0.000038146973, y: 0}
   m_SizeDelta: {x: -0.40007323, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8001133480992841868

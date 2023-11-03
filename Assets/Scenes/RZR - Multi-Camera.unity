@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 09203aedde0998844a074bcedd4e8df6,
+  m_LightingDataAsset: {fileID: 112000000, guid: 22726237db92cf442b909f6c446e06a0,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 489af27586b29454f9006abdfcf48d2b,
     type: 2}
@@ -13233,6 +13233,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 883120403653017635, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 760cb1f0ce5a0cf479242461a690183c, type: 3}
     - target: {fileID: 883120403691809222, guid: b47483c1fe9f22546bca092055b64778,
         type: 3}
       propertyPath: m_Name
@@ -13293,6 +13298,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 883120403841717518, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c0ec2e27259e7a84495f439f7ba5caaf, type: 3}
+    - target: {fileID: 883120404200199055, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 66ef988f501225447a8b5d19223b9598, type: 3}
+    - target: {fileID: 883120404254552885, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 41a2d6611bdb04c45a1f015d44579eb0, type: 3}
+    - target: {fileID: 883120404446761232, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 0842e3644da135e4c8cf9fc3a77c695b, type: 3}
+    - target: {fileID: 883120404757200686, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: b0ce818892680c24bbc83a042164b1d8, type: 3}
+    - target: {fileID: 883120404825402759, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 2fa9299edd1c6984ebebcd1c84bff4aa, type: 3}
+    - target: {fileID: 883120404932927778, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c9067672a0217024993cc6f10c297c3e, type: 3}
+    - target: {fileID: 883120405680880671, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 769dd1f0d29f9984b93e944659552fe6, type: 3}
+    - target: {fileID: 883120405750701274, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c835e154ac2249648aa4a36a0dea8f2d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b47483c1fe9f22546bca092055b64778, type: 3}
 --- !u!23 &914953785965545913
@@ -14334,6 +14384,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 1474031240768847573, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 3642103dcb4999e4aaaaec5f35ebf629, type: 3}
     - target: {fileID: 1474031241851742189, guid: c7439120b060b624592b9301b7050780,
         type: 3}
       propertyPath: m_RootOrder
@@ -14394,6 +14449,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gulley
       objectReference: {fileID: 0}
+    - target: {fileID: 1474031242180188765, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 4ef5c064a9efb2142b89df46dd881c94, type: 3}
+    - target: {fileID: 7393333686361594043, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 2157cf5060ee3224c9d5d74ca0298e94, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7439120b060b624592b9301b7050780, type: 3}
 --- !u!1 &1474031242315731252 stripped
@@ -25803,6 +25868,11 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 25000
       objectReference: {fileID: 0}
+    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d52abfc05749c4eeb92e7e9896a576c8, type: 3}
 --- !u!4 &5839219670521690303 stripped
@@ -28722,7 +28792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &6818765619418531291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33239,6 +33309,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 1641189352, guid: 3d2422e4019c11948b6cfd8a1fe9e232, type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: b040ee7df5bd95448848a160b3f10ad5, type: 3}
     - target: {fileID: 7285457758334040142, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
         type: 3}
       propertyPath: m_RootOrder
@@ -33299,6 +33373,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Valley
       objectReference: {fileID: 0}
+    - target: {fileID: 7285457758462394511, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 3508aa9f3ae23a64e9090350476e2abf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2422e4019c11948b6cfd8a1fe9e232, type: 3}
 --- !u!23 &7297329725192722820
@@ -34973,10 +35052,17 @@ MonoBehaviour:
   FrontRightWheelTransform: {fileID: 0}
   RearLeftWheelTransform: {fileID: 0}
   RearRightWheelTransform: {fileID: 0}
+  driveType: 0
+  SteeringRate: 315.789
   Wheelbase: 3090
   TrackWidth: 1734
+  WheelRadius: 0.0325
   MotorTorque: 2352
   SteeringLimit: 30
+  LinearGain: 6.8
+  AngularGain: 0.008
+  LinearVelocityLimit: 0.26
+  AngularVelocityLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 1
@@ -37273,6 +37359,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 75097897891967464, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c5dbe6ce1b5b6d348be3bfe4c877dee3, type: 3}
+    - target: {fileID: 2188600195152412156, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c134d9334c0dc2c4baa461e910f76e65, type: 3}
+    - target: {fileID: 4428031172381324228, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 9f8861a44789ff9489189e71711d0107, type: 3}
+    - target: {fileID: 9049806858150335029, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 4efc958ed77db6742ae6a405aec926c9, type: 3}
     - target: {fileID: 9049806858385359575, guid: 047d05b007fe673408954aea465b4b30,
         type: 3}
       propertyPath: m_RootOrder

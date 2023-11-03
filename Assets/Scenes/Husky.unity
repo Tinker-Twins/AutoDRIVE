@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 09203aedde0998844a074bcedd4e8df6,
+  m_LightingDataAsset: {fileID: 112000000, guid: d0b7d47f919fb2c40a8e7ad3a846a34a,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 489af27586b29454f9006abdfcf48d2b,
     type: 2}
@@ -12364,6 +12364,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 883120403653017635, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 455f3ea5196b7c64a900957bdb8dbb86, type: 3}
     - target: {fileID: 883120403691809222, guid: b47483c1fe9f22546bca092055b64778,
         type: 3}
       propertyPath: m_Name
@@ -12424,6 +12429,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 883120403841717518, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 2fc7dac16b4e82a4aae699784725ad5a, type: 3}
+    - target: {fileID: 883120404200199055, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: a2d51ddfd61994847b9402ed56c502fd, type: 3}
+    - target: {fileID: 883120404254552885, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 5a77be341d0e0704da86a6a835db057a, type: 3}
+    - target: {fileID: 883120404446761232, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 9e85bcf58ce440845b1e67511284cfa9, type: 3}
+    - target: {fileID: 883120404757200686, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 732e00abda2f3d84d92df04fc3023f8a, type: 3}
+    - target: {fileID: 883120404825402759, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 5e4963524f1dce7439de4b75f4171e2d, type: 3}
+    - target: {fileID: 883120404932927778, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: e6aef7c18644d2441886809e52aa1d03, type: 3}
+    - target: {fileID: 883120405680880671, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: fff3b8eb8c4c9834c811683621e4b826, type: 3}
+    - target: {fileID: 883120405750701274, guid: b47483c1fe9f22546bca092055b64778,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 208ae0e935990204c8122f35e7446f1e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b47483c1fe9f22546bca092055b64778, type: 3}
 --- !u!1 &901459012468063079
@@ -13113,6 +13163,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 1474031240768847573, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: e1eaef8e0e02da24d92cabc675db029e, type: 3}
     - target: {fileID: 1474031241851742189, guid: c7439120b060b624592b9301b7050780,
         type: 3}
       propertyPath: m_RootOrder
@@ -13173,6 +13228,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gulley
       objectReference: {fileID: 0}
+    - target: {fileID: 1474031242180188765, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: d57f3e81735b5de47be65e0d8b44952e, type: 3}
+    - target: {fileID: 7393333686361594043, guid: c7439120b060b624592b9301b7050780,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: dd6cc4c73fac66f42874e027157451fe, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7439120b060b624592b9301b7050780, type: 3}
 --- !u!1 &1474031242315731252 stripped
@@ -19032,7 +19097,7 @@ MonoBehaviour:
   AngularVelocityLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
-  DrivingMode: 1
+  DrivingMode: 0
 --- !u!1 &3966812653300628637
 GameObject:
   m_ObjectHideFlags: 0
@@ -22323,10 +22388,20 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 25000
       objectReference: {fileID: 0}
+    - target: {fileID: 5958816579030360461, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}
       propertyPath: m_Intensity
       value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d52abfc05749c4eeb92e7e9896a576c8, type: 3}
@@ -25002,6 +25077,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 1641189352, guid: 3d2422e4019c11948b6cfd8a1fe9e232, type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: bd089b396d4e83b4f8e161cdbb251bb1, type: 3}
     - target: {fileID: 7285457758334040142, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
         type: 3}
       propertyPath: m_RootOrder
@@ -25062,6 +25141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Valley
       objectReference: {fileID: 0}
+    - target: {fileID: 7285457758462394511, guid: 3d2422e4019c11948b6cfd8a1fe9e232,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 45e648083a1768741a8e5b09baddb20e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2422e4019c11948b6cfd8a1fe9e232, type: 3}
 --- !u!1 &7298961089250384177
@@ -28251,6 +28335,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1724388218}
     m_Modifications:
+    - target: {fileID: 75097897891967464, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: c98c380ab7fa7814fb5475c4f59d36d8, type: 3}
+    - target: {fileID: 2188600195152412156, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 8910a0c0c8a52e24d80d1bcf761c9e56, type: 3}
+    - target: {fileID: 4428031172381324228, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: eb6f6dcb0ac4cf54aa55bb00e2215429, type: 3}
+    - target: {fileID: 9049806858150335029, guid: 047d05b007fe673408954aea465b4b30,
+        type: 3}
+      propertyPath: m_BakedTexture
+      value: 
+      objectReference: {fileID: 8900000, guid: 180c7fe94bdee41419ac2080897d7371, type: 3}
     - target: {fileID: 9049806858385359575, guid: 047d05b007fe673408954aea465b4b30,
         type: 3}
       propertyPath: m_RootOrder

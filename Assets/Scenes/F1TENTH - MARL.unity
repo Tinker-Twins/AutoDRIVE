@@ -98,7 +98,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: a54d6d6a7042b97469080702e0f3c771,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 3df91c5c3861947448c019c24e35c5a6,
     type: 2}
 --- !u!196 &5
@@ -4612,11 +4613,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b029ba7d5de87146854499dcfcd8a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimateScanner: 1
+  ShowRaycasts: 0
   Scanner: {fileID: 1219955841}
   Head: {fileID: 540295823}
   ScanRate: 7
-  MinimumRange: 0.15
-  MaximumRange: 12
+  MinimumLinearRange: 0.15
+  MaximumLinearRange: 12
+  MinimumAngularRange: 0
+  MaximumAngularRange: 359
+  Resolution: 1
   Intensity: 47
   CurrentMeasurement: 
 --- !u!1 &158680534
@@ -38550,8 +38556,13 @@ MonoBehaviour:
   SteeringRate: 183.346
   Wheelbase: 324
   TrackWidth: 236
+  WheelRadius: 0.0325
   MotorTorque: 85.6
   SteeringLimit: 30
+  LinearGain: 6.8
+  AngularGain: 0.008
+  LinearVelocityLimit: 0.26
+  AngularVelocityLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 1
@@ -44734,11 +44745,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b029ba7d5de87146854499dcfcd8a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimateScanner: 1
+  ShowRaycasts: 0
   Scanner: {fileID: 1689911958}
   Head: {fileID: 159501653}
   ScanRate: 7
-  MinimumRange: 0.15
-  MaximumRange: 12
+  MinimumLinearRange: 0.15
+  MaximumLinearRange: 12
+  MinimumAngularRange: 0
+  MaximumAngularRange: 359
+  Resolution: 1
   Intensity: 47
   CurrentMeasurement: 
 --- !u!1 &1503422783
@@ -53275,8 +53291,13 @@ MonoBehaviour:
   SteeringRate: 183.346
   Wheelbase: 324
   TrackWidth: 236
+  WheelRadius: 0.0325
   MotorTorque: 85.6
   SteeringLimit: 30
+  LinearGain: 6.8
+  AngularGain: 0.008
+  LinearVelocityLimit: 0.26
+  AngularVelocityLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 1
