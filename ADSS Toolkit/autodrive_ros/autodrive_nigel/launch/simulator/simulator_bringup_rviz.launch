@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive_nigel" type="server.py" output="screen"/>
+
+	<!-- AutoDRIVE ADSS -->
+	<node name="autodrive_adss" pkg="autodrive_nigel" type="adss" output="screen"/>
+
+	<!-- AutoDRIVE SCSS -->
+	<node name="autodrive_scss" pkg="autodrive_nigel" type="scss" output="screen"/>
+
+	<!-- AutoDRIVE RViz -->
+	<node name="autodrive_rviz" pkg="rviz" type="rviz" args="-d $(find autodrive_nigel)/rviz/simulator/simulator.rviz"/>
+
+</launch>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Navigation Goal -->
+	<arg name="pos_x" default="0.75" />
+  <arg name="pos_y" default="0.0" />
+  <arg name="pos_z" default="0.0" />
+	<arg name="rot_x" default="0.0" />
+  <arg name="rot_y" default="0.0" />
+  <arg name="rot_z" default="0.0" />
+	<arg name="rot_w" default="1.0" />
+
+  <node name="navigation_goal" pkg="autodrive_nigel" type="nav_goal.py" output="screen" clear_params="true" >
+  <param name="pos_x" value="$(arg pos_x)" />
+  <param name="pos_y" value="$(arg pos_y)" />
+  <param name="pos_z" value="$(arg pos_z)" />
+	<param name="rot_x" value="$(arg rot_x)" />
+  <param name="rot_y" value="$(arg rot_y)" />
+  <param name="rot_z" value="$(arg rot_z)" />
+	<param name="rot_w" value="$(arg rot_w)" />
+  </node>
+
+</launch>

@@ -102,27 +102,52 @@ inline string has_data(string s) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// Vehicle class
-class Vehicle {
+// Nigel class
+class Nigel {
   private:
-    // Vehicle data
+    // Nigel data
     string throttle_str, steering_str, encoder_ticks_str, encoder_angles_str, position_str, orientation_quaternion_str, orientation_euler_angles_str, angular_velocity_str, linear_acceleration_str, lidar_scan_rate_str, lidar_range_array_str, lidar_intensity_array_str, front_camera_image_str, rear_camera_image_str;
-    // Vehicle commands
+    // Nigel commands
     string throttle_command_str, steering_command_str, headlights_command_str, indicators_command_str;
   public:
-    // Vehicle data
+    // Nigel data
     string id;
     float throttle, steering, lidar_scan_rate;
     float *encoder_ticks, *encoder_angles, *position, *orientation_quaternion, *orientation_euler_angles, *angular_velocity, *linear_acceleration, *lidar_range_array, *lidar_intensity_array;
     Mat front_camera_image, rear_camera_image;
-    // Vehicle commands
+    // Nigel commands
     float throttle_command, steering_command;
     int headlights_command, indicators_command;
 
-    // Parse vehicle sensor data
+    // Parse Nigel sensor data
     void parse_data(json data, bool verbose);
 
-    // Generate vehicle control commands
+    // Generate Nigel control commands
+    json generate_commands(json json_msg, bool verbose);
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+// F1TENTH class
+class F1TENTH {
+  private:
+    // F1TENTH data
+    string throttle_str, steering_str, encoder_ticks_str, encoder_angles_str, position_str, orientation_quaternion_str, orientation_euler_angles_str, angular_velocity_str, linear_acceleration_str, lidar_scan_rate_str, lidar_range_array_str, lidar_intensity_array_str, front_camera_image_str;
+    // F1TENTH commands
+    string throttle_command_str, steering_command_str;
+  public:
+    // F1TENTH data
+    string id;
+    float throttle, steering, lidar_scan_rate;
+    float *encoder_ticks, *encoder_angles, *position, *orientation_quaternion, *orientation_euler_angles, *angular_velocity, *linear_acceleration, *lidar_range_array, *lidar_intensity_array;
+    Mat front_camera_image;
+    // F1TENTH commands
+    float throttle_command, steering_command;
+
+    // Parse F1TENTH sensor data
+    void parse_data(json data, bool verbose);
+
+    // Generate F1TENTH control commands
     json generate_commands(json json_msg, bool verbose);
 };
 

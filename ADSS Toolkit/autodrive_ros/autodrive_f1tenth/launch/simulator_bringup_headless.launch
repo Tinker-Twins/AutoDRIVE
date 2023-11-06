@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive_f1tenth" type="server.py" output="screen"/>
+
+</launch>

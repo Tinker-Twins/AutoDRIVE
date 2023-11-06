@@ -1,0 +1,34 @@
+from setuptools import setup
+import os
+from glob import glob
+
+package_name = 'autodrive_nigel'
+
+setup(
+    name=package_name,
+    version='0.1.0',
+    packages=[package_name],
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch/simulator'), glob('launch/simulator/*.launch.py')), # Launch files for AutoDRIVE Simulator
+        (os.path.join('share', package_name, 'launch/testbed'), glob('launch/testbed/*.launch.py')), # Launch files for AutoDRIVE Testbed
+        (os.path.join('share', package_name, 'rviz/simulator'), glob('rviz/simulator/*.rviz')), # RViz configuration files for AutoDRIVE Simulator
+        (os.path.join('share', package_name, 'rviz/testbed'), glob('rviz/testbed/*.rviz')), # RViz configuration files for AutoDRIVE Testbed
+    ],
+    install_requires=['setuptools'],
+    zip_safe=True,
+    maintainer='Chinmay Vilas Samak' 'Tanmay Vilas Samak',
+    maintainer_email='csamak@clemson.edu' 'tsamak@clemson.edu',
+    description='AutoDRIVE Ecosystem ROS 2 Package for Nigel',
+    license='BSD',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'autodrive_incoming_bridge = autodrive_nigel.autodrive_incoming_bridge:main', # AutoDRIVE incoming ROS 2 bridge
+            'autodrive_outgoing_bridge = autodrive_nigel.autodrive_outgoing_bridge:main', # AutoDRIVE outgoing ROS 2 bridge
+            'teleop_keyboard = autodrive_nigel.teleop_keyboard:main', # Teleoperation with keyboard
+        ],
+    },
+)

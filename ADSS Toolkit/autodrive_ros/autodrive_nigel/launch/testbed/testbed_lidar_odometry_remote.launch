@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Global Parameter -->
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- Transform -->
+  <node pkg="tf" type="static_transform_publisher" name="nigel_to_lidar_tf" args="0.1445 0 0.1757 3.1416 0 0 nigel lidar 100"/>
+
+  <!-- Odometer -->
+  <node pkg="autodrive_nigel" type="lidar_odometer" name="lidar_odometer">
+    <param name="laser_scan_topic" value="/scan"/> # topic where the lidar scans are being published
+    <param name="odom_topic" value="/odom"/>       # topic where to publish the odometry estimations
+    <param name="publish_tf" value="true"/>        # whether or not to publish the tf::transform (base_frame->odom_frame)
+    <param name="base_frame_id" value="/nigel"/>   # frame_id (tf) of the mobile base
+    <param name="odom_frame_id" value="/odom"/>    # frame_id (tf) to publish the odometry estimations w.r.t.
+    <param name="init_pose_from_topic" value=""/>  # leave empty to start at point (0,0)
+    <param name="freq" value="10.0"/>              # execution frequency
+    <param name="verbose" value="false"/>          # verbose
+  </node>
+
+  <!-- RViz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find autodrive_nigel)/rviz/testbed/testbed_lidar_odometry.rviz"/>
+
+</launch>

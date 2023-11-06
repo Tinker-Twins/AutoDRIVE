@@ -3,10 +3,10 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-// VEHICLE CLASS METHODS
+// NIGEL CLASS METHODS
 
-// Parse vehicle sensor data
-void Vehicle::parse_data(json data, bool verbose=false) {
+// Parse Nigel sensor data
+void Nigel::parse_data(json data, bool verbose=false) {
   // Actuator feedbacks
   throttle_str = data[1][id + " Throttle"];
   throttle = stof(throttle_str);
@@ -43,9 +43,9 @@ void Vehicle::parse_data(json data, bool verbose=false) {
   rear_camera_image = string_to_image(rear_camera_image_str);
   if (verbose) {
     cout << "\n--------------------------------" << endl;
-    cout << "Receive Data from Vehicle: " << id << endl;
+    cout << "Receive Data from Nigel: " << id << endl;
     cout << "--------------------------------" << endl;
-    // Monitor vehicle data
+    // Monitor Nigel data
     cout << "Throttle: " << throttle_str << endl;
     cout << "Steering: " << steering_str << endl;
     cout << "Encoder Ticks: " << encoder_ticks_str << endl;
@@ -66,13 +66,13 @@ void Vehicle::parse_data(json data, bool verbose=false) {
   }
 }
 
-// Generate vehicle control commands
-json Vehicle::generate_commands(json json_msg, bool verbose=false) {
+// Generate Nigel control commands
+json Nigel::generate_commands(json json_msg, bool verbose=false) {
   if (verbose) {
     cout << "\n-------------------------------" << endl;
-    cout << "Transmit Data to Vehicle: " << id << endl;
+    cout << "Transmit Data to Nigel: " << id << endl;
     cout << "-------------------------------" << endl;
-    // Monitor vehicle control commands
+    // Monitor Nigel control commands
     throttle_command_str = to_string(throttle_command);
     steering_command_str = to_string(steering_command);
     cout << "Throttle Command: " << throttle_command_str << endl;
@@ -107,10 +107,89 @@ json Vehicle::generate_commands(json json_msg, bool verbose=false) {
     }
     cout << "Indicators Command: " << indicators_command_str << endl;
   }
-  json_msg[id + " Throttle"] = to_string(throttle_command); // Throttle command for vehicle
-  json_msg[id + " Steering"] = to_string(steering_command); // Steering command for vehicle
-  json_msg[id + " Headlights"] = to_string(headlights_command); // Headlights command for vehicle
-  json_msg[id + " Indicators"] = to_string(indicators_command); // Indicators command for vehicle
+  json_msg[id + " Throttle"] = to_string(throttle_command); // Throttle command for Nigel
+  json_msg[id + " Steering"] = to_string(steering_command); // Steering command for Nigel
+  json_msg[id + " Headlights"] = to_string(headlights_command); // Headlights command for Nigel
+  json_msg[id + " Indicators"] = to_string(indicators_command); // Indicators command for Nigel
+  return json_msg;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+// F1TENTH CLASS METHODS
+
+// Parse F1TENTH sensor data
+void F1TENTH::parse_data(json data, bool verbose=false) {
+  // Actuator feedbacks
+  throttle_str = data[1][id + " Throttle"];
+  throttle = stof(throttle_str);
+  steering_str = data[1][id + " Steering"];
+  steering = stof(steering_str);
+  // Wheel encoders
+  encoder_ticks_str = data[1][id + " Encoder Ticks"];
+  encoder_ticks = string_to_array(encoder_ticks_str);
+  encoder_angles_str = data[1][id + " Encoder Angles"];
+  encoder_angles = string_to_array(encoder_angles_str);
+  // IPS
+  position_str = data[1][id + " Position"];
+  position = string_to_array(position_str);
+  // IMU
+  orientation_quaternion_str = data[1][id + " Orientation Quaternion"];
+  orientation_quaternion = string_to_array(orientation_quaternion_str);
+  orientation_euler_angles_str = data[1][id + " Orientation Euler Angles"];
+  orientation_euler_angles = string_to_array(orientation_euler_angles_str);
+  angular_velocity_str = data[1][id + " Angular Velocity"];
+  angular_velocity = string_to_array(angular_velocity_str);
+  linear_acceleration_str = data[1][id + " Linear Acceleration"];
+  linear_acceleration = string_to_array(linear_acceleration_str);
+  // LIDAR
+  lidar_scan_rate_str = data[1][id + " LIDAR Scan Rate"];
+  lidar_scan_rate = stof(lidar_scan_rate_str);
+  lidar_range_array_str = data[1][id + " LIDAR Range Array"];
+  lidar_range_array = string_to_array(lidar_range_array_str);
+  lidar_intensity_array_str = data[1][id + " LIDAR Intensity Array"];
+  lidar_intensity_array = string_to_array(lidar_intensity_array_str);
+  // Camera
+  front_camera_image_str = data[1][id + " Front Camera Image"];
+  front_camera_image = string_to_image(front_camera_image_str);
+
+  if (verbose) {
+    cout << "\n--------------------------------" << endl;
+    cout << "Receive Data from F1TENTH: " << id << endl;
+    cout << "--------------------------------" << endl;
+    // Monitor F1TENTH data
+    cout << "Throttle: " << throttle_str << endl;
+    cout << "Steering: " << steering_str << endl;
+    cout << "Encoder Ticks: " << encoder_ticks_str << endl;
+    cout << "Encoder Angles: " << encoder_angles_str << endl;
+    cout << "Position: " << position_str << endl;
+    cout << "Orientation [Quaternion]: " << orientation_quaternion_str << endl;
+    cout << "Orientation [Euler Angles]: " << orientation_euler_angles_str << endl;
+    cout << "Angular Velocity: " << angular_velocity_str << endl;
+    cout << "Linear Acceleration: " << linear_acceleration_str << endl;
+    cout << "LIDAR Scan Rate: " << lidar_scan_rate_str << endl;
+    cout << "LIDAR Range Array: " << endl << lidar_range_array_str << endl;
+    cout << "LIDAR Intensity Array: " << endl << lidar_intensity_array_str << endl;
+    resize(front_camera_image, front_camera_image, Size(640, 360));
+    imshow(id + " Front Camera Preview", front_camera_image);
+    waitKey(1);
+  }
+}
+
+// Generate F1TENTH control commands
+json F1TENTH::generate_commands(json json_msg, bool verbose=false) {
+  if (verbose) {
+    cout << "\n-------------------------------" << endl;
+    cout << "Transmit Data to F1TENTH: " << id << endl;
+    cout << "-------------------------------" << endl;
+    // Monitor F1TENTH control commands
+    throttle_command_str = to_string(throttle_command);
+    steering_command_str = to_string(steering_command);
+    cout << "Throttle Command: " << throttle_command_str << endl;
+    cout << "Steering Command: " << steering_command_str << endl;
+  }
+  json_msg[id + " Throttle"] = to_string(throttle_command); // Throttle command for F1TENTH
+  json_msg[id + " Steering"] = to_string(steering_command); // Steering command for F1TENTH
   return json_msg;
 }
 

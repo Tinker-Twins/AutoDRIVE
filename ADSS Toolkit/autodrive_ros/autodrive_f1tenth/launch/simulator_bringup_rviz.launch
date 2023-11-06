@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive_f1tenth" type="server.py" output="screen"/>
+
+	<!-- AutoDRIVE RViz -->
+	<node name="autodrive_rviz" pkg="rviz" type="rviz" args="-d $(find autodrive_f1tenth)/rviz/simulator.rviz"/>
+
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- AutoDRIVE-ROS Bridge -->
+	<node name="autodrive_ros_bridge" pkg="autodrive_f1tenth" type="server.py" output="screen"/>
+
+  <!-- F1TENTH Teleoperation -->
+  <node pkg="autodrive_f1tenth" type="teleop.py" name="simulator_teleop" output="screen">
+  </node>
+
+</launch>
