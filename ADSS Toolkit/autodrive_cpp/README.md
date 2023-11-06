@@ -12,13 +12,13 @@ This directory hosts the C++ API <code>autodrive.cpp</code> for AutoDRIVE, which
     ```
 2. Build the source code using the `build.sh` shell script (requires [CMake](https://cmake.org/)).
     ```bash
-    $ cd /autodrive_cpp
+    $ cd autodrive_cpp
     $ ./build.sh
     ```
   
     _**Note:** To clean and rebuild the entire source code, use the the `clean.sh` and `build.sh` shell scripts._
     ```bash
-    $ cd /autodrive_cpp
+    $ cd autodrive_cpp
     $ ./clean.sh
     $ ./build.sh
     ```
@@ -28,7 +28,7 @@ This directory hosts the C++ API <code>autodrive.cpp</code> for AutoDRIVE, which
 
 Execute the compiled API using the `run_nigel.sh` shell script.
 ```bash
-$ cd /autodrive_cpp
+$ cd autodrive_cpp
 $ ./run_nigel.sh
 ```
 
@@ -36,6 +36,6 @@ $ ./run_nigel.sh
 
 Execute the compiled API using the `run_f1tenth.sh` shell script.
 ```bash
-$ cd /autodrive_cpp
+$ cd autodrive_cpp
 $ ./run_f1tenth.sh
 ```
