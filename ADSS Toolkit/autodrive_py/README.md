@@ -12,8 +12,9 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
     ```
 2. Give executable permissions to the Python scripts.
    ```bash
-    $ sudo chmod +x *.py
-    ```
+   $ cd autodrive_py
+   $ sudo chmod +x *.py
+   ```
 4. Install the necessary dependencies as mentioned below.
     [AutoDRIVE Devkit's Python API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_py) has the following dependencies (tested with Python 3.8.10):
     
@@ -61,7 +62,7 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
 
 Execute an example Python3 script for Nigel employing the AutoDRIVE Python API.
 ```bash
-$ cd ~/autodrive_py
+$ cd autodrive_py
 $ python3 example_nigel.py
 ```
 
@@ -69,6 +70,6 @@ $ python3 example_nigel.py
 
 Execute an example Python3 script for F1TENTH employing the AutoDRIVE Python API.
 ```bash
-$ cd ~/autodrive_py
+$ cd autodrive_py
 $ python3 example_f1tenth.py
 ```
