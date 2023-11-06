@@ -1,4 +1,4 @@
-# ROS 2 Package
+# ROS 2 API
 
 <p align="justify">
 This directory hosts ROS 2 API (a meta-package), which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
@@ -57,7 +57,7 @@ This directory hosts ROS 2 API (a meta-package), which supports modular algorith
     ```bash
     $ mv ~/AutoDRIVE-Devkit/autodrive_ros2 ~/ros2_ws/src/
     ```
-3. Build the package.
+3. Build the packages.
     ```bash
     $ cd ~/ros2_ws
     $ colcon build
