@@ -230,6 +230,24 @@ This directory hosts ROS API (a meta-package), which supports modular algorithm 
   $ roslaunch autodrive_nigel testbed_navigation_goal.launch
   ```
 
+### Usage with F1TENTH
+
+  - **Bringup:**
+  - **Headless Mode Bringup:**
+    ```bash
+    $ roslaunch autodrive_f1tenth simulator_bringup_headless.launch
+    ```
+    **[OR]**
+  - **RViz Mode Bringup:**
+    ```bash
+    $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
+    ```
+  
+- **Teleoperation:**
+  ```bash
+  $ roslaunch autodrive_f1tenth simulator_teleop.launch
+  ```
+
 ## TROUBLESHOOTING
 
 Upon execution of any launch file, if you encounter an error saying "Make sure file exists in package path and permission is set to executable (chmod +x)", set the executable flag on the process for all scripts and executables by running `chmod` on the entire workspace directory (won't hurt if it's already set)
