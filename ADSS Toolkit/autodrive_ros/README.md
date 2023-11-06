@@ -233,14 +233,14 @@ This directory hosts ROS API (a meta-package), which supports modular algorithm 
 ### Usage with F1TENTH
 
   - **Bringup:**
-  - **Headless Mode Bringup:**
-    ```bash
-    $ roslaunch autodrive_f1tenth simulator_bringup_headless.launch
-    ```
-    **[OR]**
-  - **RViz Mode Bringup:**
-    ```bash
-    $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
+    - **Headless Mode Bringup:**
+      ```bash
+      $ roslaunch autodrive_f1tenth simulator_bringup_headless.launch
+      ```
+      **[OR]**
+    - **RViz Mode Bringup:**
+      ```bash
+      $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
     ```
   
 - **Teleoperation:**
