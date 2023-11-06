@@ -1,12 +1,12 @@
-# ROS Package
+# ROS 2 Package
 
 <p align="justify">
-This directory hosts the <code>autodrive</code> ROS package, which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
+This directory hosts ROS 2 API (a meta-package), which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
 </p>
 
 ## DEPENDENCIES
 
-[AutoDRIVE Devkit's ROS Package](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_ros) has the following dependencies (tested with Python 3.8.10):
+[AutoDRIVE Devkit's ROS 2 API](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit/ADSS%20Toolkit/autodrive_ros2) has the following dependencies (tested with Python 3.8.10):
 
 - Websocket-related dependencies for communication bridge between [AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Simulator) and [AutoDRIVE Devkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit) (version sensitive):
   | Package | Tested Version |
@@ -47,156 +47,138 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
   $ pip3 install opencv-contrib-python
   ```
 
-- ROS package dependencies:
-
-  | Package | Tested Version |
-  |---------|----------------|
-  | [rplidar_ros](http://wiki.ros.org/rplidar_ros) | Noetic |
-  | [hector_slam](http://wiki.ros.org/hector_slam) | Noetic |
-  | [map_server](http://wiki.ros.org/map_server) | Noetic |
-  | [amcl](http://wiki.ros.org/amcl) | Noetic |
-  | [navigation](https://wiki.ros.org/navigation) | Noetic |
-  | [teb_local_planner](http://wiki.ros.org/teb_local_planner) | Noetic |
-
-  ```bash
-  $ sudo apt-get install ros-$ROS_DISTRO-rplidar-ros
-  $ sudo apt-get install ros-$ROS_DISTRO-hector-slam
-  $ sudo apt-get install ros-$ROS_DISTRO-map-server
-  $ sudo apt-get install ros-$ROS_DISTRO-amcl
-  $ sudo apt-get install ros-$ROS_DISTRO-navigation
-  $ sudo apt-get install ros-$ROS_DISTRO-teb-local-planner
-  ```
-
 ## SETUP
 
 1. Clone `AutoDRIVE-Devkit` branch of the `AutoDRIVE` repository.
     ```bash
     $ git clone --single-branch --branch AutoDRIVE-Devkit https://github.com/Tinker-Twins/AutoDRIVE.git
     ```
-2. Move the `autodrive` ROS package to the source space (`src`) of your catkin workspace.
+2. Move the `autodrive_ros2` ROS 2 meta-package to the source space (`src`) of your ROS 2 workspace.
     ```bash
-    $ mv ~/AutoDRIVE-Devkit/autodrive_ros/autodrive ~/catkin_ws/src/
+    $ mv ~/AutoDRIVE-Devkit/autodrive_ros2 ~/ros2_ws/src/
     ```
 3. Build the package.
     ```bash
-    $ cd ~/catkin_ws
-    $ catkin_make
+    $ cd ~/ros2_ws
+    $ colcon build
     ```
 
 ## USAGE
 
-### Usage with AutoDRIVE Simulator
+### Usage with Nigel
+
+#### Usage with AutoDRIVE Simulator
 
 - **Bringup:**
   - **Headless Mode Bringup:**
     ```bash
-    $ roslaunch autodrive simulator_bringup_headless.launch
+    $ roslaunch autodrive_nigel simulator_bringup_headless.launch
     ```
     **[OR]**
   - **RViz Mode Bringup:**
     ```bash
-    $ roslaunch autodrive simulator_bringup_rviz.launch
+    $ roslaunch autodrive_nigel simulator_bringup_rviz.launch
     ```
   
 - **Teleoperation:**
   ```bash
-  $ roslaunch autodrive simulator_teleop.launch
+  $ roslaunch autodrive_nigel simulator_teleop.launch
   ```
   
 - **Odometry:**
   ```bash
-  $ roslaunch autodrive simulator_lidar_odometry.launch
+  $ roslaunch autodrive_nigel simulator_lidar_odometry.launch
   ```
 
 - **Simultaneous Localization & Mapping (SLAM):**
   ```bash
   # Map the environment
-  $ roslaunch autodrive simulator_hector_slam.launch
+  $ roslaunch autodrive_nigel simulator_hector_slam.launch
   # Save the map
   $ rosrun map_server map_saver -f my_map
   ``` 
   
 - **Map-Based Localization:**
   ```bash
-  $ roslaunch autodrive simulator_amcl.launch
+  $ roslaunch autodrive_nigel simulator_amcl.launch
   ``` 
 
 - **Autonomous Navigation:**
   ```bash
   # Begin autonomous navigation
-  $ roslaunch autodrive simulator_navigation.launch
+  $ roslaunch autodrive_nigel simulator_navigation.launch
   # Publish navigation goal from script
-  $ roslaunch autodrive simulator_navigation_goal.launch
+  $ roslaunch autodrive_nigel simulator_navigation_goal.launch
   ```
 
-### Usage with AutoDRIVE Testbed
+#### Usage with AutoDRIVE Testbed
 
 - **Central Teleoperation (From Vehicle PC)**
   ```bash
-  $ roslaunch autodrive testbed_teleop.launch
+  $ roslaunch autodrive_nigel testbed_teleop.launch
   ```
 
 - **Central Odometry (From Vehicle PC)**
   ```bash
-  $ roslaunch autodrive testbed_lidar_odometry.launch
+  $ roslaunch autodrive_nigel testbed_lidar_odometry.launch
   ```
 
 - **Central Simultaneous Localization & Mapping (SLAM) (From Vehicle PC)**
   ```bash
   # Map the environment
-  $ roslaunch autodrive testbed_hector_slam.launch
+  $ roslaunch autodrive_nigel testbed_hector_slam.launch
   # Save the map
   $ rosrun map_server map_saver -f my_map
   ```
   
 - **Central Map-Based Localization (From Vehicle PC)**
   ```bash
-  $ roslaunch autodrive testbed_amcl.launch
+  $ roslaunch autodrive_nigel testbed_amcl.launch
   ```
 
 - **Central Autonomous Navigation (From Vehicle PC)**
   ```bash
   # Begin autonomous navigation
-  $ roslaunch autodrive testbed_navigation.launch
+  $ roslaunch autodrive_nigel testbed_navigation.launch
   # Publish navigation goal from script
-  $ roslaunch autodrive testbed_navigation_goal.launch
+  $ roslaunch autodrive_nigel testbed_navigation_goal.launch
   ```
 
 - **Remote Teleoperation (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
-  $ roslaunch autodrive testbed_bringup.launch
+  $ roslaunch autodrive_nigel testbed_bringup.launch
   ```
   
   **On Remote PC:**
   ```bash
-  $ roslaunch autodrive testbed_teleop_remote.launch
+  $ roslaunch autodrive_nigel testbed_teleop_remote.launch
   ```
 
 - **Remote Odometry (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
-  $ roslaunch autodrive testbed_bringup.launch
+  $ roslaunch autodrive_nigel testbed_bringup.launch
   ```
   
   **On Remote PC:**
   ```bash
-  $ roslaunch autodrive testbed_lidar_odometry_remote.launch
+  $ roslaunch autodrive_nigel testbed_lidar_odometry_remote.launch
   ```
   
 - **Remote Simultaneous Localization & Mapping (SLAM) (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
-  $ roslaunch autodrive testbed_bringup.launch
+  $ roslaunch autodrive_nigel testbed_bringup.launch
   ```
   
   **On Remote PC:**
   ```bash
   # Map the environment
-  $ roslaunch autodrive testbed_hector_slam_remote.launch
+  $ roslaunch autodrive_nigel testbed_hector_slam_remote.launch
   # Save the map
   $ rosrun map_server map_saver -f my_map
   ```
@@ -205,27 +187,45 @@ This directory hosts the <code>autodrive</code> ROS package, which supports modu
 
   **On Vehicle PC:**
   ```bash
-  $ roslaunch autodrive testbed_bringup.launch
+  $ roslaunch autodrive_nigel testbed_bringup.launch
   ```
   
   **On Remote PC:**
   ```bash
-  $ roslaunch autodrive testbed_amcl_remote.launch
+  $ roslaunch autodrive_nigel testbed_amcl_remote.launch
   ```
 
 - **Remote Autonomous Navigation (From Remote PC)**
 
   **On Vehicle PC:**
   ```bash
-  $ roslaunch autodrive testbed_bringup.launch
+  $ roslaunch autodrive_nigel testbed_bringup.launch
   ```
   
   **On Remote PC:**
   ```bash
   # Begin autonomous navigation
-  $ roslaunch autodrive testbed_navigation_remote.launch
+  $ roslaunch autodrive_nigel testbed_navigation_remote.launch
   # Publish navigation goal from script
-  $ roslaunch autodrive testbed_navigation_goal.launch
+  $ roslaunch autodrive_nigel testbed_navigation_goal.launch
+  ```
+
+### Usage with F1TENTH
+
+  - **Bringup:**
+    - **Headless Mode Bringup:**
+      ```bash
+      $ roslaunch autodrive_f1tenth simulator_bringup_headless.launch
+      ```
+      **[OR]**
+    - **RViz Mode Bringup:**
+      ```bash
+      $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
+      ```
+  
+- **Teleoperation:**
+  ```bash
+  $ roslaunch autodrive_f1tenth simulator_teleop.launch
   ```
 
 ## TROUBLESHOOTING
