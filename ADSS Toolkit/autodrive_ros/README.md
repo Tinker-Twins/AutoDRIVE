@@ -241,7 +241,7 @@ This directory hosts ROS API (a meta-package), which supports modular algorithm 
     - **RViz Mode Bringup:**
       ```bash
       $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
-    ```
+      ```
   
 - **Teleoperation:**
   ```bash
