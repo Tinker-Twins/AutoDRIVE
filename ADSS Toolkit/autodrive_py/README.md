@@ -48,8 +48,18 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
 
 ## USAGE
 
-Execute an example Python3 script employing the AutoDRIVE Python API.
+### Nigel
+
+Execute an example Python3 script for Nigel employing the AutoDRIVE Python API.
 ```bash
 $ cd ~/autodrive_py
-$ python3 example.py
+$ python3 example_nigel.py
+```
+
+### F1TENTH
+
+Execute an example Python3 script for F1TENTH employing the AutoDRIVE Python API.
+```bash
+$ cd ~/autodrive_py
+$ python3 example_f1tenth.py
 ```
