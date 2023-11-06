@@ -24,8 +24,18 @@ This directory hosts the C++ API <code>autodrive.cpp</code> for AutoDRIVE, which
     ```
 ## USAGE
 
-Execute the compiled API using the `run.sh` shell script.
+### Nigel
+
+Execute the compiled API using the `run_nigel.sh` shell script.
 ```bash
 $ cd ~/autodrive_cpp
-$ ./run.sh
+$ ./run_nigel.sh
+```
+
+### F1TENTH
+
+Execute the compiled API using the `run_f1tenth.sh` shell script.
+```bash
+$ cd ~/autodrive_cpp
+$ ./run_f1tenth.sh
 ```
