@@ -1,4 +1,4 @@
-# ROS Package
+# ROS API
 
 <p align="justify">
 This directory hosts ROS API (a meta-package), which supports modular algorithm development targetted towards autonomous driving. It uses client libraries for Python and C++, and can be therefore exploited by the users to develop their algorithms flexibly.
@@ -77,7 +77,7 @@ This directory hosts ROS API (a meta-package), which supports modular algorithm 
     ```bash
     $ mv ~/AutoDRIVE-Devkit/autodrive_ros ~/catkin_ws/src/
     ```
-3. Build the package.
+3. Build the packages.
     ```bash
     $ cd ~/catkin_ws
     $ catkin_make
@@ -255,4 +255,6 @@ Upon execution of any launch file, if you encounter an error saying "Make sure f
 ```bash
 $ cd <path/to/AutoDRIVE/Workspace>
 $ sudo chmod +x -R *
+# [OR]
+$ sudo chmod -R 777 src
 ```
