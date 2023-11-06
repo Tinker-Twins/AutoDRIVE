@@ -67,147 +67,20 @@ This directory hosts ROS 2 API (a meta-package), which supports modular algorith
 
 ### Usage with Nigel
 
-#### Usage with AutoDRIVE Simulator
-
 - **Bringup:**
   - **Headless Mode Bringup:**
     ```bash
-    $ roslaunch autodrive_nigel simulator_bringup_headless.launch
+    $ ros2 launch autodrive_nigel simulator_bringup_headless.launch.py
     ```
     **[OR]**
   - **RViz Mode Bringup:**
     ```bash
-    $ roslaunch autodrive_nigel simulator_bringup_rviz.launch
+    $ ros2 launch autodrive_nigel simulator_bringup_rviz.launch.py
     ```
   
 - **Teleoperation:**
   ```bash
-  $ roslaunch autodrive_nigel simulator_teleop.launch
-  ```
-  
-- **Odometry:**
-  ```bash
-  $ roslaunch autodrive_nigel simulator_lidar_odometry.launch
-  ```
-
-- **Simultaneous Localization & Mapping (SLAM):**
-  ```bash
-  # Map the environment
-  $ roslaunch autodrive_nigel simulator_hector_slam.launch
-  # Save the map
-  $ rosrun map_server map_saver -f my_map
-  ``` 
-  
-- **Map-Based Localization:**
-  ```bash
-  $ roslaunch autodrive_nigel simulator_amcl.launch
-  ``` 
-
-- **Autonomous Navigation:**
-  ```bash
-  # Begin autonomous navigation
-  $ roslaunch autodrive_nigel simulator_navigation.launch
-  # Publish navigation goal from script
-  $ roslaunch autodrive_nigel simulator_navigation_goal.launch
-  ```
-
-#### Usage with AutoDRIVE Testbed
-
-- **Central Teleoperation (From Vehicle PC)**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_teleop.launch
-  ```
-
-- **Central Odometry (From Vehicle PC)**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_lidar_odometry.launch
-  ```
-
-- **Central Simultaneous Localization & Mapping (SLAM) (From Vehicle PC)**
-  ```bash
-  # Map the environment
-  $ roslaunch autodrive_nigel testbed_hector_slam.launch
-  # Save the map
-  $ rosrun map_server map_saver -f my_map
-  ```
-  
-- **Central Map-Based Localization (From Vehicle PC)**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_amcl.launch
-  ```
-
-- **Central Autonomous Navigation (From Vehicle PC)**
-  ```bash
-  # Begin autonomous navigation
-  $ roslaunch autodrive_nigel testbed_navigation.launch
-  # Publish navigation goal from script
-  $ roslaunch autodrive_nigel testbed_navigation_goal.launch
-  ```
-
-- **Remote Teleoperation (From Remote PC)**
-
-  **On Vehicle PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_bringup.launch
-  ```
-  
-  **On Remote PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_teleop_remote.launch
-  ```
-
-- **Remote Odometry (From Remote PC)**
-
-  **On Vehicle PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_bringup.launch
-  ```
-  
-  **On Remote PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_lidar_odometry_remote.launch
-  ```
-  
-- **Remote Simultaneous Localization & Mapping (SLAM) (From Remote PC)**
-
-  **On Vehicle PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_bringup.launch
-  ```
-  
-  **On Remote PC:**
-  ```bash
-  # Map the environment
-  $ roslaunch autodrive_nigel testbed_hector_slam_remote.launch
-  # Save the map
-  $ rosrun map_server map_saver -f my_map
-  ```
-
-- **Remote Map-Based Localization (From Remote PC)**
-
-  **On Vehicle PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_bringup.launch
-  ```
-  
-  **On Remote PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_amcl_remote.launch
-  ```
-
-- **Remote Autonomous Navigation (From Remote PC)**
-
-  **On Vehicle PC:**
-  ```bash
-  $ roslaunch autodrive_nigel testbed_bringup.launch
-  ```
-  
-  **On Remote PC:**
-  ```bash
-  # Begin autonomous navigation
-  $ roslaunch autodrive_nigel testbed_navigation_remote.launch
-  # Publish navigation goal from script
-  $ roslaunch autodrive_nigel testbed_navigation_goal.launch
+  $ ros2 run autodrive_nigel teleop_keyboard
   ```
 
 ### Usage with F1TENTH
@@ -215,24 +88,15 @@ This directory hosts ROS 2 API (a meta-package), which supports modular algorith
   - **Bringup:**
     - **Headless Mode Bringup:**
       ```bash
-      $ roslaunch autodrive_f1tenth simulator_bringup_headless.launch
+      $ ros2 launch autodrive_f1tenth simulator_bringup_headless.launch.py
       ```
       **[OR]**
     - **RViz Mode Bringup:**
       ```bash
-      $ roslaunch autodrive_f1tenth simulator_bringup_rviz.launch
+      $ ros2 launch autodrive_f1tenth simulator_bringup_rviz.launch.py
       ```
   
 - **Teleoperation:**
   ```bash
-  $ roslaunch autodrive_f1tenth simulator_teleop.launch
+  $ ros2 run autodrive_f1tenth teleop_keyboard
   ```
-
-## TROUBLESHOOTING
-
-Upon execution of any launch file, if you encounter an error saying "Make sure file exists in package path and permission is set to executable (chmod +x)", set the executable flag on the process for all scripts and executables by running `chmod` on the entire workspace directory (won't hurt if it's already set)
-
-```bash
-$ cd <path/to/AutoDRIVE/Workspace>
-$ sudo chmod +x -R *
-```
