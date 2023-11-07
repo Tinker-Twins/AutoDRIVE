@@ -39,8 +39,8 @@ AutoDRIVE Simulator is the digital twin of the AutoDRIVE Testbed, which enables 
 </p>
 
 - **Source Branch:** [AutoDRIVE Simulator](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Simulator)
-- **Latest Release:** [AutoDRIVE Simulator 0.2.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.2.0)
-- **Upcoming Release:** AutoDRIVE Simulator 0.3.0 is currently under development.
+- **Latest Release:** [AutoDRIVE Simulator 0.3.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Simulator-0.3.0)
+- **Upcoming Release:** AutoDRIVE Simulator 0.4.0 is currently under development.
 
 ## AutoDRIVE Devkit
 
@@ -53,8 +53,8 @@ AutoDRIVE Devkit is a developer's kit that enables the users to exploit AutoDRIV
 </p>
 
 - **Source Branch:** [AutoDRIVE Devkit](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Devkit)
-- **Latest Release:** [AutoDRIVE Devkit 0.2.2](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Devkit-0.2.2)
-- **Upcoming Release:** AutoDRIVE Devkit 0.3.0 is currently under development.
+- **Latest Release:** [AutoDRIVE Devkit 0.3.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Devkit-0.3.0)
+- **Upcoming Release:** AutoDRIVE Devkit 0.4.0 is currently under development.
 
 ## Awards and Recognition
 - [Finalist](https://sites.google.com/site/asmemrc/design-competition-showcase/2023-finalists#h.k763k3hc2lfu) for project "Nigel: A Mechatronically Redundant and Reconfigurable Scaled Autonomous Vehicle of AutoDRIVE Ecosystem" at ASME Student Mechanism and Robot Design Competition (SMRDC) 2023
