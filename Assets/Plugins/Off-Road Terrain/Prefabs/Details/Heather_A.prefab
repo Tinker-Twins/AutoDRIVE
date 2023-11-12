@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4310304732095800949}
   - component: {fileID: 3655028092168642955}
   - component: {fileID: 8364043966977720213}
+  - component: {fileID: -6204644960580688164}
   m_Layer: 0
   m_Name: Heather_A
   m_TagString: Untagged
@@ -115,3 +116,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6204644960580688164
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267427934229748759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 211a44eba6f5ca34ea3d3ac34bbc3469, type: 2}

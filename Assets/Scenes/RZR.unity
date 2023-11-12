@@ -2727,6 +2727,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Event System
       objectReference: {fileID: 0}
+    - target: {fileID: 7810280185978483467, guid: d4af2b4ca8bf339409a9f61d7ef42b31,
+        type: 3}
+      propertyPath: IPAddress
+      value: 
+      objectReference: {fileID: 1589781762}
+    - target: {fileID: 7810280185978483467, guid: d4af2b4ca8bf339409a9f61d7ef42b31,
+        type: 3}
+      propertyPath: PortNumber
+      value: 
+      objectReference: {fileID: 1589781761}
     - target: {fileID: 7810280185978483574, guid: d4af2b4ca8bf339409a9f61d7ef42b31,
         type: 3}
       propertyPath: m_RootOrder
@@ -7567,7 +7577,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1589781756}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1589781761}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
@@ -7579,7 +7589,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1589781756}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1589781762}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
@@ -7597,6 +7607,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1589781761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4595625199406692515, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1589781756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1589781762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4595625200297008412, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1589781756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1615807418 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4304519443682491285, guid: a6a134db39c954e45b14678328cb897b,
@@ -10863,11 +10885,12 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 257142242807247216, guid: f514be6126461c64eab6f02358f894f3,
+    - target: {fileID: 257142242807247217, guid: f514be6126461c64eab6f02358f894f3,
         type: 3}
-      propertyPath: m_DetailObjectDistance
-      value: 145
-      objectReference: {fileID: 0}
+      propertyPath: m_TerrainData
+      value: 
+      objectReference: {fileID: 15600000, guid: 7bf2503fafcc7ca4fa3e5f2083642b7d,
+        type: 2}
     - target: {fileID: 257142242807247231, guid: f514be6126461c64eab6f02358f894f3,
         type: 3}
       propertyPath: m_Layer

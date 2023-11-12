@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5802263826613843982}
   - component: {fileID: 6169721250640109121}
   - component: {fileID: 950158807591737093}
+  - component: {fileID: 5350160228782517222}
   m_Layer: 0
   m_Name: BushDry_B
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5350160228782517222
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889445777815560387}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 8d68c191594d5a24baee81cc22acf55b, type: 2}
 --- !u!1 &1167612771765709620
 GameObject:
   m_ObjectHideFlags: 0

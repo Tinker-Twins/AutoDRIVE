@@ -123,7 +123,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318108979425647336}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &2030601878447967979
 GameObject:
@@ -218,7 +219,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030601878447967979}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &4012337630082778474
 GameObject:
@@ -231,6 +233,7 @@ GameObject:
   - component: {fileID: 4388053584151060432}
   - component: {fileID: 8844894662087583905}
   - component: {fileID: 8702150240252951969}
+  - component: {fileID: 5879841723077624007}
   m_Layer: 0
   m_Name: Conifer
   m_TagString: Untagged
@@ -302,6 +305,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 6.644986, z: 1}
   m_Center: {x: 0, y: 3.1642575, z: 0}
+--- !u!64 &5879841723077624007
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4012337630082778474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c7068782d88ce434ba35d8cf4f84f657, type: 3}
 --- !u!1 &6995092061016009708
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +412,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6995092061016009708}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &8274503946972659281
 GameObject:
@@ -488,5 +506,6 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8274503946972659281}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: c7068782d88ce434ba35d8cf4f84f657,
+    type: 3}
   m_TreeData: {fileID: 0}

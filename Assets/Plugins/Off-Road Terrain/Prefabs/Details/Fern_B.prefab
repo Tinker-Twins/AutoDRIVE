@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6705124330343625574}
   - component: {fileID: 1914528429035393306}
   - component: {fileID: 6568925281509450877}
+  - component: {fileID: -6252349844843714921}
   m_Layer: 0
   m_Name: Fern_B
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6252349844843714921
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798742950742889349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 2f9d2984488477d498e8d5c61756f557, type: 2}
 --- !u!1 &7361314244435251601
 GameObject:
   m_ObjectHideFlags: 0

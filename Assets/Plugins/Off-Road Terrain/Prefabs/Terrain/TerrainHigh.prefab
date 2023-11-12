@@ -63,7 +63,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -141,7 +142,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -219,7 +221,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -297,7 +300,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -375,7 +379,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -453,7 +458,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -578,7 +584,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -656,7 +663,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -734,7 +742,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -812,7 +821,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -890,7 +900,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -968,7 +979,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -1046,7 +1058,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -1070,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 257142242807247230}
-  - component: {fileID: 257142242807247216}
+  - component: {fileID: 4411475626918208285}
   - component: {fileID: 257142242807247217}
   m_Layer: 6
   m_Name: Terrain_1_2_1694bb0f-cffe-402c-b6f9-cf47692fbb78
@@ -1094,7 +1107,7 @@ Transform:
   m_Father: {fileID: 257142241851313763}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!218 &257142242807247216
+--- !u!218 &4411475626918208285
 Terrain:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1103,31 +1116,31 @@ Terrain:
   m_GameObject: {fileID: 257142242807247231}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 584c420dcdc12ae4888913a4057c5cca, type: 2}
-  m_TreeDistance: 2000
-  m_TreeBillboardDistance: 300
+  m_TerrainData: {fileID: 15600000, guid: 7bf2503fafcc7ca4fa3e5f2083642b7d, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 195
-  m_DetailObjectDensity: 0.75
-  m_HeightmapPixelError: 2
-  m_SplatMapDistance: 2000
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
-  m_DrawInstanced: 1
+  m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 0b6d251ba3ab07a45beb3c4a6ac4b68b, type: 2}
-  m_BakeLightProbesForTrees: 0
+  m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
-  m_DeringLightProbesForTrees: 0
+  m_DeringLightProbesForTrees: 1
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
-  m_GroupingID: 1
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
   m_RenderingLayerMask: 257
-  m_AllowAutoConnect: 1
+  m_AllowAutoConnect: 0
 --- !u!154 &257142242807247217
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1137,7 +1150,7 @@ TerrainCollider:
   m_GameObject: {fileID: 257142242807247231}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 584c420dcdc12ae4888913a4057c5cca, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 7bf2503fafcc7ca4fa3e5f2083642b7d, type: 2}
   m_EnableTreeColliders: 1
 --- !u!1 &257142242937042224
 GameObject:
@@ -1202,7 +1215,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1
@@ -1280,7 +1294,8 @@ Terrain:
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 0
   m_ScaleInLightmap: 1
-  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f, type: 2}
+  m_LightmapParameters: {fileID: 111300000, guid: 241f736838936e84989396fe695d2f9f,
+    type: 2}
   m_GroupingID: 1
   m_RenderingLayerMask: 257
   m_AllowAutoConnect: 1

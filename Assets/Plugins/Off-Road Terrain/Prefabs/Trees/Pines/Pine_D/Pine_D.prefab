@@ -91,7 +91,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521282095388731523}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &2791824327136729996
 GameObject:
@@ -185,7 +186,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2791824327136729996}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &4138029312797158690
 GameObject:
@@ -279,7 +281,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138029312797158690}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &5684554348729839503
 GameObject:
@@ -404,7 +407,8 @@ Tree:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554252898210302808}
-  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f, type: 3}
+  m_SpeedTreeWindAsset: {fileID: 22800000, guid: e17a253999e7e294981e5ed8ce32646f,
+    type: 3}
   m_TreeData: {fileID: 0}
 --- !u!1 &8316334779356437779
 GameObject:
@@ -417,6 +421,7 @@ GameObject:
   - component: {fileID: 8656585643061938089}
   - component: {fileID: 4501419769428881624}
   - component: {fileID: 8480816894920273663}
+  - component: {fileID: -359565622027150570}
   m_Layer: 0
   m_Name: Pine_D
   m_TagString: Untagged
@@ -488,3 +493,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.346756, y: 3.9298446, z: 1.4772453}
   m_Center: {x: 0.08708954, y: 1.4649223, z: -0.036722183}
+--- !u!64 &-359565622027150570
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8316334779356437779}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e17a253999e7e294981e5ed8ce32646f, type: 3}

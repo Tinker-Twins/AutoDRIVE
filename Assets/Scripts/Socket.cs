@@ -23,8 +23,10 @@ public class Socket : MonoBehaviour
     public IPS[] IndoorPositioningSystems; // `IPS` references
     public IMU[] InertialMeasurementUnits; // `IMU` references
     public LIDAR[] LIDARUnits; // `LIDAR` references
+    public LIDAR3D[] LIDAR3DUnits; // `LIDAR3D` references
     private string LIDARRangeArray;
     private string LIDARIntensityArray;
+    private string LIDARPointcloud;
     public Camera[] FrontCameras; // Vehicle front camera references
     public Camera[] RearCameras; // Vehicle rear camera references
 
@@ -131,21 +133,33 @@ public class Socket : MonoBehaviour
                     data["V"+(i+1).ToString()+" Orientation Euler Angles"] = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2].ToString("F3"); // Get vehicle orientation (Euler Angles)
                     data["V"+(i+1).ToString()+" Angular Velocity"] = InertialMeasurementUnits[i].CurrentAngularVelocity[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[2].ToString("F3"); // Get angular velocity of the vehicle
                     data["V"+(i+1).ToString()+" Linear Acceleration"] = InertialMeasurementUnits[i].CurrentLinearAcceleration[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[2].ToString("F3"); // Get linear acceleration of the vehicle
-                    data["V"+(i+1).ToString()+" LIDAR Scan Rate"] = LIDARUnits[i].CurrentScanRate.ToString("F3"); // Get LIDAR scan rate
-                    if(LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1] != null)
+                    if(LIDARUnits.Length != 0)
                     {
-                        for(int j=0;j<LIDARUnits[i].CurrentRangeArray.Length-1;j++)
+                        data["V"+(i+1).ToString()+" LIDAR Scan Rate"] = LIDARUnits[i].CurrentScanRate.ToString("F3"); // Get LIDAR scan rate
+                        if(LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1] != null)
                         {
-                            LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
-                            LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[j] + " ";
+                            // for(int j=0;j<LIDARUnits[i].CurrentRangeArray.Length-1;j++)
+                            // {
+                            //     LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[j] + " ";
+                            //     LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[j] + " ";
+                            // }
+                            // LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1];
+                            // LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[LIDARUnits[i].CurrentRangeArray.Length-1];
+
+                            LIDARRangeArray = string.Join(" ", LIDARUnits[i].CurrentRangeArray);
+                            LIDARIntensityArray = string.Join(" ", LIDARUnits[i].CurrentIntensityArray);
                         }
-                        LIDARRangeArray += LIDARUnits[i].CurrentRangeArray[LIDARUnits[i].CurrentRangeArray.Length-1];
-                        LIDARIntensityArray += LIDARUnits[i].CurrentIntensityArray[LIDARUnits[i].CurrentRangeArray.Length-1];
+                        data["V"+(i+1).ToString()+" LIDAR Range Array"] = LIDARRangeArray; // Get LIDAR range array
+                        data["V"+(i+1).ToString()+" LIDAR Intensity Array"] = LIDARIntensityArray; // Get LIDAR intensity array
+
+                        LIDARRangeArray = ""; // Reset LIDAR range array for next measurement
+                        LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
                     }
-                    data["V"+(i+1).ToString()+" LIDAR Range Array"] = LIDARRangeArray; // Get LIDAR range array
-                    data["V"+(i+1).ToString()+" LIDAR Intensity Array"] = LIDARIntensityArray; // Get LIDAR intensity array
-                    LIDARRangeArray = ""; // Reset LIDAR range array for next measurement
-                    LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
+                    if(LIDAR3DUnits.Length != 0)
+                    {
+                        LIDARPointcloud = string.Join(" ", LIDAR3DUnits[i].CurrentPointcloud);
+                        data["V"+(i+1).ToString()+" LIDAR Pointcloud"] = LIDARPointcloud; // Get LIDAR pointcloud
+                    }
                     if(FrontCameras.Length != 0) data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image
 
                     if(RearCameras.Length != 0) data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image

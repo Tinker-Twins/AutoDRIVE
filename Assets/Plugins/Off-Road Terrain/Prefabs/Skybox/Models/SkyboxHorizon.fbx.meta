@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 7c5bf92a856be0442a2cc94ab6422628
 ModelImporter:
-  serializedVersion: 21202
+  serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -13,7 +13,8 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: -2903238378665924905, guid: d9d60d4f0756234449ac20dd752a372f, type: 3}
+    second: {fileID: -2903238378665924905, guid: d9d60d4f0756234449ac20dd752a372f,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 1
@@ -42,7 +43,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -109,6 +110,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6476042813406998376}
   - component: {fileID: 5570424530587787474}
   - component: {fileID: 4936456245813105690}
+  - component: {fileID: -6539704713022944091}
   m_Layer: 0
   m_Name: GrassDry_C
   m_TagString: Untagged
@@ -115,3 +116,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-6539704713022944091
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718442328122675833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 34620cf8cdb76ba4b9af2acb627f7846, type: 2}

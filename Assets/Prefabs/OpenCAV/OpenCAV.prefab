@@ -9219,10 +9219,17 @@ MonoBehaviour:
   FrontRightWheelTransform: {fileID: 6818765619596623353}
   RearLeftWheelTransform: {fileID: 6818765619182414027}
   RearRightWheelTransform: {fileID: 6818765621120386803}
+  driveType: 0
+  SteeringRate: 315.789
   Wheelbase: 3090
   TrackWidth: 1734
+  WheelRadius: 0.0325
   MotorTorque: 2352
   SteeringLimit: 30
+  LinearGain: 6.8
+  AngularGain: 0.008
+  LinearVelocityLimit: 0.26
+  AngularVelocityLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 1
@@ -10055,6 +10062,23 @@ MonoBehaviour:
       distanceNoiseStDevBase: 0.02
       distanceNoiseStDevRisePerMeter: 0
       distanceNoiseMean: 0
+--- !u!114 &6905943512687896876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704477400852408417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e1966a8d0f902459f4fd6126e61115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  publishPCL24: 0
+  publishPCL48: 1
+  PointcloudData: 
+  Width: 0
+  RowStep: 0
 --- !u!4 &8971241471388488819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2459352021672942287, guid: b0ebf41f5af66b39290359a0b0acaf4a,
