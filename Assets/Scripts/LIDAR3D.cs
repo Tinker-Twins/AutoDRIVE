@@ -89,7 +89,7 @@ public class LIDAR3D : MonoBehaviour
         }
         UnityEngine.Profiling.Profiler.EndSample();
 
-        if(TerrainMeshes[0].enabled == true)
+        if(TerrainMeshes.Length !=0 && TerrainMeshes[0].enabled == true)
         {
             for(int i=0;i<TerrainMeshes.Length;i++)
             {

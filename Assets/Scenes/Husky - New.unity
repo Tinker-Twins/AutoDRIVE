@@ -6297,6 +6297,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4af2b4ca8bf339409a9f61d7ef42b31, type: 3}
+--- !u!1 &473759933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7810280185978483466, guid: d4af2b4ca8bf339409a9f61d7ef42b31,
+    type: 3}
+  m_PrefabInstance: {fileID: 473759932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &476253210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8886,6 +8892,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Data Recorder
       objectReference: {fileID: 0}
+    - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 473759933}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: RecordStatus

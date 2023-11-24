@@ -635,6 +635,8 @@ MonoBehaviour:
   UQ_HDRPSettings: {fileID: 2996779614259177660}
   ReflectionProbe: {fileID: 1628642782}
   SceneLight: {fileID: 1930313918}
+  Terrains: []
+  LightingObjects: []
   Label: {fileID: 1185339975}
 --- !u!114 &113589765
 MonoBehaviour:
@@ -1010,6 +1012,7 @@ MonoBehaviour:
   VehicleController: {fileID: 41689999}
   LeftWheelEncoder: {fileID: 305030025}
   RightWheelEncoder: {fileID: 305030024}
+  GNSS: 0
   IPS: {fileID: 305030023}
   IMU: {fileID: 305030022}
   EnableLIDAR: 1
@@ -6553,6 +6556,7 @@ MonoBehaviour:
   - {fileID: 305030022}
   LIDARUnits:
   - {fileID: 305030021}
+  LIDAR3DUnits: []
   FrontCameras:
   - {fileID: 155081353}
   RearCameras:
@@ -10427,6 +10431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d29ee24681aa7a4cbe55becf07105f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 2105245628}
   RecordRate: 10
   RecordStatus: {fileID: 1933895406}
   VehicleDataFileNames: []

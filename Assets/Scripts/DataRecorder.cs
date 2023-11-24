@@ -13,6 +13,8 @@ public class DataRecorder : MonoBehaviour
     traffic lights, and logs it to the specified directory.
     */
 
+    public GameObject eventSystem; // Default event system
+
     public float RecordRate = 10.0f; // Data recording rate (Hz)
     public Text RecordStatus; // Data recording status
     private string saveLocation = ""; // Data saving location
@@ -126,7 +128,11 @@ public class DataRecorder : MonoBehaviour
     public bool checkSaveLocation()
     {
       	if (saveLocation != "") return true;
-      	else SimpleFileBrowser.ShowSaveDialog(OpenFolder, null, true, null, "Select Output Folder", "Select");
+      	else
+        {
+            eventSystem.SetActive(false);
+            SimpleFileBrowser.ShowSaveDialog(OpenFolder, null, true, null, "Select Output Folder", "Select");
+        }
       	return false;
     }
 
@@ -367,6 +373,7 @@ public class DataRecorder : MonoBehaviour
         {
             Directory.CreateDirectory(Path.Combine(saveLocation, VehicleCameraDirectories[i]));
         }
+        eventSystem.SetActive(true);
     }
 }
 

@@ -17,6 +17,7 @@ public class HUDText : MonoBehaviour
     public VehicleController VehicleController; // `VehicleController` reference
     public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
+    public bool GNSS = false; // Choose whether to display "IPS" or "GNSS"
     public IPS IPS; // `IPS` reference
     public IMU IMU; // `IMU` reference
     public bool EnableLIDAR = true; // Choose whether to display LIDAR data on HUD
@@ -37,49 +38,100 @@ public class HUDText : MonoBehaviour
     {
         if (EnableLIDAR)
         {
-            HUD.text =
-            "Simulation Time:\t\t" + "00:00:00" + "\n" +
-            "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+            if (GNSS)
+            {
+                HUD.text =
+                "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
 
-            "Driving Mode:\t\t" + "Manual" + "\n" +
-            "Gear:\t\t\t\t\t\t" + "D" + "\n" +
-            "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+                "Driving Mode:\t\t" + "Manual" + "\n" +
+                "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
 
-            "Throttle:\t\t" + "0.00" + "%\n" +
-            "Steering:\t\t" + "0.00" + " rad\n\n" +
+                "Throttle:\t\t" + "0.00" + "%\n" +
+                "Steering:\t\t" + "0.00" + " rad\n\n" +
 
-            "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+                "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
 
-            "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+                "GNSS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
 
-            "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
-            "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
-            "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+                "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
 
-            "LIDAR Measurement:\t" + "inf" + " m";
+                "LIDAR Measurement:\t" + "inf" + " m";
+            }
+            else
+            {
+                HUD.text =
+                "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+
+                "Driving Mode:\t\t" + "Manual" + "\n" +
+                "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+
+                "Throttle:\t\t" + "0.00" + "%\n" +
+                "Steering:\t\t" + "0.00" + " rad\n\n" +
+
+                "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+
+                "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+
+                "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+
+                "LIDAR Measurement:\t" + "inf" + " m";
+            }
         }
         else
         {
-            HUD.text =
-            "Simulation Time:\t\t" + "00:00:00" + "\n" +
-            "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+            if (GNSS)
+            {
+                HUD.text =
+                "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
 
-            "Driving Mode:\t\t" + "Manual" + "\n" +
-            "Gear:\t\t\t\t\t\t" + "D" + "\n" +
-            "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+                "Driving Mode:\t\t" + "Manual" + "\n" +
+                "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
 
-            "Throttle:\t\t" + "0.00" + "%\n" +
-            "Steering:\t\t" + "0.00" + " rad\n\n" +
+                "Throttle:\t\t" + "0.00" + "%\n" +
+                "Steering:\t\t" + "0.00" + " rad\n\n" +
 
-            "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+                "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
 
-            "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+                "GNSS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
 
-            "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
-            "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
-            "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+                "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
 
-            "";
+                "";
+            }
+            else{
+                HUD.text =
+                "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+
+                "Driving Mode:\t\t" + "Manual" + "\n" +
+                "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+
+                "Throttle:\t\t" + "0.00" + "%\n" +
+                "Steering:\t\t" + "0.00" + " rad\n\n" +
+
+                "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+
+                "IPS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+
+                "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+
+                "";
+            }
         }
     }
 
@@ -126,49 +178,100 @@ public class HUDText : MonoBehaviour
         if (EnableLIDAR)
         {
             string lidar_measurement = LIDAR.CurrentMeasurement;
-            HUD.text =
-            "Simulation Time:\t\t" + simulation_time + "\n" +
-            "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+            if (GNSS)
+            {
+                HUD.text =
+                "Simulation Time:\t\t" + simulation_time + "\n" +
+                "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
 
-            "Driving Mode:\t\t" + driving_mode + "\n" +
-            "Gear:\t\t\t\t\t\t" + gear + "\n" +
-            "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+                "Driving Mode:\t\t" + driving_mode + "\n" +
+                "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
 
-            "Throttle:\t\t" + throttle + "%\n" +
-            "Steering:\t\t" + steering_angle + " rad\n\n" +
+                "Throttle:\t\t" + throttle + "%\n" +
+                "Steering:\t\t" + steering_angle + " rad\n\n" +
 
-            "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+                "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
 
-            "IPS Data:\t\t" + position + " m\n\n" +
+                "GNSS Data:\t\t" + position + " m\n\n" +
 
-            "IMU Data:\t" + orientation + " rad\n" +
-            "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
-            "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+                "IMU Data:\t" + orientation + " rad\n" +
+                "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
 
-            "LIDAR Measurement:\t" + lidar_measurement + " m";
+                "LIDAR Measurement:\t" + lidar_measurement + " m";
+            }
+            else{
+                HUD.text =
+                "Simulation Time:\t\t" + simulation_time + "\n" +
+                "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+
+                "Driving Mode:\t\t" + driving_mode + "\n" +
+                "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+
+                "Throttle:\t\t" + throttle + "%\n" +
+                "Steering:\t\t" + steering_angle + " rad\n\n" +
+
+                "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+
+                "IPS Data:\t\t" + position + " m\n\n" +
+
+                "IMU Data:\t" + orientation + " rad\n" +
+                "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+
+                "LIDAR Measurement:\t" + lidar_measurement + " m";
+            }
         }
         else
         {
-            HUD.text =
-            "Simulation Time:\t\t" + simulation_time + "\n" +
-            "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+            if (GNSS)
+            {
+                HUD.text =
+                "Simulation Time:\t\t" + simulation_time + "\n" +
+                "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
 
-            "Driving Mode:\t\t" + driving_mode + "\n" +
-            "Gear:\t\t\t\t\t\t" + gear + "\n" +
-            "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+                "Driving Mode:\t\t" + driving_mode + "\n" +
+                "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
 
-            "Throttle:\t\t" + throttle + "%\n" +
-            "Steering:\t\t" + steering_angle + " rad\n\n" +
+                "Throttle:\t\t" + throttle + "%\n" +
+                "Steering:\t\t" + steering_angle + " rad\n\n" +
 
-            "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+                "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
 
-            "IPS Data:\t\t" + position + " m\n\n" +
+                "GNSS Data:\t\t" + position + " m\n\n" +
 
-            "IMU Data:\t" + orientation + " rad\n" +
-            "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
-            "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+                "IMU Data:\t" + orientation + " rad\n" +
+                "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
 
-            "";
+                "";
+            }
+            else{
+                HUD.text =
+                "Simulation Time:\t\t" + simulation_time + "\n" +
+                "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+
+                "Driving Mode:\t\t" + driving_mode + "\n" +
+                "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+
+                "Throttle:\t\t" + throttle + "%\n" +
+                "Steering:\t\t" + steering_angle + " rad\n\n" +
+
+                "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+
+                "IPS Data:\t\t" + position + " m\n\n" +
+
+                "IMU Data:\t" + orientation + " rad\n" +
+                "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+
+                "";
+                
+            }
         }
     }
 }

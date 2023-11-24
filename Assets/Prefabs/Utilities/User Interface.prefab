@@ -3368,6 +3368,7 @@ MonoBehaviour:
   UQ_HDRPSettings: {fileID: 0}
   ReflectionProbe: {fileID: 0}
   SceneLight: {fileID: 0}
+  Terrains: []
   Label: {fileID: 4595625199216015858}
 --- !u!1 &4595625200297008412
 GameObject:
@@ -3620,6 +3621,7 @@ MonoBehaviour:
   VehicleController: {fileID: 0}
   LeftWheelEncoder: {fileID: 0}
   RightWheelEncoder: {fileID: 0}
+  GNSS: 0
   IPS: {fileID: 0}
   IMU: {fileID: 0}
   EnableLIDAR: 0

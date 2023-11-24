@@ -13,7 +13,6 @@ Material:
   - _DISABLE_DECALS
   - _DISABLE_SSR_TRANSPARENT
   - _ENABLE_FOG_ON_TRANSPARENT
-  - _MATERIAL_FEATURE_IRIDESCENCE
   - _NORMALMAP_TANGENT_SPACE
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -243,7 +242,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
-    - _MaterialID: 3
+    - _MaterialID: 1
     - _Metallic: 0.2
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
