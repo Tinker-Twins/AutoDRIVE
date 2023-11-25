@@ -40,6 +40,7 @@ public class RenderingQuality : MonoBehaviour
                 Terrains[i].heightmapPixelError = 15;
                 Terrains[i].Flush();
             }
+        Application.targetFrameRate = 30;
         Label.text = "Low Quality";
     }
 
@@ -67,6 +68,7 @@ public class RenderingQuality : MonoBehaviour
                 Terrains[i].heightmapPixelError = 15;
                 Terrains[i].Flush();
             }
+            Application.targetFrameRate = 30;
             Label.text = "Low Quality";
         }
         else if(Mode == 1)
@@ -86,6 +88,7 @@ public class RenderingQuality : MonoBehaviour
                 Terrains[i].heightmapPixelError = 10;
                 Terrains[i].Flush();
             }
+            Application.targetFrameRate = 60;
             Label.text = "High Quality";
         }
         else
@@ -105,6 +108,7 @@ public class RenderingQuality : MonoBehaviour
                 Terrains[i].heightmapPixelError = 5;
                 Terrains[i].Flush();
             }
+            Application.targetFrameRate = -1;
             Label.text = "Ultra Quality";
         }
     }
