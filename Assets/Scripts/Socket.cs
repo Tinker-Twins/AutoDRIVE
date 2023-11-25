@@ -157,7 +157,7 @@ public class Socket : MonoBehaviour
                     }
                     if(LIDAR3DUnits.Length != 0)
                     {
-                        LIDARPointcloud = string.Join(" ", LIDAR3DUnits[i].CurrentPointcloud);
+                        LIDARPointcloud = Convert.ToBase64String(LIDAR3DUnits[i].CurrentPointcloud);
                         data["V"+(i+1).ToString()+" LIDAR Pointcloud"] = LIDARPointcloud; // Get LIDAR pointcloud
                     }
                     if(FrontCameras.Length != 0) data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image

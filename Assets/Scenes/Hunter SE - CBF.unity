@@ -19894,7 +19894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2065961227
 Transform:
   m_ObjectHideFlags: 0
@@ -20476,7 +20476,7 @@ PrefabInstance:
     - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
       propertyPath: LIDAR3DUnits.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
@@ -22318,7 +22318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &1454472126261612227
 MeshFilter:
   m_ObjectHideFlags: 0
