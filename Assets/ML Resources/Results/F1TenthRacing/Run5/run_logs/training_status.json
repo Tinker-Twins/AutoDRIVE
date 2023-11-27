@@ -1,0 +1,87 @@
+{
+    "F1TENTH_2": {
+        "checkpoints": [
+            {
+                "steps": 499907,
+                "file_path": "results\\Run5\\F1TENTH_2\\F1TENTH_2-499907.onnx",
+                "reward": null,
+                "creation_time": 1701034252.9589856,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_2\\F1TENTH_2-499907.pt"
+                ]
+            },
+            {
+                "steps": 999940,
+                "file_path": "results\\Run5\\F1TENTH_2\\F1TENTH_2-999940.onnx",
+                "reward": null,
+                "creation_time": 1701038547.0162013,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_2\\F1TENTH_2-999940.pt"
+                ]
+            },
+            {
+                "steps": 1000068,
+                "file_path": "results\\Run5\\F1TENTH_2\\F1TENTH_2-1000068.onnx",
+                "reward": null,
+                "creation_time": 1701038547.163974,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_2\\F1TENTH_2-1000068.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000068,
+            "file_path": "results\\Run5\\F1TENTH_2.onnx",
+            "reward": null,
+            "creation_time": 1701038547.163974,
+            "auxillary_file_paths": [
+                "results\\Run5\\F1TENTH_2\\F1TENTH_2-1000068.pt"
+            ]
+        }
+    },
+    "F1TENTH_1": {
+        "checkpoints": [
+            {
+                "steps": 499915,
+                "file_path": "results\\Run5\\F1TENTH_1\\F1TENTH_1-499915.onnx",
+                "reward": null,
+                "creation_time": 1701034253.0835757,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_1\\F1TENTH_1-499915.pt"
+                ]
+            },
+            {
+                "steps": 999953,
+                "file_path": "results\\Run5\\F1TENTH_1\\F1TENTH_1-999953.onnx",
+                "reward": 34.07029801607132,
+                "creation_time": 1701038546.6609151,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_1\\F1TENTH_1-999953.pt"
+                ]
+            },
+            {
+                "steps": 1000081,
+                "file_path": "results\\Run5\\F1TENTH_1\\F1TENTH_1-1000081.onnx",
+                "reward": 34.07029801607132,
+                "creation_time": 1701038547.092008,
+                "auxillary_file_paths": [
+                    "results\\Run5\\F1TENTH_1\\F1TENTH_1-1000081.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000081,
+            "file_path": "results\\Run5\\F1TENTH_1.onnx",
+            "reward": 34.07029801607132,
+            "creation_time": 1701038547.092008,
+            "auxillary_file_paths": [
+                "results\\Run5\\F1TENTH_1\\F1TENTH_1-1000081.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.26.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}
