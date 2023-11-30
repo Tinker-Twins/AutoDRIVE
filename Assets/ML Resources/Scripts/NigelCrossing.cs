@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class CrossJunctionNavigation : Agent
+public class NigelCrossing : Agent
 {
 
     [Header("Ego Vehicle")]
@@ -73,6 +73,8 @@ public class CrossJunctionNavigation : Agent
 
     private bool CollisionFlag = false;
 
+    private float randomThrottle = 1.0f;
+
     public override void Initialize()
     {
         V0_Rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -116,22 +118,20 @@ public class CrossJunctionNavigation : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         // DISCRETE ACTION SPACE
-        //int DriveAction = Mathf.FloorToInt(actions.DiscreteActions[0]);
-        int SteerAction = Mathf.FloorToInt(actions.DiscreteActions[0]);
-        /*
+        int DriveAction = Mathf.FloorToInt(actions.DiscreteActions[0]);
+        int SteerAction = Mathf.FloorToInt(actions.DiscreteActions[1]);
         switch (DriveAction)
         {
             case 0:
                 V0_ActuatorController.CurrentThrottle = 0.5f;
                 break;
+            // case 1:
+            //     V0_ActuatorController.CurrentThrottle = 0.75f;
+            //     break;
             case 1:
-                V0_ActuatorController.CurrentThrottle = 0.75f;
-                break;
-            case 2:
                 V0_ActuatorController.CurrentThrottle = 1.0f;
                 break;
         }
-        */
         switch (SteerAction)
         {
             case 0:
@@ -144,7 +144,7 @@ public class CrossJunctionNavigation : Agent
                 V0_ActuatorController.CurrentSteeringAngle = -1f;
                 break;
         }
-        V0_ActuatorController.CurrentThrottle = 1.0f;
+        // V0_ActuatorController.CurrentThrottle = 1.0f;
 
         // CONTINUOUS ACTION SPACE
         //V0_ActuatorController.CurrentThrottle = Mathf.Clamp(actions.ContinuousActions[0], 0.4f, 1f); // Drive
@@ -153,7 +153,7 @@ public class CrossJunctionNavigation : Agent
         // REWARD FUNCTION
         if (CollisionFlag)
         {
-            Debug.Log("Ego Vehicle Collided!");
+            // Debug.Log("Ego Vehicle Collided!");
             SetReward((-0.425f)*GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
             EndEpisode();
         }
@@ -163,24 +163,29 @@ public class CrossJunctionNavigation : Agent
             SetReward(1f);
             EndEpisode();
         }
+        else
+        {
+            // Debug.Log("Distance to Goal: " + GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
+            SetReward((0.01f)/(0.001f+GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2)));
+        }
 
         // HEURISTIC CONTROL OF PEER VEHICLES
         // Peer Vehicle 1
         if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= 2*V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0.4f;
-        else V1_ActuatorController.CurrentThrottle = 1f;
+        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= 2*V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        else V1_ActuatorController.CurrentThrottle = 1f*randomThrottle;
         V1_ActuatorController.CurrentSteeringAngle = 0f;
         // Peer Vehicle 2
         if (GetDistance(V2_IPS.CurrentPosition[0], V2_IPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V2_IPS.CurrentPosition[0], V2_IPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= 2*V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0.4f;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V2_ActuatorController.CurrentThrottle = 1f;
-        else V2_ActuatorController.CurrentThrottle = 0.4f;
+        else if (GetDistance(V2_IPS.CurrentPosition[0], V2_IPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= 2*V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V2_ActuatorController.CurrentThrottle = 1f*randomThrottle;
+        else V2_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
         V2_ActuatorController.CurrentSteeringAngle = 0f;
         // Peer Vehicle 3
         if (GetDistance(V3_IPS.CurrentPosition[0], V3_IPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V3_IPS.CurrentPosition[0], V3_IPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= 2*V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0.4f;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V3_ActuatorController.CurrentThrottle = 1f;
-        else V3_ActuatorController.CurrentThrottle = 0.8f;
+        else if (GetDistance(V3_IPS.CurrentPosition[0], V3_IPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= 2*V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V3_ActuatorController.CurrentThrottle = 1f*randomThrottle;
+        else V3_ActuatorController.CurrentThrottle = 0.8f*randomThrottle;
         V3_ActuatorController.CurrentSteeringAngle = 0f;
     }
 
@@ -220,6 +225,9 @@ public class CrossJunctionNavigation : Agent
 
         // RESET COLLISION FLAG
         CollisionFlag = false;
+
+        // COMPUTE RANDOM THROTTLE
+        randomThrottle = Random.Range(0.9f, 1.0f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -227,16 +235,16 @@ public class CrossJunctionNavigation : Agent
         // DISCRETE ACTION SPACE
         var discreteActionsOut = actionsOut.DiscreteActions;
         // Drive
-        //if (Input.GetKey(KeyCode.W)) discreteActionsOut[0] = 2;
-        //else discreteActionsOut[0] = 0;
+        if (Input.GetKey(KeyCode.W)) discreteActionsOut[0] = 1;
+        else discreteActionsOut[0] = 0;
         // Steer
-        if (Input.GetKey(KeyCode.A)) discreteActionsOut[0] = 0;
-        else if (Input.GetKey(KeyCode.D)) discreteActionsOut[0] = 2;
-        else discreteActionsOut[0] = 1;
+        if (Input.GetKey(KeyCode.A)) discreteActionsOut[1] = 0;
+        else if (Input.GetKey(KeyCode.D)) discreteActionsOut[1] = 2;
+        else discreteActionsOut[1] = 1;
 
 
         // CONTINUOUS ACTION SPACE
-        var continuousActionsOut = actionsOut.ContinuousActions;
+        // var continuousActionsOut = actionsOut.ContinuousActions;
         //actionsOut.ContinuousActions[0] = 0.4f+0.6f*Input.GetAxis("Vertical"); // Drive
         //actionsOut.ContinuousActions[1] = Input.GetAxis("Horizontal"); // Steer
     }

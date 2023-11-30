@@ -1,0 +1,47 @@
+{
+    "Nigel": {
+        "checkpoints": [
+            {
+                "steps": 499975,
+                "file_path": "results\\Run2\\Nigel\\Nigel-499975.onnx",
+                "reward": null,
+                "creation_time": 1701314714.6389143,
+                "auxillary_file_paths": [
+                    "results\\Run2\\Nigel\\Nigel-499975.pt"
+                ]
+            },
+            {
+                "steps": 999966,
+                "file_path": "results\\Run2\\Nigel\\Nigel-999966.onnx",
+                "reward": null,
+                "creation_time": 1701317154.3561893,
+                "auxillary_file_paths": [
+                    "results\\Run2\\Nigel\\Nigel-999966.pt"
+                ]
+            },
+            {
+                "steps": 1000094,
+                "file_path": "results\\Run2\\Nigel\\Nigel-1000094.onnx",
+                "reward": null,
+                "creation_time": 1701317154.4141898,
+                "auxillary_file_paths": [
+                    "results\\Run2\\Nigel\\Nigel-1000094.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1000094,
+            "file_path": "results\\Run2\\Nigel.onnx",
+            "reward": null,
+            "creation_time": 1701317154.4141898,
+            "auxillary_file_paths": [
+                "results\\Run2\\Nigel\\Nigel-1000094.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.26.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

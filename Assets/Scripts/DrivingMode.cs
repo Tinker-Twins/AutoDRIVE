@@ -17,7 +17,7 @@ public class DrivingMode : MonoBehaviour
     private void Start()
     {
         VehicleController.DrivingMode = 0;
-            Label.text = "Manual";
+        Label.text = "Manual";
     }
 
     public void ToggleDrivingMode()

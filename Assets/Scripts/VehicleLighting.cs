@@ -193,7 +193,7 @@ public class VehicleLighting : MonoBehaviour
         if (DataRecorder.getSaveStatus())
         {
             // Brake Lights
-            if(System.Math.Round(RecordedVelocity,1) == 0)
+            if(System.Math.Round(RecordedVelocity,2) == 0)
             {
                 Taillights = true;
             }
@@ -203,7 +203,7 @@ public class VehicleLighting : MonoBehaviour
             }
 
             // Reverse Indicators
-            if(System.Math.Round(RecordedVelocity,1) < 0)
+            if(System.Math.Round(RecordedVelocity,2) < 0)
             {
                 ReverseIndicators = true;
             }
@@ -215,7 +215,7 @@ public class VehicleLighting : MonoBehaviour
         else
         {
             // Brake Lights
-            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,1) == 0)
+            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,2) == 0)
             {
                 Taillights = true;
             }
@@ -225,7 +225,7 @@ public class VehicleLighting : MonoBehaviour
             }
 
             // Reverse Indicators
-            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,1) < 0)
+            if(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,2) < 0)
             {
                 ReverseIndicators = true;
             }
