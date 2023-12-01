@@ -1013,7 +1013,7 @@ MonoBehaviour:
   LeftWheelEncoder: {fileID: 305030025}
   RightWheelEncoder: {fileID: 305030024}
   GNSS: 0
-  IPS: {fileID: 305030023}
+  GPS: {fileID: 305030023}
   IMU: {fileID: 305030022}
   EnableLIDAR: 1
   LIDAR: {fileID: 305030021}
@@ -6550,7 +6550,7 @@ MonoBehaviour:
   - {fileID: 305030025}
   RightWheelEncoders:
   - {fileID: 305030024}
-  IndoorPositioningSystems:
+  PositioningSystems:
   - {fileID: 305030023}
   InertialMeasurementUnits:
   - {fileID: 305030022}
@@ -10449,7 +10449,7 @@ MonoBehaviour:
   - {fileID: 305030025}
   RightWheelEncoders:
   - {fileID: 305030024}
-  IndoorPositioningSystems:
+  PositioningSystems:
   - {fileID: 305030023}
   InertialMeasurementUnits:
   - {fileID: 305030022}

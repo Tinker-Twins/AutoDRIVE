@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RZR.unity
     guid: c2523d663d211df49b15f5861b19163f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tiny Town.unity
     guid: d1eda36d89de2e74683d16a408457842
   - enabled: 0
@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Hunter SE - CBF.unity
     guid: 25f2cc16ce5f91347b5ee7dd2396c99c
+  - enabled: 1
+    path: Assets/Scenes/Hunter SE - Tiny Town.unity
+    guid: b07ed931d0a9fa845ba32367ea021c88
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
       type: 2}

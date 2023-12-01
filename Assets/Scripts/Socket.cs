@@ -20,13 +20,12 @@ public class Socket : MonoBehaviour
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
     public WheelEncoder[] LeftWheelEncoders; // `WheelEncoder` references for left wheel
     public WheelEncoder[] RightWheelEncoders; // `WheelEncoder` references for right wheel
-    public IPS[] IndoorPositioningSystems; // `IPS` references
+    public GPS[] PositioningSystems; // `IPS` references
     public IMU[] InertialMeasurementUnits; // `IMU` references
     public LIDAR[] LIDARUnits; // `LIDAR` references
     public LIDAR3D[] LIDAR3DUnits; // `LIDAR3D` references
     private string LIDARRangeArray;
     private string LIDARIntensityArray;
-    private string LIDARPointcloud;
     public Camera[] FrontCameras; // Vehicle front camera references
     public Camera[] RearCameras; // Vehicle rear camera references
 
@@ -37,7 +36,7 @@ public class Socket : MonoBehaviour
     {
         socket = GameObject.Find("SocketIO").GetComponent<SocketIOComponent>(); // Cache `SocketIOComponent`
         socket.On("connect", OnConnect); // Declare connection event `connect` and corresponding event handler `OnConnect`
-        socket.On("Bridge", OnBridge); // Declare event `AutonomousMode` and corresponding event handler `OnAutonomousMode`
+        socket.On("Bridge", OnBridge); // Declare event `Bridge` and corresponding event handler `OnBridge`
         socket.On("disconnect", OnDisconnect); // Declare disconnection event `disconnect` and corresponding event handler `OnDisconnect`
         // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
         if(FrontCameras.Length != 0)
@@ -128,7 +127,7 @@ public class Socket : MonoBehaviour
                     data["V"+(i+1).ToString()+" Steering"] = VehicleControllers[i].CurrentSteeringAngle.ToString("F3"); // Get steering angle
                     data["V"+(i+1).ToString()+" Encoder Ticks"] = LeftWheelEncoders[i].Ticks.ToString() + " " + RightWheelEncoders[i].Ticks.ToString(); // Get encoder ticks
                     data["V"+(i+1).ToString()+" Encoder Angles"] = LeftWheelEncoders[i].Angle.ToString("F3") + " " + RightWheelEncoders[i].Angle.ToString("F3"); // Get encoder angles
-                    data["V"+(i+1).ToString()+" Position"] = IndoorPositioningSystems[i].CurrentPosition[0].ToString("F3") + " " + IndoorPositioningSystems[i].CurrentPosition[1].ToString("F3") + " " + IndoorPositioningSystems[i].CurrentPosition[2].ToString("F3"); // Get vehicle position
+                    data["V"+(i+1).ToString()+" Position"] = PositioningSystems[i].CurrentPosition[0].ToString("F3") + " " + PositioningSystems[i].CurrentPosition[1].ToString("F3") + " " + PositioningSystems[i].CurrentPosition[2].ToString("F3"); // Get vehicle position
                     data["V"+(i+1).ToString()+" Orientation Quaternion"] = InertialMeasurementUnits[i].CurrentOrientationQuaternion[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[2].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[3].ToString("F3"); // Get vehicle orientation (Quaternion)
                     data["V"+(i+1).ToString()+" Orientation Euler Angles"] = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2].ToString("F3"); // Get vehicle orientation (Euler Angles)
                     data["V"+(i+1).ToString()+" Angular Velocity"] = InertialMeasurementUnits[i].CurrentAngularVelocity[0].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[1].ToString("F3") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[2].ToString("F3"); // Get angular velocity of the vehicle
@@ -155,13 +154,8 @@ public class Socket : MonoBehaviour
                         LIDARRangeArray = ""; // Reset LIDAR range array for next measurement
                         LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
                     }
-                    if(LIDAR3DUnits.Length != 0)
-                    {
-                        LIDARPointcloud = Convert.ToBase64String(LIDAR3DUnits[i].CurrentPointcloud);
-                        data["V"+(i+1).ToString()+" LIDAR Pointcloud"] = LIDARPointcloud; // Get LIDAR pointcloud
-                    }
+                    if(LIDAR3DUnits.Length != 0) data["V"+(i+1).ToString()+" LIDAR Pointcloud"] = Convert.ToBase64String(LIDAR3DUnits[i].CurrentPointcloud); // Get LIDAR pointcloud
                     if(FrontCameras.Length != 0) data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image
-
                     if(RearCameras.Length != 0) data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image
                 }
             }

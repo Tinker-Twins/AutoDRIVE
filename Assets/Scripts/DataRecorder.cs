@@ -29,7 +29,7 @@ public class DataRecorder : MonoBehaviour
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
     public WheelEncoder[] LeftWheelEncoders; // `WheelEncoder` references for left wheel
     public WheelEncoder[] RightWheelEncoders; // `WheelEncoder` references for right wheel
-    public IPS[] IndoorPositioningSystems; // `IPS` references
+    public GPS[] PositioningSystems; // `GPS` references
     public IMU[] InertialMeasurementUnits; // `IMU` references
     public LIDAR[] LIDARUnits; // `LIDAR` references
     private string LIDARRangeArray;
@@ -220,9 +220,9 @@ public class DataRecorder : MonoBehaviour
                 sample.steeringAngle = VehicleControllers[i].CurrentSteeringAngle;
                 sample.leftEncoderTicks = LeftWheelEncoders[i].Ticks;
                 sample.rightEncoderTicks = RightWheelEncoders[i].Ticks;;
-                sample.positionX = IndoorPositioningSystems[i].CurrentPosition[0];
-                sample.positionY = IndoorPositioningSystems[i].CurrentPosition[1];
-                sample.positionZ = IndoorPositioningSystems[i].CurrentPosition[2];
+                sample.positionX = PositioningSystems[i].CurrentPosition[0];
+                sample.positionY = PositioningSystems[i].CurrentPosition[1];
+                sample.positionZ = PositioningSystems[i].CurrentPosition[2];
                 sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
                 sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];

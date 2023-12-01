@@ -10,7 +10,7 @@ public class NigelCrossing : Agent
 
     [Header("Ego Vehicle")]
     // SENSOR DATA
-    public IPS V0_IPS;
+    public GPS V0_GPS;
     public IMU V0_IMU;
     public WheelEncoder V0_LeftEncoder;
     public WheelEncoder V0_RightEncoder;
@@ -25,7 +25,7 @@ public class NigelCrossing : Agent
     [Header("Peer Vehicle 1")]
     public GameObject PeerVehicle1;
     // SENSOR DATA
-    public IPS V1_IPS;
+    public GPS V1_GPS;
     public IMU V1_IMU;
     public WheelEncoder V1_LeftEncoder;
     public WheelEncoder V1_RightEncoder;
@@ -39,7 +39,7 @@ public class NigelCrossing : Agent
     [Header("Peer Vehicle 2")]
     public GameObject PeerVehicle2;
     // SENSOR DATA
-    public IPS V2_IPS;
+    public GPS V2_GPS;
     public IMU V2_IMU;
     public WheelEncoder V2_LeftEncoder;
     public WheelEncoder V2_RightEncoder;
@@ -54,7 +54,7 @@ public class NigelCrossing : Agent
     [Header("Peer Vehicle 3")]
     public GameObject PeerVehicle3;
     // SENSOR DATA
-    public IPS V3_IPS;
+    public GPS V3_GPS;
     public IMU V3_IMU;
     public WheelEncoder V3_LeftEncoder;
     public WheelEncoder V3_RightEncoder;
@@ -87,30 +87,30 @@ public class NigelCrossing : Agent
     {
         // EGO VEHICLE STATES
         /*
-        sensor.AddObservation((float)System.Math.Round(V0_IPS.CurrentPosition[0], 3)); // Position x-coordinate
-        sensor.AddObservation((float)System.Math.Round(V0_IPS.CurrentPosition[1], 3)); // Position y-coordinate
+        sensor.AddObservation((float)System.Math.Round(V0_GPS.CurrentPosition[0], 3)); // Position x-coordinate
+        sensor.AddObservation((float)System.Math.Round(V0_GPS.CurrentPosition[1], 3)); // Position y-coordinate
         sensor.AddObservation((float)System.Math.Round(V0_IMU.CurrentOrientationEulerAngles[2], 3)); // Yaw
         sensor.AddObservation((float)System.Math.Round((V0_LeftEncoder.SpeedFromTicks+V0_RightEncoder.SpeedFromTicks)/2f, 3)); // Velocity estimate
         */
 
         // RELATIVE GOAL LOCATION
-        sensor.AddObservation((float)System.Math.Round((V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2-V0_IPS.CurrentPosition[0], 3)); // Goal location x-coordinate
-        sensor.AddObservation((float)System.Math.Round((-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2-V0_IPS.CurrentPosition[1], 3)); // Goal location y-coordinate
+        sensor.AddObservation((float)System.Math.Round((V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2-V0_GPS.CurrentPosition[0], 3)); // Goal location x-coordinate
+        sensor.AddObservation((float)System.Math.Round((-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2-V0_GPS.CurrentPosition[1], 3)); // Goal location y-coordinate
 
         // RELATIVE PEER VEHICLE STATES
         // Peer Vehicle 1
-        sensor.AddObservation((float)System.Math.Round(V1_IPS.CurrentPosition[0]-V0_IPS.CurrentPosition[0], 3)); // Position x-coordinate
-        sensor.AddObservation((float)System.Math.Round(V1_IPS.CurrentPosition[1]-V0_IPS.CurrentPosition[1], 3)); // Position y-coordinate
+        sensor.AddObservation((float)System.Math.Round(V1_GPS.CurrentPosition[0]-V0_GPS.CurrentPosition[0], 3)); // Position x-coordinate
+        sensor.AddObservation((float)System.Math.Round(V1_GPS.CurrentPosition[1]-V0_GPS.CurrentPosition[1], 3)); // Position y-coordinate
         sensor.AddObservation((float)System.Math.Round(V1_IMU.CurrentOrientationEulerAngles[2]-V0_IMU.CurrentOrientationEulerAngles[2], 3)); // Yaw
         sensor.AddObservation((float)System.Math.Round((V1_LeftEncoder.SpeedFromTicks+V1_RightEncoder.SpeedFromTicks)/2f, 3)); // Velocity estimate
         // Peer Vehicle 2
-        sensor.AddObservation((float)System.Math.Round(V2_IPS.CurrentPosition[0]-V0_IPS.CurrentPosition[0], 3)); // Position x-coordinate
-        sensor.AddObservation((float)System.Math.Round(V2_IPS.CurrentPosition[1]-V0_IPS.CurrentPosition[1], 3)); // Position y-coordinate
+        sensor.AddObservation((float)System.Math.Round(V2_GPS.CurrentPosition[0]-V0_GPS.CurrentPosition[0], 3)); // Position x-coordinate
+        sensor.AddObservation((float)System.Math.Round(V2_GPS.CurrentPosition[1]-V0_GPS.CurrentPosition[1], 3)); // Position y-coordinate
         sensor.AddObservation((float)System.Math.Round(V2_IMU.CurrentOrientationEulerAngles[2]-V0_IMU.CurrentOrientationEulerAngles[2], 3)); // Yaw
         sensor.AddObservation((float)System.Math.Round((V2_LeftEncoder.SpeedFromTicks+V2_RightEncoder.SpeedFromTicks)/2f, 3)); // Velocity estimate
         // Peer Vehicle 3
-        sensor.AddObservation((float)System.Math.Round(V3_IPS.CurrentPosition[0]-V0_IPS.CurrentPosition[0], 3)); // Position x-coordinate
-        sensor.AddObservation((float)System.Math.Round(V3_IPS.CurrentPosition[1]-V0_IPS.CurrentPosition[1], 3)); // Position y-coordinate
+        sensor.AddObservation((float)System.Math.Round(V3_GPS.CurrentPosition[0]-V0_GPS.CurrentPosition[0], 3)); // Position x-coordinate
+        sensor.AddObservation((float)System.Math.Round(V3_GPS.CurrentPosition[1]-V0_GPS.CurrentPosition[1], 3)); // Position y-coordinate
         sensor.AddObservation((float)System.Math.Round(V3_IMU.CurrentOrientationEulerAngles[2]-V0_IMU.CurrentOrientationEulerAngles[2], 3)); // Yaw
         sensor.AddObservation((float)System.Math.Round((V3_LeftEncoder.SpeedFromTicks+V3_RightEncoder.SpeedFromTicks)/2f, 3)); // Velocity estimate
     }
@@ -154,10 +154,10 @@ public class NigelCrossing : Agent
         if (CollisionFlag)
         {
             // Debug.Log("Ego Vehicle Collided!");
-            SetReward((-0.425f)*GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
+            SetReward((-0.425f)*GetDistance(V0_GPS.CurrentPosition[0], V0_GPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
             EndEpisode();
         }
-        if (GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], V0_Left_GoalLocation.position.z, -V0_Left_GoalLocation.position.x) <= V0_GoalTolerance | GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], V0_Right_GoalLocation.position.z, -V0_Right_GoalLocation.position.x) <= V0_GoalTolerance)
+        if (GetDistance(V0_GPS.CurrentPosition[0], V0_GPS.CurrentPosition[1], V0_Left_GoalLocation.position.z, -V0_Left_GoalLocation.position.x) <= V0_GoalTolerance | GetDistance(V0_GPS.CurrentPosition[0], V0_GPS.CurrentPosition[1], V0_Right_GoalLocation.position.z, -V0_Right_GoalLocation.position.x) <= V0_GoalTolerance)
         {
             Debug.Log("Ego Vehicle Reached Goal!");
             SetReward(1f);
@@ -165,26 +165,26 @@ public class NigelCrossing : Agent
         }
         else
         {
-            // Debug.Log("Distance to Goal: " + GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
-            SetReward((0.01f)/(0.001f+GetDistance(V0_IPS.CurrentPosition[0], V0_IPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2)));
+            // Debug.Log("Distance to Goal: " + GetDistance(V0_GPS.CurrentPosition[0], V0_GPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2));
+            SetReward((0.01f)/(0.001f+GetDistance(V0_GPS.CurrentPosition[0], V0_GPS.CurrentPosition[1], (V0_Left_GoalLocation.position.z+V0_Right_GoalLocation.position.z)/2, (-V0_Left_GoalLocation.position.x-V0_Right_GoalLocation.position.x)/2)));
         }
 
         // HEURISTIC CONTROL OF PEER VEHICLES
         // Peer Vehicle 1
-        if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= 2*V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        if (GetDistance(V1_GPS.CurrentPosition[0], V1_GPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0f;
+        else if (GetDistance(V1_GPS.CurrentPosition[0], V1_GPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= 2*V1_GoalTolerance) V1_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
         else V1_ActuatorController.CurrentThrottle = 1f*randomThrottle;
         V1_ActuatorController.CurrentSteeringAngle = 0f;
         // Peer Vehicle 2
-        if (GetDistance(V2_IPS.CurrentPosition[0], V2_IPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V2_IPS.CurrentPosition[0], V2_IPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= 2*V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V2_ActuatorController.CurrentThrottle = 1f*randomThrottle;
+        if (GetDistance(V2_GPS.CurrentPosition[0], V2_GPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0f;
+        else if (GetDistance(V2_GPS.CurrentPosition[0], V2_GPS.CurrentPosition[1], V2_GoalLocation.position.z, -V2_GoalLocation.position.x) <= 2*V2_GoalTolerance) V2_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        else if (GetDistance(V1_GPS.CurrentPosition[0], V1_GPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V2_ActuatorController.CurrentThrottle = 1f*randomThrottle;
         else V2_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
         V2_ActuatorController.CurrentSteeringAngle = 0f;
         // Peer Vehicle 3
-        if (GetDistance(V3_IPS.CurrentPosition[0], V3_IPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0f;
-        else if (GetDistance(V3_IPS.CurrentPosition[0], V3_IPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= 2*V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
-        else if (GetDistance(V1_IPS.CurrentPosition[0], V1_IPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V3_ActuatorController.CurrentThrottle = 1f*randomThrottle;
+        if (GetDistance(V3_GPS.CurrentPosition[0], V3_GPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0f;
+        else if (GetDistance(V3_GPS.CurrentPosition[0], V3_GPS.CurrentPosition[1], V3_GoalLocation.position.z, -V3_GoalLocation.position.x) <= 2*V3_GoalTolerance) V3_ActuatorController.CurrentThrottle = 0.4f*randomThrottle;
+        else if (GetDistance(V1_GPS.CurrentPosition[0], V1_GPS.CurrentPosition[1], V1_GoalLocation.position.z, -V1_GoalLocation.position.x) <= V1_GoalTolerance) V3_ActuatorController.CurrentThrottle = 1f*randomThrottle;
         else V3_ActuatorController.CurrentThrottle = 0.8f*randomThrottle;
         V3_ActuatorController.CurrentSteeringAngle = 0f;
     }

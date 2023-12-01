@@ -3605,6 +3605,11 @@ PrefabInstance:
       objectReference: {fileID: 363638484}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
+      propertyPath: PositioningSystems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
+        type: 3}
       propertyPath: VehicleLightings.Array.data[0]
       value: 
       objectReference: {fileID: 7990106369020035789}
@@ -3613,6 +3618,11 @@ PrefabInstance:
       propertyPath: LeftWheelEncoders.Array.data[0]
       value: 
       objectReference: {fileID: 6818765619337561434}
+    - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
+        type: 3}
+      propertyPath: PositioningSystems.Array.data[0]
+      value: 
+      objectReference: {fileID: 6818765619890233005}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: RightWheelEncoders.Array.data[0]
@@ -8169,6 +8179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
+      propertyPath: GPS
+      value: 
+      objectReference: {fileID: 6818765619890233005}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
       propertyPath: IMU
       value: 
       objectReference: {fileID: 6818765620374173375}
@@ -8177,6 +8192,11 @@ PrefabInstance:
       propertyPath: IPS
       value: 
       objectReference: {fileID: 6818765619890233005}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: GNSS
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: Timer
@@ -10443,6 +10463,16 @@ PrefabInstance:
       propertyPath: ConnectionButton
       value: 
       objectReference: {fileID: 1589781760}
+    - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
+        type: 3}
+      propertyPath: PositioningSystems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
+        type: 3}
+      propertyPath: PositioningSystems.Array.data[0]
+      value: 
+      objectReference: {fileID: 6818765619890233005}
     - target: {fileID: 3118647739760119776, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
       propertyPath: IP

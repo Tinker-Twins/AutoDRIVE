@@ -28,6 +28,8 @@ public class LIDAR3D : MonoBehaviour
     private byte[] pcl24Data; // Point cloud data in PCL24 format
     private byte[] pcl48Data; // Point cloud data in PCL48 format
 
+    // Note: The matrix here is written as-if on paper,
+    // but Unity's Matrix4x4 is constructed from column-vectors, hence the transpose.
     private Matrix4x4 LidarTF = new Matrix4x4(
             new Vector4( 0.0f, 0.0f, 1.0f, 0.0f),
             new Vector4(-1.0f, 0.0f, 0.0f, 0.0f),

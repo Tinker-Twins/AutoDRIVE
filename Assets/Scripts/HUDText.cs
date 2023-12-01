@@ -17,8 +17,8 @@ public class HUDText : MonoBehaviour
     public VehicleController VehicleController; // `VehicleController` reference
     public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
-    public bool GNSS = false; // Choose whether to display "IPS" or "GNSS"
-    public IPS IPS; // `IPS` reference
+    public bool GNSS = false; // Choose whether to display "GPS" or "GNSS"
+    public GPS GPS; // `GPS` reference
     public IMU IMU; // `IMU` reference
     public bool EnableLIDAR = true; // Choose whether to display LIDAR data on HUD
     public LIDAR LIDAR; // `LIDAR` reference
@@ -169,7 +169,7 @@ public class HUDText : MonoBehaviour
 
         string encoder_ticks = "[" + LeftWheelEncoder.Ticks.ToString() + ", " + RightWheelEncoder.Ticks.ToString() + "]";
 
-        string position = "[" + IPS.CurrentPosition[0].ToString("F2") + ", " + IPS.CurrentPosition[1].ToString("F2") + ", " + IPS.CurrentPosition[2].ToString("F2") + "]";
+        string position = "[" + GPS.CurrentPosition[0].ToString("F2") + ", " + GPS.CurrentPosition[1].ToString("F2") + ", " + GPS.CurrentPosition[2].ToString("F2") + "]";
 
         string orientation = "[" + IMU.CurrentOrientationEulerAngles[0].ToString("F2") + ", " + IMU.CurrentOrientationEulerAngles[1].ToString("F2") + ", " + IMU.CurrentOrientationEulerAngles[2].ToString("F2") + "]";
         string angular_velocity = "[" + IMU.CurrentAngularVelocity[0].ToString("F2") + ", " + IMU.CurrentAngularVelocity[1].ToString("F2") + ", " + IMU.CurrentAngularVelocity[2].ToString("F2") + "]";
