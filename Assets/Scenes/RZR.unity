@@ -6856,6 +6856,16 @@ PrefabInstance:
       propertyPath: VehicleController
       value: 
       objectReference: {fileID: 7990106369020035790}
+    - target: {fileID: 4595625199665121080, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: AutomobileControllers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595625199665121080, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: AutomobileControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 7990106369019682538}
     - target: {fileID: 4595625199843227400, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: SceneLight
@@ -46968,7 +46978,7 @@ MonoBehaviour:
   speedText: {fileID: 6818765620697018190}
   gearText: {fileID: 6818765619098380183}
   Wheelbase: 3.175
-  Trackwidth: 1.64
+  TrackWidth: 1.734
   COM: {x: 0, y: 0.9, z: -0.5}
   topSpeed: 90
   accleration: 1
@@ -47263,15 +47273,16 @@ MonoBehaviour:
   _steerHelper: 0
   currSpeed: 0
   fwdInput: 0
-  backInput: 0
-  horizontalInput: 0
+  revInput: 0
+  steerInput: 0
+  brakeInput: 0
+  handbrakeInput: 0
   traction: 0
   lockRPM: 10000
   longitudinalSlipLimit: 0.9
   lateralSlipLimit: 0.6
   longitudinalSlipAudioThreshold: 1.2
   lateralSlipAudioThreshold: 1
-  headingAngle: 0
   downForce: 0
   criticalDonutSpeed: 40
   m_WheelEffects:
@@ -47279,6 +47290,11 @@ MonoBehaviour:
   - {fileID: 6818765619973756502}
   - {fileID: 6818765619863616465}
   - {fileID: 6818765620028548504}
+  AutonomousThrottle: 0
+  AutonomousSteering: 0
+  AutonomousBrake: 0
+  AutonomousHandbrake: 0
+  DrivingMode: 0
 --- !u!114 &7990106369019682541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47426,7 +47442,7 @@ MonoBehaviour:
   LinearGain: 6.8
   AngularGain: 0.008
   LinearVelocityLimit: 0.26
-  AngularVelocityLimit: 0.42
+  angularTorqueLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 0

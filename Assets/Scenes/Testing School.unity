@@ -1926,6 +1926,7 @@ MonoBehaviour:
   DataRecorder: {fileID: 1713118894}
   Timer: {fileID: 2058475834}
   FPSCounter: {fileID: 1625397416}
+  SkidSteer: 0
   VehicleController: {fileID: 1284891601}
   LeftWheelEncoder: {fileID: 1735463099}
   RightWheelEncoder: {fileID: 534535144}
@@ -11885,6 +11886,7 @@ MonoBehaviour:
   ConnectionLabel: {fileID: 934434870}
   VehicleControllers:
   - {fileID: 1284891601}
+  AutomobileControllers: []
   VehicleLightings:
   - {fileID: 1284891602}
   LeftWheelEncoders:
@@ -17886,7 +17888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c840e8cba52dee40a855b0386900a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VehicleController: {fileID: 1284891601}
+  VehicleControllers:
+  - {fileID: 1284891601}
+  AutomobileControllers: []
   Label: {fileID: 1714629075}
 --- !u!114 &1550050446
 MonoBehaviour:

@@ -12,6 +12,7 @@ Material:
     type: 3}
   m_ValidKeywords:
   - _ALPHATEST_ON
+  - _DISABLE_DECALS
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
   - _WINDQUALITY_BEST
@@ -19,7 +20,7 @@ Material:
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 2475
+  m_CustomRenderQueue: 2450
   stringTagMap:
     MotionVector: User
     RenderType: TransparentCutout
@@ -106,7 +107,7 @@ Material:
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
     - _SubsurfaceScale: 1
-    - _SupportDecals: 1
+    - _SupportDecals: 0
     - _SurfaceType: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2

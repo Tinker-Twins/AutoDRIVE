@@ -4,7 +4,7 @@ using System.Collections;
 public class Tachometer : MonoBehaviour
 {
 
-	public ADCarController cc;
+	public AutomobileController cc;
 	public float maxInput, minInput;
 	public float correction;
 	public float multiplier;

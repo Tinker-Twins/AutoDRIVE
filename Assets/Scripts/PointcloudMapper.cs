@@ -11,7 +11,7 @@ public class PointcloudMapper : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Result PCD file name. On Editor/Windows, it will be saved in Assets/")]
-    private string outputPcdFilePath = "Map.pcd";
+    private string outputPCDFilePath = "Map.pcd";
 
     [SerializeField]
     [Tooltip("World origin in RHS coordinate system, will be added to every point coordinates")]
@@ -32,7 +32,7 @@ public class PointcloudMapper : MonoBehaviour
 
         Debug.Log($"Found mapping sensor in {vehicleGameObject.name}: {mappingSensor.GetSensorName()}");
 
-        mappingSensor.Initialize(mapOrigin, $"{Application.dataPath}/{outputPcdFilePath}");
+        mappingSensor.Initialize(mapOrigin, $"{Application.dataPath}/{outputPCDFilePath}");
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class PointcloudMapper : MonoBehaviour
 
     private void SavePCD()
     {
-        Debug.Log($"Writing PCD to {Application.dataPath}/{outputPcdFilePath}");
+        Debug.Log($"Writing PCD to {Application.dataPath}/{outputPCDFilePath}");
         mappingSensor.SavePCD();
         Debug.Log("PCL data saved successfully!");
     }

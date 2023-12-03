@@ -10,13 +10,21 @@ public class DrivingMode : MonoBehaviour
     Autonomous.
     */
 
-    public VehicleController VehicleController;
+    public VehicleController[] VehicleControllers;
+    public AutomobileController[] AutomobileControllers;
     public Text Label;
     private bool Mode;
 
     private void Start()
     {
-        VehicleController.DrivingMode = 0;
+        for(int i=0; i<VehicleControllers.Length; i++)
+        {
+            VehicleControllers[i].DrivingMode = 0;
+        }
+        for(int i=0; i<AutomobileControllers.Length; i++)
+        {
+            AutomobileControllers[i].DrivingMode = 0;
+        }
         Label.text = "Manual";
     }
 
@@ -25,12 +33,26 @@ public class DrivingMode : MonoBehaviour
         Mode = !Mode;
         if(Mode)
         {
-            VehicleController.DrivingMode = 1;
+            for(int i=0; i<VehicleControllers.Length; i++)
+            {
+                VehicleControllers[i].DrivingMode = 1;
+            }
+            for(int i=0; i<AutomobileControllers.Length; i++)
+            {
+                AutomobileControllers[i].DrivingMode = 1;
+            }
             Label.text = "Autonomous";
         }
         else
         {
-            VehicleController.DrivingMode = 0;
+            for(int i=0; i<VehicleControllers.Length; i++)
+            {
+                VehicleControllers[i].DrivingMode = 0;
+            }
+            for(int i=0; i<AutomobileControllers.Length; i++)
+            {
+                AutomobileControllers[i].DrivingMode = 0;
+            }
             Label.text = "Manual";
         }
     }

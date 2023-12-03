@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof (ADCarController))]
+[RequireComponent(typeof (AutomobileController))]
 public class CarAudio : MonoBehaviour
 {
     // This script reads some of the car's current properties and plays sounds accordingly.
@@ -45,13 +45,13 @@ public class CarAudio : MonoBehaviour
     private AudioSource m_HighAccel; // Source for the high acceleration sounds
     private AudioSource m_HighDecel; // Source for the high deceleration sounds
     private bool m_StartedSound; // flag for knowing if we have started sounds
-    private ADCarController m_CarController; // Reference to car we are controlling
+    private AutomobileController m_CarController; // Reference to car we are controlling
 
 
     private void StartSound()
     {
         // get the carcontroller (this will not be null as we have require component)
-        m_CarController = GetComponent<ADCarController>();
+        m_CarController = GetComponent<AutomobileController>();
 
         // setup the simple audio source
         m_HighAccel = SetUpEngineAudioSource(highAccelClip);

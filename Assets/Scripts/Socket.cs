@@ -17,6 +17,7 @@ public class Socket : MonoBehaviour
     public Text ConnectionLabel; // GUI button label
 
     public VehicleController[] VehicleControllers; // `VehicleController` references
+    public AutomobileController[] AutomobileControllers; // `AutomobileController` references
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
     public WheelEncoder[] LeftWheelEncoders; // `WheelEncoder` references for left wheel
     public WheelEncoder[] RightWheelEncoders; // `WheelEncoder` references for right wheel
@@ -101,6 +102,28 @@ public class Socket : MonoBehaviour
               }
             }
         }
+        if(AutomobileControllers.Length != 0)
+        {
+            for(int i=0;i<AutomobileControllers.Length;i++)
+            {
+              if(AutomobileControllers[i].CurrentDrivingMode == 1)
+              {
+                    AutomobileControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                    Debug.Log("Throttle: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str));
+                    AutomobileControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                    Debug.Log("Steering: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str));
+                    AutomobileControllers[i].CurrentBrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str); // Set brake
+                    Debug.Log("Brake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str));
+                    AutomobileControllers[i].CurrentHandbrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str); // Set handbrake
+                    Debug.Log("Handbrake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str));
+                    if(VehicleLightings.Length != 0)
+                    {
+                        VehicleLightings[i].Headlights = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Headlights").str); // Set headlights
+                        VehicleLightings[i].Indicators = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Indicators").str); // Set indicators
+                    }
+              }
+            }
+        }
         EmitTelemetry(obj); // Emit telemetry data
     }
 
@@ -119,12 +142,22 @@ public class Socket : MonoBehaviour
                 }
             }
             // Read data from vehicles
-            if(VehicleControllers.Length != 0)
+            if(VehicleControllers.Length != 0 || AutomobileControllers.Length != 0)
             {
-                for(int i=0;i<VehicleControllers.Length;i++) // Assumed that VehicleControllers.Length >= others
+                for(int i=0;i<VehicleControllers.Length;i++)
                 {
                     data["V"+(i+1).ToString()+" Throttle"] = VehicleControllers[i].CurrentThrottle.ToString("F3"); // Get throttle
                     data["V"+(i+1).ToString()+" Steering"] = VehicleControllers[i].CurrentSteeringAngle.ToString("F3"); // Get steering angle
+                }
+                for(int i=0;i<AutomobileControllers.Length;i++)
+                {
+                    data["V"+(i+1).ToString()+" Throttle"] = AutomobileControllers[i].CurrentThrottle.ToString("F3"); // Get throttle
+                    data["V"+(i+1).ToString()+" Steering"] = AutomobileControllers[i].CurrentSteeringAngle.ToString("F3"); // Get steering angle
+                    data["V"+(i+1).ToString()+" Brake"] = AutomobileControllers[i].CurrentBrake.ToString("F3"); // Get brake
+                    data["V"+(i+1).ToString()+" Handbrake"] = AutomobileControllers[i].CurrentHandbrake.ToString("F3"); // Get handbrake
+                }
+                for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length;i++) // Assumed that VehicleControllers.Length+AutomobileControllers.Length >= others
+                {    
                     data["V"+(i+1).ToString()+" Encoder Ticks"] = LeftWheelEncoders[i].Ticks.ToString() + " " + RightWheelEncoders[i].Ticks.ToString(); // Get encoder ticks
                     data["V"+(i+1).ToString()+" Encoder Angles"] = LeftWheelEncoders[i].Angle.ToString("F3") + " " + RightWheelEncoders[i].Angle.ToString("F3"); // Get encoder angles
                     data["V"+(i+1).ToString()+" Position"] = PositioningSystems[i].CurrentPosition[0].ToString("F3") + " " + PositioningSystems[i].CurrentPosition[1].ToString("F3") + " " + PositioningSystems[i].CurrentPosition[2].ToString("F3"); // Get vehicle position

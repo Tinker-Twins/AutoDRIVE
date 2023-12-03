@@ -12,7 +12,7 @@ public class ADCameraController : MonoBehaviour
 		public KeyCode switchViewKey = KeyCode.C;
 	}
 
-	public ADCarController car;
+	public AutomobileController car;
 	public GameObject instrumentCluster;
 	public float speedFactor;
 	public float basePositionValue;

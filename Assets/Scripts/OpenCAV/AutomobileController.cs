@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 
-public class ADCarController : MonoBehaviour
+public class AutomobileController : MonoBehaviour
 {
 	internal enum driveType
 	{
@@ -12,11 +12,10 @@ public class ADCarController : MonoBehaviour
 		AllWheelDrive
 	}
 	
-	//public AIAgent AIAgent;
 	public TextMeshProUGUI speedText;
 	public TextMeshProUGUI gearText;
 	public float Wheelbase = 3.09f; // m
-	public float Trackwidth = 1.734f; // m
+	public float TrackWidth = 1.734f; // m
 	public Vector3 COM;
 	public float topSpeed;
 	public float accleration;
@@ -60,14 +59,13 @@ public class ADCarController : MonoBehaviour
 	public int gearNum;
 	[Range (0, 1)] public float _steerHelper;
 	public float currSpeed;
-	public float fwdInput, backInput, horizontalInput;
+	public float fwdInput, revInput, steerInput, brakeInput, handbrakeInput;
 	public float traction;
 	public float lockRPM;
 	public float longitudinalSlipLimit;
 	public float lateralSlipLimit;
 	public float longitudinalSlipAudioThreshold;
 	public float lateralSlipAudioThreshold;
-	public float headingAngle;
 	public float downForce;
 	public float criticalDonutSpeed;
 
@@ -99,6 +97,46 @@ public class ADCarController : MonoBehaviour
 
 	[SerializeField] private WheelEffects[] m_WheelEffects = new WheelEffects[4];
 
+	private float currentT = 0;
+    private float currentS = 0;
+	private float currentB = 0;
+    private float currentH = 0;
+
+	[Range(-1,1)] public float AutonomousThrottle = 0;
+    [Range(-1,1)] public float AutonomousSteering = 0;
+	[Range(-1,1)] public float AutonomousBrake = 0;
+    [Range(-1,1)] public float AutonomousHandbrake = 0;
+    public int DrivingMode = 0; // Driving mode: 0 is manual, 1 is autonomous
+
+	public int CurrentDrivingMode
+    {
+        get { return DrivingMode; }
+    }
+
+    public float CurrentThrottle
+    {
+        get { return currentT; }
+        set { AutonomousThrottle = value; }
+    }
+
+    public float CurrentSteeringAngle
+    {
+        get { return currentS; }
+        set { AutonomousSteering = value; }
+    }
+
+	public float CurrentBrake
+    {
+        get { return currentB; }
+        set { AutonomousBrake = value; }
+    }
+
+    public float CurrentHandbrake
+    {
+        get { return currentH; }
+        set { AutonomousHandbrake = value; }
+    }
+
 	void Awake ()
 	{
 		car = GetComponent<Rigidbody> ();
@@ -123,8 +161,7 @@ public class ADCarController : MonoBehaviour
 		steerHelper ();
 		tractionControl ();
 		driftCar ();
-		CalculateHeadingAngle ();
-		CheckForWheelSpin();
+		checkForWheelSpin();
 		updateText();
 	}
 
@@ -140,30 +177,73 @@ public class ADCarController : MonoBehaviour
 	void getInput ()
 	{
 		// THROTTLE INPUT
-		fwdInput = (Input.GetAxis("Vertical") > 0) ? Input.GetAxis("Vertical") : 0;
-		backInput = (Input.GetAxis("Vertical") < 0) ? Input.GetAxis("Vertical") : 0;
+		if(DrivingMode == 0) // Manual Driving
+		{
+			fwdInput = (Input.GetAxis("Vertical") > 0) ? Input.GetAxis("Vertical") : 0;
+			revInput = (Input.GetAxis("Vertical") < 0) ? Input.GetAxis("Vertical") : 0;
+			currentT = Input.GetAxis("Vertical");
+		}
+        else // Autonomous Driving
+		{
+			fwdInput = (AutonomousThrottle > 0) ? AutonomousThrottle : 0;
+			revInput = (AutonomousThrottle < 0) ? AutonomousThrottle : 0;
+			currentT = AutonomousThrottle;
+		}
 
 		// STEERING INPUT
+		if(DrivingMode == 0) // Manual Driving
+		{
+			// Continuous control using mouse
+			if (Input.GetMouseButton(0))
+			{
+				float MousePosition = Input.mousePosition.x; // Get the mouse position
+				// Check if its the first time pressing down on mouse button
+				if (!MouseHold)
+				{
+					MouseHold = true; // The mouse button is held down
+					MouseStart = MousePosition;   // Set the reference position for tracking mouse movement
+				}
+				steerInput = -Mathf.Clamp((MousePosition - MouseStart)/(Screen.width/6), -1, 1); // Clamp the steering command in range of [-1, 1]
+			}
 
-        // Continuous control using mouse
-        if (Input.GetMouseButton(0))
-        {
-            float MousePosition = Input.mousePosition.x; // Get the mouse position
-            // Check if its the first time pressing down on mouse button
-            if (!MouseHold)
-            {
-                MouseHold = true; // The mouse button is held down
-                MouseStart = MousePosition;   // Set the reference position for tracking mouse movement
-            }
-            horizontalInput = -Mathf.Clamp((MousePosition - MouseStart)/(Screen.width/6), -1, 1); // Clamp the steering command in range of [-1, 1]
-        }
+			// Discrete control using keyboard
+			else
+			{
+				MouseHold = false; // The mouse button is released
+				steerInput = -Input.GetAxis("Horizontal");
+			}
 
-        // Discrete control using keyboard
-        else
-        {
-            MouseHold = false; // The mouse button is released
-            horizontalInput = -Input.GetAxis("Horizontal");
-        }
+			currentS = steerInput;
+		}
+		else // Autonomous Driving
+		{
+			steerInput = AutonomousSteering;
+			currentS = AutonomousSteering;
+		}
+
+		// BRAKE INPUT
+		if(DrivingMode == 0) // Manual Driving
+		{
+			brakeInput = Input.GetKey(KeyCode.X) ? 1.0f: 0.0f;
+			currentB = Input.GetKey(KeyCode.X) ? 1.0f: 0.0f;
+		}
+        else // Autonomous Driving
+		{
+			brakeInput = AutonomousBrake;
+			currentB = AutonomousBrake;
+		}
+
+		// HANDBRAKE INPUT
+		if(DrivingMode == 0) // Manual Driving
+		{
+			handbrakeInput = Input.GetKey(KeyCode.Space) ? 1.0f: 0.0f;
+			currentH = Input.GetKey(KeyCode.Space) ? 1.0f: 0.0f;
+		}
+        else // Autonomous Driving
+		{
+			handbrakeInput = AutonomousHandbrake;
+			currentH = AutonomousHandbrake;
+		}
 	}
 
 	void moveCar ()
@@ -192,38 +272,40 @@ public class ADCarController : MonoBehaviour
 
 	void steerCar ()
 	{
-		float x = -horizontalInput * (maxSteerAngle - (currSpeed / topSpeed) * steerAngleLimitingFactor);
+		float x = -steerInput * (maxSteerAngle - (currSpeed / topSpeed) * steerAngleLimitingFactor);
 		float steerSpeed = steerSensitivity + (currSpeed / topSpeed) * speedDependencyFactor;
 
 		steerAngle = Mathf.SmoothStep (steerAngle, x, steerSpeed);
 
-		wheelColliders[0].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)+(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
-		wheelColliders[1].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)-(Trackwidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
+		wheelColliders[0].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
+		wheelColliders[1].steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(steerAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(steerAngle))))));;
 
 		if (!isFlying ())
-			car.AddRelativeTorque (transform.up * turnPower * currSpeed * -horizontalInput);
+			car.AddRelativeTorque (transform.up * turnPower * currSpeed * -steerInput);
 	}
 
 	void brakeCar ()
 	{
 		// Hydraulic Disc Brake
 		for (int i = 0; i < 4; i++) {
-			if (Input.GetKey (KeyCode.X)) {
-				wheelColliders [i].brakeTorque = brakingPower;
-			} else
-				wheelColliders [i].brakeTorque = 0;
+			wheelColliders [i].brakeTorque = brakeInput*brakingPower;
+			// if (Input.GetKey (KeyCode.X)) {
+			// 	wheelColliders [i].brakeTorque = brakingPower;
+			// } else
+			// 	wheelColliders [i].brakeTorque = 0;
 		}
 
 		// Emergency Brakes
-		if (Input.GetKey (KeyCode.Space))
-				wheelColliders [2].brakeTorque = wheelColliders [3].brakeTorque = brakingPower;
+		wheelColliders [2].brakeTorque = wheelColliders [3].brakeTorque = handbrakeInput*brakingPower;
+		// if (Input.GetKey (KeyCode.Space))
+		// 		wheelColliders [2].brakeTorque = wheelColliders [3].brakeTorque = brakingPower;
 	}
 
 	void driftCar ()
 	{
-		if (currSpeed > 0 && Mathf.Abs (-horizontalInput) > 0 && (backInput < 0 || Input.GetKey (KeyCode.Space)) && (!isFlying ())) {
+		if (currSpeed > 0 && Mathf.Abs (-steerInput) > 0 && (revInput < 0 || Input.GetKey (KeyCode.Space)) && (!isFlying ())) {
 			float localDriftPower = Input.GetKey (KeyCode.Space) ? driftPower : 0.8f * driftPower;
-			float torque = Mathf.Clamp (localDriftPower * -horizontalInput * currSpeed, -15000, 15000);
+			float torque = Mathf.Clamp (localDriftPower * -steerInput * currSpeed, -15000, 15000);
 			car.AddRelativeTorque (transform.up * torque);
 		}
 	}
@@ -240,7 +322,7 @@ public class ADCarController : MonoBehaviour
 	void calcTorque ()
 	{
 		acc = (gearNum == 1) ? Mathf.MoveTowards (0, 1 * fwdInput, thrAgg) : accleration;
-		throttle = (gearNum == -1) ? backInput : fwdInput;
+		throttle = (gearNum == -1) ? revInput : fwdInput;
 		shiftGear ();
 		getEngineRPM ();
 		totalTorque = torqueCurve.Evaluate (engineRPM) * (gearRatios.Evaluate (gearNum)) * local_finalDrive * throttle * acc;
@@ -259,7 +341,7 @@ public class ADCarController : MonoBehaviour
 			gearNum++;
 		if (gearNum > 1 && engineRPM <= minGearChangeRPM)
 			gearNum--;
-		if (checkStandStill () && backInput < 0)
+		if (checkStandStill () && revInput < 0)
 			gearNum = -1;
 		if (gearNum == -1 && checkStandStill () && fwdInput > 0)
 			gearNum = 1;
@@ -415,7 +497,7 @@ public class ADCarController : MonoBehaviour
 
 	void steerHelper ()
 	{
-		localSteerHelper = Mathf.SmoothStep (localSteerHelper, _steerHelper * Mathf.Abs (-horizontalInput), 0.1f);
+		localSteerHelper = Mathf.SmoothStep (localSteerHelper, _steerHelper * Mathf.Abs (-steerInput), 0.1f);
 		if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
 			_steerHelper *= -1;
 		}
@@ -497,17 +579,12 @@ public class ADCarController : MonoBehaviour
 		}
 	}
 
-	void CalculateHeadingAngle ()
-	{
-		headingAngle = Mathf.Clamp (Mathf.Round (Vector3.SignedAngle (transform.forward, Vector3.forward, Vector3.up)), -90, 90);
-	}
-
 	// checks if the wheels are spinning and if so does three things
 	// 1) emits particles
 	// 2) plays tire skidding sounds
 	// 3) leaves skidmarks on the ground
 	// these effects are controlled through the WheelEffects class
-	private void CheckForWheelSpin()
+	private void checkForWheelSpin()
 	{
 			// loop through all wheels
 			for (int i = 0; i < 4; i++)

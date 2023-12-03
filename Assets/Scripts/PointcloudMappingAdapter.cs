@@ -23,7 +23,7 @@ public class PointcloudMappingAdapter : MonoBehaviour
             new Vector4( 0.0f, 0.0f, 0.0f, 1.0f)
         ).transpose;
 
-    public void Awake()
+    public void Start()
     {
         lidarSensor = GetComponent<LidarSensor>();
         // Make sure automatic capture in RGL Lidar Sensor is disabled.

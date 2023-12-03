@@ -20,6 +20,7 @@ public class VehicleController : MonoBehaviour
     private float ThrottleInput;
     private float SteeringInput;
 
+    [Header("Common Parameters")]
     public GameObject Vehicle;
     public Rigidbody VehicleRigidBody;
     public Vector3 COM;
@@ -38,10 +39,10 @@ public class VehicleController : MonoBehaviour
     public float LinearGain = 6.8f;
     public float AngularGain = 0.008f;
     public float LinearVelocityLimit = 0.26f; // m/s
-    public float AngularVelocityLimit = 0.42f; // rad/s
+    public float angularTorqueLimit = 0.42f; // rad/s
     [Range(-1,1)] public float AutonomousThrottle = 0;
     [Range(-1,1)] public float AutonomousSteering = 0;
-    public int DrivingMode = 1; // Driving mode: 0 is manual, 1 is autonomous
+    public int DrivingMode = 0; // Driving mode: 0 is manual, 1 is autonomous
 
     private float DriveTorque = 0; // N-m
     private float BrakeTorque = 0; // N-m
@@ -51,8 +52,11 @@ public class VehicleController : MonoBehaviour
 
     private float currentSteeringAngle = 0;
     private float lastSteeringAngle = 0;
-    private float angularVelocity = 0; // deg
-    private float linearVelocity = 0; // deg
+    private float angularInput = 0;
+    private float linearInput = 0;
+
+    private float currentT = 0;
+    private float currentS = 0;
 
     public int CurrentDrivingMode
     {
@@ -61,13 +65,13 @@ public class VehicleController : MonoBehaviour
 
     public float CurrentThrottle
     {
-        get { return DriveTorque/MotorTorque; }
+        get { return currentT; }
         set { AutonomousThrottle = value; }
     }
 
     public float CurrentSteeringAngle
     {
-        get { return -SteeringAngle*(Mathf.PI/180); }
+        get { return currentS; }
         set { AutonomousSteering = value; }
     }
 
@@ -216,13 +220,13 @@ public class VehicleController : MonoBehaviour
         //Debug.Log("RPM: " + (RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/2); // Average wheel speed (RPM)
         //Debug.Log("Speed: " + (Mathf.PI*0.065)*((RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/120)); // Average vehicle speed (m/s)
 
-        if (DrivingMode == 0) linearVelocity = ThrottleInput; // Manual Driving
-        else linearVelocity = AutonomousThrottle; // Autonomous Driving
+        if (DrivingMode == 0) linearInput = ThrottleInput; // Manual Driving
+        else linearInput = AutonomousThrottle; // Autonomous Driving
 
-        if (DrivingMode == 0) angularVelocity = SteeringInput; // Manual Driving
-        else angularVelocity = AutonomousSteering; // Autonomous Driving
+        if (DrivingMode == 0) angularInput = SteeringInput; // Manual Driving
+        else angularInput = AutonomousSteering; // Autonomous Driving
 
-        if(linearVelocity == 0 && angularVelocity ==0)
+        if(linearInput == 0 && angularInput ==0)
         {
             RearLeftWheelCollider.motorTorque = 0;
             RearRightWheelCollider.motorTorque = 0;
@@ -239,10 +243,10 @@ public class VehicleController : MonoBehaviour
             FrontRightWheelCollider.brakeTorque = 0;
             RearLeftWheelCollider.brakeTorque = 0;
             RearRightWheelCollider.brakeTorque = 0;
-            FrontLeftWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) - (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
-            FrontRightWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) + (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
-            RearLeftWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) - (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
-            RearRightWheelCollider.motorTorque = ((LinearGain*2*linearVelocity) + (AngularGain*angularVelocity*TrackWidth))/(2*WheelRadius);
+            FrontLeftWheelCollider.motorTorque = ((LinearGain*2*linearInput) - (AngularGain*angularInput*TrackWidth))/(2*WheelRadius);
+            FrontRightWheelCollider.motorTorque = ((LinearGain*2*linearInput) + (AngularGain*angularInput*TrackWidth))/(2*WheelRadius);
+            RearLeftWheelCollider.motorTorque = ((LinearGain*2*linearInput) - (AngularGain*angularInput*TrackWidth))/(2*WheelRadius);
+            RearRightWheelCollider.motorTorque = ((LinearGain*2*linearInput) + (AngularGain*angularInput*TrackWidth))/(2*WheelRadius);
         }
   	}
 
@@ -268,10 +272,17 @@ public class VehicleController : MonoBehaviour
     		GetInput();
             if(driveType!=DriveType.SkidSteer)
             {
-                    Steer(); // Do not steer like a car for skid-steer configuration
-                    Drive(); // Do not drive like a car for skid-steer configuration
+                    currentT = DriveTorque/MotorTorque;
+                    currentS = -SteeringAngle*(Mathf.PI/180);
+                    Steer(); // Steer like a car for non-skid-steer configurations
+                    Drive(); // Drive like a car for non-skid-steer configurations
             }
-            else ExtendedDifferentialDrive();
+            else
+            {
+                    currentT = linearInput;
+                    currentS = angularInput*100f;
+                    ExtendedDifferentialDrive(); // Do not drive/steer like a car for skid-steer configuration
+            }
     		UpdateWheelPoses();
   	}
 }
