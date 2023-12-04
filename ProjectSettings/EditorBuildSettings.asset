@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/OpenCAV.unity
     guid: 3aaff73a5b9959c47a2050c8fc5b43ca
   - enabled: 0
@@ -35,9 +35,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Hunter SE - CBF.unity
     guid: 25f2cc16ce5f91347b5ee7dd2396c99c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hunter SE - Tiny Town.unity
     guid: b07ed931d0a9fa845ba32367ea021c88
+  - enabled: 0
+    path: Assets/Scenes/Hunter SE - New.unity
+    guid: 5a324a8c9f4625b42bdc1c37368c9b35
+  - enabled: 0
+    path: Assets/Scenes/City.unity
+    guid: 6e7aa7b2babe23a49914e4f8069f6e2d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
       type: 2}

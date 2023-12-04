@@ -15,7 +15,8 @@ public class HUDText : MonoBehaviour
     public Timer Timer; // `Timer` reference
     public FPSCounter FPSCounter; // `FPSCounter` reference
     public bool SkidSteer = false; // Choose whether to display `Steer` as angle (rad) or percent (%)
-    public VehicleController VehicleController; // `VehicleController` reference
+    public VehicleController[] VehicleControllers; // `VehicleController` references
+    public AutomobileController[] AutomobileControllers; // `AutomobileController` references
     public WheelEncoder LeftWheelEncoder; // `WheelEncoder` reference for left wheel
     public WheelEncoder RightWheelEncoder; // `WheelEncoder` reference for right wheel
     public bool GNSS = false; // Choose whether to display "GPS" or "GNSS"
@@ -41,7 +42,7 @@ public class HUDText : MonoBehaviour
         {
             if (GNSS)
             {
-                if (SkidSteer)
+                if (SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + "00:00:00" + "\n" +
@@ -64,7 +65,7 @@ public class HUDText : MonoBehaviour
 
                     "LIDAR Measurement:\t" + "inf" + " m";
                 }
-                else
+                else if (!SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + "00:00:00" + "\n" +
@@ -80,6 +81,29 @@ public class HUDText : MonoBehaviour
                     "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
 
                     "GNSS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+
+                    "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                    "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                    "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+
+                    "LIDAR Measurement:\t" + "inf" + " m";
+                }
+                else if (AutomobileControllers.Length != 0)
+                {
+                    HUD.text =
+                    "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                    "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+
+                    "Driving Mode:\t\t" + "Manual" + "\n" +
+                    "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                    "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+
+                    "Throttle:\t\t" + "0.00" + "%\n" +
+                    "Steering:\t\t" + "0.00" + " rad\n\n" +
+
+                    "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+
+                    "GNSS Data:\t" + "[0, 0, 0]" + " m\n\n" +
 
                     "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
                     "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
@@ -142,7 +166,7 @@ public class HUDText : MonoBehaviour
         {
             if (GNSS)
             {
-                if (SkidSteer)
+                if (SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + "00:00:00" + "\n" +
@@ -165,7 +189,7 @@ public class HUDText : MonoBehaviour
 
                     "";
                 }
-                else
+                else if (!SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + "00:00:00" + "\n" +
@@ -181,6 +205,29 @@ public class HUDText : MonoBehaviour
                     "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
 
                     "GNSS Data:\t\t" + "[0, 0, 0]" + " m\n\n" +
+
+                    "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
+                    "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
+                    "\t\t\t\t\t\t" + "[0, 0, 0]" + " m/s^2\n\n" +
+
+                    "";
+                }
+                else if (AutomobileControllers.Length != 0)
+                {
+                    HUD.text =
+                    "Simulation Time:\t\t" + "00:00:00" + "\n" +
+                    "Frame Rate:\t\t\t\t" + "00" + " Hz\n\n" +
+
+                    "Driving Mode:\t\t" + "Manual" + "\n" +
+                    "Gear:\t\t\t\t\t\t" + "D" + "\n" +
+                    "Speed:\t\t\t\t\t" + "0.00" + " m/s\n\n" +
+
+                    "Throttle:\t\t" + "0.00" + "%\n" +
+                    "Steering:\t\t" + "0.00" + " rad\n\n" +
+
+                    "Encoder Ticks:\t" + "[0, 0]" + "\n\n" +
+
+                    "GNSS Data:\t" + "[0, 0, 0]" + " m\n\n" +
 
                     "IMU Data:\t" + "[0, 0, 0]" + " rad\n" +
                     "\t\t\t\t\t\t" + "[0, 0, 0]" + " rad/s\n" +
@@ -247,30 +294,78 @@ public class HUDText : MonoBehaviour
         string frame_rate = FPSCounter.FPS.ToString();
 
         string driving_mode = "";
-        if(VehicleController.DrivingMode==0)
+        if(VehicleControllers.Length != 0)
         {
-            driving_mode = "Manual";
+            if(VehicleControllers[0].DrivingMode==0)
+            {
+                driving_mode = "Manual";
+            }
+            else
+            {
+                driving_mode = "Autonomous";
+            }
         }
-        else
+        else if(AutomobileControllers.Length != 0)
         {
-            driving_mode = "Autonomous";
+            if(AutomobileControllers[0].DrivingMode==0)
+            {
+                driving_mode = "Manual";
+            }
+            else
+            {
+                driving_mode = "Autonomous";
+            }
         }
 
         string gear = "";
-        if(System.Math.Round((VehicleController.RearLeftWheelCollider.rpm + VehicleController.RearRightWheelCollider.rpm)/2, 1) < 0)
+        if(VehicleControllers.Length != 0)
         {
-            gear = "R";
+            if(System.Math.Round((VehicleControllers[0].RearLeftWheelCollider.rpm + VehicleControllers[0].RearRightWheelCollider.rpm)/2, 1) < 0)
+            {
+                gear = "R";
+            }
+            else
+            {
+                 gear = "D";
+            }
         }
-        else
+        else if(AutomobileControllers.Length != 0)
         {
-            gear = "D";
+            if (AutomobileControllers[0].currSpeed != 0 && AutomobileControllers[0].gearNum > 0) gear = "D";
+            if (AutomobileControllers[0].currSpeed == 0 && !Input.GetKey(KeyCode.Space)) gear = "N";
+            if (AutomobileControllers[0].currSpeed == 0 && Input.GetKey(KeyCode.Space)) gear = "P";
+            if (AutomobileControllers[0].currSpeed != 0 && AutomobileControllers[0].gearNum < 0) gear = "R";
         }
 
-        string speed = System.Math.Abs(System.Math.Round(VehicleController.Vehicle.transform.InverseTransformDirection(VehicleController.Vehicle.GetComponent<Rigidbody>().velocity).z,2)).ToString("F2");
+        string speed = "";
+        if(VehicleControllers.Length != 0)
+        {
+            speed = System.Math.Abs(System.Math.Round(VehicleControllers[0].Vehicle.transform.InverseTransformDirection(VehicleControllers[0].Vehicle.GetComponent<Rigidbody>().velocity).z,2)).ToString("F2");
+        }
+        else if(AutomobileControllers.Length != 0)
+        {
+            speed = System.Math.Abs(System.Math.Round(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier,2)).ToString("F2");
+        }
 
-        string throttle = (System.Math.Abs(VehicleController.CurrentThrottle)*100).ToString("F2");
+        string throttle = "";
+        if(VehicleControllers.Length != 0)
+        {
+            throttle = (System.Math.Abs(VehicleControllers[0].CurrentThrottle)*100).ToString("F2");
+        }
+        else if(AutomobileControllers.Length != 0)
+        {
+            throttle = (System.Math.Abs(AutomobileControllers[0].CurrentThrottle)*100).ToString("F2");
+        }
 
-        string steering_angle = VehicleController.CurrentSteeringAngle.ToString("F2");
+        string steering_angle = "";
+        if(VehicleControllers.Length != 0)
+        {
+            steering_angle = VehicleControllers[0].CurrentSteeringAngle.ToString("F2");
+        }
+        else if(AutomobileControllers.Length != 0)
+        {
+            steering_angle = AutomobileControllers[0].CurrentSteeringAngle.ToString("F2");
+        }
 
         string encoder_ticks = "[" + LeftWheelEncoder.Ticks.ToString() + ", " + RightWheelEncoder.Ticks.ToString() + "]";
 
@@ -285,7 +380,7 @@ public class HUDText : MonoBehaviour
             string lidar_measurement = LIDAR.CurrentMeasurement;
             if (GNSS)
             {
-                if (SkidSteer)
+                if (SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + simulation_time + "\n" +
@@ -308,7 +403,7 @@ public class HUDText : MonoBehaviour
 
                     "LIDAR Measurement:\t" + lidar_measurement + " m";
                 }
-                else
+                else if (!SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + simulation_time + "\n" +
@@ -324,6 +419,29 @@ public class HUDText : MonoBehaviour
                     "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
 
                     "GNSS Data:\t\t" + position + " m\n\n" +
+
+                    "IMU Data:\t" + orientation + " rad\n" +
+                    "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                    "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+
+                    "LIDAR Measurement:\t" + lidar_measurement + " m";
+                }
+                else if (AutomobileControllers.Length != 0)
+                {
+                    HUD.text =
+                    "Simulation Time:\t\t" + simulation_time + "\n" +
+                    "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+
+                    "Driving Mode:\t\t" + driving_mode + "\n" +
+                    "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                    "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+
+                    "Throttle:\t\t" + throttle + "%\n" +
+                    "Steering:\t\t" + steering_angle + " rad\n\n" +
+
+                    "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+
+                    "GNSS Data:\t" + position + " m\n\n" +
 
                     "IMU Data:\t" + orientation + " rad\n" +
                     "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
@@ -385,7 +503,7 @@ public class HUDText : MonoBehaviour
         {
             if (GNSS)
             {
-                if (SkidSteer)
+                if (SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + simulation_time + "\n" +
@@ -408,7 +526,7 @@ public class HUDText : MonoBehaviour
 
                     "";
                 }
-                else
+                else if (!SkidSteer && VehicleControllers.Length != 0)
                 {
                     HUD.text =
                     "Simulation Time:\t\t" + simulation_time + "\n" +
@@ -424,6 +542,29 @@ public class HUDText : MonoBehaviour
                     "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
 
                     "GNSS Data:\t\t" + position + " m\n\n" +
+
+                    "IMU Data:\t" + orientation + " rad\n" +
+                    "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +
+                    "\t\t\t\t\t\t" + linear_acceleration + " m/s^2\n\n" +
+
+                    "";
+                }
+                else if (AutomobileControllers.Length != 0)
+                {
+                    HUD.text =
+                    "Simulation Time:\t\t" + simulation_time + "\n" +
+                    "Frame Rate:\t\t\t\t" + frame_rate + " Hz\n\n" +
+
+                    "Driving Mode:\t\t" + driving_mode + "\n" +
+                    "Gear:\t\t\t\t\t\t" + gear + "\n" +
+                    "Speed:\t\t\t\t\t" + speed + " m/s\n\n" +
+
+                    "Throttle:\t\t" + throttle + "%\n" +
+                    "Steering:\t\t" + steering_angle + " rad\n\n" +
+
+                    "Encoder Ticks:\t" + encoder_ticks + "\n\n" +
+
+                    "GNSS Data:\t" + position + " m\n\n" +
 
                     "IMU Data:\t" + orientation + " rad\n" +
                     "\t\t\t\t\t\t" + angular_velocity + " rad/s\n" +

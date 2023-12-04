@@ -25873,6 +25873,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4595625198860113579, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Rear Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -25908,6 +25913,11 @@ PrefabInstance:
       propertyPath: Cameras.Array.data[2]
       value: 
       objectReference: {fileID: 476253211}
+    - target: {fileID: 4595625199408275207, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Front Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625199665121080, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: VehicleController
@@ -25953,6 +25963,11 @@ PrefabInstance:
       propertyPath: SocketIO
       value: 
       objectReference: {fileID: 2126180526}
+    - target: {fileID: 4595625200228396156, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Vehicle Rear Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625200295959985, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: SceneLight
@@ -26028,6 +26043,21 @@ PrefabInstance:
       propertyPath: VehicleController
       value: 
       objectReference: {fileID: 3966812653300628636}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: VehicleControllers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: VehicleControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 3966812653300628636}
+    - target: {fileID: 4595625200810276328, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Vehicle Front Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625200820671068, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_Name

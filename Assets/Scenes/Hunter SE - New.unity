@@ -5195,18 +5195,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 381785112}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &386922117 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4583723101926647037, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
-    type: 3}
-  m_PrefabInstance: {fileID: 1053544452}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &386922118 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4583723101926647036, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
-    type: 3}
-  m_PrefabInstance: {fileID: 1053544452}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387878450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4595625200297008412, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
@@ -6069,7 +6057,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Target
       value: 
-      objectReference: {fileID: 386922118}
+      objectReference: {fileID: 1053544454}
     - target: {fileID: 8030732483649113994, guid: 08955337912334148b3ec26e1ec0d1c6,
         type: 3}
       propertyPath: ZoomMultiplier
@@ -6139,7 +6127,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Target
       value: 
-      objectReference: {fileID: 386922118}
+      objectReference: {fileID: 1053544454}
     - target: {fileID: 8030732483649113997, guid: 08955337912334148b3ec26e1ec0d1c6,
         type: 3}
       propertyPath: m_AutoTargetPlayer
@@ -15542,6 +15530,11 @@ PrefabInstance:
       propertyPath: TerrainMeshes.Array.data[8]
       value: 
       objectReference: {fileID: 216559663}
+    - target: {fileID: 4583723101891398582, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4583723101996645726, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
         type: 3}
       propertyPath: leafSize
@@ -15567,6 +15560,12 @@ PrefabInstance:
 --- !u!1 &1053544453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 617086569657283816, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1053544452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1053544454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 617086569657283821, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
     type: 3}
   m_PrefabInstance: {fileID: 1053544452}
   m_PrefabAsset: {fileID: 0}
@@ -19751,7 +19750,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Target
       value: 
-      objectReference: {fileID: 386922117}
+      objectReference: {fileID: 1053544453}
     - target: {fileID: 5591782350871816607, guid: 7a9602606cdf5b44189073756f3e0b9d,
         type: 3}
       propertyPath: ZoomInLimit
@@ -26231,6 +26230,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4595625198860113579, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Rear Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625199066848946, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -26266,6 +26270,11 @@ PrefabInstance:
       propertyPath: Cameras.Array.data[2]
       value: 
       objectReference: {fileID: 476253211}
+    - target: {fileID: 4595625199408275207, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Front Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625199665121080, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: VehicleController
@@ -26311,6 +26320,16 @@ PrefabInstance:
       propertyPath: SocketIO
       value: 
       objectReference: {fileID: 2126180526}
+    - target: {fileID: 4595625200228396156, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Vehicle Rear Camera Preview
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595625200283938646, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Front Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625200295959985, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: SceneLight
@@ -26386,6 +26405,26 @@ PrefabInstance:
       propertyPath: VehicleController
       value: 
       objectReference: {fileID: 1181429742}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: VehicleControllers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595625200329799038, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: VehicleControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1181429742}
+    - target: {fileID: 4595625200810276328, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Vehicle Front Camera Preview
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595625200816549290, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
+        type: 3}
+      propertyPath: m_Text
+      value: Rear Camera Preview
+      objectReference: {fileID: 0}
     - target: {fileID: 4595625200820671068, guid: b496cd33cbbcaf2438f8cc662d43ff6d,
         type: 3}
       propertyPath: m_Name

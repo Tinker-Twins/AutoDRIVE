@@ -213,12 +213,12 @@ public class AutomobileController : MonoBehaviour
 				steerInput = -Input.GetAxis("Horizontal");
 			}
 
-			currentS = steerInput;
+			currentS = steerInput*maxSteerAngle*(Mathf.PI/180);
 		}
 		else // Autonomous Driving
 		{
 			steerInput = AutonomousSteering;
-			currentS = AutonomousSteering;
+			currentS = AutonomousSteering*maxSteerAngle*(Mathf.PI/180);
 		}
 
 		// BRAKE INPUT

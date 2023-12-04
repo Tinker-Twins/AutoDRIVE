@@ -4313,7 +4313,9 @@ MonoBehaviour:
   Timer: {fileID: 2058475834}
   FPSCounter: {fileID: 1625397416}
   SkidSteer: 0
-  VehicleController: {fileID: 1284891601}
+  VehicleControllers:
+  - {fileID: 1284891601}
+  AutomobileControllers: []
   LeftWheelEncoder: {fileID: 1735463099}
   RightWheelEncoder: {fileID: 534535144}
   GNSS: 0

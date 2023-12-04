@@ -29,6 +29,7 @@ public class Socket : MonoBehaviour
     private string LIDARIntensityArray;
     public Camera[] FrontCameras; // Vehicle front camera references
     public Camera[] RearCameras; // Vehicle rear camera references
+    public bool SideCameras = false; // Rename front/rear camera frames as left/right
 
     public TLController[] TrafficLightControllers; // Traffic light controller references
 
@@ -188,8 +189,16 @@ public class Socket : MonoBehaviour
                         LIDARIntensityArray = ""; // Reset LIDAR intensity array for next measurement
                     }
                     if(LIDAR3DUnits.Length != 0) data["V"+(i+1).ToString()+" LIDAR Pointcloud"] = Convert.ToBase64String(LIDAR3DUnits[i].CurrentPointcloud); // Get LIDAR pointcloud
-                    if(FrontCameras.Length != 0) data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image
-                    if(RearCameras.Length != 0) data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image
+                    if(FrontCameras.Length != 0)
+                    {
+                        if(SideCameras) data["V"+(i+1).ToString()+" Left Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get left camera image
+                        else data["V"+(i+1).ToString()+" Front Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(FrontCameras[i])); // Get front camera image
+                    }
+                    if(RearCameras.Length != 0)
+                    {
+                        if(SideCameras) data["V"+(i+1).ToString()+" Right Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get right camera image
+                        else data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image
+                    }
                 }
             }
             socket.Emit("Bridge", new JSONObject(data)); // Write data to server
