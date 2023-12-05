@@ -6710,6 +6710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8971241471388488819}
+  - {fileID: 2562681586107623390}
   - {fileID: 6818765620669610723}
   m_Father: {fileID: 6818765620626779191}
   m_RootOrder: 4
@@ -6744,7 +6745,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6818765620658388721}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6818765620669610724
 MonoBehaviour:
@@ -8760,7 +8761,7 @@ MonoBehaviour:
   speedText: {fileID: 6818765620195389518}
   gearText: {fileID: 6818765619671840919}
   Wheelbase: 3.09
-  Trackwidth: 1.734
+  TrackWidth: 1.734
   COM: {x: 0, y: 0.32666, z: 1.745285}
   topSpeed: 120
   accleration: 1
@@ -9055,15 +9056,16 @@ MonoBehaviour:
   _steerHelper: 0
   currSpeed: 0
   fwdInput: 0
-  backInput: 0
-  horizontalInput: 0
+  revInput: 0
+  steerInput: 0
+  brakeInput: 0
+  handbrakeInput: 0
   traction: 0
   lockRPM: 10000
   longitudinalSlipLimit: 0.9
   lateralSlipLimit: 0.6
   longitudinalSlipAudioThreshold: 1.05
   lateralSlipAudioThreshold: 0.8
-  headingAngle: 0
   downForce: 0
   criticalDonutSpeed: 40
   m_WheelEffects:
@@ -9071,6 +9073,11 @@ MonoBehaviour:
   - {fileID: 6818765619467405654}
   - {fileID: 6818765619294577873}
   - {fileID: 6818765619523779224}
+  AutonomousThrottle: 0
+  AutonomousSteering: 0
+  AutonomousBrake: 0
+  AutonomousHandbrake: 0
+  DrivingMode: 0
 --- !u!114 &7990106369526055400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9229,7 +9236,7 @@ MonoBehaviour:
   LinearGain: 6.8
   AngularGain: 0.008
   LinearVelocityLimit: 0.26
-  AngularVelocityLimit: 0.42
+  angularTorqueLimit: 0.42
   AutonomousThrottle: 0
   AutonomousSteering: 0
   DrivingMode: 1
@@ -9614,6 +9621,86 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &649928097747005433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6818765620658388721}
+    m_Modifications:
+    - target: {fileID: 2440576987535774365, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_Name
+      value: Velodyne VLP-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440576987535774365, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3558125cbe25da84d88cb80df508a3ba, type: 3}
+--- !u!4 &2562681586107623390 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3068494487180298279, guid: 3558125cbe25da84d88cb80df508a3ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 649928097747005433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3655342486638960384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10076,9 +10163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   publishPCL24: 0
   publishPCL48: 1
+  TerrainMeshes: []
   PointcloudData: 
-  Width: 0
-  RowStep: 0
 --- !u!4 &8971241471388488819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2459352021672942287, guid: b0ebf41f5af66b39290359a0b0acaf4a,
