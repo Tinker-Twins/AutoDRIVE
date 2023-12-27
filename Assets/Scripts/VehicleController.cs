@@ -268,7 +268,8 @@ public class VehicleController : MonoBehaviour
   	}
 
   	void FixedUpdate()
-  	{
+  	{       
+            if(DrivingMode==0) VehicleRigidBody.isKinematic = false;
     		GetInput();
             if(driveType!=DriveType.SkidSteer)
             {

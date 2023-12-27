@@ -16,6 +16,9 @@ public class Socket : MonoBehaviour
     public Button ConnectionButton; // GUI button
     public Text ConnectionLabel; // GUI button label
 
+    public GameObject[] Vehicles; // Vehicle gameobjects
+    public Rigidbody[] VehicleRigidBodies; // Vehicle rigid bodies
+    public Vector3[] VehicleTransforms; // Transform offsets of vehicle rear-axels
     public VehicleController[] VehicleControllers; // `VehicleController` references
     public AutomobileController[] AutomobileControllers; // `AutomobileController` references
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
@@ -32,6 +35,12 @@ public class Socket : MonoBehaviour
     public bool SideCameras = false; // Rename front/rear camera frames as left/right
 
     public TLController[] TrafficLightControllers; // Traffic light controller references
+
+    private Vector3 position;
+    private Quaternion rotation;
+    private float rotX = 0.0f;
+    private float rotY = 0.0f;
+    private float rotZ = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -78,14 +87,7 @@ public class Socket : MonoBehaviour
         //Debug.Log("Bridge");
         JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
         //Debug.Log(obj.data);
-        // Write data to traffic lights
-        if(TrafficLightControllers.Length != 0)
-        {
-            for(int i=0;i<TrafficLightControllers.Length;i++)
-            {
-                TrafficLightControllers[i].CurrentState = int.Parse(jsonObject.GetField("TL"+(i+1).ToString()+" State").str); // Set traffic light
-            }
-        }
+
         // Write data to vehicles
         if(VehicleControllers.Length != 0)
         {
@@ -93,8 +95,24 @@ public class Socket : MonoBehaviour
             {
               if(VehicleControllers[i].CurrentDrivingMode == 1)
               {
-                    VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
-                    VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                    if(int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" CoSim").str) == 1)
+                    {
+                        VehicleRigidBodies[i].isKinematic = true;
+                        position.x = - float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosY").str) - VehicleTransforms[i].x; // Set position X-coordinate
+                        position.y = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosZ").str) - VehicleTransforms[i].y; // Set position Y-coordinate
+                        position.z = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosX").str) - VehicleTransforms[i].z; // Set position Z-coordinate
+                        rotX = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotX").str); // Set roll
+                        rotY = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotY").str); // Set pitch
+                        rotZ = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotZ").str); // Set yaw
+                        rotation = Quaternion.Euler(rotX, rotY, rotZ);
+                        Vehicles[i].transform.SetPositionAndRotation(position, rotation);
+                    }
+                    else
+                    {
+                        VehicleRigidBodies[i].isKinematic = false;
+                        VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                        VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                    }
                     if(VehicleLightings.Length != 0)
                     {
                         VehicleLightings[i].Headlights = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Headlights").str); // Set headlights
@@ -125,7 +143,18 @@ public class Socket : MonoBehaviour
               }
             }
         }
-        EmitTelemetry(obj); // Emit telemetry data
+
+        // Write data to traffic lights
+        if(TrafficLightControllers.Length != 0)
+        {
+            for(int i=0;i<TrafficLightControllers.Length;i++)
+            {
+                TrafficLightControllers[i].CurrentState = int.Parse(jsonObject.GetField("TL"+(i+1).ToString()+" State").str); // Set traffic light
+            }
+        }
+
+        // Emit telemetry data
+        EmitTelemetry(obj);
     }
 
     void EmitTelemetry(SocketIOEvent obj)
