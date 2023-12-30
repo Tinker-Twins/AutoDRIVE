@@ -7201,12 +7201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectionButton: {fileID: 541364192}
   ConnectionLabel: {fileID: 934434870}
-  Vehicles:
-  - {fileID: 1284891600}
-  VehicleRigidBodies:
-  - {fileID: 1284891604}
-  VehicleTransforms:
-  - {x: 0, y: 0.0225, z: -0.08}
+  Vehicles: []
+  VehicleRigidBodies: []
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []

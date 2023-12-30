@@ -18,7 +18,6 @@ public class Socket : MonoBehaviour
 
     public GameObject[] Vehicles; // Vehicle gameobjects
     public Rigidbody[] VehicleRigidBodies; // Vehicle rigid bodies
-    public Vector3[] VehicleTransforms; // Transform offsets of vehicle rear-axels
     public VehicleController[] VehicleControllers; // `VehicleController` references
     public AutomobileController[] AutomobileControllers; // `AutomobileController` references
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
@@ -38,9 +37,6 @@ public class Socket : MonoBehaviour
 
     private Vector3 position;
     private Quaternion rotation;
-    private float rotX = 0.0f;
-    private float rotY = 0.0f;
-    private float rotZ = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -95,17 +91,26 @@ public class Socket : MonoBehaviour
             {
               if(VehicleControllers[i].CurrentDrivingMode == 1)
               {
-                    if(int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" CoSim").str) == 1)
+                    if(Vehicles.Length != 0)
                     {
-                        VehicleRigidBodies[i].isKinematic = true;
-                        position.x = - float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosY").str) - VehicleTransforms[i].x; // Set position X-coordinate
-                        position.y = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosZ").str) - VehicleTransforms[i].y; // Set position Y-coordinate
-                        position.z = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosX").str) - VehicleTransforms[i].z; // Set position Z-coordinate
-                        rotX = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotX").str); // Set roll
-                        rotY = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotY").str); // Set pitch
-                        rotZ = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotZ").str); // Set yaw
-                        rotation = Quaternion.Euler(rotX, rotY, rotZ);
-                        Vehicles[i].transform.SetPositionAndRotation(position, rotation);
+                        if(int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" CoSim").str) == 1)
+                        {
+                            VehicleRigidBodies[i].isKinematic = true;
+                            position.x = - float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosY").str); // Set position X-component
+                            position.y = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosZ").str); // Set position Y-component
+                            position.z = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosX").str); // Set position Z-component
+                            rotation.x = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotY").str); // Set rotation X-component
+                            rotation.y = -float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotZ").str); // Set rotation Y-component
+                            rotation.z = -float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotX").str); // Set rotation Z-component
+                            rotation.w = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" RotW").str); // Set rotation W-component
+                            Vehicles[i].transform.SetPositionAndRotation(position, rotation);
+                        }
+                        else
+                        {
+                            VehicleRigidBodies[i].isKinematic = false;
+                            VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                            VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                        }
                     }
                     else
                     {
