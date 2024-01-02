@@ -191,7 +191,7 @@ archivePrefix={arXiv},
 primaryClass={cs.RO}
 }
 ```
-This work has been accepted at **2023 AACC/IFAC Modeling, Estimation and Control Conference (MECC).**
+This work has been accepted at **2023 AACC/IFAC Modeling, Estimation and Control Conference (MECC).** The open-access publication can be found on [ScienceDirect](https://doi.org/10.1016/j.ifacol.2023.12.037).
 
 #### [Multi-Agent Deep Reinforcement Learning for Cooperative and Competitive Autonomous Vehicles using AutoDRIVE Ecosystem](https://arxiv.org/abs/2309.10007)
 ```bibtex
@@ -204,7 +204,7 @@ archivePrefix={arXiv},
 primaryClass={cs.RO}
 }
 ```
-This work has been accepted as Multi-Agent Dynamic Games (MAD-Games) Workshop paper at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).**
+This work has been accepted as Multi-Agent Dynamic Games (MAD-Games) Workshop paper at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).** The publication can be found on [MAD-Games Workshop Website](https://iros2023-madgames.f1tenth.org/papers/samak.pdf).
 
 ### Technical Reports
 
