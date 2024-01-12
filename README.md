@@ -59,7 +59,7 @@ AutoDRIVE Devkit is a developer's kit that enables the users to exploit AutoDRIV
 - **Upcoming Release:** AutoDRIVE Devkit 0.4.0 is currently under development.
 
 ## Awards and Recognition
-- [Finalist](https://sites.google.com/site/asmemrc/design-competition-showcase/2023-finalists#h.k763k3hc2lfu) for project "Nigel: A Mechatronically Redundant and Reconfigurable Scaled Autonomous Vehicle of AutoDRIVE Ecosystem" at ASME Student Mechanism and Robot Design Competition (SMRDC) 2023
+- [Finalist Award](https://sites.google.com/site/asmemrc/design-competition-showcase/2023-finalists#h.k763k3hc2lfu) for project "Nigel: A Mechatronically Redundant and Reconfigurable Scaled Autonomous Vehicle of AutoDRIVE Ecosystem" at ASME Student Mechanism and Robot Design Competition (SMRDC) 2023
 - [Best Paper Award](http://ccris2023.net/ccris2021.html) for paper "AutoDRIVE Simulator: A Simulator for Scaled Autonomous Vehicle Research and Education" at CCRIS 2021
 - [Best Project Award](https://www.youtube.com/watch?v=VUo4UFiTnd4&t=4048s) for "AutoDRIVE – An Integrated Platform for Autonomous Driving Research and Education" at National Level IEEE Project Competition 2021
 - [Best Project Award](https://youtu.be/2FByDOkDxMc?t=1892) for "AutoDRIVE – An Integrated Platform for Autonomous Driving Research and Education" at SRMIST Mechatronics Department 2021
