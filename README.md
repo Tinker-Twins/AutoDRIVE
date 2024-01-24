@@ -206,6 +206,18 @@ primaryClass={cs.RO}
 ```
 This work has been accepted as Multi-Agent Dynamic Games (MAD-Games) Workshop paper at **2023 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS).** The publication can be found on [MAD-Games Workshop Website](https://iros2023-madgames.f1tenth.org/papers/samak.pdf).
 
+#### [Nigel - Mechatronic Design and Robust Sim2Real Control of an Over-Actuated Autonomous Vehicle](https://arxiv.org/abs/2401.11542)
+```bibtex
+@eprint{Nigel-4WD4WS-2024,
+title={Nigel -- Mechatronic Design and Robust Sim2Real Control of an Over-Actuated Autonomous Vehicle}, 
+author={Chinmay Vilas Samak and Tanmay Vilas Samak and Javad Mohammadpour Velni and Venkat Narayan Krovi},
+year={2024},
+eprint={2401.11542},
+archivePrefix={arXiv},
+primaryClass={cs.RO}
+}
+```
+
 ### Technical Reports
 
 We encourage you to read and cite the following technical reports if you use any part of this project for your research (these can serve as a good source of documentation as well):
