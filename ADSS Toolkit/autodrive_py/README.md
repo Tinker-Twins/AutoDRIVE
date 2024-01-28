@@ -30,6 +30,9 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
       | greenlet | 1.0.0 |
       | gevent | 21.1.2 |
       | gevent-websocket | 0.10.1 |
+      | Jinja2 | 3.0.3 |
+      | itsdangerous | 2.0.1 |
+      | werkzeug | 2.0.3 |
       
       ```bash
       $ pip3 install eventlet==0.33.3
@@ -40,6 +43,9 @@ This directory hosts the Python API <code>autodrive.py</code> for AutoDRIVE, whi
       $ pip3 install greenlet==1.0.0
       $ pip3 install gevent==21.1.2
       $ pip3 install gevent-websocket==0.10.1
+      $ pip3 install Jinja2==3.0.3
+      $ pip3 install itsdangerous==2.0.1
+      $ pip3 install werkzeug==2.0.3
       ```
     
     - Generic dependencies for data processing and visualization (usually any version will do the job):
