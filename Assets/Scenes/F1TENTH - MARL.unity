@@ -11936,6 +11936,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -23718,6 +23719,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -28816,6 +28818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectionButton: {fileID: 541364192}
   ConnectionLabel: {fileID: 934434870}
+  Vehicles: []
+  VehicleRigidBodies: []
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []
@@ -28834,6 +28838,7 @@ MonoBehaviour:
   LIDAR3DUnits: []
   FrontCameras: []
   RearCameras: []
+  SideCameras: 0
   TrafficLightControllers: []
 --- !u!114 &971678325
 MonoBehaviour:
@@ -38676,7 +38681,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: b98c525309fedbf4986b7a541049480c, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: F1TENTH_1
   TeamId: 0
   m_UseChildSensors: 1
@@ -38697,7 +38702,8 @@ MonoBehaviour:
   Record: 0
   NumStepsToRecord: 0
   DemonstrationName: F1TENTH_1
-  DemonstrationDirectory: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations
+  DemonstrationDirectory: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML
+    Resources\Demonstrations
 --- !u!1 &1285115770
 GameObject:
   m_ObjectHideFlags: 0
@@ -53414,7 +53420,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: b98c525309fedbf4986b7a541049480c, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: F1TENTH_2
   TeamId: 0
   m_UseChildSensors: 1
@@ -53435,7 +53441,8 @@ MonoBehaviour:
   Record: 0
   NumStepsToRecord: 0
   DemonstrationName: F1TENTH_2
-  DemonstrationDirectory: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations
+  DemonstrationDirectory: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML
+    Resources\Demonstrations
 --- !u!1 &1757979240
 GameObject:
   m_ObjectHideFlags: 0
@@ -87382,6 +87389,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0

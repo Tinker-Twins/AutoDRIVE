@@ -11936,6 +11936,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -23718,6 +23719,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -28820,8 +28822,6 @@ MonoBehaviour:
   - {fileID: 1284891600}
   VehicleRigidBodies:
   - {fileID: 1284891604}
-  VehicleTransforms:
-  - {x: 0, y: 0.05, z: -0.16}
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []
@@ -38704,7 +38704,8 @@ MonoBehaviour:
   Record: 0
   NumStepsToRecord: 0
   DemonstrationName: F1TENTH_1
-  DemonstrationDirectory: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations
+  DemonstrationDirectory: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML
+    Resources\Demonstrations
 --- !u!1 &1285115770
 GameObject:
   m_ObjectHideFlags: 0
@@ -53442,7 +53443,8 @@ MonoBehaviour:
   Record: 0
   NumStepsToRecord: 0
   DemonstrationName: F1TENTH_2
-  DemonstrationDirectory: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations
+  DemonstrationDirectory: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML
+    Resources\Demonstrations
 --- !u!1 &1757979240
 GameObject:
   m_ObjectHideFlags: 0
@@ -87389,6 +87391,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0

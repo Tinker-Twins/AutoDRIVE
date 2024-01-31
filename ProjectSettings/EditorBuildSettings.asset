@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Intersection School.unity
     guid: f6270ad0e02ed604991217a2d9b3b883
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Husky - New.unity
     guid: e7ac7ff0036642149ad9007b61e03f5c
   - enabled: 0
@@ -53,6 +53,36 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Intersection School - Parallel MARL.unity
     guid: a3e5bde8688ce7a4aad14d070aee6dc0
+  - enabled: 0
+    path: Assets/Scenes/Deformable Terrain.unity
+    guid: 36cb1f12fc1e6f94da87e1a99f26d621
+  - enabled: 0
+    path: Assets/Scenes/Driving School.unity
+    guid: e5c2f35289a765644992215f8b16a367
+  - enabled: 0
+    path: Assets/Scenes/F1TENTH - MARL.unity
+    guid: a1088cb57b03cd549b1853931f0dc930
+  - enabled: 0
+    path: Assets/Scenes/Hunter SE - PID.unity
+    guid: f774dbd65ebe6074bb7cff6ecd8bb663
+  - enabled: 0
+    path: Assets/Scenes/Hunter SE.unity
+    guid: 128be259bd46cae4da5098b09841bef0
+  - enabled: 0
+    path: Assets/Scenes/Husky.unity
+    guid: 8370e97a87733a44cb28cff0d11d1475
+  - enabled: 1
+    path: Assets/Scenes/OpenCAV - AEB.unity
+    guid: e97a9881e0f59b049afb7dae75ed4b68
+  - enabled: 0
+    path: Assets/Scenes/OpenCAV - VP.unity
+    guid: 7dc1ad2bccdd36d4ab83aa52eef04edb
+  - enabled: 0
+    path: Assets/Scenes/Parking School.unity
+    guid: f521e682a18811b45aa48330922bf6e4
+  - enabled: 0
+    path: Assets/Scenes/RZR - Multi-Camera.unity
+    guid: c61d14c6148961a4c83f7f970a3b6073
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
       type: 2}

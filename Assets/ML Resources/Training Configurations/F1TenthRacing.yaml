@@ -28,9 +28,9 @@ behaviors:
         strength: 0.01
         gamma: 0.99
         encoding_size: 128
-        demo_path: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH1.demo
+        demo_path: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH1.demo
     behavioral_cloning:
-      demo_path: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH1.demo
+      demo_path: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH1.demo
       strength: 0.5
       steps: 0
     keep_checkpoints: 5
@@ -66,9 +66,9 @@ behaviors:
         strength: 0.01
         gamma: 0.99
         encoding_size: 128
-        demo_path: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH2.demo
+        demo_path: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH2.demo
     behavioral_cloning:
-      demo_path: C:\Users\tsamak\Desktop\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH2.demo
+      demo_path: C:\Users\tsamak\Workspace\AutoDRIVE Simulator\Assets\ML Resources\Demonstrations\F1TENTH2.demo
       strength: 0.5
       steps: 0
     keep_checkpoints: 5
