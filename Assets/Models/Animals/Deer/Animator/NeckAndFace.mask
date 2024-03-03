@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NeckAndFace
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: RedDeerLowPoly
+    m_Weight: 0
+  - m_Path: RedDeerMiddlePoly
+    m_Weight: 0
+  - m_Path: Root
+    m_Weight: 0
+  - m_Path: Root/Pelvis
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Pelvis.001
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Pelvis_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Pelvis_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Belly_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Belly_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Breast
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L/Forearm_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L/Forearm_L/Hand_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L/Forearm_L/Hand_L/Hand_L.001
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L/Forearm_L/Hand_L/Hand_L.001/Finger.00_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_L/UpperArm_L/Forearm_L/Hand_L/Hand_L.001/Finger.10_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R/Forearm_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R/Forearm_R/Hand_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R/Forearm_R/Hand_R/Hand_R.001
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R/Forearm_R/Hand_R/Hand_R.001/Finger.00_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Clavicle_R/UpperArm_R/Forearm_R/Hand_R/Hand_R.001/Finger.10_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Antler_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Antler_L/Antler_L.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Antler_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Antler_R/Antler_R.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Ear_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Ear_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Eye_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Eye_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe/Joe_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe/Joe_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe/Tongue.1
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe/Tongue.1/Tongue.2
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Joe/Tongue.1/Tongue.2/Tongue.003
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/LowerEyelid_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/LowerEyelid_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_L.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_L.002
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_R.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Mouth_R.002
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Nose_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Nose_L.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Nose_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/Nose_R.001
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/UpperEyelid_L
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Head/UpperEyelid_R
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.002/Neck.2/Neck.003
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Spine.1/Spine.2/Spine.3/Neck.1/Neck.004
+    m_Weight: 1
+  - m_Path: Root/Pelvis/Tail
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Tail/Tail.001
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L/Calf_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L/Calf_L/HorseLink_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L/Calf_L/HorseLink_L/Foot_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L/Calf_L/HorseLink_L/Foot_L/Toe.0_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_L/Calf_L/HorseLink_L/Foot_L/Toe.1_L
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R/Calf_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R/Calf_R/HorseLink_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R/Calf_R/HorseLink_R/Foot_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R/Calf_R/HorseLink_R/Foot_R/Toe.0_R
+    m_Weight: 0
+  - m_Path: Root/Pelvis/Thigh_R/Calf_R/HorseLink_R/Foot_R/Toe.1_R
+    m_Weight: 0

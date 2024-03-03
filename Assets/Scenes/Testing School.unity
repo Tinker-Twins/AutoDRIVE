@@ -4770,6 +4770,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -11886,6 +11887,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectionButton: {fileID: 541364192}
   ConnectionLabel: {fileID: 934434870}
+  Vehicles:
+  - {fileID: 1284891600}
+  VehicleRigidBodies:
+  - {fileID: 1284891604}
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []
@@ -11906,6 +11911,7 @@ MonoBehaviour:
   - {fileID: 960366900}
   RearCameras:
   - {fileID: 1071074426}
+  SideCameras: 0
   TrafficLightControllers: []
 --- !u!114 &971678325
 MonoBehaviour:

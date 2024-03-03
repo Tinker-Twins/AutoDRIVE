@@ -11,7 +11,7 @@ public class TimeOfDay : MonoBehaviour
     public GameObject sceneLight; // Sun
     public Timer simulationTime; // Timer (gives simulation time in seconds)
     public float startTime = 9f; // Initial time of day (in hours)
-    public bool AutomaticUpdate = true; // Switch automatic update on/off
+    public bool automaticUpdate = true; // Switch automatic update on/off
     public float timeScale = 60.0f; // Scale to speed up/down the time of day vs. simulation time
     public float timeOfDay; // Time of the day
     public Vector3 currentAngle; // Store current angle of sun
@@ -28,12 +28,17 @@ public class TimeOfDay : MonoBehaviour
 
     void Update()
     {
-        if(AutomaticUpdate)
+        if(automaticUpdate)
         {
             timeOfDay = (startTime*60) + (simulationTime.timer*timeScale/60); // Update time of day (speed up/down vs. simulation time)
             targetAngle = (0.25f*timeOfDay)-90f; // Compute target angle of sun
             currentAngle = new Vector3(Mathf.LerpAngle(currentAngle.x, targetAngle, Time.deltaTime), currentAngle.y, currentAngle.z); // Lerp the sun angle smoothly
             sceneLight.transform.eulerAngles = currentAngle; // Update the sun angle smoothly
+        }
+        else
+        {
+            targetAngle = (0.25f*timeOfDay)-90f; // Compute target angle of sun
+            sceneLight.transform.eulerAngles = new Vector3(targetAngle, currentAngle.y, currentAngle.z); // Update the sun angle
         }
     }
 }

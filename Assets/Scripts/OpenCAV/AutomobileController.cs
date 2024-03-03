@@ -68,6 +68,7 @@ public class AutomobileController : MonoBehaviour
 	public float lateralSlipAudioThreshold;
 	public float downForce;
 	public float criticalDonutSpeed;
+	public int collisionCount = 0;
 
 	public float driftX { get; private set; }
 
@@ -135,6 +136,11 @@ public class AutomobileController : MonoBehaviour
     {
         get { return currentH; }
         set { AutonomousHandbrake = value; }
+    }
+
+	void OnCollisionEnter(Collision collision)
+    {
+        collisionCount += 1;
     }
 
 	void Awake ()

@@ -83,6 +83,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RZR - Multi-Camera.unity
     guid: c61d14c6148961a4c83f7f970a3b6073
+  - enabled: 0
+    path: Assets/Scenes/Hunter SE - Data Collection.unity
+    guid: 045890df00cd1ea4cb1010d672021a69
+  - enabled: 0
+    path: Assets/Scenes/VSR - Multi-Camera Data Recording.unity
+    guid: 9b44e16b9e7797b4abdfa1971b0b529e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
       type: 2}

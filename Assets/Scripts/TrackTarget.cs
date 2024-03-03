@@ -15,7 +15,7 @@ namespace UnityStandardAssets.Cameras
 
         Works in local coordinates, so if this object is parented
         to another moving gameobject, its local constraints will
-        operate correctly
+        operate correctly.
 
         Note: To have no constraints on an axis, set the `rotationRange`
         greater than 360.

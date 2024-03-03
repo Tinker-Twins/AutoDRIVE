@@ -16,6 +16,12 @@ public class Socket : MonoBehaviour
     public Button ConnectionButton; // GUI button
     public Text ConnectionLabel; // GUI button label
 
+    public bool WeatherAPI = false;
+    public WeatherManager[] Weather; // `WeatherManager` reference
+    private int weather = 1;
+    public bool TimeOfDayAPI = false;
+    public TimeOfDay[] TimeOfDay; // `TimeOfDay` reference
+
     public GameObject[] Vehicles; // Vehicle gameobjects
     public Rigidbody[] VehicleRigidBodies; // Vehicle rigid bodies
     public VehicleController[] VehicleControllers; // `VehicleController` references
@@ -32,6 +38,8 @@ public class Socket : MonoBehaviour
     public Camera[] FrontCameras; // Vehicle front camera references
     public Camera[] RearCameras; // Vehicle rear camera references
     public bool SideCameras = false; // Rename front/rear camera frames as left/right
+
+    public bool CollisionDetection = false;
 
     public TLController[] TrafficLightControllers; // Traffic light controller references
 
@@ -83,6 +91,33 @@ public class Socket : MonoBehaviour
         //Debug.Log("Bridge");
         JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
         //Debug.Log(obj.data);
+
+        // Set time of day
+        if(TimeOfDayAPI && (TimeOfDay.Length !=0))
+        {
+            TimeOfDay[0].automaticUpdate = (jsonObject.GetField("Auto Time").str == "True"); // Set automatic update
+            TimeOfDay[0].timeScale = float.Parse(jsonObject.GetField("Time Scale").str); // Set time scale
+            TimeOfDay[0].timeOfDay = float.Parse(jsonObject.GetField("Time").str); // Set time of day
+        }
+
+        // Set weather
+        if(WeatherAPI && (Weather.Length !=0))
+        {
+            weather = int.Parse(jsonObject.GetField("Weather").str); // Set weather
+            if(weather == 0) Weather[0].weatherPreset = WeatherManager.WeatherPreset.Custom;
+            else if(weather == 1) Weather[0].weatherPreset = WeatherManager.WeatherPreset.Sunny;
+            else if(weather == 2) Weather[0].weatherPreset = WeatherManager.WeatherPreset.Cloudy;
+            else if(weather == 3) Weather[0].weatherPreset = WeatherManager.WeatherPreset.LightFog;
+            else if(weather == 4) Weather[0].weatherPreset = WeatherManager.WeatherPreset.HeavyFog;
+            else if(weather == 5) Weather[0].weatherPreset = WeatherManager.WeatherPreset.LightRain;
+            else if(weather == 6) Weather[0].weatherPreset = WeatherManager.WeatherPreset.HeavyRain;
+            else if(weather == 7) Weather[0].weatherPreset = WeatherManager.WeatherPreset.LightSnow;
+            else if(weather == 8) Weather[0].weatherPreset = WeatherManager.WeatherPreset.HeavySnow;
+            Weather[0].CloudIntensity = float.Parse(jsonObject.GetField("Clouds").str); // Set cloud intensity
+            Weather[0].FogIntensity = float.Parse(jsonObject.GetField("Fog").str); // Set fog intensity
+            Weather[0].RainIntensity = float.Parse(jsonObject.GetField("Rain").str); // Set rain intensity
+            Weather[0].SnowIntensity = float.Parse(jsonObject.GetField("Snow").str); // Set snow intensity
+        }
 
         // Write data to vehicles
         if(VehicleControllers.Length != 0)
@@ -226,6 +261,7 @@ public class Socket : MonoBehaviour
                     data["V"+(i+1).ToString()+" Steering"] = AutomobileControllers[i].CurrentSteeringAngle.ToString("F3"); // Get steering angle
                     data["V"+(i+1).ToString()+" Brake"] = AutomobileControllers[i].CurrentBrake.ToString("F3"); // Get brake
                     data["V"+(i+1).ToString()+" Handbrake"] = AutomobileControllers[i].CurrentHandbrake.ToString("F3"); // Get handbrake
+                    data["V"+(i+1).ToString()+" Collisions"] = AutomobileControllers[i].collisionCount.ToString(); // Get collision count
                 }
                 for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length;i++) // Assumed that VehicleControllers.Length+AutomobileControllers.Length >= others
                 {    

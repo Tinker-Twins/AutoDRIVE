@@ -1915,6 +1915,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -5398,6 +5399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConnectionButton: {fileID: 541364192}
   ConnectionLabel: {fileID: 934434870}
+  Vehicles: []
+  VehicleRigidBodies: []
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []
@@ -5416,6 +5419,7 @@ MonoBehaviour:
   FrontCameras:
   - {fileID: 1105803435}
   RearCameras: []
+  SideCameras: 0
   TrafficLightControllers: []
 --- !u!114 &971678325
 MonoBehaviour:
@@ -11699,6 +11703,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5604276903648274154, guid: 67ce5da1c1e765d449ca04bffdf930ec,
+        type: 3}
+      propertyPath: MotorTorque
+      value: 428
+      objectReference: {fileID: 0}
     - target: {fileID: 5604276903648274155, guid: 67ce5da1c1e765d449ca04bffdf930ec,
         type: 3}
       propertyPath: m_Name
