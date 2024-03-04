@@ -78,7 +78,7 @@ public class DataRecorder : MonoBehaviour
                 //Debug.Log("Stopping data recording...");
                 StopCoroutine(Sample());
                 //Debug.Log("Writing data to disk...");
-          			// Save the vehicle(s) pose parameters so as to reset after capturing data
+                // Save the vehicle(s) pose parameters so as to reset after capturing data
                 saved_positions = new List<Vector3>(); // Reset for next iteration
                 saved_rotations = new List<Quaternion>(); // Reset for next iteration
                 for(int i=0;i<Vehicles.Length;i++)
@@ -88,7 +88,7 @@ public class DataRecorder : MonoBehaviour
                 }
                 // Count data samples captured to compute save percentage
                 totalSamples = 0; // Reset for next iteration
-          			// Count data samples captured from all vehicles
+                // Count data samples captured from all vehicles
                 for(int i=0;i<VehicleControllers.Length;i++)
                 {
                     totalSamples += VehicleDataSamples[i].Count;

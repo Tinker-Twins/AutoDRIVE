@@ -14,6 +14,7 @@ public class WeatherManager : MonoBehaviour
 
     public VolumeProfile VolumeProfile; // HDRP volume profile
     public GameObject Rain; // Rain gameobject
+    public GameObject SubRain; // Sub-rain gameobject
     public ParticleSystem RainParticles; // Rain particle system
     public ParticleSystem RainSubParticles; // Rain subparticle system
     public GameObject Snow; // Snow gameobject
@@ -25,6 +26,7 @@ public class WeatherManager : MonoBehaviour
     public float FogIntensity = 0.0f;
     public float RainIntensity = 0.0f;
     public float SnowIntensity = 0.0f;
+    public bool OptimizedWeather = false;
 
     // Update is called once per frame
     void Update()
@@ -71,10 +73,28 @@ public class WeatherManager : MonoBehaviour
             }
             else // Enable rain
             {
+                if(OptimizedWeather) // Optimize performance
+                {
+                    var coll = RainParticles.collision;
+                    coll.enabled = false; // Disable particle colliders
+                    var sub = RainParticles.subEmitters;
+                    sub.enabled = false; // Disable sub-emitters
+                    SubRain.SetActive(false); // Disable sub-particles
+                }
+                else
+                {
+                    SubRain.SetActive(true); // Enable sub-particles
+                    var coll = RainParticles.collision;
+                    coll.enabled = true; // Enable particle colliders
+                    var sub = RainParticles.subEmitters;
+                    sub.enabled = true; // Enable sub-emitters
+                }
                 Rain.SetActive(true); // Enable rain particle precipitation
                 Rain.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
                 var rain = RainParticles.main;
                 rain.maxParticles = (int)(RainIntensity*100000); // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+                var em = RainParticles.emission;
+                em.rateOverTime = RainIntensity*10000; // Rate of raindrops precipitation
                 var raindrop = RainSubParticles.main;
                 raindrop.maxParticles = (int)(RainIntensity*100000); // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
             }
@@ -84,10 +104,22 @@ public class WeatherManager : MonoBehaviour
             }
             else // Enable snow
             {
+                if(OptimizedWeather) // Optimize performance
+                {
+                    var coll = SnowParticles.collision;
+                    coll.enabled = false; // Disable particle colliders
+                }
+                else
+                {
+                    var coll = SnowParticles.collision;
+                    coll.enabled = true; // Enable particle colliders
+                }
                 Snow.SetActive(true); // Enable snow particle precipitation
                 Snow.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
                 var snow = SnowParticles.main;
                 snow.maxParticles = (int)(SnowIntensity*100000); // Number of snowflakes per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+                var em = SnowParticles.emission;
+                em.rateOverTime = SnowIntensity*10000; // Rate of raindrops precipitation
             }
         }
         else if(weatherPreset == WeatherPreset.Sunny) // Sunny Weather Preset
@@ -137,6 +169,22 @@ public class WeatherManager : MonoBehaviour
         }
         else if(weatherPreset == WeatherPreset.LightRain) // Light Rain Preset
         {
+            if(OptimizedWeather) // Optimize performance
+            {
+                var coll = RainParticles.collision;
+                coll.enabled = false; // Disable particle colliders
+                var sub = RainParticles.subEmitters;
+                sub.enabled = false; // Disable sub-emitters
+                SubRain.SetActive(false); // Disable sub-particles
+            }
+            else
+            {
+                SubRain.SetActive(true); // Enable sub-particles
+                var coll = RainParticles.collision;
+                coll.enabled = true; // Enable particle colliders
+                var sub = RainParticles.subEmitters;
+                sub.enabled = true; // Enable sub-emitters
+            }
             clouds.enable.overrideState = true; // Enable clouds override
             clouds.enable.value = true; // Enable clouds
             clouds.cloudPreset.value = VolumetricClouds.CloudPresets.Overcast; // Set clouds preset
@@ -149,12 +197,30 @@ public class WeatherManager : MonoBehaviour
             Rain.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
             var rain = RainParticles.main;
             rain.maxParticles = 10000; // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+            var em = RainParticles.emission;
+            em.rateOverTime = 1000; // Rate of raindrops precipitation
             var raindrop = RainSubParticles.main;
             raindrop.maxParticles = 10000; // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
             Snow.SetActive(false); // Disable snow particle precipitation
         }
         else if(weatherPreset == WeatherPreset.HeavyRain) // Heavy Rain Preset
         {
+            if(OptimizedWeather) // Optimize performance
+            {
+                var coll = RainParticles.collision;
+                coll.enabled = false; // Disable particle colliders
+                var sub = RainParticles.subEmitters;
+                sub.enabled = false; // Disable sub-emitters
+                SubRain.SetActive(false); // Disable sub-particles
+            }
+            else
+            {
+                SubRain.SetActive(true); // Enable sub-particles
+                var coll = RainParticles.collision;
+                coll.enabled = true; // Enable particle colliders
+                var sub = RainParticles.subEmitters;
+                sub.enabled = true; // Enable sub-emitters
+            }
             clouds.enable.overrideState = true; // Enable clouds override
             clouds.enable.value = true; // Enable clouds
             clouds.cloudPreset.value = VolumetricClouds.CloudPresets.Stormy; // Set clouds preset
@@ -167,12 +233,24 @@ public class WeatherManager : MonoBehaviour
             Rain.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
             var rain = RainParticles.main;
             rain.maxParticles = 100000; // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+            var em = RainParticles.emission;
+            em.rateOverTime = 10000; // Rate of raindrops precipitation
             var raindrop = RainSubParticles.main;
             raindrop.maxParticles = 100000; // Number of raindrops per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
             Snow.SetActive(false); // Disable snow particle precipitation
         }
         else if(weatherPreset == WeatherPreset.LightSnow) // Light Snow Preset
         {
+            if(OptimizedWeather) // Optimize performance
+            {
+                var coll = SnowParticles.collision;
+                coll.enabled = false; // Disable particle colliders
+            }
+            else
+            {
+                var coll = SnowParticles.collision;
+                coll.enabled = true; // Enable particle colliders
+            }
             clouds.enable.overrideState = true; // Enable clouds override
             clouds.enable.value = true; // Enable clouds
             clouds.cloudPreset.value = VolumetricClouds.CloudPresets.Overcast; // Set clouds preset
@@ -186,9 +264,21 @@ public class WeatherManager : MonoBehaviour
             Snow.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
             var snow = SnowParticles.main;
             snow.maxParticles = 10000; // Number of snowflakes per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+            var em = SnowParticles.emission;
+            em.rateOverTime = 1000; // Rate of snoflakes precipitation
         }
         else if(weatherPreset == WeatherPreset.HeavySnow) // Heavy Snow Preset
         {
+            if(OptimizedWeather) // Optimize performance
+            {
+                var coll = SnowParticles.collision;
+                coll.enabled = false; // Disable particle colliders
+            }
+            else
+            {
+                var coll = SnowParticles.collision;
+                coll.enabled = true; // Enable particle colliders
+            }
             clouds.enable.overrideState = true; // Enable clouds override
             clouds.enable.value = true; // Enable clouds
             clouds.cloudPreset.value = VolumetricClouds.CloudPresets.Stormy; // Set clouds preset
@@ -202,6 +292,8 @@ public class WeatherManager : MonoBehaviour
             Snow.transform.position = EgoVehicle.position + new Vector3(0, 25, 0); // Set transorm of rain particle precipitation above the ego vehicle
             var snow = SnowParticles.main;
             snow.maxParticles = 100000; // Number of snowflakes per 10,000 m^2 area (set this area by scaling the `RainParticle` gameobject)
+            var em = SnowParticles.emission;
+            em.rateOverTime = 10000; // Rate of snoflakes precipitation
         }
     }
 }

@@ -27949,6 +27949,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -30671,6 +30672,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -32898,7 +32900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeef9b7bcf48b842bbbf621e2be3d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VehicleController: {fileID: 7990106369020035790}
+  AutomobileController: {fileID: 0}
   DataRecorder: {fileID: 810303823}
   RecordedVelocity: 0
   HeadlightLeft1: {fileID: 3349564292987579139}
@@ -33309,6 +33311,7 @@ MonoBehaviour:
   lateralSlipAudioThreshold: 1
   downForce: 0
   criticalDonutSpeed: 40
+  collisionCount: 0
   m_WheelEffects:
   - {fileID: 6818765619379401767}
   - {fileID: 6818765619973756502}
@@ -33510,7 +33513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aec578d079633645b5f1c0dd7a12d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VehicleController: {fileID: 7990106369020035790}
+  AutomobileController: {fileID: 7990106369019682538}
   DataRecorder: {fileID: 810303823}
   RecordedVelocity: 0
   HeadlightLeft: {fileID: 3349564292987579139}
