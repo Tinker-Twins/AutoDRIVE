@@ -416,10 +416,10 @@ public class CarLighting : MonoBehaviour
         if(Taillights)
         {
             TaillightLeft.material = TaillightON;
-            PointLightTaillightLeft.intensity = 100f;
+            PointLightTaillightLeft.intensity = 4000f;
             PointLightTaillightLeft.enabled = true;
             TaillightRight.material = TaillightON;
-            PointLightTaillightRight.intensity = 100f;
+            PointLightTaillightRight.intensity = 4000f;
             PointLightTaillightRight.enabled = true;
             BrakeLight.material = BrakeLightON;
         }
@@ -429,10 +429,10 @@ public class CarLighting : MonoBehaviour
             if(HeadlightsLowBeam || HeadlightsHighBeam)
             {
                 TaillightLeft.material = TaillightPartiallyON;
-                PointLightTaillightLeft.intensity = 50f;
+                PointLightTaillightLeft.intensity = 1000f;
                 PointLightTaillightLeft.enabled = true;
                 TaillightRight.material = TaillightPartiallyON;
-                PointLightTaillightRight.intensity = 50f;
+                PointLightTaillightRight.intensity = 1000f;
                 PointLightTaillightRight.enabled = true;
             }
             else

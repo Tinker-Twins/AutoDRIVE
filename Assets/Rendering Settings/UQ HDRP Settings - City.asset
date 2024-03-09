@@ -476,13 +476,13 @@ MonoBehaviour:
     m_Value: 1000
   baseHeight:
     m_OverrideState: 1
-    m_Value: 342.0139
+    m_Value: 341.9334
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 392.0139
+    m_Value: 391.9334
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 150
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -887,7 +887,7 @@ MonoBehaviour:
   active: 1
   enable:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   localClouds:
     m_OverrideState: 0
     m_Value: 0
@@ -934,7 +934,7 @@ MonoBehaviour:
     m_Value: 0
   cloudPreset:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   cumulusMap:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   meteringMode:
     m_OverrideState: 0
     m_Value: 2
@@ -1528,10 +1528,10 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 10
   compensation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 7.5
   limitMin:
     m_OverrideState: 0
     m_Value: -1

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Testing School.unity
     guid: ea27ada31fefc474eb8fd1d33740ae33
+  - enabled: 1
+    path: Assets/Scenes/RZR - AEB - HPC.unity
+    guid: a2de632a4b4104549abc77eea157502b
   - enabled: 0
     path: Assets/Scenes/Multi-Agent Tiny Town.unity
     guid: ae8f686a4a876aa449a99222240f3eec
@@ -71,8 +74,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Husky.unity
     guid: 8370e97a87733a44cb28cff0d11d1475
-  - enabled: 1
-    path: Assets/Scenes/OpenCAV - AEB.unity
+  - enabled: 0
+    path: Assets/Scenes/OpenCAV - AEB - AVLDC.unity
     guid: e97a9881e0f59b049afb7dae75ed4b68
   - enabled: 0
     path: Assets/Scenes/OpenCAV - VP.unity
@@ -83,6 +86,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RZR - Multi-Camera.unity
     guid: c61d14c6148961a4c83f7f970a3b6073
+  - enabled: 0
+    path: Assets/Scenes/OpenCAV - AEB - HPC.unity
+    guid: a377f1c32158a4e49aab5a43e9a344c8
+  - enabled: 0
+    path: Assets/Scenes/RZR - VSR.unity
+    guid: 58d82ea1ebd3499459043b334015825e
   - enabled: 0
     path: Assets/Scenes/Hunter SE - Data Collection.unity
     guid: 045890df00cd1ea4cb1010d672021a69

@@ -164,10 +164,10 @@ public class ROVLighting : MonoBehaviour
         if(TaillightsFlag)
         {
             TaillightLeft.material = TaillightON;
-            PointLightTaillightLeft.intensity = 500000f;
+            PointLightTaillightLeft.intensity = 5000f;
             PointLightTaillightLeft.enabled = true;
             TaillightRight.material = TaillightON;
-            PointLightTaillightRight.intensity = 500000f;
+            PointLightTaillightRight.intensity = 5000f;
             PointLightTaillightRight.enabled = true;
         }
         else
@@ -175,10 +175,10 @@ public class ROVLighting : MonoBehaviour
             if(HeadlightsFlag)
             {
                 TaillightLeft.material = TaillightPartiallyON;
-                PointLightTaillightLeft.intensity = 100000f;
+                PointLightTaillightLeft.intensity = 1000f;
                 PointLightTaillightLeft.enabled = true;
                 TaillightRight.material = TaillightPartiallyON;
-                PointLightTaillightRight.intensity = 100000f;
+                PointLightTaillightRight.intensity = 1000f;
                 PointLightTaillightRight.enabled = true;
             }
             else
