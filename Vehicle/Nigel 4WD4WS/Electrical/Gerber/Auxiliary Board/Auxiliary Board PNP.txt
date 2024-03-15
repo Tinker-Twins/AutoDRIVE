@@ -1,0 +1,207 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=Auxiliary Board
+*Date=12:21:36
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;25.6794;-59.0958;0;Bottom;Copper Fill19
+2;;;2.50993;-38.2383;0;Bottom;TXT1
+3;;;35.2187;-28.2368;0;Bottom;TXT1
+4;;;32.1564;-44.4655;0;Bottom;Copper Fill28
+5;;;64.0589;-5.42568;0;Bottom;Copper Fill51
+6;;THT;36.1874;-8.11115;90;Bottom;Drive Motor RL
+7;;;100.362;-20.8111;0;Bottom;Via14
+8;;;60.2235;-10.4549;0;Bottom;Copper Fill88
+9;;;98.4759;-35.7279;0;Bottom;Copper Fill68
+10;;;39.3955;-22.9517;0;Bottom;Copper Fill81
+11;;;71.5275;-5.25106;0;Bottom;TXT1
+12;;THT;17.0505;-3.79302;90;Bottom;Steer Servo RL
+13;;;75.4704;-40.3691;0;Bottom;Via4
+14;;;36.0576;-66.37;0;Bottom;TXT1
+15;;;23.5458;-78.3744;0;Bottom;Copper Fill1
+16;;;67.8435;-10.4549;0;Bottom;Copper Fill89
+17;;;33.3249;-37.3535;0;Bottom;Copper Fill73
+18;;THT;71.8121;-57.3595;90;Bottom;Encoder GND
+19;;;44.0183;-34.8135;0;Bottom;Copper Fill79
+20;;;117.812;-31.8742;0;Bottom;TXT1
+21;;;85.5219;-36.9725;0;Bottom;Copper Fill33
+22;;THT;19.5905;-7.60302;-90;Bottom;RL Encoder 2
+23;;;51.2573;-31.0797;0;Bottom;Copper Fill74
+24;;;38.2525;-69.7638;0;Bottom;Copper Fill5
+25;;;95.8851;-44.8972;0;Bottom;Copper Fill26
+26;;;2.50993;-43.4298;0;Bottom;TXT1
+27;;;36.1004;-55.609;0;Bottom;Via16
+28;;;59.6139;-65.8522;0;Bottom;Copper Fill9
+29;;;28.7345;-54.085;0;Bottom;Via15
+30;;;101.727;-15.6619;0;Bottom;Copper Fill87
+31;;;38.1;-68.4176;0;Bottom;Copper Fill57
+32;;;101.727;-62.728;0;Bottom;Copper Fill54
+33;;;95.6565;-51.8314;0;Bottom;Copper Fill65
+34;;;12.2174;-37.455;0;Bottom;Copper Fill86
+35;;THT;6.63654;-45.957;-90;Bottom;Headlights (Low Beam)
+36;;;86.0045;-8.98168;0;Bottom;Copper Fill49
+37;;THT;111.031;-50.188;0;Bottom;Auxiliary Power
+38;;;61.5004;-20.8111;0;Bottom;Via12
+39;;;41.3767;-57.5718;0;Bottom;Copper Fill14
+40;;;110.836;-68.867;0;Bottom;TXT1
+41;;;33.8582;-73.4976;0;Bottom;Copper Fill55
+42;;THT;67.8505;-5.31702;90;Bottom;Microphone Power
+43;;THT;7.14454;-24.367;0;Bottom;LED GND
+44;;;110.617;-9.56588;0;Bottom;Copper Fill48
+45;;;91.9227;-19.1163;0;Bottom;Copper Fill41
+46;;;71.1524;-35.7971;0;Bottom;Via6
+47;;buzzer-12mm-ns;7.07511;-59.3987;0;Bottom;Buzzer
+48;;;32.1819;-50.9424;0;Bottom;Copper Fill25
+49;;;106.643;-75.1663;0;Bottom;TXT1
+50;;;48.5394;-44.8718;0;Bottom;Copper Fill15
+51;;;2.03254;-77.993;0;Bottom;Hole 1
+52;;;41.2243;-19.2687;0;Bottom;Copper Fill85
+53;;;30.7595;-44.2877;0;Bottom;Copper Fill69
+54;;;87.3507;-21.4023;0;Bottom;Copper Fill39
+55;;THT;19.5905;-75.167;-90;Bottom;FL Encoder 1
+56;;;76.2763;-45.4307;0;Bottom;Copper Fill67
+57;;THT;6.63654;-35.797;-90;Bottom;Reverse Indicators
+58;;;68.2245;-38.9029;0;Bottom;Copper Fill31
+59;;;80.1371;-25.1869;0;Bottom;Copper Fill80
+60;;;51.8415;-58.791;0;Bottom;Copper Fill20
+61;;;105.971;-7.57262;0;Bottom;TXT1
+62;;;88.236;-39.8661;90;Bottom;Motor Driver Rear
+63;;;49.5047;-38.2933;0;Bottom;Copper Fill76
+64;;;21.3614;-10.4295;0;Bottom;Copper Fill47
+65;;;52.6035;-64.0742;0;Bottom;Copper Fill7
+66;;;50.1397;-9.43888;0;Bottom;Copper Fill46
+67;;;64.0335;-69.6368;0;Bottom;Copper Fill58
+68;;;59.9948;-40.0204;0;Bottom;Copper Fill50
+69;;;41.4275;-21.9103;0;Bottom;Copper Fill82
+70;;;2.03254;-1.9931;0;Bottom;Hole 2
+71;;;63.9577;-11.6352;0;Bottom;TXT1
+72;;THT;102.903;-75.167;-90;Bottom;FR Encoder 1
+73;;;106.019;-10.1095;0;Bottom;TXT1
+74;;THT;86.0516;-73.135;-90;Bottom;Drive Motor FL
+75;;;61.6655;-67.9632;0;Bottom;TXT1
+76;;;60.2096;-2.58152;0;Bottom;TXT1
+77;;;88.1704;-55.609;0;Bottom;Via17
+78;;;53.7211;-13.6299;0;Bottom;Copper Fill45
+79;;;15.7322;-7.53565;0;Bottom;TXT1
+80;;;54.3307;-58.791;0;Bottom;Copper Fill21
+81;;THT;104.935;-3.79302;90;Bottom;Steer Servo RR
+82;;;35.4331;-58.3338;0;Bottom;Copper Fill13
+83;;;85.6304;-20.8111;0;Bottom;Via13
+84;;;11.8872;-42.1287;0;Bottom;Copper Fill30
+85;;;11.8872;-34.5087;0;Bottom;Copper Fill35
+86;;;88.1077;-28.1707;0;Bottom;TXT1
+87;;THT;6.63654;-33.257;-90;Bottom;Taillights
+88;;;56.8452;-42.154;0;Bottom;Copper Fill60
+89;;;9.5758;-3.21588;0;Bottom;Copper Fill91
+90;;;95.0215;-43.0939;0;Bottom;Copper Fill71
+91;;;61.5004;-28.6851;0;Bottom;Via11
+92;;;66.7259;-65.0648;0;Bottom;Copper Fill10
+93;;;69.2659;-61.9406;0;Bottom;Copper Fill18
+94;;;71.1524;-40.3691;0;Bottom;Via5
+95;;;106.756;-72.6454;0;Bottom;TXT1
+96;;;72.2631;-47.0817;0;Bottom;Copper Fill66
+97;;;2.63964;-33.0229;0;Bottom;TXT1
+98;;;55.6768;-24.7551;0;Bottom;Copper Fill37
+99;;THT;102.395;-10.143;-90;Bottom;RR Encoder 1
+100;;THT;17.0505;-68.817;90;Bottom;Steer Servo FL
+101;;;51.6923;-54.8883;0;Bottom;TXT1
+102;;THT;6.63654;-43.417;-90;Bottom;Headlights (High Beam)
+103;;;22.3845;-77.707;0;Bottom;Via8
+104;;;15.9342;-75.1756;0;Bottom;TXT1
+105;;;64.3178;-5.28238;0;Bottom;TXT1
+106;;;13.8684;-69.6876;0;Bottom;Copper Fill59
+107;;;19.8882;-25.6695;0;Bottom;Copper Fill36
+108;;;6.46397;-50.3327;0;Bottom;TXT1
+109;;;118.033;-77.993;0;Bottom;Hole 5
+110;;;36.2526;-1.11255;0;Bottom;TXT1
+111;;;80.4673;-73.2944;0;Bottom;Copper Fill6
+112;;;22.8092;-17.8717;0;Bottom;Copper Fill42
+113;;;68.165;-2.66703;0;Bottom;TXT1
+114;;;43.7204;-21.0651;0;Bottom;Via3
+115;;;25.527;-77.2314;0;Bottom;Copper Fill2
+116;;THT;36.0469;-73.135;-90;Bottom;Drive Motor FR
+117;;;86.3708;-1.05893;0;Bottom;TXT1
+118;;THT;19.5905;-10.143;-90;Bottom;RL Encoder 1
+119;;THT;60.2305;-5.31702;90;Bottom;Microphone
+120;;;90.4564;-54.085;0;Bottom;Via18
+121;;;49.2507;-58.791;0;Bottom;Copper Fill64
+122;;;72.0345;-70.9068;0;Bottom;Copper Fill53
+123;;;86.3855;-51.3234;0;Bottom;Copper Fill17
+124;;;117.814;-26.512;0;Bottom;TXT1
+125;;;111.253;-22.794;0;Bottom;TXT1
+126;;;11.8872;-44.6687;0;Bottom;Copper Fill29
+127;;;61.4578;-39.607;0;Bottom;MCU
+128;;;11.8872;-37.0487;0;Bottom;Copper Fill34
+129;;;111.404;-40.0204;0;Bottom;Copper Fill93
+130;;;31.1405;-58.2576;0;Bottom;Copper Fill12
+131;;;71.8142;-54.5717;0;Bottom;TXT1
+132;;;11.5062;-77.0028;0;Bottom;Copper Fill56
+133;;THT;105.443;-68.817;90;Bottom;Steer Servo FR
+134;;;38.2271;-35.9565;0;Bottom;Copper Fill77
+135;;;61.6465;-25.994;0;Bottom;TXT1
+136;;THT;61.7653;-70.7805;-90;Bottom;MPU9250
+137;;;35.8141;-50.1805;0;Bottom;Copper Fill27
+138;;;103.759;-8.88008;0;Bottom;Copper Fill90
+139;;;117.672;-47.1797;0;Bottom;TXT1
+140;;;61.502;-42.4556;0;Bottom;AutoDRIVE Logo
+141;;;110.912;-43.3401;0;Bottom;TXT1
+142;;;43.1801;-66.4618;0;Bottom;Copper Fill8
+143;;THT;102.395;-7.60302;-90;Bottom;RR Encoder 2
+144;;;43.5865;-21.0721;0;Bottom;Copper Fill84
+145;;;89.3065;-33.4673;0;Bottom;Copper Fill70
+146;;THT;6.63654;-38.337;-90;Bottom;Right Indicators
+147;;;61.726;-22.9275;0;Bottom;TXT1
+148;;;90.2463;-20.7673;0;Bottom;Copper Fill40
+149;;;2.53384;-46.0367;0;Bottom;TXT1
+150;;;22.3845;-59.927;0;Bottom;Via9
+151;;;50.7493;-27.4983;0;Bottom;Copper Fill38
+152;;THT;51.7763;-57.4415;90;Bottom;Encoder Power
+153;;;74.1173;-52.7458;0;Bottom;Copper Fill24
+154;;THT;111.148;-29.4971;0;Bottom;Source Power
+155;;;109.626;-36.185;0;Bottom;Copper Fill83
+156;;;41.1804;-67.293;0;Bottom;Via1
+157;;;35.8649;-36.7439;0;Bottom;Copper Fill75
+158;;;64.6177;-11.3439;0;Bottom;Copper Fill43
+159;;;118.033;-1.9931;0;Bottom;Hole 3
+160;;;61.6204;-16.1953;0;Bottom;Copper Fill92
+161;;;11.6145;-68.8217;0;Bottom;TXT1
+162;;;64.2367;-30.8511;0;Bottom;Copper Fill72
+163;;;27.8892;-70.6528;0;Bottom;Copper Fill3
+164;;;86.2686;-66.4192;0;Bottom;TXT1
+165;;THT;86.191;-8.01237;90;Bottom;Drive Motor RR
+166;;;117.669;-52.542;0;Bottom;TXT1
+167;;;15.9632;-72.6486;0;Bottom;TXT1
+168;;;4.9841;-24.5632;-90;Bottom;TXT1
+169;;;50.5784;-59.927;0;Bottom;Via10
+170;;;66.5481;-61.839;0;Bottom;Copper Fill61
+171;;;110.576;-3.8089;0;Bottom;TXT1
+172;;;35.2256;-39.8661;90;Bottom;Motor Driver Front
+173;;;72.4155;-51.9838;0;Bottom;Copper Fill22
+174;;;17.0942;-64.9632;0;Bottom;Copper Fill11
+175;;THT;102.903;-72.627;-90;Bottom;FR Encoder 2
+176;;THT;19.5905;-72.627;-90;Bottom;FL Encoder 2
+177;;;79.2989;-58.0798;0;Bottom;Copper Fill16
+178;;;11.4307;-3.55377;0;Bottom;TXT1
+179;;;70.8915;-59.6038;0;Bottom;Copper Fill62
+180;;;81.9151;-16.6017;0;Bottom;Copper Fill52
+181;;;53.6957;-59.68;0;Bottom;Copper Fill63
+182;;;40.8433;-35.4739;0;Bottom;Copper Fill78
+183;;;49.9619;-52.3394;0;Bottom;Copper Fill23
+184;;;2.46083;-40.8286;0;Bottom;TXT1
+185;;;51.0287;-74.158;0;Bottom;Copper Fill4
+186;;;2.49445;-35.6314;0;Bottom;TXT1
+187;;;24.1625;-67.293;0;Bottom;Via2
+188;;;50.6223;-12.9949;0;Bottom;Copper Fill44
+189;;;15.7391;-10.0141;0;Bottom;TXT1
+190;;;11.8872;-39.5887;0;Bottom;Copper Fill32
+191;;THT;6.63654;-40.877;-90;Bottom;Left Indicators
+192;;;75.4704;-35.7971;0;Bottom;Via7
