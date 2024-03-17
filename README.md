@@ -31,3 +31,30 @@ AutoDRIVE Testbed is a hardware platform for prototyping and testing autonomous 
 | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/578c5a1b-13c4-4e75-a373-dbfcba29a6d1' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/a4a54f85-a844-42db-aa09-731b3902f65f' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/62bddd0b-8a38-4114-92d9-3763f5dc9724' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/8bd6ce26-2436-4d30-9542-5b8badadb08a' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/1d5ecaa3-a3bb-4ca0-a266-24b213fa909e' width=500/> |
 |:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|
 | [Platform 1 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations/Platform%201%20Assembly.mp4) | [Platform 2 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations/Platform%202%20Assembly.mp4) | [Platform 3 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations/Platform%203%20Assembly.mp4) | [Platform 4 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations/Platform%204%20Assembly.mp4) | [Overall Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations/Overall%20Assembly.mp4) |
+
+### [Nigel 4WD4WS Assembly Animations](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations)
+
+| <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/d2431671-37df-4482-9349-5cdd897b3e46' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/c1d95171-dae8-4302-a369-dcb456bda57c' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/6419d8e0-60d4-4922-a40a-96d1ea57c563' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/7e8ded02-7e0f-4c63-bdb9-f7c251ba4bae' width=500/> | <video src='https://github.com/Tinker-Twins/AutoDRIVE/assets/40835293/0373f4e7-d2a4-4e50-8493-8d9160fa6b7e' width=500/> |
+|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|:---------------------------:|
+| [Wheel-End Sub-Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations/Wheel-End%20Sub-Assembly.mp4) | [Platform 2 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations/Platform%202%20Assembly.mp4) | [Platform 3 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations/Platform%203%20Assembly.mp4) | [Platform 4 Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations/Platform%204%20Assembly.mp4) | [Overall Assembly](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations/Overall%20Assembly.mp4) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
