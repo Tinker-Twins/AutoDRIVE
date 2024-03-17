@@ -26,9 +26,10 @@ AutoDRIVE Testbed is the hardware setup comprising of a scaled vehicle model (ca
 </p>
 
 - **Source Branch:** [AutoDRIVE Testbed](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed)
-- **Latest Release:** [AutoDRIVE Testbed 0.1.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Testbed-0.1.0)
-- **Upcoming Release:** AutoDRIVE Testbed 0.2.0 is currently under development.
-- **Nigel Build Documentation:** [Assembly Guide](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Guide.pdf) and [BOM](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/BOM.pdf)
+- **Latest Release:** [AutoDRIVE Testbed 0.2.0](https://github.com/Tinker-Twins/AutoDRIVE/releases/tag/Testbed-0.2.0)
+- **Upcoming Release:** AutoDRIVE Testbed 0.3.0 is currently under development.
+- **Nigel (AS) Build Documentation:** [Assembly Guide](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Guide.pdf), [Assembly Animations](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed/Documents/Nigel%20-%20Assembly%20Animations) and [BOM](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/BOM.pdf)
+- **Nigel (4WD4WS) Build Documentation:** [Assembly Guide](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Guide.pdf), [Assembly Animations](https://github.com/Tinker-Twins/AutoDRIVE/tree/AutoDRIVE-Testbed/Documents/Nigel%204WD4WS%20-%20Assembly%20Animations) and [BOM](https://github.com/Tinker-Twins/AutoDRIVE/blob/AutoDRIVE-Testbed/Documents/BOM.pdf)
 
 ## AutoDRIVE Simulator
 
