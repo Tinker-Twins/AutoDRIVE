@@ -265,7 +265,7 @@ copyright = {arXiv.org perpetual, non-exclusive license}
 
 |                    |                     |                     |                     |
 |:------------------:|:-------------------:|:-------------------:|:-------------------:|
-| [<img src="images/Contributor-Rohit-Ravikumar.png" width="125">](https://www.linkedin.com/in/rohitravikumar-) | [<img src="images/Contributor-Parth-Shinde.png" width="125">](https://www.linkedin.com/in/parthshindelink) | [<img src="images/Contributor-Joey-Binz.png" width="125">](https://www.linkedin.com/in/joey-binz) | [<img src="images/Contributor-Giovanni-Martino.png" width="125">](https://www.linkedin.com/in/giovannimartinose) |
+| [<img src="Images/Contributor-Rohit-Ravikumar.png" width="125">](https://www.linkedin.com/in/rohitravikumar-) | [<img src="Images/Contributor-Parth-Shinde.png" width="125">](https://www.linkedin.com/in/parthshindelink) | [<img src="Images/Contributor-Joey-Binz.png" width="125">](https://www.linkedin.com/in/joey-binz) | [<img src="Images/Contributor-Giovanni-Martino.png" width="125">](https://www.linkedin.com/in/giovannimartinose) |
 | [Rohit Ravikumar](https://www.linkedin.com/in/rohitravikumar-) | [Parth Shinde](https://www.linkedin.com/in/parthshindelink) | [Joey Binz](https://www.linkedin.com/in/joey-binz) | [Giovanni Martino](https://www.linkedin.com/in/giovannimartinose) |
 |                    |                     |                     |                     |
 
