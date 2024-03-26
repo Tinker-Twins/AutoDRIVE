@@ -261,13 +261,13 @@ copyright = {arXiv.org perpetual, non-exclusive license}
 | [Tanmay Vilas Samak](https://www.linkedin.com/in/samaktanmay) | [Chinmay Vilas Samak](https://www.linkedin.com/in/samakchinmay) |
 |                    |                     |
 
-#### Contributers
+#### Contributors
 
-|                    |                     |
-|:------------------:|:-------------------:|
-| [<img src="Images/Contributer-Rohit-Ravikumar.png" width="125">](https://www.linkedin.com/in/rohitravikumar-) | [<img src="Images/Contributer-Parth-Shinde.png" width="125">](https://www.linkedin.com/in/parthshindelink) |
-| [Rohit Ravikumar](https://www.linkedin.com/in/rohitravikumar-) | [Parth Shinde](https://www.linkedin.com/in/parthshindelink) |
-|                    |                     |
+|                    |                     |                     |                     |
+|:------------------:|:-------------------:|:-------------------:|:-------------------:|
+| [<img src="images/Contributor-Rohit-Ravikumar.png" width="125">](https://www.linkedin.com/in/rohitravikumar-) | [<img src="images/Contributor-Parth-Shinde.png" width="125">](https://www.linkedin.com/in/parthshindelink) | [<img src="images/Contributor-Joey-Binz.png" width="125">](https://www.linkedin.com/in/joey-binz) | [<img src="images/Contributor-Giovanni-Martino.png" width="125">](https://www.linkedin.com/in/giovannimartinose) |
+| [Rohit Ravikumar](https://www.linkedin.com/in/rohitravikumar-) | [Parth Shinde](https://www.linkedin.com/in/parthshindelink) | [Joey Binz](https://www.linkedin.com/in/joey-binz) | [Giovanni Martino](https://www.linkedin.com/in/giovannimartinose) |
+|                    |                     |                     |                     |
 
 #### Mentors
 
