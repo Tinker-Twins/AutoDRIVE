@@ -17,6 +17,7 @@ public class LIDAR : MonoBehaviour
 
 	public bool AnimateScanner = true; // Animate scanning head of LIDAR
 	public bool ShowRaycasts = false; // Visualize raycasts
+	public bool ShowLaserScan = false; // Visualize laser scan
 	public GameObject Scanner; // Reference `Scanner` gameobject
 	public GameObject Head; // Reference `Head` gameobject
 
@@ -41,12 +42,25 @@ public class LIDAR : MonoBehaviour
 
 	private int layer_mask = 1 << 0; // Mask the `Default` layer to allow raycasting only against it
 
+	private Mesh LaserScanMesh; // Mesh for laser scan visualization
+	private static readonly int visualizationLayerID = 10; // `Sensor Visualization` layer
+	public GameObject HUD; // Use HUD to enable laser scan visualization
+	public Material LaserScanMaterial; // Material for laser scan visualization
+	public float LaserScanSize = 0.01f; // Size for laser scan visualization
+	public Color LaserScanColor; // Color for laser scan visualization
+
 	private void Start()
 	{
 		MeasurementsPerScan = (int) ((MaximumAngularRange-MinimumAngularRange)/Resolution + 1); // Compute number of measurements per scan
 		// Debug.Log(MeasurementsPerScan);
 		RangeArray = new string[MeasurementsPerScan]; // Array storing range values of a scan
 		IntensityArray = new string[MeasurementsPerScan]; // Array storing range values of a scan
+
+		if (ShowLaserScan)
+		{
+			LaserScanMesh = new Mesh();
+			LaserScanMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+		}
 	}
 
 	void FixedUpdate()
@@ -106,7 +120,7 @@ public class LIDAR : MonoBehaviour
 
 			IntensityArray[i] = Intensity.ToString(); // Update intensity
 
-			// Draw raycasts if enabled
+			// Draw raycasts (if enabled) -- Only rendered in editor mode
 			if (ShowRaycasts)
 			{
 				float range = Mathf.Min(hits[i].distance, MaximumLinearRange);
@@ -114,6 +128,33 @@ public class LIDAR : MonoBehaviour
 				Color debugColor = (i == 0) ? Color.green : (i == (int)(MeasurementsPerScan / 2)) ? Color.blue : Color.red;
 				Debug.DrawRay(Head.transform.position, debugRayDirection, debugColor, 1 / ScanRate);
 			}
+		}
+
+		// Visualize laser scan (if enabled) -- Rendered in editor and standalone mode
+		if (ShowLaserScan && HUD.activeSelf)
+		{
+			int[] indices = new int[hits.Length]; // Reset indices
+			Vector3[] points = new Vector3[hits.Length]; // Reset points
+
+			// Update indices and points based on raycast hits
+			int idx = 0;
+			for (int h = 0; h < hits.Length; h++)
+			{
+				if (hits[h].point != Vector3.zero)
+				{
+					indices[idx] = idx; // Ensure sequential indices
+					points[idx] = hits[h].point; // Append valid hit points
+					idx++; // Increment counter only when a valid point is found
+				}
+			}
+
+			LaserScanMesh.Clear(); // Clear the previous mesh data
+			LaserScanMesh.vertices = points; // Set new vertices
+			LaserScanMesh.SetIndices(indices, MeshTopology.Points, 0); // Set indices using `Points` topology
+			LaserScanMaterial.SetFloat("_PointSize", LaserScanSize); // Set point size for material shader
+			LaserScanMaterial.SetColor("_PointColor", LaserScanColor); // Set point color for material shader
+
+			Graphics.DrawMesh(LaserScanMesh, Vector3.zero, Quaternion.identity, LaserScanMaterial, visualizationLayerID);
 		}
 
 		// LOG LASER SCAN

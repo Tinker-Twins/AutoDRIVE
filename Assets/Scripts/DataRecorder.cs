@@ -70,7 +70,7 @@ public class DataRecorder : MonoBehaviour
             {
           		//Debug.Log("Starting data recording...");
                 // Create data sample queues for storing data of all vehicles
-                for(int i=0;i<VehicleControllers.Length;i++)
+                for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
                 {
                     VehicleDataSamples.Add(new Queue<VehicleDataSample>());
                 }
@@ -104,7 +104,7 @@ public class DataRecorder : MonoBehaviour
                 // Count data samples captured to compute save percentage
                 totalSamples = 0; // Reset for next iteration
                 // Count data samples captured from all vehicles
-                for(int i=0;i<VehicleControllers.Length;i++)
+                for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
                 {
                     totalSamples += VehicleDataSamples[i].Count;
                 }
@@ -123,7 +123,7 @@ public class DataRecorder : MonoBehaviour
     {
         recordedSamples = 0; // Reset for next iteration
         // Count data samples written from all vehicles
-        for(int i=0;i<VehicleControllers.Length;i++)
+        for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
         {
             recordedSamples += VehicleDataSamples[i].Count;
         }
@@ -173,9 +173,9 @@ public class DataRecorder : MonoBehaviour
             }
         }
         // Create CSV files and directories for storing data and camera frames of all vehicles
-        VehicleDataFileNames = new string[VehicleControllers.Length];
-        VehicleCameraDirectories = new string[VehicleControllers.Length];
-        for(int i=0;i<VehicleControllers.Length;i++)
+        VehicleDataFileNames = new string[VehicleControllers.Length + AutomobileControllers.Length];
+        VehicleCameraDirectories = new string[VehicleControllers.Length + AutomobileControllers.Length];
+        for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
         {
             VehicleDataFileNames[i] = "V"+(i+1).ToString()+" Log.csv";
             VehicleCameraDirectories[i] = "V"+(i+1).ToString()+" Camera Frames";
@@ -225,7 +225,7 @@ public class DataRecorder : MonoBehaviour
         if (saveLocation != "")
         {
             // Sample data from all vehicles
-            for(int i=0;i<VehicleControllers.Length;i++)
+            for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
             {
                 VehicleDataSample sample = new VehicleDataSample();
                 sample.timeStamp = System.DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff");
@@ -252,7 +252,8 @@ public class DataRecorder : MonoBehaviour
                 sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
                 sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
-                sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z, 2);
+                if (LogAutomobileController) sample.velocity = (float)System.Math.Round(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier, 2);
+                else sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z, 2);
                 sample.angularX = InertialMeasurementUnits[i].CurrentAngularVelocity[0];
                 sample.angularY = InertialMeasurementUnits[i].CurrentAngularVelocity[1];
                 sample.angularZ = InertialMeasurementUnits[i].CurrentAngularVelocity[2];
@@ -299,7 +300,7 @@ public class DataRecorder : MonoBehaviour
     {
       	yield return new WaitForSeconds(0.000f); // Retrieve as fast as possible, while still allowing communication of main thread with screen
         // Write data from all vehicles to disk
-        for(int i=0;i<VehicleControllers.Length;i++)
+        for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length; i++)
         {
             while(VehicleDataSamples[i].Count > 0)
             {
@@ -353,11 +354,15 @@ public class DataRecorder : MonoBehaviour
                     LIDARRangeArray = "";
                 }
                 // Log data
-                string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}\n",
+                string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17}\n",
+                    sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ);
+                /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}\n",
                     sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
                     sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
                     sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
-                    FrontCameraPath, LIDARRangeArray);
+                    FrontCameraPath, LIDARRangeArray);*/
                 /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34}\n",
                         sample.timeStamp, sample.throttle, sample.brake, sample.handBrake, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
                         sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,

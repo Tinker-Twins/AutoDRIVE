@@ -85,9 +85,6 @@ MonoBehaviour:
   aerosolAnisotropy:
     m_OverrideState: 0
     m_Value: 0
-  numberOfBounces:
-    m_OverrideState: 0
-    m_Value: 3
   groundTint:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 1}
@@ -130,6 +127,9 @@ MonoBehaviour:
   horizonZenithShift:
     m_OverrideState: 0
     m_Value: 0
+  numberOfBounces:
+    m_OverrideState: 0
+    m_Value: 3
   m_SkyVersion: 1
   m_ObsoleteEarthPreset:
     m_OverrideState: 0
@@ -180,6 +180,27 @@ MonoBehaviour:
   accumulationFactor:
     m_OverrideState: 0
     m_Value: 0.75
+  biasFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionParam:
+    m_OverrideState: 0
+    m_Value: 0.5
+  speedRejectionScalerFactor:
+    m_OverrideState: 0
+    m_Value: 0.2
+  speedSmoothReject:
+    m_OverrideState: 0
+    m_Value: 0
+  speedSurfaceOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  speedTargetOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  enableWorldSpeedRejection:
+    m_OverrideState: 0
+    m_Value: 0
   m_RayMaxIterations:
     m_OverrideState: 1
     m_Value: 32
@@ -700,8 +721,8 @@ MonoBehaviour:
   active: 1
   interCascadeBorders: 1
   maxShadowDistance:
-    m_OverrideState: 0
-    m_Value: 5000
+    m_OverrideState: 1
+    m_Value: 100
   directionalTransmissionMultiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -958,6 +979,9 @@ MonoBehaviour:
     opacityA:
       m_OverrideState: 1
       m_Value: 0
+    altitude:
+      m_OverrideState: 0
+      m_Value: 2000
     rotation:
       m_OverrideState: 1
       m_Value: 0
@@ -996,6 +1020,9 @@ MonoBehaviour:
     thickness:
       m_OverrideState: 1
       m_Value: 0.5
+    ambientProbeDimmer:
+      m_OverrideState: 0
+      m_Value: 1
     castShadows:
       m_OverrideState: 1
       m_Value: 0
@@ -1015,6 +1042,9 @@ MonoBehaviour:
     opacityA:
       m_OverrideState: 0
       m_Value: 0
+    altitude:
+      m_OverrideState: 0
+      m_Value: 2000
     rotation:
       m_OverrideState: 0
       m_Value: 0
@@ -1053,6 +1083,9 @@ MonoBehaviour:
     thickness:
       m_OverrideState: 0
       m_Value: 0.5
+    ambientProbeDimmer:
+      m_OverrideState: 0
+      m_Value: 1
     castShadows:
       m_OverrideState: 0
       m_Value: 0
@@ -1072,6 +1105,9 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
+  useFullACES:
+    m_OverrideState: 0
+    m_Value: 0
   toeStrength:
     m_OverrideState: 0
     m_Value: 0
@@ -1096,6 +1132,33 @@ MonoBehaviour:
   lutContribution:
     m_OverrideState: 0
     m_Value: 1
+  neutralHDRRangeReductionMode:
+    m_OverrideState: 0
+    m_Value: 2
+  acesPreset:
+    m_OverrideState: 0
+    m_Value: 3
+  fallbackMode:
+    m_OverrideState: 0
+    m_Value: 1
+  hueShiftAmount:
+    m_OverrideState: 0
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 0
+    m_Value: 300
+  detectBrightnessLimits:
+    m_OverrideState: 0
+    m_Value: 1
+  minNits:
+    m_OverrideState: 0
+    m_Value: 0.005
+  maxNits:
+    m_OverrideState: 0
+    m_Value: 1000
 --- !u!114 &5450425991739608604
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1198,6 +1261,9 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   m_PhysicallyBased:
+    m_OverrideState: 0
+    m_Value: 0
+  m_LimitManualRangeNearBlur:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &7747283306623189636

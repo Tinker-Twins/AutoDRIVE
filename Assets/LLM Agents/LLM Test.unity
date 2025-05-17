@@ -36100,6 +36100,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8948793022048083140, guid: 0631526e200725648bdc60d2be4cf439,
+        type: 3}
+      propertyPath: model
+      value: Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948793022048083140, guid: 0631526e200725648bdc60d2be4cf439,
+        type: 3}
+      propertyPath: chatTemplate
+      value: llama3 chat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948793022048083140, guid: 0631526e200725648bdc60d2be4cf439,
+        type: 3}
+      propertyPath: embeddingLength
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948793022048083140, guid: 0631526e200725648bdc60d2be4cf439,
+        type: 3}
+      propertyPath: maxContextLength
+      value: 131072
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

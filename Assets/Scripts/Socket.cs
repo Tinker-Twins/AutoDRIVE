@@ -27,6 +27,7 @@ public class Socket : MonoBehaviour
     public Rigidbody[] VehicleRigidBodies; // Vehicle rigid bodies
     public VehicleController[] VehicleControllers; // `VehicleController` references
     public AutomobileController[] AutomobileControllers; // `AutomobileController` references
+    public TwistController[] TwistControllers; // `TwistController` references
     public VehicleLighting[] VehicleLightings; // `VehicleLighting` references
     public CarLighting[] CarLightings; // `CarLighting` references
     public ROVLighting[] ROVLightings; // `ROVLighting` references
@@ -152,19 +153,31 @@ public class Socket : MonoBehaviour
                         {
                             CoSimManagers[i].enabled = false;
                             VehicleRigidBodies[i].isKinematic = false;
-                            VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
-                            // Debug.Log("Throttle: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str));
-                            VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
-                            // Debug.Log("Steering: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str));
+                            if (TwistControllers.Length != 0)
+                            {
+                                TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
+                                TwistControllers[i].wSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Angular Velocity").str); // Set angular velocity
+                            }
+                            else
+                            {
+                                VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                                VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                            }
                         }
                     }
                     else
                     {
                         VehicleRigidBodies[i].isKinematic = false;
-                        VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
-                        // Debug.Log("Throttle: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str));
-                        VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
-                        // Debug.Log("Steering: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str));
+                        if (TwistControllers.Length != 0)
+                        {
+                            TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
+                            TwistControllers[i].wSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Angular Velocity").str); // Set angular velocity
+                        }
+                        else
+                        {
+                            VehicleControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                            VehicleControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                        }
                     }
                     if(VehicleLightings.Length != 0)
                     {
@@ -205,27 +218,35 @@ public class Socket : MonoBehaviour
                         {
                             CoSimManagers[i].enabled = false;
                             VehicleRigidBodies[i].isKinematic = false;
-                            AutomobileControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
-                            // Debug.Log("Throttle: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str));
-                            AutomobileControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
-                            // Debug.Log("Steering: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str));
-                            AutomobileControllers[i].CurrentBrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str); // Set brake
-                            // Debug.Log("Brake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str));
-                            AutomobileControllers[i].CurrentHandbrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str); // Set handbrake
-                            // Debug.Log("Handbrake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str));
+                            if (TwistControllers.Length != 0)
+                            {
+                                TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
+                                TwistControllers[i].wSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Angular Velocity").str); // Set angular velocity
+                            }
+                            else
+                            {
+                                AutomobileControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                                AutomobileControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                                AutomobileControllers[i].CurrentBrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str); // Set brake
+                                AutomobileControllers[i].CurrentHandbrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str); // Set handbrake
+                            }
                         }
                     }
                     else
                     {
                         VehicleRigidBodies[i].isKinematic = false;
-                        AutomobileControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
-                        // Debug.Log("Throttle: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str));
-                        AutomobileControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
-                        // Debug.Log("Steering: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str));
-                        AutomobileControllers[i].CurrentBrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str); // Set brake
-                        // Debug.Log("Brake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str));
-                        AutomobileControllers[i].CurrentHandbrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str); // Set handbrake
-                        // Debug.Log("Handbrake: " + float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str));
+                        if (TwistControllers.Length != 0)
+                        {
+                            TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
+                            TwistControllers[i].wSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Angular Velocity").str); // Set angular velocity
+                        }
+                        else
+                        {
+                            AutomobileControllers[i].CurrentThrottle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Throttle").str); // Set throttle
+                            AutomobileControllers[i].CurrentSteeringAngle = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Steering").str); // Set steering angle
+                            AutomobileControllers[i].CurrentBrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Brake").str); // Set brake
+                            AutomobileControllers[i].CurrentHandbrake = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Handbrake").str); // Set handbrake
+                        }
                     }
                     if(CarLightings.Length != 0)
                     {

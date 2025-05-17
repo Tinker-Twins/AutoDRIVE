@@ -42,7 +42,7 @@ SketchUpImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 0.0254
@@ -122,5 +122,5 @@ SketchUpImporter:
   selectedNodes: 0000000001000000
   assetHash:
     serializedVersion: 2
-    Hash: 0b22ca7f97066a1b8e57f7a399c5ff13
+    Hash: ce9b9360647743543d61d1ddaef0df3e
   fileUnit: 0

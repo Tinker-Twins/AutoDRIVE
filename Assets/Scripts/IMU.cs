@@ -38,7 +38,7 @@ public class IMU : MonoBehaviour
 
     public float[] CurrentOrientationQuaternion{get{return OrientationQuaternionArray;}}
     public float[] CurrentOrientationEulerAngles{get{return OrientationEulerAnglesArray;}}
-    public float[] CurrentLinearVelocity { get { return LinearVelocityArray; } }
+    public float[] CurrentLinearVelocity{get {return LinearVelocityArray;}}
     public float[] CurrentAngularVelocity{get{return AngularVelocityArray;}}
     public float[] CurrentLinearAcceleration{get{return LinearAccelerationArray;}}
 

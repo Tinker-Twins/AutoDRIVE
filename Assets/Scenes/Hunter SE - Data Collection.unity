@@ -22128,7 +22128,6 @@ MonoBehaviour:
   m_Script: {fileID: 1675289278}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &2037948218
 Transform:
   m_ObjectHideFlags: 19
@@ -23399,6 +23398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
+      propertyPath: CoSimManagers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
+        type: 3}
       propertyPath: RearCameras.Array.data[0]
       value: 
       objectReference: {fileID: 3966812652482630455}
@@ -23412,6 +23416,11 @@ PrefabInstance:
       propertyPath: LIDAR3DUnits.Array.data[0]
       value: 
       objectReference: {fileID: 1114178500}
+    - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
+        type: 3}
+      propertyPath: CoSimManagers.Array.data[0]
+      value: 
+      objectReference: {fileID: 3966812653300628639}
     - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
       propertyPath: VehicleLightings.Array.size
@@ -30092,6 +30101,7 @@ GameObject:
   - component: {fileID: 3966812653300628633}
   - component: {fileID: 3966812653300628636}
   - component: {fileID: 3966812653300628638}
+  - component: {fileID: 3966812653300628639}
   m_Layer: 0
   m_Name: Hunter SE
   m_TagString: Player
@@ -30147,6 +30157,22 @@ MonoBehaviour:
   PointLightReverseIndicatorRight: {fileID: 0}
   ReverseIndicatorOFF: {fileID: 0}
   ReverseIndicatorON: {fileID: 0}
+--- !u!114 &3966812653300628639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3966812653300628637}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fc0230eb5615744b911dcee72ba646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoSimTimer: 0
+  CoSimSmoothness: 0.001
+  CoSimPosition: {x: 0, y: 0, z: 0}
+  CoSimRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &3966812653771234396
 Transform:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ namespace RGLUnityPlugin
 
         private Material material = null;
 
-        private static readonly int visualizationLayerID = 11;
+        private static readonly int visualizationLayerID = 10;
 
         private Mesh mesh;
 

@@ -13,7 +13,8 @@ public class AutomobileController : MonoBehaviour
 	public float Wheelbase = 3.09f; // m
 	public float TrackWidth = 1.734f; // m
 	public Vector3 COM;
-	public float topSpeed;
+    public float ThrottleLimit = 1.0f; // norm%
+    public float topSpeed;
 	public float accleration;
 	public float brakingPower;
 	public float driftPower;
@@ -183,29 +184,29 @@ public class AutomobileController : MonoBehaviour
 		{
             if (HMIType == InputType.Default)
 			{
-                fwdInput = (Input.GetAxis("Vertical") > 0) ? Input.GetAxis("Vertical") : 0;
-                revInput = (Input.GetAxis("Vertical") < 0) ? Input.GetAxis("Vertical") : 0;
-                currentT = Input.GetAxis("Vertical");
+                fwdInput = (Input.GetAxis("Vertical") > 0) ? ThrottleLimit * Input.GetAxis("Vertical") : 0;
+                revInput = (Input.GetAxis("Vertical") < 0) ? ThrottleLimit * Input.GetAxis("Vertical") : 0;
+                currentT = ThrottleLimit * Input.GetAxis("Vertical");
             }
             if (HMIType == InputType.F710)
             {
-                fwdInput = (Input.GetAxis("Vertical F710") > 0) ? Input.GetAxis("Vertical F710") : 0;
-                revInput = (Input.GetAxis("Vertical F710") < 0) ? Input.GetAxis("Vertical F710") : 0;
-                currentT = Input.GetAxis("Vertical F710");
+                fwdInput = (Input.GetAxis("Vertical F710") > 0) ? ThrottleLimit * Input.GetAxis("Vertical F710") : 0;
+                revInput = (Input.GetAxis("Vertical F710") < 0) ? ThrottleLimit * Input.GetAxis("Vertical F710") : 0;
+                currentT = ThrottleLimit * Input.GetAxis("Vertical F710");
             }
             if (HMIType == InputType.Xbox)
             {
-                fwdInput = (Input.GetAxis("Vertical Xbox") > 0) ? Input.GetAxis("Vertical Xbox") : 0;
-                revInput = (Input.GetAxis("Vertical Xbox") < 0) ? Input.GetAxis("Vertical Xbox") : 0;
-                currentT = Input.GetAxis("Vertical Xbox");
+                fwdInput = (Input.GetAxis("Vertical Xbox") > 0) ? ThrottleLimit * Input.GetAxis("Vertical Xbox") : 0;
+                revInput = (Input.GetAxis("Vertical Xbox") < 0) ? ThrottleLimit * Input.GetAxis("Vertical Xbox") : 0;
+                currentT = ThrottleLimit * Input.GetAxis("Vertical Xbox");
             }
             if (HMIType == InputType.G29)
             {
-                fwdInput = (Input.GetAxis("Vertical G29") > 0) ? Input.GetAxis("Vertical G29") : 0;
-                revInput = (Input.GetAxis("Vertical G29") > 0) ? -Input.GetAxis("Vertical G29") : 0;
+                fwdInput = (Input.GetAxis("Vertical G29") > 0) ? ThrottleLimit * Input.GetAxis("Vertical G29") : 0;
+                revInput = (Input.GetAxis("Vertical G29") > 0) ? -ThrottleLimit * Input.GetAxis("Vertical G29") : 0;
 				if (Input.GetAxis("Vertical G29") > 0)
 				{
-					currentT = (gearNum >= 0) ? Input.GetAxis("Vertical G29") : -Input.GetAxis("Vertical G29");
+					currentT = (gearNum >= 0) ? ThrottleLimit * Input.GetAxis("Vertical G29") : -ThrottleLimit * Input.GetAxis("Vertical G29");
 				}
 				else currentT = 0;
             }
@@ -215,7 +216,7 @@ public class AutomobileController : MonoBehaviour
 		{
 			fwdInput = (AutonomousThrottle > 0) ? AutonomousThrottle : 0;
 			revInput = (AutonomousThrottle < 0) ? AutonomousThrottle : 0;
-			currentT = AutonomousThrottle;
+			currentT = ThrottleLimit * AutonomousThrottle;
 		}
 
 		// STEERING INPUT
