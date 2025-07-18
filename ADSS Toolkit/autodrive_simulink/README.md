@@ -11,7 +11,7 @@ This directory hosts the Simulink API for AutoDRIVE, which can be used to develo
     $ git clone --single-branch --branch AutoDRIVE-Devkit https://github.com/Tinker-Twins/AutoDRIVE.git
     ```
 2. Install the Java library:
-   - Place the [`WebSocket-1.0.0.jar`](lib/target/WebSocket-1.0.0.jar) file on the static Java class path in MATLAB by editing the `javaclasspath.txt` file.
+   - Place the [`WebSocket-1.0.0.jar`](lib/target/WebSocket-1.0.0.jar) file on the static Java class path in MATLAB by editing the `javaclasspath.txt` file (create the file if it does not exist). Run the following in MATLAB Command Window:
      ```MATLAB
      edit(fullfile(prefdir,'javaclasspath.txt'))
      ```
@@ -24,7 +24,9 @@ This directory hosts the Simulink API for AutoDRIVE, which can be used to develo
 ## USAGE
 
 Run the vehicle-specific `example` file:
-- [Hunter SE](example_hunter.slx)
+- [RoboRacer (formerly F1TENTH)](example_roboracer.slx)
+- [Clearpath Husky](example_husky.slx)
+- [AgileX Hunter SE](example_hunter.slx)
 - [Polaris RZR](example_rzr.slx)
 
 > [!NOTE]
