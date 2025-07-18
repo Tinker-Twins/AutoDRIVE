@@ -11,7 +11,7 @@ This directory hosts the MATLAB API for AutoDRIVE, which can be used to develop 
     $ git clone --single-branch --branch AutoDRIVE-Devkit https://github.com/Tinker-Twins/AutoDRIVE.git
     ```
 2. Install the Java library:
-   - Place the [`WebSocket-1.0.0.jar`](lib/target/WebSocket-1.0.0.jar) file on the static Java class path in MATLAB by editing the `javaclasspath.txt` file.
+   - Place the [`WebSocket-1.0.0.jar`](lib/target/WebSocket-1.0.0.jar) file on the static Java class path in MATLAB by editing the `javaclasspath.txt` file (create the file if it does not exist). Run the following in MATLAB Command Window:
      ```MATLAB
      edit(fullfile(prefdir,'javaclasspath.txt'))
      ```
@@ -25,7 +25,7 @@ This directory hosts the MATLAB API for AutoDRIVE, which can be used to develop 
 
 Execute AutoDRIVE MATLAB API:
 ```MATLAB
-autodrive = example_hunter(4567)
+autodrive = example_{vehicle}(4567)
 ```
 
 Terminate AutoDRIVE MATLAB API:
