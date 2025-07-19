@@ -31,6 +31,10 @@ public class VehicleController : MonoBehaviour
     public Transform RearLeftWheelTransform, RearRightWheelTransform;
     public enum DriveType {IRWD, IFWD, IAWD, CRWD, CFWD, CAWD, SkidSteer};
     public DriveType driveType = DriveType.IRWD; // Set drive type
+    public enum BrakeType {CAWB, CRWB, IAWB, IRWB};
+    public BrakeType brakeType = BrakeType.CAWB; // Set brake type
+    public enum SteerType {FrontWheelSteer, FourWheelSteer, WedgeWheelSteer};
+    public SteerType steerType = SteerType.FrontWheelSteer; // Set steer type
     public float ThrottleLimit = 1.0f; // norm%
     public float SteeringRate = 315.789f; // deg/s (w.r.t. physics timestep)
     public float Wheelbase = 141.54f; // mm
@@ -40,8 +44,6 @@ public class VehicleController : MonoBehaviour
     public float SteeringLimit = 30f; // deg
     public float LinearGain = 6.8f;
     public float AngularGain = 0.008f;
-    public float LinearVelocityLimit = 0.26f; // m/s
-    public float angularTorqueLimit = 0.42f; // rad/s
     [Range(-1,1)] public float AutonomousThrottle = 0;
     [Range(-1,1)] public float AutonomousSteering = 0;
     public int DrivingMode = 0; // Driving mode: 0 is manual, 1 is autonomous
@@ -132,11 +134,32 @@ public class VehicleController : MonoBehaviour
             }
             lastSteeringAngle = SteeringAngle; // Update previous steering angle
         }
+
         //Debug.Log("Steering Angle: " + SteeringAngle);
         //Debug.Log("Left Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
         //Debug.Log("Right Wheel Angle: " + Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))))));
-    	FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
-    	FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+
+        if(steerType==SteerType.FrontWheelSteer)  // Front-Wheel Ackermann Steering
+        {
+            FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	    FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+            RearLeftWheelCollider.steerAngle = 0.0f;
+    	    RearRightWheelCollider.steerAngle = 0.0f;
+        }
+        else if(steerType==SteerType.FourWheelSteer) // Four-Wheel Ackermann Steering
+        {
+            FrontLeftWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	    FrontRightWheelCollider.steerAngle = Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+            RearLeftWheelCollider.steerAngle = -Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)+(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+    	    RearRightWheelCollider.steerAngle = -Mathf.Rad2Deg*(Mathf.Atan((2*Wheelbase*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle)))/((2*Wheelbase)-(TrackWidth*Mathf.Tan(Mathf.Deg2Rad*(SteeringAngle))))));
+        }
+        else if(steerType==SteerType.WedgeWheelSteer) // Four-Wheel Wedge Steering (Crab-Walk)
+        {
+            FrontLeftWheelCollider.steerAngle = SteeringAngle;
+    	    FrontRightWheelCollider.steerAngle = SteeringAngle;
+            RearLeftWheelCollider.steerAngle = SteeringAngle;
+    	    RearRightWheelCollider.steerAngle = SteeringAngle;
+        }
   	}
 
     private void Drive()
@@ -151,72 +174,89 @@ public class VehicleController : MonoBehaviour
 
         if(DriveTorque == 0)
         {
+            FrontLeftWheelCollider.motorTorque = 0;
+            FrontRightWheelCollider.motorTorque = 0;
             RearLeftWheelCollider.motorTorque = 0;
             RearRightWheelCollider.motorTorque = 0;
-            RearLeftWheelCollider.brakeTorque = BrakeTorque;
-            RearRightWheelCollider.brakeTorque = BrakeTorque;
-            FrontLeftWheelCollider.brakeTorque = BrakeTorque;
-            FrontRightWheelCollider.brakeTorque = BrakeTorque;
+            if(brakeType==BrakeType.CAWB)
+            {
+                RearLeftWheelCollider.brakeTorque = BrakeTorque;
+                RearRightWheelCollider.brakeTorque = BrakeTorque;
+                FrontLeftWheelCollider.brakeTorque = BrakeTorque;
+                FrontRightWheelCollider.brakeTorque = BrakeTorque;
+            }
+            if(brakeType==BrakeType.CRWB)
+            {
+                RearLeftWheelCollider.brakeTorque = BrakeTorque;
+                RearRightWheelCollider.brakeTorque = BrakeTorque;
+                FrontLeftWheelCollider.brakeTorque = 0;
+                FrontRightWheelCollider.brakeTorque = 0;
+            }
         }
         else
         {
-            if(driveType==DriveType.IRWD)  // RWD with independent actuators
+            if(DriveTorque < 0 && brakeType==BrakeType.IAWB)
             {
-                FrontLeftWheelCollider.brakeTorque = 0;
-                FrontRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.brakeTorque = 0;
-                RearRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.motorTorque = DriveTorque;
-                RearRightWheelCollider.motorTorque = DriveTorque;
+                FrontLeftWheelCollider.motorTorque = 0;
+                FrontRightWheelCollider.motorTorque = 0;
+                RearLeftWheelCollider.motorTorque = 0;
+                RearRightWheelCollider.motorTorque = 0;
+                RearLeftWheelCollider.brakeTorque = -DriveTorque;
+                RearRightWheelCollider.brakeTorque = -DriveTorque;
+                FrontLeftWheelCollider.brakeTorque = -DriveTorque;
+                FrontRightWheelCollider.brakeTorque = -DriveTorque;
             }
-            else if(driveType==DriveType.IFWD) // FWD with independent actuators
+            else if(DriveTorque < 0 && brakeType==BrakeType.IRWB)
             {
+                FrontLeftWheelCollider.motorTorque = 0;
+                FrontRightWheelCollider.motorTorque = 0;
+                RearLeftWheelCollider.motorTorque = 0;
+                RearRightWheelCollider.motorTorque = 0;
+                RearLeftWheelCollider.brakeTorque = -DriveTorque;
+                RearRightWheelCollider.brakeTorque = -DriveTorque;
                 FrontLeftWheelCollider.brakeTorque = 0;
                 FrontRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.brakeTorque = 0;
-                RearRightWheelCollider.brakeTorque = 0;
-                FrontLeftWheelCollider.motorTorque = DriveTorque;
-                FrontRightWheelCollider.motorTorque = DriveTorque;
             }
-            else if(driveType==DriveType.IAWD) // AWD with independent actuators
+            else
             {
                 FrontLeftWheelCollider.brakeTorque = 0;
                 FrontRightWheelCollider.brakeTorque = 0;
                 RearLeftWheelCollider.brakeTorque = 0;
                 RearRightWheelCollider.brakeTorque = 0;
-                FrontLeftWheelCollider.motorTorque = DriveTorque;
-                FrontRightWheelCollider.motorTorque = DriveTorque;
-                RearLeftWheelCollider.motorTorque = DriveTorque;
-                RearRightWheelCollider.motorTorque = DriveTorque;
-            }
-            else if(driveType==DriveType.CRWD)  // FWD with common actuator
-            {
-                FrontLeftWheelCollider.brakeTorque = 0;
-                FrontRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.brakeTorque = 0;
-                RearRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.motorTorque = DriveTorque/2;
-                RearRightWheelCollider.motorTorque = DriveTorque/2;
-            }
-            else if(driveType==DriveType.CFWD) // FWD with common actuator
-            {
-                FrontLeftWheelCollider.brakeTorque = 0;
-                FrontRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.brakeTorque = 0;
-                RearRightWheelCollider.brakeTorque = 0;
-                FrontLeftWheelCollider.motorTorque = DriveTorque/2;
-                FrontRightWheelCollider.motorTorque = DriveTorque/2;
-            }
-            else if(driveType==DriveType.CAWD) // AWD with common actuator
-            {
-                FrontLeftWheelCollider.brakeTorque = 0;
-                FrontRightWheelCollider.brakeTorque = 0;
-                RearLeftWheelCollider.brakeTorque = 0;
-                RearRightWheelCollider.brakeTorque = 0;
-                FrontLeftWheelCollider.motorTorque = DriveTorque/4;
-                FrontRightWheelCollider.motorTorque = DriveTorque/4;
-                RearLeftWheelCollider.motorTorque = DriveTorque/4;
-                RearRightWheelCollider.motorTorque = DriveTorque/4;
+                if(driveType==DriveType.IRWD) // RWD with independent actuators
+                {
+                    RearLeftWheelCollider.motorTorque = DriveTorque;
+                    RearRightWheelCollider.motorTorque = DriveTorque;
+                }
+                else if(driveType==DriveType.IFWD) // FWD with independent actuators
+                {
+                    FrontLeftWheelCollider.motorTorque = DriveTorque;
+                    FrontRightWheelCollider.motorTorque = DriveTorque;
+                }
+                else if(driveType==DriveType.IAWD) // AWD with independent actuators
+                {
+                    FrontLeftWheelCollider.motorTorque = DriveTorque;
+                    FrontRightWheelCollider.motorTorque = DriveTorque;
+                    RearLeftWheelCollider.motorTorque = DriveTorque;
+                    RearRightWheelCollider.motorTorque = DriveTorque;
+                }
+                else if(driveType==DriveType.CRWD)  // FWD with common actuator
+                {
+                    RearLeftWheelCollider.motorTorque = DriveTorque/2;
+                    RearRightWheelCollider.motorTorque = DriveTorque/2;
+                }
+                else if(driveType==DriveType.CFWD) // FWD with common actuator
+                {
+                    FrontLeftWheelCollider.motorTorque = DriveTorque/2;
+                    FrontRightWheelCollider.motorTorque = DriveTorque/2;
+                }
+                else if(driveType==DriveType.CAWD) // AWD with common actuator
+                {
+                    FrontLeftWheelCollider.motorTorque = DriveTorque/4;
+                    FrontRightWheelCollider.motorTorque = DriveTorque/4;
+                    RearLeftWheelCollider.motorTorque = DriveTorque/4;
+                    RearRightWheelCollider.motorTorque = DriveTorque/4;
+                }
             }
         }
   	}

@@ -360,10 +360,59 @@ namespace RGLUnityPlugin
             }
         };
 
+        // Data can be exproted using Ouster Studio
+        // https://ouster.com/products/software/ouster-studio
+        // Data are taken from PIXKIT LIDAR in a file located in
+        // Assets/RGLUnityPlugin/RawData/ouster_os1_32_metadata.json
+        // centerOfMeasurementVerticalLinearOffsetMm = lidar_to_sensor_transform[11]
+        // centerOfMeasurementHorizontalLinearOffsetMm = lidar_origin_to_beam_origin_mm
+        // horizontalAngularOffsetDeg = beam_azimuth_angles
+        // verticalAngularOffsetDeg = -beam_altitude_angles
+        public static LaserArray OusterOS1_32 => new LaserArray
+        {
+            centerOfMeasurementVerticalLinearOffsetMm = 36.18f,
+            centerOfMeasurementHorizontalLinearOffsetMm = 15.806f,
+            lasers = new[]
+            {
+                new Laser {horizontalAngularOffsetDeg = 4.26f, verticalAngularOffsetDeg = -21.73f, ringId = 1},
+                new Laser {horizontalAngularOffsetDeg = 4.25f, verticalAngularOffsetDeg = -20.51f, ringId = 2},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = -19.25f, ringId = 3},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = -17.99f, ringId = 4},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = -16.69f, ringId = 5},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = -15.38f, ringId = 6},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = -14.08f, ringId = 7},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -12.73f, ringId = 8},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -11.38f, ringId = 9},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -10.02f, ringId = 10},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = -8.66f, ringId = 11},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = -7.28f, ringId = 12},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = -5.88f, ringId = 13},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -4.48f, ringId = 14},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -3.08f, ringId = 15},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -1.67f, ringId = 16},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = -0.28f, ringId = 17},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = 1.12f, ringId = 18},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 2.55f, ringId = 19},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 3.95f, ringId = 20},
+                new Laser {horizontalAngularOffsetDeg = 4.21f, verticalAngularOffsetDeg = 5.34f, ringId = 21},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = 6.72f, ringId = 22},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = 8.11f, ringId = 23},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 9.49f, ringId = 24},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 10.86f, ringId = 25},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = 12.2f, ringId = 26},
+                new Laser {horizontalAngularOffsetDeg = 4.23f, verticalAngularOffsetDeg = 13.55f, ringId = 27},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 14.88f, ringId = 28},
+                new Laser {horizontalAngularOffsetDeg = 4.22f, verticalAngularOffsetDeg = 16.19f, ringId = 29},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = 17.48f, ringId = 30},
+                new Laser {horizontalAngularOffsetDeg = 4.25f, verticalAngularOffsetDeg = 18.75f, ringId = 31},
+                new Laser {horizontalAngularOffsetDeg = 4.24f, verticalAngularOffsetDeg = 20f, ringId = 32},
+            }
+        };
+
         // Data can be get by Ouster TCP API in get_beam_intrinsics, get_lidar_intrinsics fields
         // https://static.ouster.dev/sensor-docs/image_route1/image_route2/common_sections/API/tcp-api.html
-        // Data are taken from TOP lidar in a file located in
-        // Assets/RGLUnityPlugin/RawData/ouster_status.txt
+        // Data are taken from TOP LIDAR in a file located in
+        // Assets/RGLUnityPlugin/RawData/ouster_os1_64_status.txt
         public static LaserArray OusterOS1_64 => new LaserArray
         {
             centerOfMeasurementVerticalLinearOffsetMm = 36.18f,

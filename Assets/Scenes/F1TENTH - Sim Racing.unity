@@ -7996,6 +7996,7 @@ MonoBehaviour:
   VehicleControllers:
   - {fileID: 1284891601}
   AutomobileControllers: []
+  TwistControllers: []
   VehicleLightings: []
   CarLightings: []
   ROVLightings: []
@@ -10772,8 +10773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc0230eb5615744b911dcee72ba646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VehicleRigidBody: {fileID: 1284891604}
+  Teleport: 1
   CoSimTimer: 0
-  CoSimSmoothness: 1
+  CoSimSmoothness: 0.001
   CoSimPosition: {x: -3, y: 0.01, z: 0.74}
   CoSimRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
 --- !u!1 &1291692184

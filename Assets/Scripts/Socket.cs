@@ -130,13 +130,13 @@ public class Socket : MonoBehaviour
                 {
                     if (ResetManagers.Length != 0)
                     {
-                        ResetManagers[i].ResetFlag = bool.Parse(jsonObject.GetField("Reset").str); // Set reset flag
+                        ResetManagers[i].ResetFlag = bool.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Reset").str); // Set reset flag
                     }
                     if (CoSimManagers.Length != 0)
                     {
                         if(int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" CoSim").str) == 1)
                         {
-                            VehicleRigidBodies[i].isKinematic = true;
+                            // VehicleRigidBodies[i].isKinematic = true;
                             CoSimPosition.x = - float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosY").str); // Set position X-component
                             CoSimPosition.y = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosZ").str); // Set position Y-component
                             CoSimPosition.z = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosX").str); // Set position Z-component
@@ -152,7 +152,7 @@ public class Socket : MonoBehaviour
                         else
                         {
                             CoSimManagers[i].enabled = false;
-                            VehicleRigidBodies[i].isKinematic = false;
+                            // VehicleRigidBodies[i].isKinematic = false;
                             if (TwistControllers.Length != 0)
                             {
                                 TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
@@ -167,7 +167,7 @@ public class Socket : MonoBehaviour
                     }
                     else
                     {
-                        VehicleRigidBodies[i].isKinematic = false;
+                        // VehicleRigidBodies[i].isKinematic = false;
                         if (TwistControllers.Length != 0)
                         {
                             TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
@@ -201,7 +201,7 @@ public class Socket : MonoBehaviour
                     {
                         if(int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" CoSim").str) == 1)
                         {
-                            VehicleRigidBodies[i].isKinematic = true;
+                            // VehicleRigidBodies[i].isKinematic = true;
                             CoSimPosition.x = - float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosY").str); // Set position X-component
                             CoSimPosition.y = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosZ").str); // Set position Y-component
                             CoSimPosition.z = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" PosX").str); // Set position Z-component
@@ -217,7 +217,7 @@ public class Socket : MonoBehaviour
                         else
                         {
                             CoSimManagers[i].enabled = false;
-                            VehicleRigidBodies[i].isKinematic = false;
+                            // VehicleRigidBodies[i].isKinematic = false;
                             if (TwistControllers.Length != 0)
                             {
                                 TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity
@@ -234,7 +234,7 @@ public class Socket : MonoBehaviour
                     }
                     else
                     {
-                        VehicleRigidBodies[i].isKinematic = false;
+                        // VehicleRigidBodies[i].isKinematic = false;
                         if (TwistControllers.Length != 0)
                         {
                             TwistControllers[i].vSetpoint = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Linear Velocity").str); // Set linear velocity

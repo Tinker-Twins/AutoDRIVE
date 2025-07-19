@@ -28,6 +28,7 @@ namespace RGLUnityPlugin
                 {LidarModel.VelodyneVLS128, VelodyneVLS128},
                 {LidarModel.HesaiPandarQT, HesaiPandarQT},
                 {LidarModel.HesaiPandar40P, HesaiPandar40P},
+                {LidarModel.OusterOS1_32, OusterOS1_32},
                 {LidarModel.OusterOS1_64, OusterOS1_64},
             };
 
@@ -103,6 +104,16 @@ namespace RGLUnityPlugin
             // that vary from 130m to 230m
             // as this template supports single-value range, 200m is chosen
             maxRange = 200.0f,
+            noiseParams = LidarConfiguration.TypicalNoiseParams,
+        };
+
+        public static LidarConfiguration OusterOS1_32 => new LidarConfiguration
+        {
+            laserArray = LaserArrayLibrary.OusterOS1_32,
+            horizontalSteps = 1024,
+            minHAngle = -180.0f,
+            maxHAngle = 180.0f,
+            maxRange = 100.0f,
             noiseParams = LidarConfiguration.TypicalNoiseParams,
         };
 

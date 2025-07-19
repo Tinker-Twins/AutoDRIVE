@@ -11,10 +11,15 @@ public class CoSimManager : MonoBehaviour
     game object, whose states are to be updated.
     */
 
+    public Rigidbody VehicleRigidBody;
+    public bool Teleport = false;
     public float CoSimTimer = 0.0f;
     public float CoSimSmoothness = 3f;
     public Vector3 CoSimPosition;
     public Quaternion CoSimRotation;
+
+    private Vector3 position;
+    private Quaternion rotation; 
 
     void Start()
     {
@@ -22,10 +27,19 @@ public class CoSimManager : MonoBehaviour
     }
 
     void Update()
-    {
-        transform.position = Vector3.Slerp(transform.position, CoSimPosition, CoSimTimer/CoSimSmoothness);
-        transform.rotation = Quaternion.Slerp(transform.rotation, CoSimRotation, CoSimTimer/CoSimSmoothness);
-        CoSimTimer += Time.deltaTime;
-        if(CoSimTimer >= CoSimSmoothness) CoSimTimer = CoSimSmoothness;
+    {   if (Teleport)
+        {
+            VehicleRigidBody.position = CoSimPosition;
+            VehicleRigidBody.rotation = CoSimRotation;
+        }
+        else
+        {
+            position = Vector3.Slerp(transform.position, CoSimPosition, CoSimTimer/CoSimSmoothness);
+            rotation = Quaternion.Slerp(transform.rotation, CoSimRotation, CoSimTimer/CoSimSmoothness);
+            VehicleRigidBody.MovePosition(position);
+            VehicleRigidBody.MoveRotation(rotation);
+            CoSimTimer += Time.deltaTime;
+            if(CoSimTimer >= CoSimSmoothness) CoSimTimer = CoSimSmoothness;
+        }
     }
 }
