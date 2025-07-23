@@ -7480,7 +7480,7 @@ WheelCollider:
   m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 2.69
-  m_WheelDampingRate: 0.15
+  m_WheelDampingRate: 0.16
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 2
@@ -13828,7 +13828,7 @@ WheelCollider:
   m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 1.57
-  m_WheelDampingRate: 0.15
+  m_WheelDampingRate: 0.16
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 2
@@ -14710,8 +14710,8 @@ Rigidbody:
   m_GameObject: {fileID: 2457420115230233111}
   serializedVersion: 4
   m_Mass: 125.95
-  m_Drag: 0.005
-  m_AngularDrag: 0.002
+  m_Drag: 0.07
+  m_AngularDrag: 0.02
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -14760,7 +14760,7 @@ MonoBehaviour:
   Wheelbase: 1025
   TrackWidth: 1140
   WheelRadius: 0.13
-  MotorTorque: 119
+  MotorTorque: 153.48
   SteeringLimit: 20
   LinearGain: 0
   AngularGain: 0
@@ -30131,7 +30131,7 @@ WheelCollider:
   m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 1.57
-  m_WheelDampingRate: 0.15
+  m_WheelDampingRate: 0.16
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 2
@@ -35698,7 +35698,7 @@ WheelCollider:
   m_SuspensionDistance: 0.01
   m_ForceAppPointDistance: 0
   m_Mass: 2.69
-  m_WheelDampingRate: 0.15
+  m_WheelDampingRate: 0.16
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 2

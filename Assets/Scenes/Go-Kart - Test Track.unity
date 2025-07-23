@@ -14040,6 +14040,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Go-Kart
       objectReference: {fileID: 0}
+    - target: {fileID: 3312919742714955638, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655093718537375697, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 0.175
+      objectReference: {fileID: 0}
     - target: {fileID: 5883171638660416797, guid: cfdb4619d0ac6834282bc79be6d2a83f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14089,6 +14099,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6067933042725772512, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 0.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315709429396204227, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 0.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633999822114874218, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: MotorTorque
+      value: 153.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8240053658427562990, guid: cfdb4619d0ac6834282bc79be6d2a83f,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 0.175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
