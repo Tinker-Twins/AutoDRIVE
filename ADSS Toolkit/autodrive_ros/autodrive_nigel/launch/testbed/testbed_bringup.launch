@@ -13,7 +13,8 @@
 
   <!-- ROS Serial Bringup -->
   <node pkg="rosserial_python" type="serial_node.py" name="nigel">
-  <param name="port" value="/dev/ttyUSB0"/>
+  <param name="port" value="/dev/ttyACM0"/>
+  <param name="baud" value="115200"/>
   </node>
 
 </launch>

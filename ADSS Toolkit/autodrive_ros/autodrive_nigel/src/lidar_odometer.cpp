@@ -94,7 +94,7 @@ LIDAR_Odometer::LIDAR_Odometer() :
 
   // Publishers and subscribers
   //----------------------------------------------------------------------------
-  odom_pub  = pn.advertise<nav_msgs::Odometry>(odom_topic, 5);
+  odom_pub  = pn.advertise<nav_msgs::Odometry>(odom_topic, 10);
   laser_sub = n.subscribe<sensor_msgs::LaserScan>(laser_scan_topic,1,&LIDAR_Odometer::laserCallback,this);
 
   // Init pose
@@ -259,7 +259,7 @@ void LIDAR_Odometer::publish()
   odom.pose.pose.orientation = tf::createQuaternionMsgFromYaw(lidar_odometry::getYaw(robot_pose_.rotation()));
   // Set twist
   odom.child_frame_id = base_frame_id;
-  odom.twist.twist.linear.x = lin_speed;
+  odom.twist.twist.linear.x = -lin_speed;
   odom.twist.twist.linear.y = 0.0;
   odom.twist.twist.angular.z = ang_speed;
   // Publish odometry message
