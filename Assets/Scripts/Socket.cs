@@ -97,7 +97,7 @@ public class Socket : MonoBehaviour
         // Set time of day
         if(TimeOfDayAPI && (TimeOfDay.Length !=0))
         {
-            TimeOfDay[0].automaticUpdate = (jsonObject.GetField("Auto Time").str == "True"); // Set automatic update
+            TimeOfDay[0].automaticUpdate = bool.Parse(jsonObject.GetField("Auto Time").str); // Set automatic update
             TimeOfDay[0].timeScale = float.Parse(jsonObject.GetField("Time Scale").str); // Set time scale
             TimeOfDay[0].timeOfDay = float.Parse(jsonObject.GetField("Time").str); // Set time of day
         }
@@ -187,6 +187,7 @@ public class Socket : MonoBehaviour
                 }
             }
         }
+        Debug.Log(bool.Parse(jsonObject.GetField("V1"+" Reset").str));
         if(AutomobileControllers.Length != 0)
         {
             for(int i=0;i<AutomobileControllers.Length;i++)
@@ -195,7 +196,7 @@ public class Socket : MonoBehaviour
                 {
                     if (ResetManagers.Length != 0)
                     {
-                        ResetManagers[i].ResetFlag = bool.Parse(jsonObject.GetField("Reset").str); // Set reset flag
+                        ResetManagers[i].ResetFlag = bool.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Reset").str); // Set reset flag
                     }
                     if (CoSimManagers.Length != 0)
                     {

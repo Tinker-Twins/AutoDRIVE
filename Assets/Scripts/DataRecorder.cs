@@ -252,8 +252,8 @@ public class DataRecorder : MonoBehaviour
                 sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
                 sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
-                if (LogAutomobileController) sample.velocity = (float)System.Math.Round(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier, 2);
-                else sample.velocity = (float)System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z, 2);
+                if (LogAutomobileController) sample.velocity = (float)(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier);
+                else sample.velocity = (float)(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z);
                 sample.angularX = InertialMeasurementUnits[i].CurrentAngularVelocity[0];
                 sample.angularY = InertialMeasurementUnits[i].CurrentAngularVelocity[1];
                 sample.angularZ = InertialMeasurementUnits[i].CurrentAngularVelocity[2];
@@ -362,13 +362,18 @@ public class DataRecorder : MonoBehaviour
                     sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
                     sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
                     sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
-                    FrontCameraPath, LIDARRangeArray);*/
+                    FrontCameraPath, LIDARRangeArray); // Sim Racing League*/
+                /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20}\n",
+                    sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
+                    FrontCameraPath, RearCameraPath, LIDARRangeArray);*/
                 /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34}\n",
-                        sample.timeStamp, sample.throttle, sample.brake, sample.handBrake, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
-                        sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
-                        sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
-                        sample.Cam0PosX, sample.Cam0PosY, sample.Cam0PosZ, sample.Cam0RotX, sample.Cam0RotY, sample.Cam0RotZ, FrontCameraPath,
-                        sample.Cam1PosX, sample.Cam1PosY, sample.Cam1PosZ, sample.Cam1RotX, sample.Cam1RotY, sample.Cam1RotZ, RearCameraPath, LIDARRangeArray);*/
+                    sample.timeStamp, sample.throttle, sample.brake, sample.handBrake, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
+                    sample.Cam0PosX, sample.Cam0PosY, sample.Cam0PosZ, sample.Cam0RotX, sample.Cam0RotY, sample.Cam0RotZ, FrontCameraPath,
+                    sample.Cam1PosX, sample.Cam1PosY, sample.Cam1PosZ, sample.Cam1RotX, sample.Cam1RotY, sample.Cam1RotZ, RearCameraPath, LIDARRangeArray);*/
                 File.AppendAllText(Path.Combine(saveLocation, VehicleDataFileNames[i]), row);
                 LIDARRangeArray = ""; // Nullify the `LIDARRangeArray` variable to avoid concatinating new data with the old one
                 // Yield after each pass to avoid freezing the simulator upon entering the while loop

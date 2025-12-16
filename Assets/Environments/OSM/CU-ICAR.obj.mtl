@@ -1,0 +1,155 @@
+# This file was created by OSM2World 0.4.0 - https://osm2world.org
+
+
+newmtl ASPHALT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+Ni 1
+illum 2
+
+newmtl MAT_0_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+Ni 1
+illum 2
+
+newmtl MAT_0_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\road_marking_crossing.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\road_marking_crossing.png
+Ni 1
+illum 2
+
+newmtl ROAD_MARKING_DASHED_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+Ni 1
+illum 2
+
+newmtl ROAD_MARKING_DASHED_1
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\road_marking_dash.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\road_marking_dash.png
+Ni 1
+illum 2
+
+newmtl RED_ROAD_MARKING_0
+Ns 92.156863
+Ka 0.5019608 0.26666668 0.26666668
+Kd 0.5019608 0.26666668 0.26666668
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Asphalt010\Asphalt010_Color.png
+Ni 1
+illum 2
+
+newmtl BRIDGE_DEFAULT_0
+Ns 92.156863
+Ka 0.2509804 0.2509804 0.2509804
+Kd 0.2509804 0.2509804 0.2509804
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl BRIDGE_PILLAR_DEFAULT_0
+Ns 92.156863
+Ka 0.2509804 0.2509804 0.2509804
+Kd 0.2509804 0.2509804 0.2509804
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1
+illum 2
+
+newmtl TERRAIN_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Ground003\Ground003_Color.jpg
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Ground003\Ground003_Color.jpg
+Ni 1
+illum 2
+
+newmtl WATER_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\P1140080E_Water.jpg
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\P1140080E_Water.jpg
+Ni 1
+illum 2
+
+newmtl BUILDING_DEFAULT_0
+Ns 92.156863
+Ka 0.5019608 0.4509804 0.27450982
+Kd 0.5019608 0.4509804 0.27450982
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Plaster002\Plaster002_Color.jpg
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\Plaster002\Plaster002_Color.jpg
+Ni 1
+illum 2
+
+newmtl ROOF_DEFAULT_0
+Ns 92.156863
+Ka 0.4 0.0 0.0
+Kd 0.4 0.0 0.0
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\RoofingTiles010\RoofingTiles010_Color.jpg
+map_Kd C:\Program Files (x86)\OSM2World-0.4.0\textures\cc0textures\RoofingTiles010\RoofingTiles010_Color.jpg
+Ni 1
+illum 2
+
+newmtl TREE_BILLBOARD_BROAD_LEAVED_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_broad_leaved.png
+map_Kd -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_broad_leaved.png
+map_d -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_broad_leaved.png
+Ni 1
+illum 2
+
+newmtl TREE_BILLBOARD_CONIFEROUS_0
+Ns 92.156863
+Ka 0.5019608 0.5019608 0.5019608
+Kd 0.5019608 0.5019608 0.5019608
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+map_Ka -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_coniferous.png
+map_Kd -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_coniferous.png
+map_d -clamp on C:\Program Files (x86)\OSM2World-0.4.0\textures\arbaro_tree_coniferous.png
+Ni 1
+illum 2
+

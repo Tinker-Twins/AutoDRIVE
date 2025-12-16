@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8bd786b8e80d1ef4189093ab32a71d64
+guid: 637fac8130f38f74188851e1a2913d02
 SketchUpImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -24,7 +24,7 @@ SketchUpImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 1
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -42,7 +42,7 @@ SketchUpImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 0.0254
@@ -111,7 +111,7 @@ SketchUpImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 0
+  importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
@@ -122,5 +122,5 @@ SketchUpImporter:
   selectedNodes: 0000000001000000
   assetHash:
     serializedVersion: 2
-    Hash: 95c753757fef728385c03cca3c48528f
+    Hash: e0c420504672079fbe1b80440c3b7842
   fileUnit: 0

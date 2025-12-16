@@ -16,7 +16,7 @@ Material:
   - _NORMALMAP_TANGENT_SPACE
   m_InvalidKeywords: []
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2225
   stringTagMap:
@@ -241,7 +241,7 @@ Material:
     - _LinkDetailsWithBase: 1
     - _METALNESS: 0
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.8
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
     - _Mode: 0
@@ -266,7 +266,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
@@ -313,10 +313,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BASE_COLOR: {r: 0.9019608, g: 0.69803923, b: 0.20392157, a: 1}
-    - _BaseColor: {r: 0.95560306, g: 0.85324365, b: 0.48891217, a: 1}
+    - _BaseColor: {r: 0.8113208, g: 0.70819587, b: 0.3393259, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _COAT_COLOR: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.95560306, g: 0.85324365, b: 0.48891217, a: 1}
+    - _Color: {r: 0.8113207, g: 0.70819587, b: 0.33932588, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 1}

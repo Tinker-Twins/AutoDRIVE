@@ -70,14 +70,17 @@ public class ResetManager : MonoBehaviour
             init_LeftWheelRevolutions[i] = LeftWheelEncoders[i].TotalRevolutions;
             init_RightWheelRevolutions[i] = RightWheelEncoders[i].TotalRevolutions;
             // Lap data
-            init_LapCount[i] = LapTimers[i].LapCount;
-            init_LapTime[i] = LapTimers[i].LapTime;
-            init_LastLapTime[i] = LapTimers[i].LastLapTime;
-            init_BestLapTime[i] = LapTimers[i].BestLapTime;
-            init_CurrentCheckpoint[i] = LapTimers[i].CurrentCheckpoint;
-            init_PreviousCheckpoint[i] = LapTimers[i].PreviousCheckpoint;
-            init_CheckpointCount[i] = LapTimers[i].CheckpointCount;
-            init_CollisionCount[i] = LapTimers[i].CollisionCount;
+            if(LapTimers.Length != 0)
+            {
+                init_LapCount[i] = LapTimers[i].LapCount;
+                init_LapTime[i] = LapTimers[i].LapTime;
+                init_LastLapTime[i] = LapTimers[i].LastLapTime;
+                init_BestLapTime[i] = LapTimers[i].BestLapTime;
+                init_CurrentCheckpoint[i] = LapTimers[i].CurrentCheckpoint;
+                init_PreviousCheckpoint[i] = LapTimers[i].PreviousCheckpoint;
+                init_CheckpointCount[i] = LapTimers[i].CheckpointCount;
+                init_CollisionCount[i] = LapTimers[i].CollisionCount;
+            }
         }
     }
 
@@ -97,14 +100,17 @@ public class ResetManager : MonoBehaviour
                 LeftWheelEncoders[i].TotalRevolutions = init_LeftWheelRevolutions[i];
                 RightWheelEncoders[i].TotalRevolutions = init_RightWheelRevolutions[i];
                 // Reset lap data
-                LapTimers[i].LapCount = init_LapCount[i];
-                LapTimers[i].LapTime = init_LapTime[i];
-                LapTimers[i].LastLapTime = init_LastLapTime[i];
-                LapTimers[i].BestLapTime = init_BestLapTime[i];
-                LapTimers[i].CurrentCheckpoint = init_CurrentCheckpoint[i];
-                LapTimers[i].PreviousCheckpoint = init_PreviousCheckpoint[i];
-                LapTimers[i].CheckpointCount = init_CheckpointCount[i];
-                LapTimers[i].CollisionCount = init_CollisionCount[i];
+                if(LapTimers.Length != 0)
+                {
+                    LapTimers[i].LapCount = init_LapCount[i];
+                    LapTimers[i].LapTime = init_LapTime[i];
+                    LapTimers[i].LastLapTime = init_LastLapTime[i];
+                    LapTimers[i].BestLapTime = init_BestLapTime[i];
+                    LapTimers[i].CurrentCheckpoint = init_CurrentCheckpoint[i];
+                    LapTimers[i].PreviousCheckpoint = init_PreviousCheckpoint[i];
+                    LapTimers[i].CheckpointCount = init_CheckpointCount[i];
+                    LapTimers[i].CollisionCount = init_CollisionCount[i];
+                }
 
             }
             // Reset the flag after reset operation

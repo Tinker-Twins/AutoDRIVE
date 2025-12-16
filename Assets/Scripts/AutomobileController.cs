@@ -216,7 +216,7 @@ public class AutomobileController : MonoBehaviour
 		{
 			fwdInput = (AutonomousThrottle > 0) ? AutonomousThrottle : 0;
 			revInput = (AutonomousThrottle < 0) ? AutonomousThrottle : 0;
-			currentT = ThrottleLimit * AutonomousThrottle;
+			currentT = Mathf.Clamp(AutonomousThrottle, -ThrottleLimit, ThrottleLimit);
 		}
 
 		// STEERING INPUT
@@ -426,7 +426,7 @@ public class AutomobileController : MonoBehaviour
 	{
 		currSpeed = Vector3.Dot (transform.forward.normalized, car.velocity);
 		currSpeed *= speedMultiplier;
-		currSpeed = Mathf.Round (currSpeed);
+		// currSpeed = Mathf.Round (currSpeed);
 	}
 
 	void animateWheels ()

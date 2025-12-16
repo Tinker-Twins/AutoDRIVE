@@ -42796,6 +42796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VehicleTransform: {fileID: 7990106369312354056}
   VehicleRigidBody: {fileID: 7990106369312518953}
+  GravityCompensation: 1
 --- !u!1 &6818765620222372359
 GameObject:
   m_ObjectHideFlags: 0
@@ -46229,7 +46230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7990106369312518952}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -13, y: 2, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46249,7 +46250,7 @@ Transform:
   - {fileID: 6818765619018729027}
   - {fileID: 1769443489}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &7990106369312354057
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: 2aa2237ae4a18184485ecca77aa871e8
   - enabled: 0
     path: Assets/Scenes/RZR - TN1-ORT.unity
-    guid: 27cafec76a8aa8745804d6c62c6ce207
+    guid: 9109ec5b5f6bda94bab8db2a1e2526f8
   - enabled: 0
     path: Assets/Scenes/Multi-Agent Tiny Town.unity
     guid: ae8f686a4a876aa449a99222240f3eec
@@ -140,15 +140,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/F1TENTH - Sim Racing - H2H.unity
     guid: cdb1ecd0f1af78547852ad9f6c2e7d75
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/RoboRacer - Sim Racing.unity
     guid: 0e285b79e7d98d64886622fb63d89fb1
   - enabled: 0
     path: Assets/Scenes/RoboRacer - Variable Friction.unity
     guid: 5edb9d5103ffbc54fb2cfb9902a5590d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OpenCAV - CU-ICAR 3DGS - LLM.unity
     guid: 8b7d6d763260bcb489978048ff50d171
+  - enabled: 0
+    path: Assets/Scenes/Nigel - Tiny Town - Alto University.unity
+    guid: ccb14009881747e40946dc80d304207c
+  - enabled: 0
+    path: Assets/Scenes/RZR - Plane - Data Collection.unity
+    guid: 8b4bb1296e780594abdf3a7cfd846c20
+  - enabled: 0
+    path: Assets/Scenes/Nigel - Variable Friction.unity
+    guid: f0d90bf647a833144b66cd6e6ed8f3f2
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: aa9f1dccb27d10b45a01eba82df6fd1e,
       type: 2}

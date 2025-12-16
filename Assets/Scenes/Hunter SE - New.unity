@@ -15564,6 +15564,31 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8056574334281180679, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056574334281180679, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_UseColorTemperature
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056574334281180679, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_LightShadowCasterMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056574334281180679, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.46953e-39
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056574334281180679, guid: 0cb450bf62e8bdb4caab6a0a88606dca,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.469525e-39
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16911,6 +16936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc0230eb5615744b911dcee72ba646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VehicleRigidBody: {fileID: 0}
+  Teleport: 0
   CoSimTimer: 0
   CoSimSmoothness: 0.001
   CoSimPosition: {x: 50, y: 1.7, z: 25}
