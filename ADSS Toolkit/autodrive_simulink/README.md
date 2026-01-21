@@ -1,7 +1,7 @@
 # Simulink API
 
 <p align="justify">
-This directory hosts the Simulink API for AutoDRIVE, which can be used to develop modular as well as end-to-end autonomous driving algorithms and integrate them within a model-based systems engineering (MBSE) toolchain.
+This directory hosts the Simulink API for AutoDRIVE, which can be used to develop modular as well as end-to-end autonomous driving algorithms using graphical programming. This API is primarily designed for "system engineers" who prefer an interactive MBD/MBSE toolchain.
 </p>
 
 ## SETUP
