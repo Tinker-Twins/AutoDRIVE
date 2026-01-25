@@ -64,7 +64,7 @@ The simulator can be exploited by the users (particularly targeting students and
 
 > ***Note:*** *This section assumes that you have some knowledge and experience working with the Unity game engine. Here is a link to [official Unity tutorials](https://learn.unity.com) to get you started!*
 
-1. [Download](https://unity.com/download) and [install](https://docs.unity3d.com/hub/manual/InstallHub.html) Unity Hub along with Unity 2021.3.9f1 (LTS) or higher.
+1. [Download](https://unity.com/download) and [install](https://docs.unity3d.com/hub/manual/InstallHub.html) Unity Hub along with Unity 2022.3.52f1 (LTS) or higher.
 
 2. Install AutoDRIVE Simulator (from source):
      
@@ -74,7 +74,7 @@ The simulator can be exploited by the users (particularly targeting students and
       $ git clone --single-branch --branch AutoDRIVE-Simulator https://github.com/Tinker-Twins/AutoDRIVE.git
       ```
     - Unzip source files larger than 100 MB:
-      > ***Note:*** *This step needs to be done prior to opening the project within Unity, so that the pointers within original `.meta` files are preserved (read more [here](https://docs.unity3d.com/2022.3/Documentation/Manual/AssetMetadata.html)). You may either manually search, unzip, and clean up the `*.zip` and `*.zip.meta` files, or run the [`unzip-and-clean.sh`](Tools/unzip-and-clean.sh) script to do these steps automatically. You may also run the [`skip-zip-from-gitworktree.sh`](Tools/skip-zip-from-gitworktree.sh) script to manage the cleaned `.zip` files so that they are not included in the local git changes for new commit(s).*
+      > ***Note:*** *This step needs to be done prior to opening the project within Unity, so that the pointers within original `.meta` files are preserved (read more [here](https://docs.unity3d.com/2022.3/Documentation/Manual/AssetMetadata.html)). You may either manually search, unzip, and clean up the `*.zip` and `*.zip.meta` files, or run the [`unzip-and-clean.sh`](Tools/unzip-and-clean.sh) script to do these steps automatically. You may also run the [`skip-zip-from-gitworktree.sh`](Tools/skip-zip-from-gitworktree.sh) script to manage the cleaned `*.zip` files so that they are not included in the local git changes for new commit(s).*
 
     - Launch Unity Hub and select `ADD` project button. Navigate to the download directory and select the parent folder of the `AutoDRIVE` repository.
   
