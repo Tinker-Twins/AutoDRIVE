@@ -74,7 +74,7 @@ The simulator can be exploited by the users (particularly targeting students and
       $ git clone --single-branch --branch AutoDRIVE-Simulator https://github.com/Tinker-Twins/AutoDRIVE.git
       ```
     - Unzip source files larger than 100 MB:
-      > ***Note:*** *This step needs to be done prior to opening the project within Unity, so that the pointers within original `.meta` files are preserved (read more [here](https://docs.unity3d.com/2022.3/Documentation/Manual/AssetMetadata.html)). After unzipping, you may clean up the `*.zip` and `*.zip.meta` files manually, or run `tools/unzip-and-clean.sh` to do this repository initialization steps automatically.*
+      > ***Note:*** *This step needs to be done prior to opening the project within Unity, so that the pointers within original `.meta` files are preserved (read more [here](https://docs.unity3d.com/2022.3/Documentation/Manual/AssetMetadata.html)). You may either manually search, unzip, and clean up the `*.zip` and `*.zip.meta` files, or run the [`unzip-and-clean.sh`](Tools/unzip-and-clean.sh) script to do these steps automatically.*
 
     - Launch Unity Hub and select `ADD` project button. Navigate to the download directory and select the parent folder of the `AutoDRIVE` repository.
   
