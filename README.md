@@ -41,6 +41,11 @@ The simulator can be exploited by the users (particularly targeting students and
              $ cd <path/to/AutoDRIVE Simulator.app>
              $ sudo chmod -R +x AutoDRIVE\ Simulator.app/Contents/MacOS
              ```
+         - [Required] Clear the quarantine attribute
+             ```bash
+             $ cd <path/to/AutoDRIVE Simulator.app>
+             $ xattr -d com.apple.quarantine AutoDRIVE\ Simulator.app
+             ```
          - Run the `AutoDRIVE Simulator.app` and [ensure that macOS trusts apps from unidentified developers](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac)
 
 3. Run the standalone simulator by double-clicking the standalone executable or via command line interface (CLI):
