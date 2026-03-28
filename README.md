@@ -52,7 +52,7 @@ The simulator can be exploited by the users (particularly targeting students and
      - **Linux:**
          ```bash
          $ cd <path/to/AutoDRIVE Simulator.x86_64>
-         $ ./ AutoDRIVE\ Simulator.x86_64
+         $ ./AutoDRIVE\ Simulator.x86_64
          ```
      - **macOS:**
          ```bash
