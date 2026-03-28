@@ -23,6 +23,7 @@ The simulator can be exploited by the users (particularly targeting students and
 
 2. Provide adequate permissions to the standalone executable:
      - **Windows:**
+         - [Required] If Microsoft Defender SmartScreen prevents unrecognized apps from starting, click `More info` and hit `Run anyway`.
          - [Optional] Run as administrator
          - [Optional] Set real-time execution priority
              ```cmd
