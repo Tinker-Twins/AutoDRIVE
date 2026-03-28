@@ -57,7 +57,7 @@ The simulator can be exploited by the users (particularly targeting students and
      - **macOS:**
          ```bash
          $ cd <path/to/AutoDRIVE Simulator.app>
-         $ ./ AutoDRIVE\ Simulator.app
+         $ ./AutoDRIVE\ Simulator.app
          ```
 
 ## INSTALL FROM SOURCE
