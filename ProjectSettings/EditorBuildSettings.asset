@@ -140,9 +140,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/F1TENTH - Sim Racing - H2H.unity
     guid: cdb1ecd0f1af78547852ad9f6c2e7d75
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RoboRacer - Sim Racing.unity
     guid: 0e285b79e7d98d64886622fb63d89fb1
+  - enabled: 1
+    path: Assets/Scenes/RoboRacer - Sim Racing - Explore.unity
+    guid: 37e88b97a924bf345ace64c95f6b7da7
   - enabled: 0
     path: Assets/Scenes/RoboRacer - Variable Friction.unity
     guid: 5edb9d5103ffbc54fb2cfb9902a5590d

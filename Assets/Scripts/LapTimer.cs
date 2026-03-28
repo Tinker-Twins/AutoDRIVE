@@ -9,6 +9,7 @@ public class LapTimer : MonoBehaviour
     public Text txtLastLap;
     public Text txtBestLap;
     public Text txtLapCount;
+    public Text txtCollisionCount;
 
     public string RacetrackName; // Exact name of the racetrack gameobject
     public Transform[] Checkpoints; // Array of transforms of all checkpoints
@@ -99,6 +100,8 @@ public class LapTimer : MonoBehaviour
         if (BestLapTime == Mathf.Infinity) txtBestLap.text = "--";
         else if (BestLapTime < 10) txtBestLap.text = "0" + BestLapTime.ToString("f1");
         else txtBestLap.text = BestLapTime.ToString("f1");
+        // Update collision count on GUI
+        txtCollisionCount.text = CollisionCount.ToString();
     }
 
     public void FixedUpdate()

@@ -8637,7 +8637,7 @@ PrefabInstance:
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: RearCameras.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
@@ -8647,18 +8647,18 @@ PrefabInstance:
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: FrontCameras.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: RearCameras.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 899581453}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: FrontCameras.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1674443819}
     - target: {fileID: 5601152658778452612, guid: c642fe99abb9aac43b3547ab34498168,
         type: 3}
       propertyPath: VehicleLightings.Array.size
@@ -16936,7 +16936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc0230eb5615744b911dcee72ba646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VehicleRigidBody: {fileID: 0}
+  VehicleRigidBody: {fileID: 1053544455}
   Teleport: 0
   CoSimTimer: 0
   CoSimSmoothness: 0.001
@@ -31096,6 +31096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
         type: 3}
+      propertyPath: IntensityArray
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215778868848548716, guid: 4f287c2bab4374042926d92ee1970fb2,
+        type: 3}
       propertyPath: ConnectionLabel
       value: 
       objectReference: {fileID: 1939097602}
@@ -33639,6 +33644,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MinFilterSize
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958816579030360461, guid: d52abfc05749c4eeb92e7e9896a576c8,
+        type: 3}
+      propertyPath: m_RayTracedContactShadow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8787252018466501726, guid: d52abfc05749c4eeb92e7e9896a576c8,
         type: 3}

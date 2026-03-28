@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: night-trail
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20231020
+  m_SplatCount: 220421
+  m_BoundsMin: {x: -39.745068, y: -0.62992316, z: -13.989349}
+  m_BoundsMax: {x: 20.53788, y: 52.237854, z: 16.896935}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: b57f2ab0cf9032e2e745e28d320968e6
+  m_PosFormat: 2
+  m_ScaleFormat: 2
+  m_SHFormat: 3
+  m_ColorFormat: 2
+  m_PosData: {fileID: 4900000, guid: e1ea69fc748c5fd429a61bf394ada8a8, type: 3}
+  m_ColorData: {fileID: 4900000, guid: b5c23c9bfd631e74c82122becf7e5759, type: 3}
+  m_OtherData: {fileID: 4900000, guid: 30d0f12d925cb41489faaa50b445db8e, type: 3}
+  m_SHData: {fileID: 4900000, guid: 86b8922bd86548441ad3a9f2bc0c9238, type: 3}
+  m_ChunkData: {fileID: 4900000, guid: e2716039b2979a34dbc6912d636b5395, type: 3}
+  m_Cameras: []

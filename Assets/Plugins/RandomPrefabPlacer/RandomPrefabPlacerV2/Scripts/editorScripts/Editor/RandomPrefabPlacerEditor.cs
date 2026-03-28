@@ -542,7 +542,7 @@ namespace kawetofe.randomPrefabPlacer
         [MenuItem("AutoDRIVE/Terrain Tools/Random Prefab Placer")]
         public static void InstantiateRPPBrushTool()
         {
-            GameObject rppBrush = (GameObject)Resources.Load("kawetofe/randomPrefabPlacerV2/RPPBrushTool");
+            GameObject rppBrush = (GameObject)Resources.Load("RPPBrushTool");
             GameObject cloneObj = Instantiate(rppBrush, Vector3.zero, Quaternion.identity);
             cloneObj.name = cloneObj.name.Replace("(Clone)", "");
         }

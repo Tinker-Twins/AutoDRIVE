@@ -92,7 +92,7 @@ public class Socket : MonoBehaviour
     {
         //Debug.Log("Bridge");
         JSONObject jsonObject = obj.data; // Read incoming data and store it in a `JSONObject`
-        //Debug.Log(obj.data);
+        // Debug.Log(obj.data);
 
         // Set time of day
         if(TimeOfDayAPI && (TimeOfDay.Length !=0))
@@ -187,7 +187,6 @@ public class Socket : MonoBehaviour
                 }
             }
         }
-        Debug.Log(bool.Parse(jsonObject.GetField("V1"+" Reset").str));
         if(AutomobileControllers.Length != 0)
         {
             for(int i=0;i<AutomobileControllers.Length;i++)
@@ -279,7 +278,7 @@ public class Socket : MonoBehaviour
     {
         UnityMainThreadDispatcher.Instance().Enqueue(() =>
         {
-            //Debug.Log("Attempting to write data...");
+            // Debug.Log("Attempting to write data...");
             Dictionary<string, string> data = new Dictionary<string, string>(); // Create new `data` dictionary
             // Read data from traffic lights
             if(TrafficLightControllers.Length != 0)
@@ -296,7 +295,6 @@ public class Socket : MonoBehaviour
                 {
                     data["V"+(i+1).ToString()+" Throttle"] = VehicleControllers[i].CurrentThrottle.ToString("F4"); // Get throttle
                     data["V"+(i+1).ToString()+" Steering"] = VehicleControllers[i].CurrentSteeringAngle.ToString("F4"); // Get steering angle
-                    data["V"+(i+1).ToString()+" Speed"] = System.Math.Abs(System.Math.Round(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleControllers[i].Vehicle.GetComponent<Rigidbody>().velocity).z, 4)).ToString("F4"); // Get speed
                 }
                 for(int i=0;i<AutomobileControllers.Length;i++)
                 {
@@ -308,12 +306,13 @@ public class Socket : MonoBehaviour
                     data["V"+(i+1).ToString()+" Speed"] = System.Math.Abs(System.Math.Round(AutomobileControllers[i].currSpeed / AutomobileControllers[i].speedMultiplier, 4)).ToString("F4"); // Get speed
                 }
                 for(int i=0;i<VehicleControllers.Length+AutomobileControllers.Length;i++) // Assumed that VehicleControllers.Length+AutomobileControllers.Length >= others
-                {    
+                {
                     data["V"+(i+1).ToString()+" Encoder Ticks"] = LeftWheelEncoders[i].Ticks.ToString() + " " + RightWheelEncoders[i].Ticks.ToString(); // Get encoder ticks
                     data["V"+(i+1).ToString()+" Encoder Angles"] = LeftWheelEncoders[i].Angle.ToString("F4") + " " + RightWheelEncoders[i].Angle.ToString("F4"); // Get encoder angles
                     data["V"+(i+1).ToString()+" Position"] = PositioningSystems[i].CurrentPosition[0].ToString("F4") + " " + PositioningSystems[i].CurrentPosition[1].ToString("F4") + " " + PositioningSystems[i].CurrentPosition[2].ToString("F4"); // Get vehicle position
                     data["V"+(i+1).ToString()+" Orientation Quaternion"] = InertialMeasurementUnits[i].CurrentOrientationQuaternion[0].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[1].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[2].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentOrientationQuaternion[3].ToString("F4"); // Get vehicle orientation (Quaternion)
                     data["V"+(i+1).ToString()+" Orientation Euler Angles"] = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2].ToString("F4"); // Get vehicle orientation (Euler Angles)
+                    data["V"+(i+1).ToString()+" Linear Velocity"] = InertialMeasurementUnits[i].CurrentLinearVelocity[0].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentLinearVelocity[1].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentLinearVelocity[2].ToString("F4"); // Get linear velocity of the vehicle
                     data["V"+(i+1).ToString()+" Angular Velocity"] = InertialMeasurementUnits[i].CurrentAngularVelocity[0].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[1].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentAngularVelocity[2].ToString("F4"); // Get angular velocity of the vehicle
                     data["V"+(i+1).ToString()+" Linear Acceleration"] = InertialMeasurementUnits[i].CurrentLinearAcceleration[0].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[1].ToString("F4") + " " + InertialMeasurementUnits[i].CurrentLinearAcceleration[2].ToString("F4"); // Get linear acceleration of the vehicle
                     if(LIDARUnits.Length != 0)
@@ -349,6 +348,7 @@ public class Socket : MonoBehaviour
                     data["V"+(i+1).ToString()+" Collisions"] = LapTimers[i].CollisionCount.ToString(); // Get collision count
                 }
             }
+            // Debug.Log(data);
             socket.Emit("Bridge", new JSONObject(data)); // Write data to server
         });
     }

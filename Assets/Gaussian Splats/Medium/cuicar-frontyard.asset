@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: cuicar-frontyard
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20231020
+  m_SplatCount: 1305086
+  m_BoundsMin: {x: -58.480995, y: -57.357727, z: -31.714245}
+  m_BoundsMax: {x: 29.058386, y: 20.809168, z: 42.4442}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 5aa867fde6187524b899a8fe161c7055
+  m_PosFormat: 2
+  m_ScaleFormat: 2
+  m_SHFormat: 3
+  m_ColorFormat: 2
+  m_PosData: {fileID: 4900000, guid: 7f7dcbbb8a4965d4dbe71d0fbfbb4c87, type: 3}
+  m_ColorData: {fileID: 4900000, guid: a70f14cf60069bf4eaea2b3ad2b457fe, type: 3}
+  m_OtherData: {fileID: 4900000, guid: f2fbb796206be6a408fdeffd59a15762, type: 3}
+  m_SHData: {fileID: 4900000, guid: 27ce70c64ad237549b25021afc004d2e, type: 3}
+  m_ChunkData: {fileID: 4900000, guid: 731e0c6ac1e4ad24480d27b549d94f7a, type: 3}
+  m_Cameras: []

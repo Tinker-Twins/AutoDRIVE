@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: backyard-trail
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20231020
+  m_SplatCount: 192038
+  m_BoundsMin: {x: -19.653362, y: -0.5865727, z: -13.494693}
+  m_BoundsMax: {x: 18.34585, y: 42.222313, z: 17.732794}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 06f8bd7aeb20c7e264f20817aed3d4a4
+  m_PosFormat: 2
+  m_ScaleFormat: 2
+  m_SHFormat: 3
+  m_ColorFormat: 2
+  m_PosData: {fileID: 4900000, guid: 73184badf0d26bb4bbbba1103e26b31c, type: 3}
+  m_ColorData: {fileID: 4900000, guid: 39676448563fc0f498fff7ff5495e3f3, type: 3}
+  m_OtherData: {fileID: 4900000, guid: 62c3e9d8335a1d746ba683b826ee28d5, type: 3}
+  m_SHData: {fileID: 4900000, guid: c54182ac0c77202469c872d95a2383fa, type: 3}
+  m_ChunkData: {fileID: 4900000, guid: 001a497fbf690254c955ca5199f6d28e, type: 3}
+  m_Cameras: []

@@ -252,8 +252,13 @@ public class DataRecorder : MonoBehaviour
                 sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
                 sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
-                if (LogAutomobileController) sample.velocity = (float)(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier);
-                else sample.velocity = (float)(VehicleControllers[i].Vehicle.transform.InverseTransformDirection(VehicleRigidBodies[i].velocity).z);
+                if (LogAutomobileController) sample.velX = (float)(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier);
+                else
+                {
+                sample.velX = InertialMeasurementUnits[i].CurrentLinearVelocity[0];
+                sample.velY = InertialMeasurementUnits[i].CurrentLinearVelocity[1];
+                sample.velZ = InertialMeasurementUnits[i].CurrentLinearVelocity[2];
+                }
                 sample.angularX = InertialMeasurementUnits[i].CurrentAngularVelocity[0];
                 sample.angularY = InertialMeasurementUnits[i].CurrentAngularVelocity[1];
                 sample.angularZ = InertialMeasurementUnits[i].CurrentAngularVelocity[2];
@@ -315,7 +320,7 @@ public class DataRecorder : MonoBehaviour
                     NonFixedCameras[i].transform.rotation = sample.CameraRotation;
                 }
                 // Update recorded velocity variable for i-th vehicle
-                if (VehicleLightings.Length != 0) VehicleLightings[i].RecordedVelocity = sample.velocity;
+                if (VehicleLightings.Length != 0) VehicleLightings[i].RecordedVelocity = sample.velX;
                 // Capture and store the camera frame(s)
                 if(FrontCameras.Length != 0)
                 {
@@ -354,26 +359,28 @@ public class DataRecorder : MonoBehaviour
                     LIDARRangeArray = "";
                 }
                 // Log data
-                string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17}\n",
-                    sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
-                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
-                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ);
                 /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}\n",
                     sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
-                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
-                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
-                    FrontCameraPath, LIDARRangeArray); // Sim Racing League*/
-                /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20}\n",
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velX, sample.velY, sample.velZ,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ); // Default*/
+                /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21}\n",
                     sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
-                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
-                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
-                    FrontCameraPath, RearCameraPath, LIDARRangeArray);*/
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velX, sample.velY, sample.velZ,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ, FrontCameraPath, RearCameraPath); // 2 Cameras*/
+                string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21}\n",
+                    sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velX, sample.velY, sample.velZ,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ, FrontCameraPath, LIDARRangeArray); // Sim Racing League
+                /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22}\n",
+                    sample.timeStamp, sample.throttle, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velX, sample.velY, sample.velZ,
+                    sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ, FrontCameraPath, RearCameraPath, LIDARRangeArray); // 2 Cameras + LIDAR*/
                 /*string row = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34}\n",
                     sample.timeStamp, sample.throttle, sample.brake, sample.handBrake, sample.steeringAngle, sample.leftEncoderTicks, sample.rightEncoderTicks,
-                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velocity,
+                    sample.positionX, sample.positionY, sample.positionZ, sample.roll, sample.pitch, sample.yaw, sample.velX, sample.velY, sample.velZ,
                     sample.angularX, sample.angularY, sample.angularZ, sample.accelX, sample.accelY, sample.accelZ,
                     sample.Cam0PosX, sample.Cam0PosY, sample.Cam0PosZ, sample.Cam0RotX, sample.Cam0RotY, sample.Cam0RotZ, FrontCameraPath,
-                    sample.Cam1PosX, sample.Cam1PosY, sample.Cam1PosZ, sample.Cam1RotX, sample.Cam1RotY, sample.Cam1RotZ, RearCameraPath, LIDARRangeArray);*/
+                    sample.Cam1PosX, sample.Cam1PosY, sample.Cam1PosZ, sample.Cam1RotX, sample.Cam1RotY, sample.Cam1RotZ, RearCameraPath, LIDARRangeArray); // VSR - Fixed & Moving Cameras*/
                 File.AppendAllText(Path.Combine(saveLocation, VehicleDataFileNames[i]), row);
                 LIDARRangeArray = ""; // Nullify the `LIDARRangeArray` variable to avoid concatinating new data with the old one
                 // Yield after each pass to avoid freezing the simulator upon entering the while loop
@@ -470,13 +477,15 @@ internal class VehicleDataSample
     public float roll;
     public float pitch;
     public float yaw;
+    public float velX;
+    public float velY;
+    public float velZ;
     public float angularX;
     public float angularY;
     public float angularZ;
     public float accelX;
     public float accelY;
     public float accelZ;
-    public float velocity;
     // Camera TF
     public float Cam0PosX;
     public float Cam0PosY;

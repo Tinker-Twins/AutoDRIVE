@@ -11,6 +11,8 @@ public class IMU : MonoBehaviour
     - Local orientation of the specified `Transform` represented as a Quternion [x,y,z,w]
       and Euler Angle triplet [x,y,z]. The unit for Euler Angle representation is rad.
 
+    - Linear velocity of the specified `Rigidbody` along its local axes [x,y,z] in m/s.
+
     - Angular velocity of the specified `Rigidbody` about its local axes [x,y,z] in rad/s.
 
     - Linear acceleration of the specified `Rigidbody` along its local axes [x,y,z] in m/s^2.
