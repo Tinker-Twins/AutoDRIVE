@@ -36,8 +36,9 @@ public class LapTimer : MonoBehaviour
     // Reset lap time and update lap count when crossing start line
     private void OnTriggerEnter(Collider collider)
     {   
-        // Redundancy in checking lap completion (Either Finish Line A or Finish Line B are NOT checkpoints)
-        if ((collider.tag == "Finish Line A") && !FinishLineFlag && (CheckpointCount >= (Checkpoints.Length-1)))
+        // Count a completed lap when the vehicle crosses either finish line after
+        // traversing the full checkpoint sequence assigned to this LapTimer.
+        if (IsFinishLine(collider) && !FinishLineFlag && (CheckpointCount >= (Checkpoints.Length-1)))
         {
             // Update only on positive edge of trigger
             LapCount += 1;
@@ -93,6 +94,11 @@ public class LapTimer : MonoBehaviour
         }
 
         return -1;
+    }
+
+    private bool IsFinishLine(Collider collider)
+    {
+        return collider.tag == "Finish Line A" || collider.tag == "Finish Line B";
     }
 
     private void Update()
