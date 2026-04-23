@@ -49,8 +49,9 @@ public class LapTimer : MonoBehaviour
         }
         else if (collider.tag == "Checkpoint" && !CheckpointFlag)
         {
+            CurrentCheckpoint = GetCheckpointIndex(collider.transform);
+            if (CurrentCheckpoint < 0) return;
             CheckpointFlag = true;
-            CurrentCheckpoint = int.Parse(collider.name);
             if (CurrentCheckpoint == PreviousCheckpoint+1) CheckpointCount = CurrentCheckpoint;
         }
     }
@@ -82,6 +83,16 @@ public class LapTimer : MonoBehaviour
     public void Start()
     {
         VehicleRigidbody = gameObject.GetComponent<Rigidbody>();
+    }
+
+    private int GetCheckpointIndex(Transform checkpoint)
+    {
+        for (int i = 0; i < Checkpoints.Length; i++)
+        {
+            if (Checkpoints[i] == checkpoint) return i;
+        }
+
+        return -1;
     }
 
     private void Update()
