@@ -55,21 +55,23 @@ public class Socket : MonoBehaviour
         socket.On("connect", OnConnect); // Declare connection event `connect` and corresponding event handler `OnConnect`
         socket.On("Bridge", OnBridge); // Declare event `Bridge` and corresponding event handler `OnBridge`
         socket.On("disconnect", OnDisconnect); // Declare disconnection event `disconnect` and corresponding event handler `OnDisconnect`
-        // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
-        if(FrontCameras.Length != 0)
-        {
-            for(int i=1;i<FrontCameras.Length;i++)
-            {
-                FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
-            }
-        }
-        if(RearCameras.Length != 0)
-        {
-            for(int i=1;i<RearCameras.Length;i++)
-            {
-                RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
-            }
-        }
+        // Keep the RenderTexture assigned in each scene/prefab so all vehicle camera
+        // images use their configured resolution. Overriding only cameras after V1
+        // made V2+ publish larger images than V1.
+        // if(FrontCameras.Length != 0)
+        // {
+        //     for(int i=1;i<FrontCameras.Length;i++)
+        //     {
+        //         FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        //     }
+        // }
+        // if(RearCameras.Length != 0)
+        // {
+        //     for(int i=1;i<RearCameras.Length;i++)
+        //     {
+        //         RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        //     }
+        // }
     }
 
     void OnConnect(SocketIOEvent obj)
