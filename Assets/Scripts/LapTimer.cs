@@ -27,10 +27,69 @@ public class LapTimer : MonoBehaviour
     private Transform SavedCheckpoint; // Transform of latest saved checkpoint
     private bool FinishLineFlag = false; // Finish line flag
     private bool CheckpointFlag = false; // Checkpoint flag
+    private int IgnoreRacetrackRespawnUntilFrame = -1;
+    private bool IgnoreVehicleCollisionAfterRespawn = false;
+    private Vector3 VehicleCollisionRespawnPosition;
+    private long VehicleCollisionGracePairKey = -1;
+    private const float VehicleCollisionRespawnOffsetMultiplier = 1.0f;
+    private const float VehicleCollisionGraceExitDistanceMultiplier = 4.0f;
+    private static Dictionary<long, int> vehicleCollisionFrames = new Dictionary<long, int>();
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name == RacetrackName) Respawn(); // Collision detected with racetrack
+        LapTimer otherVehicle = collision.collider.GetComponentInParent<LapTimer>();
+        if (otherVehicle != null && otherVehicle != this)
+        {
+            UpdateVehicleCollisionGrace();
+            otherVehicle.UpdateVehicleCollisionGrace();
+            long collisionPairKey = GetCollisionPairKey(this, otherVehicle);
+            if (IsIgnoringVehicleCollisionWith(collisionPairKey) && otherVehicle.IsIgnoringVehicleCollisionWith(collisionPairKey))
+            {
+                return;
+            }
+
+            int lastCollisionFrame;
+            if (vehicleCollisionFrames.TryGetValue(collisionPairKey, out lastCollisionFrame) && lastCollisionFrame == Time.frameCount)
+            {
+                return;
+            }
+
+            vehicleCollisionFrames[collisionPairKey] = Time.frameCount;
+            RespawnCollisionPairSideBySide(this, otherVehicle);
+            return;
+        }
+
+        if (collision.collider.name == RacetrackName && Time.frameCount > IgnoreRacetrackRespawnUntilFrame) Respawn(); // Collision detected with racetrack
+    }
+
+    private static long GetCollisionPairKey(LapTimer first, LapTimer second)
+    {
+        int firstID = first.GetInstanceID();
+        int secondID = second.GetInstanceID();
+        int minID = Mathf.Min(firstID, secondID);
+        int maxID = Mathf.Max(firstID, secondID);
+
+        return ((long)minID << 32) ^ (uint)maxID;
+    }
+
+    private static void RespawnCollisionPairSideBySide(LapTimer first, LapTimer second)
+    {
+        bool firstOnLeft = first.GetInstanceID() < second.GetInstanceID();
+        int firstRespawnCheckpointCount = first.GetEffectiveRespawnCheckpointCount();
+        int secondRespawnCheckpointCount = second.GetEffectiveRespawnCheckpointCount();
+        int firstProgress = first.GetEffectiveRespawnProgress(firstRespawnCheckpointCount);
+        int secondProgress = second.GetEffectiveRespawnProgress(secondRespawnCheckpointCount);
+        LapTimer leadingVehicle = firstProgress >= secondProgress ? first : second;
+        int respawnCheckpointCount = leadingVehicle == first ? firstRespawnCheckpointCount : secondRespawnCheckpointCount;
+        Transform respawnCheckpoint = leadingVehicle.Checkpoints[respawnCheckpointCount%leadingVehicle.Checkpoints.Length];
+        float lateralOffset = Mathf.Max(
+            first.GetVehicleWidth(respawnCheckpoint.right),
+            second.GetVehicleWidth(respawnCheckpoint.right)
+        ) * VehicleCollisionRespawnOffsetMultiplier;
+
+        long collisionPairKey = GetCollisionPairKey(first, second);
+        first.RespawnWithLateralOffset(respawnCheckpointCount, respawnCheckpoint, firstOnLeft ? -lateralOffset : lateralOffset, collisionPairKey);
+        second.RespawnWithLateralOffset(respawnCheckpointCount, respawnCheckpoint, firstOnLeft ? lateralOffset : -lateralOffset, collisionPairKey);
     }
 
     // Reset lap time and update lap count when crossing start line
@@ -64,7 +123,7 @@ public class LapTimer : MonoBehaviour
         PreviousCheckpoint = CurrentCheckpoint;
     }
 
-    void Respawn()
+    public void Respawn()
     {
         // Reset momentum
         VehicleRigidbody.velocity = Vector3.zero;
@@ -79,6 +138,95 @@ public class LapTimer : MonoBehaviour
 
         // Update clooision flag and count
         CollisionCount = CollisionCount + 1; // Update collision count
+    }
+
+    private void RespawnWithLateralOffset(int checkpointCount, Transform respawnCheckpoint, float lateralOffset, long collisionPairKey)
+    {
+        IgnoreRacetrackRespawnUntilFrame = Time.frameCount + 2;
+        VehicleRigidbody.velocity = Vector3.zero;
+        VehicleRigidbody.angularVelocity = Vector3.zero;
+
+        CheckpointCount = checkpointCount;
+        CurrentCheckpoint = checkpointCount%Checkpoints.Length;
+        PreviousCheckpoint = CurrentCheckpoint;
+        SavedCheckpoint = respawnCheckpoint;
+        gameObject.transform.position = SavedCheckpoint.position + SavedCheckpoint.right * lateralOffset;
+        gameObject.transform.rotation = SavedCheckpoint.rotation;
+        IgnoreVehicleCollisionAfterRespawn = true;
+        VehicleCollisionRespawnPosition = gameObject.transform.position;
+        VehicleCollisionGracePairKey = collisionPairKey;
+
+        CollisionCount = CollisionCount + 1;
+    }
+
+    private int GetEffectiveRespawnCheckpointCount()
+    {
+        if (CheckpointCount == 0 && PreviousCheckpoint > 0) return PreviousCheckpoint;
+        return CheckpointCount;
+    }
+
+    private int GetEffectiveRespawnProgress(int respawnCheckpointCount)
+    {
+        return LapCount * Checkpoints.Length + respawnCheckpointCount;
+    }
+
+    private float GetVehicleWidth(Vector3 lateralDirection)
+    {
+        float controllerWidth = GetControllerVehicleWidth();
+        if (controllerWidth > 0.0f) return controllerWidth;
+
+        return GetColliderVehicleWidth(lateralDirection);
+    }
+
+    private float GetControllerVehicleWidth()
+    {
+        VehicleController vehicleController = GetComponent<VehicleController>();
+        if (vehicleController != null) return vehicleController.TrackWidth / 1000.0f;
+
+        AutomobileController automobileController = GetComponent<AutomobileController>();
+        if (automobileController != null) return automobileController.TrackWidth;
+
+        return 0.0f;
+    }
+
+    private float GetColliderVehicleWidth(Vector3 lateralDirection)
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        if (colliders.Length == 0) return 0.0f;
+
+        lateralDirection.Normalize();
+        bool hasBounds = false;
+        float minProjection = 0.0f;
+        float maxProjection = 0.0f;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].isTrigger) continue;
+
+            Bounds bounds = colliders[i].bounds;
+            Vector3 center = bounds.center;
+            Vector3 extents = bounds.extents;
+            float centerProjection = Vector3.Dot(center, lateralDirection);
+            float projectedExtent = Mathf.Abs(lateralDirection.x) * extents.x
+                + Mathf.Abs(lateralDirection.y) * extents.y
+                + Mathf.Abs(lateralDirection.z) * extents.z;
+
+            float colliderMinProjection = centerProjection - projectedExtent;
+            float colliderMaxProjection = centerProjection + projectedExtent;
+            if (!hasBounds)
+            {
+                minProjection = colliderMinProjection;
+                maxProjection = colliderMaxProjection;
+                hasBounds = true;
+            }
+            else
+            {
+                minProjection = Mathf.Min(minProjection, colliderMinProjection);
+                maxProjection = Mathf.Max(maxProjection, colliderMaxProjection);
+            }
+        }
+
+        return hasBounds ? maxProjection - minProjection : 0.0f;
     }
 
     public void Start()
@@ -103,6 +251,8 @@ public class LapTimer : MonoBehaviour
 
     private void Update()
     {
+        UpdateVehicleCollisionGrace();
+
         // Update current lap time on GUI
         if (LapTime < 10) txtLapTime.text = "0" + LapTime.ToString("f1");
         else txtLapTime.text = LapTime.ToString("f1");
@@ -119,6 +269,23 @@ public class LapTimer : MonoBehaviour
         else txtBestLap.text = BestLapTime.ToString("f1");
         // Update collision count on GUI
         txtCollisionCount.text = CollisionCount.ToString();
+    }
+
+    private void UpdateVehicleCollisionGrace()
+    {
+        if (!IgnoreVehicleCollisionAfterRespawn) return;
+
+        float graceExitDistance = GetVehicleWidth(transform.right) * VehicleCollisionGraceExitDistanceMultiplier;
+        if (Vector3.Distance(transform.position, VehicleCollisionRespawnPosition) > graceExitDistance)
+        {
+            IgnoreVehicleCollisionAfterRespawn = false;
+            VehicleCollisionGracePairKey = -1;
+        }
+    }
+
+    private bool IsIgnoringVehicleCollisionWith(long collisionPairKey)
+    {
+        return IgnoreVehicleCollisionAfterRespawn && VehicleCollisionGracePairKey == collisionPairKey;
     }
 
     public void FixedUpdate()
