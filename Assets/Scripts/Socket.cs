@@ -42,6 +42,8 @@ public class Socket : MonoBehaviour
     public Camera[] RearCameras; // Vehicle rear camera references
     public bool SideCameras = false; // Rename front/rear camera frames as left/right
     public LapTimer[] LapTimers; // Lap timer references
+    public bool TireFriction = false; // Choose to publish tire friction values
+    public TireFriction[] TireFrictions; // `TireFriction` references
 
     public TLController[] TrafficLightControllers; // Traffic light controller references
 
@@ -186,6 +188,13 @@ public class Socket : MonoBehaviour
                         VehicleLightings[i].Headlights = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Headlights").str); // Set headlights
                         VehicleLightings[i].Indicators = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Indicators").str); // Set indicators
                     }
+                    if(TireFrictions.Length != 0)
+                    {
+                        TireFrictions[(i*4)+0].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_FL").str); // Set FL tire friction
+                        TireFrictions[(i*4)+1].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_FR").str); // Set FR tire friction
+                        TireFrictions[(i*4)+2].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_RL").str); // Set RL tire friction
+                        TireFrictions[(i*4)+3].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_RR").str); // Set RR tire friction
+                    }
                 }
             }
         }
@@ -258,6 +267,13 @@ public class Socket : MonoBehaviour
                     if(ROVLightings.Length != 0)
                     {
                         ROVLightings[i].Headlights = int.Parse(jsonObject.GetField("V"+(i+1).ToString()+" Headlights").str); // Set headlights
+                    }
+                    if(TireFrictions.Length != 0)
+                    {
+                        TireFrictions[(i*4)+0].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_FL").str); // Set FL tire friction
+                        TireFrictions[(i*4)+1].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_FR").str); // Set FR tire friction
+                        TireFrictions[(i*4)+2].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_RL").str); // Set RL tire friction
+                        TireFrictions[(i*4)+3].frictionCoefficient = float.Parse(jsonObject.GetField("V"+(i+1).ToString()+" u_RR").str); // Set RR tire friction
                     }
                 }
             }
@@ -336,6 +352,16 @@ public class Socket : MonoBehaviour
                     {
                         if(SideCameras) data["V"+(i+1).ToString()+" Right Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get right camera image
                         else data["V"+(i+1).ToString()+" Rear Camera Image"] = Convert.ToBase64String(FrameGrabber.CaptureFrame(RearCameras[i])); // Get rear camera image
+                    }
+                    if(TireFrictions.Length != 0)
+                    {
+                        if(TireFriction)
+                        {
+                            data["V"+(i+1).ToString()+" Tire Frictions"] = TireFrictions[(i*4)+0].frictionCoefficient.ToString() + " " +
+                                                                           TireFrictions[(i*4)+1].frictionCoefficient.ToString() + " " +
+                                                                           TireFrictions[(i*4)+2].frictionCoefficient.ToString() + " " + 
+                                                                           TireFrictions[(i*4)+3].frictionCoefficient.ToString(); // Get tire frictions
+                        }
                     }
                 }
             }

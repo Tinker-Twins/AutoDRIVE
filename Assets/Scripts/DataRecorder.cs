@@ -254,13 +254,9 @@ public class DataRecorder : MonoBehaviour
                 sample.roll = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[0];
                 sample.pitch = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[1];
                 sample.yaw = InertialMeasurementUnits[i].CurrentOrientationEulerAngles[2];
-                if (LogAutomobileController) sample.velX = (float)(AutomobileControllers[0].currSpeed/AutomobileControllers[0].speedMultiplier);
-                else
-                {
                 sample.velX = InertialMeasurementUnits[i].CurrentLinearVelocity[0];
                 sample.velY = InertialMeasurementUnits[i].CurrentLinearVelocity[1];
                 sample.velZ = InertialMeasurementUnits[i].CurrentLinearVelocity[2];
-                }
                 sample.angularX = InertialMeasurementUnits[i].CurrentAngularVelocity[0];
                 sample.angularY = InertialMeasurementUnits[i].CurrentAngularVelocity[1];
                 sample.angularZ = InertialMeasurementUnits[i].CurrentAngularVelocity[2];
