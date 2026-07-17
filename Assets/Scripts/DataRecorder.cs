@@ -157,21 +157,23 @@ public class DataRecorder : MonoBehaviour
         isRecording = false;
         isSaving = false;
         RecordStatus.text = "Record Data";
-        // Temporary render textures for all vehicles except the first one (first vehicle will render to GUI)
-        if(FrontCameras.Length != 0)
-        {
-            for(int i=1;i<FrontCameras.Length;i++)
-            {
-                FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
-            }
-        }
-        if(RearCameras.Length != 0)
-        {
-            for(int i=1;i<RearCameras.Length;i++)
-            {
-                RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
-            }
-        }
+        // Keep the RenderTexture assigned in each scene/prefab so all vehicle camera
+        // images use their configured resolution. Overriding only cameras after V1
+        // made V2+ record larger images than V1.
+        // if(FrontCameras.Length != 0)
+        // {
+        //     for(int i=1;i<FrontCameras.Length;i++)
+        //     {
+        //         FrontCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        //     }
+        // }
+        // if(RearCameras.Length != 0)
+        // {
+        //     for(int i=1;i<RearCameras.Length;i++)
+        //     {
+        //         RearCameras[i].targetTexture = new RenderTexture(1280, 720, 16, RenderTextureFormat.ARGB32);
+        //     }
+        // }
         // Create CSV files and directories for storing data and camera frames of all vehicles
         VehicleDataFileNames = new string[VehicleControllers.Length + AutomobileControllers.Length];
         VehicleCameraDirectories = new string[VehicleControllers.Length + AutomobileControllers.Length];
