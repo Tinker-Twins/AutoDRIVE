@@ -12,6 +12,7 @@ public class WheelEncoder : MonoBehaviour
     */
 
     public WheelCollider Wheel;
+    public WheelCollider Wheel2; // optional: average two wheels, e.g. a single motor encoder upstream of a differential
     public int PPR;
     public int GearRatio;
 
@@ -56,7 +57,7 @@ public class WheelEncoder : MonoBehaviour
     void FixedUpdate()
     {
         // ENCODER TICKS
-        RPS = Wheel.rpm/60f; // Read the current wheel RPM and convert to RPS
+        RPS = (Wheel2 == null ? Wheel.rpm : (Wheel.rpm + Wheel2.rpm)*0.5f)/60f; // Read the current wheel RPM (or differential average) and convert to RPS
         TotalRevolutions += RPS * Time.deltaTime; // Scale by time since the last frame and add to the total revolutions
         TotalTicks = (int)(TotalRevolutions*PPR*GearRatio); // Compute ticks of the encoder
         //Debug.Log("Encoder Ticks: " + TotalTicks);
