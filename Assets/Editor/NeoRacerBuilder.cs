@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using System.Linq;
 using UnityEngine;
@@ -17,7 +16,7 @@ public static class NeoRacerBuilder
     // is fully self-contained. Set NEORACER_FBX_SRC to import a fresh CAD
     // export instead.
     static string SrcFbx =>
-        Environment.GetEnvironmentVariable("NEORACER_FBX_SRC") ?? NEO_FBX;
+        System.Environment.GetEnvironmentVariable("NEORACER_FBX_SRC") ?? NEO_FBX;
     const string F1_PREFAB = "Assets/Prefabs/F1TENTH/F1TENTH.prefab";
     const string OUT_DIR   = "Assets/Prefabs/NeoRacer";
     const string OUT_PREFAB = OUT_DIR + "/NeoRacer.prefab";
