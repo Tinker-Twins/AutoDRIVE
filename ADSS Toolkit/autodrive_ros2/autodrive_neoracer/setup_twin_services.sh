@@ -13,7 +13,7 @@
 #     would restart-loop teleop. Enable it only if that ever changes.
 set -e
 if [ "$EUID" -ne 0 ]; then echo "Run with: sudo bash setup_twin_services.sh"; exit 1; fi
-TARGET_USER="${SUDO_USER:-$USER}"
+TARGET_USER="${SUDO_USER:-$(id -un)}"
 HOME_DIR=$(eval echo "~$TARGET_USER")
 
 ros_env="source /opt/ros/humble/setup.bash && \\
@@ -70,10 +70,10 @@ systemctl enable neoracer-teleop neoracer-autonomy neoracer-dashboard neoracer-j
 systemctl restart neoracer-teleop neoracer-autonomy neoracer-dashboard neoracer-jupyter
 systemctl disable --now neoracer-watchdog 2>/dev/null || true
 
-# Lab dashboards, mirroring the car's setup_services.sh: cloned into the
-# driver checkout's scripts/dashboards/, each installed by its own setup.sh
-# DISABLED - `racecar service` enables one when a lab needs it.
-GITHUB_ORG=https://github.com/Neobotics-Foundation-Inc
+# Lab dashboard units. The checkouts themselves are content, cloned by
+# setup_twin.sh regardless of init system; this installs each one's unit
+# (its own setup.sh leaves it stopped and disabled), matching the car:
+# `racecar service` starts one when a lab needs it.
 DASHBOARDS_DIR="$HOME_DIR/neoracer_ros2_driver/scripts/dashboards"
 DASHBOARDS=(
     camlabel:camlabel_dashboard
@@ -84,18 +84,9 @@ DASHBOARDS=(
 )
 echo
 echo "Lab dashboards (installed disabled, like the car):"
-sudo -u "$TARGET_USER" mkdir -p "$DASHBOARDS_DIR"
 for entry in "${DASHBOARDS[@]}"; do
-    name="${entry%%:*}" repo="${entry#*:}" dir="$DASHBOARDS_DIR/${entry#*:}"
-    if [[ ! -d "$dir/.git" ]]; then
-        sudo -u "$TARGET_USER" git clone -q "$GITHUB_ORG/$repo.git" "$dir" 2>/dev/null \
-            || { echo "  $name: clone failed; skipped (needs internet)" >&2; continue; }
-        echo "  $name: cloned"
-    else
-        sudo -u "$TARGET_USER" git -C "$dir" pull -q --ff-only 2>/dev/null \
-            && echo "  $name: at origin tip" \
-            || echo "  $name: not fast-forwardable; left as is" >&2
-    fi
+    name="${entry%%:*}" dir="$DASHBOARDS_DIR/${entry#*:}"
+    [[ -d "$dir" ]] || { echo "  $name: checkout missing; run setup_twin.sh" >&2; continue; }
     bash "$dir/setup.sh" || { echo "  $name: setup.sh failed" >&2; continue; }
     # The dashboards' setup.sh renders units for the factory user (racecar)
     # and its home paths. Override user, HOME, and the workspace source in a

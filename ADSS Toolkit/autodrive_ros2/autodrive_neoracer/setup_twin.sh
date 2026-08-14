@@ -4,16 +4,21 @@
 #   sudo bash setup_twin.sh
 set -e
 if [ "$EUID" -ne 0 ]; then echo "Run with: sudo bash setup_twin.sh"; exit 1; fi
-TARGET_USER="${SUDO_USER:-$USER}"
+# id -un rather than $USER: docker exec shells have no login environment,
+# so $USER is unset there.
+TARGET_USER="${SUDO_USER:-$(id -un)}"
 HOME_DIR=$(eval echo "~$TARGET_USER")
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Containers ship without a configured tzdata; without this, apt stops at an
+# interactive timezone prompt.
+export DEBIAN_FRONTEND=noninteractive
 # PEP 668 flag exists only on Ubuntu >= 23.04 pips
 PIP_FLAGS=()
 pip3 install --help 2>/dev/null | grep -q break-system-packages && PIP_FLAGS+=(--break-system-packages)
 
 echo ">> [1/4] ROS 2 Humble"
 apt-get update -qq
-apt-get install -y -qq curl gnupg lsb-release software-properties-common git
+apt-get install -y -qq curl gnupg lsb-release software-properties-common git sudo
 add-apt-repository -y universe >/dev/null 2>&1
 curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
   -o /usr/share/keyrings/ros-archive-keyring.gpg
@@ -137,8 +142,47 @@ sudo -u "$TARGET_USER" pip3 install --user "${PIP_FLAGS[@]}" --quiet jupyterlab
 sudo -u "$TARGET_USER" pip3 install --user "${PIP_FLAGS[@]}" --quiet ultralytics
 sudo -u "$TARGET_USER" pip3 install --user "${PIP_FLAGS[@]}" --ignore-installed --quiet matplotlib
 
-echo ">> [5/5] systemd services (racecar service parity)"
-bash "$SCRIPT_DIR/setup_twin_services.sh"
+echo ">> [5/6] Lab dashboards (content)"
+# Cloned regardless of init system: each dashboard is a plain Python HTTP
+# server that can run foreground. Unit installation is a separate, systemd-
+# only concern (setup_twin_services.sh).
+GITHUB_ORG=https://github.com/Neobotics-Foundation-Inc
+DASHBOARDS_DIR="$HOME_DIR/neoracer_ros2_driver/scripts/dashboards"
+DASHBOARDS=(
+    camlabel:camlabel_dashboard
+    wallfollow:wallfollow_dashboard
+    pursuit:pursuit_dashboard
+    eps:eps_dashboard
+    smartfollow:smartfollow_dashboard
+)
+sudo -u "$TARGET_USER" mkdir -p "$DASHBOARDS_DIR"
+for entry in "${DASHBOARDS[@]}"; do
+    name="${entry%%:*}" dir="$DASHBOARDS_DIR/${entry#*:}"
+    if [ ! -d "$dir/.git" ]; then
+        sudo -u "$TARGET_USER" git clone -q "$GITHUB_ORG/${entry#*:}.git" "$dir" 2>/dev/null \
+            && echo "  $name: cloned" \
+            || echo "  $name: clone failed; skipped (needs internet)" >&2
+    else
+        sudo -u "$TARGET_USER" git -C "$dir" pull -q --ff-only 2>/dev/null \
+            && echo "  $name: at origin tip" \
+            || echo "  $name: not fast-forwardable; left as is" >&2
+    fi
+done
+
+echo ">> [6/6] systemd services (racecar service parity)"
+# Services replicate the physical car's operational surface and need systemd
+# as the running init. In a container there is no init to register with, so
+# the same components run foreground instead; see SETUP.md, 'Running in a
+# container'. Functionality is identical: every unit only wraps one of these
+# foreground commands.
+if [ -d /run/systemd/system ]; then
+    bash "$SCRIPT_DIR/setup_twin_services.sh"
+else
+    echo "systemd is not the running init (container?); skipping service"
+    echo "installation. Run the stack foreground per SETUP.md:"
+    echo "  ros2 launch autodrive_neoracer sim_twin.launch.py"
+    echo "  ros2 launch autodrive_neoracer twin_autonomy.launch.py"
+fi
 
 echo "Done."
 IP=$(hostname -I | awk '{print $1}')

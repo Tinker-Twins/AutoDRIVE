@@ -179,6 +179,28 @@ racecar service stop wallfollow
 racecar_core conventions carry over: lidar samples in centimeters, index 0
 is the leftmost ray, positive steering angle means right.
 
+## Running in a container
+
+The systemd services replicate the physical car's operational surface
+(auto-start on boot, `racecar service` management). They are a convenience
+layer, not a functional dependency: every unit wraps exactly one foreground
+command. In a container there is no systemd init, so `setup_twin.sh`
+detects this, skips unit installation, and everything else installs
+normally. Run the same components foreground:
+
+```
+ros2 launch autodrive_neoracer sim_twin.launch.py      # twin stack (the teleop unit)
+ros2 launch autodrive_neoracer twin_autonomy.launch.py # autonomy base (the autonomy unit)
+python3 ~/neoracer_ros2_driver/scripts/dashboards/wallfollow_dashboard/wallfollow.py
+~/.local/bin/jupyter-lab --ip=0.0.0.0 --notebook-dir=$HOME/jupyter_ws
+```
+
+Labs and demos are unaffected: they only talk to ROS topics and cannot
+tell which supervisor started the graph. Expose ports 4567 (simulator
+bridge), 8080-8085 (dashboards), and 8888 (JupyterLab) from the container
+as needed. Without a GPU passed through, launch the twin stack with
+`inference:=false`; everything except the detection topic works the same.
+
 ## Troubleshooting
 
 - `twin: command not found` — new terminal, or `source ~/.bashrc`.
