@@ -185,7 +185,14 @@ else
 fi
 
 echo "Done."
-IP=$(hostname -I | awk '{print $1}')
+# Inside a container, hostname -I reports the container's internal address,
+# which the simulator host cannot reach; the docker-published port on the
+# host is the real endpoint.
+if [ -d /run/systemd/system ]; then
+    IP=$(hostname -I | awk '{print $1}')
+else
+    IP="the Docker host's address (port 4567 is published; localhost works on the same machine)"
+fi
 cat <<DONE
 =========================================================
  NeoRacer digital twin environment ready.

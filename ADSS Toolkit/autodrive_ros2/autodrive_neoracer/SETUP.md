@@ -201,6 +201,12 @@ bridge), 8080-8085 (dashboards), and 8888 (JupyterLab) from the container
 as needed. Without a GPU passed through, launch the twin stack with
 `inference:=false`; everything except the detection topic works the same.
 
+Two container specifics: clone this repository with
+`--depth 1 --single-branch` (it carries the full simulator history; a
+shallow clone avoids a multi-gigabyte download), and connect the simulator
+to the Docker host's address, not the container-internal IP - the published
+ports forward inward.
+
 ## Troubleshooting
 
 - `twin: command not found` — new terminal, or `source ~/.bashrc`.
