@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    # The twin runs the REAL mux and throttle nodes from neoracer_ros2_driver
+    # AutoDRIVE runs the REAL mux and throttle nodes from neoracer_ros2_driver
     # with the car's own configs, so /drive -> mux -> /mux_out -> throttle ->
     # /motor behaves exactly as on hardware (incl. the 0.625 steering cap and
     # the 50 Hz zero-on-stale watchdog). The bridge replaces only the hardware
@@ -34,15 +34,18 @@ def generate_launch_description():
             parameters=[os.path.join(driver_config, 'throttle.yaml')],
         ),
         Node(
+            package='neoracer_ros2_driver',
+            executable='gamepad_node',
+            name='gamepad_node',
+            output='screen',
+            parameters=[os.path.join(driver_config, 'gamepad.yaml')],
+        ),
+        Node(
             package='autodrive_neoracer',
-            executable='sim_twin_bridge',
-            name='sim_twin_bridge',
+            executable='autodrive_bridge',
+            name='autodrive_bridge',
             output='screen',
         ),
-        # Teleop parity with driver v0.4.2: the car's teleop stack runs the
-        # YOLO detection node by default (/camera/color -> /edgetpu/inference).
-        # The committed TensorRT engine is Jetson-built; on other GPUs the
-        # node's own fallback loads the .pt weights.
         DeclareLaunchArgument('inference', default_value='true'),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(

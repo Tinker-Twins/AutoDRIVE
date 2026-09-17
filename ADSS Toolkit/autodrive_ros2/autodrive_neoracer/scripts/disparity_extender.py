@@ -1,11 +1,11 @@
 """
-NeoRacer digital twin racing lab.
+NeoRacer racing lab for AutoDRIVE Simulator.
 
 Pure MIT racecar_core student code: rc.lidar.get_samples() in,
 rc.drive.set_speed_angle() out. This exact file runs on the physical
-NeoRacer and on the AutoDRIVE digital twin without changing a line.
+NeoRacer and in AutoDRIVE Simulator without changing a line.
 
-Conventions (identical on twin and metal):
+Conventions (identical in AutoDRIVE and on hardware):
   - lidar samples are in CENTIMETERS; get_samples() is a full-circle array
     (~1440 bins), index 0 = front, increasing clockwise; the blind rear
     wedge and no-return rays read 0
@@ -37,7 +37,7 @@ frame_count = 0
 def start():
     rc.drive.set_max_speed(1.0)
     rc.drive.set_speed_angle(0.0, 0.0)
-    print(">> MIT racecar_core RACING the NeoRacer twin -- full send")
+    print(">> MIT racecar_core RACING NeoRacer in AutoDRIVE -- full send")
 
 
 def update():

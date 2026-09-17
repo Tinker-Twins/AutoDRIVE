@@ -51,12 +51,12 @@
 ################################################################################
 
 # ROS 2 module imports
-import rclpy # ROS 2 client library (rcl) for Python
-from rclpy.node import Node # ROS 2 node base class
-from rclpy.qos import qos_profile_sensor_data # QoS profile matching the hardware driver
-from ackermann_msgs.msg import AckermannDriveStamped # Drive command message class
-from sensor_msgs.msg import LaserScan # Laser scan message class
+import rclpy # ROS 2 client library (rcl) for Python (built on rcl C API)
+from rclpy.node import Node # ROS 2 node class
+from rclpy.qos import qos_profile_sensor_data # QoS profile matching neoracer_ros2_driver
+from sensor_msgs.msg import LaserScan # LaserScan message class
 from nav_msgs.msg import Odometry # Odometry message class
+from ackermann_msgs.msg import AckermannDriveStamped # Actuation message class
 
 # Python module imports
 import numpy as np # Scientific computing
@@ -80,7 +80,7 @@ CENTER_BIAS = 0.15 # Score bonus for gaps requiring less turning
 STEER_KP = 1.10 # Proportional gain on heading error
 STEER_KD = 0.16 # Derivative gain on heading error (more damping at race speed)
 SPEED_MAX = 1.00 # Full send on straights, normalized [-1, 1]
-SPEED_MIN = 0.22 # Floor command while manoeuvring
+SPEED_MIN = 0.22 # Floor command while maneuvering
 CLEAR_FOR_MAX = 6.0 # Forward clearance granting full speed (m)
 CURV_SLOWDOWN = 1.2 # Speed penalty per unit of commanded curvature
 ACCEL_SLEW = 2.0 # Max speed-command increase per second
@@ -90,9 +90,9 @@ STOP_FLOOR = 0.50 # Minimum emergency-stop clearance (m)
 
 ################################################################################
 
-class GapFollower(Node):
+class DisparityExtender(Node):
     def __init__(self):
-        super().__init__('wall_avoid_demo')
+        super().__init__('disparity_extender')
         self.pub = self.create_publisher(AckermannDriveStamped, '/drive', qos_profile_sensor_data)
         self.create_subscription(LaserScan, '/scan', self.on_scan, qos_profile_sensor_data)
         self.create_subscription(Odometry, '/odom', self.on_odom, qos_profile_sensor_data)
@@ -212,7 +212,7 @@ class GapFollower(Node):
 
 def main():
     rclpy.init()
-    rclpy.spin(GapFollower())
+    rclpy.spin(DisparityExtender())
 
 ################################################################################
 

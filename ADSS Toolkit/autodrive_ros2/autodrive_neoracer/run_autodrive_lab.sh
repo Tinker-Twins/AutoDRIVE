@@ -1,12 +1,12 @@
 #!/bin/bash
-# Run a racecar_core lab against the NeoRacer digital twin.
-# Usage: ./run_twin_lab.sh [lab_file.py]   (default: twin_demo_lab.py)
+# Run a racecar_core lab with NeoRacer in AutoDRIVE Simulator.
+# Usage: ./run_autodrive_lab.sh [lab_file.py]   (default: disparity_extender.py)
 source /opt/ros/humble/setup.bash
 source "$HOME/ros2_ws/install/setup.bash"
-export FASTRTPS_DEFAULT_PROFILES_FILE="$HOME/fastdds_udp_only.xml"
+export FASTRTPS_DEFAULT_PROFILES_FILE="$HOME/fastdds_udp.xml"
 # The library resolves through racecar_student.pth in the user site-packages
 # (same selection mechanism as `racecar library --select` on the car).
-LAB="${1:-$HOME/jupyter_ws/neoracer-os/labs/twin_demo_lab.py}"
+LAB="${1:-$HOME/jupyter_ws/neoracer-os/labs/disparity_extender.py}"
 
 # START is pressed automatically by the bridge's virtual gamepad when the lab
 # attaches; no manual press needed.

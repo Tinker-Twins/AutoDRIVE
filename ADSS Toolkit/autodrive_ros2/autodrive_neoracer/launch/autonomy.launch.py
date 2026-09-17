@@ -10,11 +10,6 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    # The car's autonomy.launch.py graph with ONE change: odom -> base_footprint
-    # TF comes from the simulator's ground-truth /odom (odom_tf_broadcaster)
-    # instead of the EKF. Estimation layers are tuned for real sensor noise and
-    # misbehave on the twin's ideal data; the EKF still runs (publish_tf off)
-    # so /odometry/filtered and the node graph match the car.
     pkg_share = get_package_share_directory('neoracer_ros2_driver')
 
     enable_slam = DeclareLaunchArgument('slam', default_value='false')
@@ -33,28 +28,41 @@ def generate_launch_description():
         }.items(),
     )
 
-    ground_truth_tf = Node(
-        package='autodrive_neoracer',
-        executable='odom_tf_broadcaster',
-        name='odom_tf_broadcaster',
-        output='screen',
-    )
-
     slam = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(
             get_package_share_directory('osracer_slam'),
             'launch', 'slam_toolbox.launch.py')),
         condition=IfCondition(LaunchConfiguration('slam')),
+        launch_arguments={
+            'slam_params_file': os.path.join(
+                get_package_share_directory('autodrive_neoracer'),
+                'config', 'slam_params.yaml'),
+        }.items(),
     )
 
     nav = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(
-            get_package_share_directory('osracer_navigation'),
-            'launch', 'nav2.launch.py')),
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('osracer_navigation'),
+                'launch',
+                'bringup_launch.py'
+            )
+        ),
         condition=IfCondition(LaunchConfiguration('nav')),
         launch_arguments={
             'use_namespace': 'False',
-            'use_rviz': 'False',
+            'use_composition': 'False',
+            'slam': 'False',
+            'map': os.path.join(
+                get_package_share_directory('autodrive_neoracer'),
+                'maps',
+                'map.yaml',
+            ),
+            'params_file': os.path.join(
+                get_package_share_directory('autodrive_neoracer'),
+                'config',
+                'nav_params.yaml',
+            ),
         }.items(),
     )
 
@@ -91,14 +99,14 @@ def generate_launch_description():
         output='screen',
         parameters=[
             os.path.join(
-                get_package_share_directory('osracer_bringup'),
-                'param', 'chassis_ekf_params.yaml'),
+                get_package_share_directory('autodrive_neoracer'),
+                'config', 'odom_params.yaml'),
             {
                 'map_frame': 'map',
                 'odom_frame': 'odom',
                 'base_link_frame': 'base_footprint',
                 'world_frame': 'odom',
-                'publish_tf': False,
+                'publish_tf': True,
             },
         ],
     )
@@ -107,7 +115,6 @@ def generate_launch_description():
         enable_slam,
         enable_nav,
         description,
-        ground_truth_tf,
         twist_bridge,
         imu_filter,
         ekf,
