@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>autodrive_neoracer</name>
+  <version>0.1.0</version>
+  <description>NeoRacer digital twin bridge for the AutoDRIVE Simulator: exposes the
+    exact neoracer_ros2_driver topic interface (/drive, /scan, /camera, /imu, /odom)
+    backed by the simulated vehicle, so autonomy code runs unchanged in sim and on metal.</description>
+  <maintainer email="kb@neobotics.org">Koneshka Bandyopadhyay</maintainer>
+  <license>BSD-2-Clause</license>
+
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>ackermann_msgs</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
