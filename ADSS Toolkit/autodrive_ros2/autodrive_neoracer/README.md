@@ -208,7 +208,7 @@ python3 ~/neoracer_ros2_driver/scripts/dashboards/wallfollow_dashboard/wallfollo
 
 Labs and demos are unaffected: they only talk to ROS topics and cannot
 tell which supervisor started the graph. Expose ports 4567 (AutoDRIVE
-bridge), 8080-8085 (dashboards), and 8888 (JupyterLab) from the container
+bridge), 8080-8087 (dashboards), and 8888 (JupyterLab) from the container
 as needed. Without a GPU passed through, launch the AutoDRIVE stack with
 `inference:=false`; everything except the detection topic works the same.
 
