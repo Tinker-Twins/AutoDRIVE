@@ -1,435 +1,499 @@
-# =============================================================================
-# AMCL – Adaptive Monte Carlo Localization
-# =============================================================================
+################################################################################
+
+# Copyright (c) 2026, Tinker Twins, AutoDRIVE Ecosystem
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+################################################################################
+# AMCL
+################################################################################
+
 amcl:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
-    # Motion model noise – slightly reduced because odometry is reliable at low speed
-    alpha1: 0.08
-    alpha2: 0.08
-    alpha3: 0.15
-    alpha4: 0.12
-    alpha5: 0.08
+    global_frame_id: map           # Global localization frame
+    odom_frame_id: odom            # Odometry frame
+    base_frame_id: base_link       # Robot base frame
+    map_topic: map                 # Occupancy map topic
+    scan_topic: scan               # LIDAR scan topic
+    tf_broadcast: true             # Whether AMCL broadcasts the map-to-odometry transform
+    transform_tolerance: 0.3       # Transform time tolerance (seconds)
+    save_pose_rate: 0.5            # Frequency (Hz) for saving the estimated pose
+    beam_skip_distance: 0.5        # Distance (meters) used to identify disagreeing LIDAR beams
+    beam_skip_error_threshold: 1.0 # Skipped-beam fraction above which all beams are reconsidered
+    beam_skip_threshold: 0.3       # Particle agreement fraction required to retain a beam
+    do_beamskip: false             # Whether to reject inconsistent beams in supported LIDAR models
 
-    base_frame_id: base_link            # Unified with other nodes
-    beam_skip_distance: 0.5
-    beam_skip_error_threshold: 1.0
-    beam_skip_threshold: 0.3
-    do_beamskip: false
-    global_frame_id: map
-    lambda_short: 0.1
-    laser_likelihood_max_dist: 2.0
+    # Measurement model
+    laser_model_type: "likelihood_field"  # LIDAR measurement model used to score particles
+    laser_max_range: 25.0                 # Maximum accepted LIDAR range (meters)
+    laser_min_range: 0.15                 # Minimum accepted LIDAR range (meters)
+    max_beams: 150                        # Maximum number of LIDAR beams used per filter update
+    lambda_short: 0.1                     # Exponential decay rate for unexpectedly short LIDAR readings
+    laser_likelihood_max_dist: 2.0        # Maximum obstacle distance (meters) in the likelihood field
+    sigma_hit: 0.10                       # Standard deviation (meters) of the LIDAR hit model
+    update_min_a: 0.03                    # Minimum rotation (radians) before a filter update
+    update_min_d: 0.03                    # Minimum translation (meters) before a filter update
+    z_hit: 0.85                           # Weight of expected obstacle hits in the LIDAR model
+    z_max: 0.05                           # Weight of maximum-range readings in the LIDAR model
+    z_rand: 0.05                          # Weight of random readings in the LIDAR model
+    z_short: 0.05                         # Weight of unexpectedly short readings in the LIDAR model
 
-    # Lidar range – full 25 m
-    laser_max_range: 25.0
-    laser_min_range: 0.15
+    # Motion model
+    robot_model_type: "nav2_amcl::DifferentialMotionModel" # Motion model used to propagate particles
+    alpha1: 0.08                                           # Rotational noise caused by rotation
+    alpha2: 0.08                                           # Rotational noise caused by translation
+    alpha3: 0.15                                           # Translational noise caused by translation
+    alpha4: 0.12                                           # Translational noise caused by rotation
+    alpha5: 0.08                                           # Lateral translation noise for the omnidirectional model
 
-    # Laser model – high performance, use more beams
-    laser_model_type: "likelihood_field"
-    max_beams: 150                     # Use 150 beams for better accuracy
-    max_particles: 4000                # Robust long‑term localization
-    min_particles: 1000
-    odom_frame_id: odom
-    pf_err: 0.05
-    pf_z: 0.99
-    recovery_alpha_fast: 0.0
-    recovery_alpha_slow: 0.0
-    resample_interval: 1
-
-    # Differential model – recommended for Ackermann (Nav2 community best practice)
-    robot_model_type: "nav2_amcl::DifferentialMotionModel"
-
-    save_pose_rate: 0.5
-    sigma_hit: 0.10                    # Tighter standard deviation for better precision
-    tf_broadcast: true
-    transform_tolerance: 0.3
-    update_min_a: 0.03                 # Update on 1.7° heading change – more responsive
-    update_min_d: 0.03                 # Update on 3 cm movement – tighter tracking
-    z_hit: 0.85
-    z_max: 0.05
-    z_rand: 0.05
-    z_short: 0.05
-    scan_topic: scan
-    map_topic: map
+    # Particle sampling
+    max_particles: 4000       # Upper limit on the particle population
+    min_particles: 1000       # Lower limit on the particle population
+    pf_err: 0.05              # Allowed particle-filter approximation error
+    pf_z: 0.99                # Confidence parameter for adaptive particle sampling
+    recovery_alpha_fast: 0.0  # Fast averaging rate for recovery particle injection
+    recovery_alpha_slow: 0.0  # Slow averaging rate for recovery particle injection
+    resample_interval: 1      # Number of filter updates between particle resampling
 
 amcl_map_client:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
 amcl_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
+################################################################################
+# BT NAVIGATOR
+################################################################################
 
-# =============================================================================
-# BT Navigator – Behavior Tree
-# =============================================================================
 bt_navigator:
   ros__parameters:
-    use_sim_time: False
-    global_frame: map
-    robot_base_frame: base_link
-    odom_topic: odometry/filtered
-    bt_loop_duration: 10
-    default_server_timeout: 20
-    enable_groot_monitoring: True
-    groot_zmq_publisher_port: 1666
-    groot_zmq_server_port: 1667
-    # 'default_nav_through_poses_bt_xml' and 'default_nav_to_pose_bt_xml' are use defaults:
-    # nav2_bt_navigator/navigate_to_pose_w_replanning_and_recovery.xml
-    # nav2_bt_navigator/navigate_through_poses_w_replanning_and_recovery.xml
-    # They can be set here or via a RewrittenYaml remap from a parent launch file to Nav2.
-    default_nav_to_pose_bt_xml: $(find-pkg-share osracer_navigation)/behavior_trees/navigate_to_pose_no_spin_recovery.xml
-    default_nav_through_poses_bt_xml: $(find-pkg-share osracer_navigation)/behavior_trees/navigate_through_poses_no_spin_recovery.xml
-    plugin_lib_names:
-    - nav2_compute_path_to_pose_action_bt_node
-    - nav2_compute_path_through_poses_action_bt_node
-    - nav2_follow_path_action_bt_node
-    - nav2_back_up_action_bt_node
-    - nav2_spin_action_bt_node
-    - nav2_wait_action_bt_node
-    - nav2_clear_costmap_service_bt_node
-    - nav2_is_stuck_condition_bt_node
-    - nav2_goal_reached_condition_bt_node
-    - nav2_goal_updated_condition_bt_node
-    - nav2_initial_pose_received_condition_bt_node
-    - nav2_reinitialize_global_localization_service_bt_node
-    - nav2_rate_controller_bt_node
-    - nav2_distance_controller_bt_node
-    - nav2_speed_controller_bt_node
-    - nav2_truncate_path_action_bt_node
-    - nav2_goal_updater_node_bt_node
-    - nav2_recovery_node_bt_node
-    - nav2_pipeline_sequence_bt_node
-    - nav2_round_robin_node_bt_node
-    - nav2_transform_available_condition_bt_node
-    - nav2_time_expired_condition_bt_node
-    - nav2_distance_traveled_condition_bt_node
-    - nav2_single_trigger_bt_node
-    - nav2_goal_updated_controller_bt_node
-    - nav2_is_battery_low_condition_bt_node
-    - nav2_navigate_through_poses_action_bt_node
-    - nav2_navigate_to_pose_action_bt_node
-    - nav2_remove_passed_goals_action_bt_node
-    - nav2_planner_selector_bt_node
-    - nav2_controller_selector_bt_node
-    - nav2_goal_checker_selector_bt_node
+    use_sim_time: False            # Whether to use simulation time from /clock
+    global_frame: map              # Reference frame used by this component
+    robot_base_frame: base_link    # Robot base frame
+    odom_topic: odometry/filtered  # Odometry topic
+    bt_loop_duration: 10           # Behavior tree tick interval (milliseconds)
+    default_server_timeout: 20     # Default action server response timeout (milliseconds)
+    enable_groot_monitoring: True  # Whether to enable Groot behavior tree monitoring
+    groot_zmq_publisher_port: 1666 # Port for publishing Groot monitoring events
+    groot_zmq_server_port: 1667    # Port for the Groot monitoring server
+
+    # Behavior tree definitions
+    default_nav_to_pose_bt_xml: $(find-pkg-share osracer_navigation)/behavior_trees/navigate_to_pose_no_spin_recovery.xml             # Behavior tree XML for single-goal navigation
+    default_nav_through_poses_bt_xml: $(find-pkg-share osracer_navigation)/behavior_trees/navigate_through_poses_no_spin_recovery.xml # Behavior tree XML for navigation through multiple poses
+    plugin_lib_names:                                                                                                                 # Behavior tree plugin libraries to load
+      - nav2_compute_path_to_pose_action_bt_node
+      - nav2_compute_path_through_poses_action_bt_node
+      - nav2_follow_path_action_bt_node
+      - nav2_back_up_action_bt_node
+      - nav2_spin_action_bt_node
+      - nav2_wait_action_bt_node
+      - nav2_clear_costmap_service_bt_node
+      - nav2_is_stuck_condition_bt_node
+      - nav2_goal_reached_condition_bt_node
+      - nav2_goal_updated_condition_bt_node
+      - nav2_initial_pose_received_condition_bt_node
+      - nav2_reinitialize_global_localization_service_bt_node
+      - nav2_rate_controller_bt_node
+      - nav2_distance_controller_bt_node
+      - nav2_speed_controller_bt_node
+      - nav2_truncate_path_action_bt_node
+      - nav2_goal_updater_node_bt_node
+      - nav2_recovery_node_bt_node
+      - nav2_pipeline_sequence_bt_node
+      - nav2_round_robin_node_bt_node
+      - nav2_transform_available_condition_bt_node
+      - nav2_time_expired_condition_bt_node
+      - nav2_distance_traveled_condition_bt_node
+      - nav2_single_trigger_bt_node
+      - nav2_goal_updated_controller_bt_node
+      - nav2_is_battery_low_condition_bt_node
+      - nav2_navigate_through_poses_action_bt_node
+      - nav2_navigate_to_pose_action_bt_node
+      - nav2_remove_passed_goals_action_bt_node
+      - nav2_planner_selector_bt_node
+      - nav2_controller_selector_bt_node
+      - nav2_goal_checker_selector_bt_node
 
 bt_navigator_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
-# =============================================================================
-# Controller Server – TEB Local Planner (50 Hz, far lookahead, smooth motion)
-# =============================================================================
+################################################################################
+# CONTROLLER SERVER
+################################################################################
+
 controller_server:
   ros__parameters:
-    odom_topic: odometry/filtered
-    use_sim_time: False
-    controller_frequency: 20.0            # Fast control loop – 20 ms cycle
-    controller_plugin_types: ["teb_local_planner::TebLocalPlannerROS"]
-    controller_plugins: ["FollowPath"]
+    use_sim_time: False                                                # Whether to use simulation time from /clock
+    odom_topic: odometry/filtered                                      # Input odometry topic
+    controller_frequency: 20.0                                         # Control loop frequency (Hz)
+    controller_plugin_types: ["teb_local_planner::TebLocalPlannerROS"] # Controller plugin implementation types
+    controller_plugins: ["FollowPath"]                                 # Controller plugin identifiers
     FollowPath:
-      plugin: teb_local_planner::TebLocalPlannerROS
+      plugin: teb_local_planner::TebLocalPlannerROS                    # Plugin implementation class
 
-      # Trajectory
-      teb_autosize: 1.0
-      dt_ref: 0.4
-      dt_hysteresis: 0.125
-      max_samples: 500
-      global_plan_overwrite_orientation: True
-      allow_init_with_backwards_motion: True
-      max_global_plan_lookahead_dist: 5.0
-      global_plan_viapoint_sep: -1.0
-      global_plan_prune_distance: 1.0
-      exact_arc_length: False
-      feasibility_check_no_poses: 1
-      publish_feedback: False
+      ##########################################################################
+      # TRAJECTORY
+      ##########################################################################
 
-      # Speed limits – conservative to prevent wheel spin & skidding
-      max_vel_x: 3.0                      # Moderately faster in open areas
-      max_vel_x_backwards: 1.5
-      max_vel_y: 0.0
-      max_vel_theta: 2.0
-      acc_lim_x: 2.0                      # Gentle acceleration – avoids skidding
-      acc_lim_theta: 1.0
+      teb_autosize: 1.0                       # Whether to adapt the number of trajectory samples
+      dt_ref: 0.4                             # Target time interval (seconds) between trajectory samples
+      dt_hysteresis: 0.125                    # Time margin (seconds) used when resizing the trajectory
+      max_samples: 500                        # Maximum number of trajectory samples
+      global_plan_overwrite_orientation: True # Whether to replace orientations along the local plan
+      allow_init_with_backwards_motion: True  # Whether initial trajectories may reverse
+      max_global_plan_lookahead_dist: 5.0     # Maximum global-plan length (meters) used locally
+      global_plan_viapoint_sep: -1.0          # Via-point spacing (meters); negative values disable extraction
+      global_plan_prune_distance: 1.0         # Distance (meters) used to prune the traversed global plan
+      exact_arc_length: False                 # Whether to use exact arc lengths instead of chord approximations
+      feasibility_check_no_poses: 1           # Number of trajectory poses checked for collisions
+      publish_feedback: False                 # Whether to publish detailed planner feedback
 
-      # Ackermann kinematics – with extra turning radius margin
-      min_turning_radius: 0.50
-      wheelbase: 0.285
-      cmd_angle_instead_rotvel: false
+      ##########################################################################
+      # SPEED AND ACCELERATION LIMITS
+      ##########################################################################
 
-      # Footprint – line model (rear axle to front)
+      max_vel_x: 3.0           # Maximum forward speed (m/s)
+      max_vel_x_backwards: 1.5 # Maximum reverse speed (m/s)
+      max_vel_y: 0.0           # Maximum lateral speed (m/s)
+      max_vel_theta: 2.0       # Maximum yaw rate (rad/s)
+      acc_lim_x: 2.0           # Maximum longitudinal acceleration (m/s^2)
+      acc_lim_theta: 1.0       # Maximum angular acceleration (rad/s^2)
+
+      ##########################################################################
+      # ACKERMANN KINEMATICS
+      ##########################################################################
+
+      min_turning_radius: 0.50        # Minimum permitted turning radius (meters)
+      wheelbase: 0.285                # Distance (meters) between the front and rear axles
+      cmd_angle_instead_rotvel: false # Whether to command steering angle instead of yaw rate
+
+      ##########################################################################
+      # FOOTPRINT
+      ##########################################################################
+
       footprint_model:
-        type: "line"
-        radius: 0.2
-        line_start: [0.0, 0.0]
-        line_end: [0.285, 0.0]
+        type: "line"           # Footprint geometry model
+        radius: 0.2            # Radius (meters) used by the footprint model
+        line_start: [0.0, 0.0] # Starting [x, y] point (meters) of the footprint
+        line_end: [0.285, 0.0] # Ending [x, y] point (meters) of the footprint
 
-      # GoalTolerance
-      xy_goal_tolerance: 0.35
-      yaw_goal_tolerance: 0.35
-      free_goal_vel: False
-      complete_global_plan: True
+      ##########################################################################
+      # GOAL TOLERANCE
+      ##########################################################################
 
-      # Obstacles
-      min_obstacle_dist: 0.25
-      inflation_dist: 0.45
-      include_costmap_obstacles: True
-      costmap_obstacles_behind_robot_dist: 1.0
-      obstacle_poses_affected: 15
-      dynamic_obstacle_inflation_dist: 0.8
-      include_dynamic_obstacles: True
-      costmap_converter_plugin: ""
-      costmap_converter_spin_thread: True
-      costmap_converter_rate: 5
+      xy_goal_tolerance: 0.35    # Allowed position error (meters) at the goal
+      yaw_goal_tolerance: 0.35   # Allowed heading error (radians) at the goal
+      free_goal_vel: False       # Whether the planned goal velocity may be nonzero
+      complete_global_plan: True # Whether to finish the global plan before declaring success
 
-      # Optimization
-      no_inner_iterations: 3
-      no_outer_iterations: 2
-      optimization_activate: True
-      optimization_verbose: False
-      penalty_epsilon: 0.1
-      obstacle_cost_exponent: 4.0
-      weight_max_vel_x: 100.0
-      weight_max_vel_theta: 1.0
-      weight_acc_lim_x: 1.0
-      weight_acc_lim_theta: 1.0
-      weight_kinematics_nh: 100.0
-      weight_kinematics_forward_drive: 20.0
-      weight_kinematics_turning_radius: 10.0
-      weight_optimaltime: 100.0 # must be > 0
-      weight_shortest_path: 0.0
-      weight_obstacle: 10.0
-      weight_inflation: 1.0
-      weight_dynamic_obstacle: 5.0
-      weight_dynamic_obstacle_inflation: 1.0
-      weight_viapoint: 1.0
-      weight_adapt_factor: 1.0
+      ##########################################################################
+      # OBSTACLES
+      ##########################################################################
 
-      # Homotopy class planner – disabled to save CPU for 50 Hz
-      enable_homotopy_class_planning: False
-      enable_multithreading: True
-      max_number_classes: 4
-      selection_cost_hysteresis: 1.0
-      selection_prefer_initial_plan: 0.95
-      selection_obst_cost_scale: 1.0
-      selection_alternative_time_cost: False
-      roadmap_graph_no_samples: 15
-      roadmap_graph_area_width: 5.0
-      roadmap_graph_area_length_scale: 1.0
-      h_signature_prescaler: 0.5
-      h_signature_threshold: 0.1
-      obstacle_heading_threshold: 0.45
-      switching_blocking_period: 0.0
-      viapoints_all_candidates: True
-      delete_detours_backwards: True
-      max_ratio_detours_duration_best_duration: 3.0
-      visualize_hc_graph: False
-      visualize_with_time_as_z_axis_scale: 0.0
+      min_obstacle_dist: 0.25                  # Desired minimum obstacle clearance (meters)
+      inflation_dist: 0.45                     # Distance (meters) over which obstacle proximity is penalized
+      include_costmap_obstacles: True          # Whether to use occupied costmap cells as obstacles
+      costmap_obstacles_behind_robot_dist: 1.0 # Distance (meters) behind the robot to consider obstacles
+      obstacle_poses_affected: 15              # Number of neighboring poses influenced by an obstacle
+      dynamic_obstacle_inflation_dist: 0.8     # Penalty buffer (meters) around moving obstacles
+      include_dynamic_obstacles: True          # Whether to account for predicted obstacle motion
+      costmap_converter_plugin: ""             # Optional plugin for converting costmap cells into geometry
+      costmap_converter_spin_thread: True      # Whether the costmap converter uses a separate thread
+      costmap_converter_rate: 5                # Costmap conversion frequency (Hz)
 
-      # Recovery – shrink horizon quickly to escape tight spots
-      shrink_horizon_backup: True
-      shrink_horizon_min_duration: 10.0
-      oscillation_recovery: True
-      oscillation_v_eps: 0.1
-      oscillation_omega_eps: 0.1
-      oscillation_recovery_min_duration: 10.0
-      oscillation_filter_duration: 10.0
+      ##########################################################################
+      # OPTIMIZATION
+      ##########################################################################
+
+      no_inner_iterations: 3                 # Solver iterations per outer optimization cycle
+      no_outer_iterations: 2                 # Trajectory resizing and optimization cycles per update
+      optimization_activate: True            # Whether trajectory optimization is enabled
+      optimization_verbose: False            # Whether to print optimizer diagnostics
+      penalty_epsilon: 0.1                   # Smoothing margin for hard-constraint penalty functions
+      obstacle_cost_exponent: 4.0            # Exponent controlling the obstacle cost curve
+      weight_max_vel_x: 100.0                # Penalty weight for exceeding linear speed limit
+      weight_max_vel_theta: 1.0              # Penalty weight for exceeding angular speed limit
+      weight_acc_lim_x: 1.0                  # Penalty weight for exceeding linear acceleration limit
+      weight_acc_lim_theta: 1.0              # Penalty weight for exceeding angular acceleration limit
+      weight_kinematics_nh: 100.0            # Penalty weight for violating nonholonomic constraints
+      weight_kinematics_forward_drive: 20.0  # Penalty weight favoring forward motion
+      weight_kinematics_turning_radius: 10.0 # Penalty weight for violating the minimum turning radius
+      weight_optimaltime: 100.0              # Weight favoring shorter travel times
+      weight_shortest_path: 0.0              # Weight favoring shorter travel distances
+      weight_obstacle: 10.0                  # Penalty weight for insufficient obstacle clearance
+      weight_inflation: 1.0                  # Penalty weight within the obstacle inflation buffer
+      weight_dynamic_obstacle: 5.0           # Penalty weight for insufficient moving-obstacle clearance
+      weight_dynamic_obstacle_inflation: 1.0 # Penalty weight within the moving-obstacle buffer
+      weight_viapoint: 1.0                   # Penalty weight for deviating from plan via-points
+      weight_adapt_factor: 1.0               # Multiplier for selected weights across outer iterations
+
+      ##########################################################################
+      # HOMOTOPY CLASS PLANNER
+      ##########################################################################
+
+      enable_homotopy_class_planning: False         # Whether to optimize alternative routes around obstacles
+      enable_multithreading: True                   # Whether to optimize candidate trajectories in parallel
+      max_number_classes: 4                         # Maximum number of alternative route classes
+      selection_cost_hysteresis: 1.0                # Cost factor used to retain the currently selected route
+      selection_prefer_initial_plan: 0.95           # Cost factor favoring the initial global-plan route
+      selection_obst_cost_scale: 1.0                # Obstacle cost multiplier used during route selection
+      selection_alternative_time_cost: False        # Whether to use an alternative travel-time selection cost
+      roadmap_graph_no_samples: 15                  # Number of sampled roadmap points
+      roadmap_graph_area_width: 5.0                 # Width (meters) of the roadmap sampling region
+      roadmap_graph_area_length_scale: 1.0          # Scale factor for the roadmap sampling region length
+      h_signature_prescaler: 0.5                    # Scaling factor used to compute route signatures
+      h_signature_threshold: 0.1                    # Similarity threshold for grouping route signatures
+      obstacle_heading_threshold: 0.45              # Heading threshold for obstacle-based route exploration
+      switching_blocking_period: 0.0                # Minimum time (seconds) before switching route classes
+      viapoints_all_candidates: True                # Whether via-points influence every candidate route
+      delete_detours_backwards: True                # Whether to discard candidates with backward detours
+      max_ratio_detours_duration_best_duration: 3.0 # Maximum candidate duration relative to the best route
+      visualize_hc_graph: False                     # Whether to publish the route exploration graph
+      visualize_with_time_as_z_axis_scale: 0.0      # Scale for displaying trajectory time on the Z axis
+
+      ##########################################################################
+      # RECOVERY
+      ##########################################################################
+
+      shrink_horizon_backup: True             # Whether to shorten the planning horizon after failure
+      shrink_horizon_min_duration: 10.0       # Minimum time (seconds) to retain a shortened horizon
+      oscillation_recovery: True              # Whether to enable recovery from oscillating commands
+      oscillation_v_eps: 0.1                  # Normalized linear velocity threshold for oscillation detection
+      oscillation_omega_eps: 0.1              # Normalized angular velocity threshold for oscillation detection
+      oscillation_recovery_min_duration: 10.0 # Minimum duration (seconds) of oscillation recovery
+      oscillation_filter_duration: 10.0       # Command history duration (seconds) for detecting oscillation
 
 controller_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
-# =============================================================================
-# Local Costmap – 2.5 cm resolution, 10 m x 10 m window (far perception)
-# =============================================================================
+################################################################################
+# LOCAL COSTMAP
+################################################################################
+
 local_costmap:
   local_costmap:
     ros__parameters:
-      update_frequency: 10.0              # Fast update to match 50 Hz controller
-      publish_frequency: 5.0
-      footprint: ' [[0.42,0.14],[0.42,-0.14],[-0.08,-0.14],[-0.08,0.14]]'
-      footprint_padding: 0.01
-      global_frame: odom
-      robot_base_frame: base_link
-      use_sim_time: False
-      rolling_window: true
-      width: 4
-      height: 4
-      resolution: 0.05
-      robot_radius: 0.3
-      plugins: ["voxel_layer", "inflation_layer"]
+      publish_frequency: 5.0                                              # Costmap publication frequency (Hz)
+      update_frequency: 10.0                                              # Costmap update frequency (Hz)
+      footprint: '[[0.42,0.14],[0.42,-0.14],[-0.08,-0.14],[-0.08,0.14]]'  # Robot outline as [x, y] points (meters) in the base frame
+      footprint_padding: 0.01                                             # Extra padding (meters) around the robot footprint
+      global_frame: odom                                                  # Reference frame used by this component
+      robot_base_frame: base_link                                         # Robot base frame
+      use_sim_time: False                                                 # Whether to use simulation time from /clock
+      rolling_window: true                                                # Whether the costmap window follows the robot
+      width: 4                                                            # Costmap width (meters)
+      height: 4                                                           # Costmap height (meters)
+      resolution: 0.05                                                    # Costmap cell size (meters)
+      robot_radius: 0.3                                                   # Radius (meters) used when no polygon footprint is supplied
+      plugins: ["voxel_layer", "inflation_layer"]                         # Ordered list of costmap layers to load
       inflation_layer:
-        plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0          # Sharp cost falloff – creates a "hard wall" against skidding
-        inflation_radius: 0.25            # Large buffer – even if skidding 0.2 m, robot stays safe
+        plugin: "nav2_costmap_2d::InflationLayer" # Plugin implementation class
+        cost_scaling_factor: 3.0                  # Exponential decay factor for inflated obstacle costs
+        inflation_radius: 0.25                    # Distance (meters) over which obstacle costs are inflated
       voxel_layer:
-        plugin: "nav2_costmap_2d::VoxelLayer"
-        enabled: True
-        publish_voxel_map: True
-        origin_z: 0.0
-        z_resolution: 0.05
-        z_voxels: 16
-        max_obstacle_height: 2.0
-        mark_threshold: 0
-        observation_sources: scan
+        plugin: "nav2_costmap_2d::VoxelLayer" # Plugin implementation class
+        enabled: True                         # Whether this plugin is enabled
+        publish_voxel_map: True               # Whether to publish the obstacle voxel grid
+        origin_z: 0.0                         # Height (meters) of the voxel grid origin
+        z_resolution: 0.05                    # Vertical voxel size (meters)
+        z_voxels: 16                          # Number of vertical voxel cells
+        max_obstacle_height: 2.0              # Maximum obstacle height (meters) to consider
+        mark_threshold: 0                     # Occupied-voxel threshold for marking a 2D cell occupied
+        observation_sources: scan             # Names of sensor sources used by this layer
         scan:
-          topic: /scan
-          max_obstacle_height: 2.0
-          clearing: True
-          marking: True
-          data_type: "LaserScan"
-          raytrace_max_range: 10.0        # See obstacles up to 10 m away
-          raytrace_min_range: 0.0
-          obstacle_max_range: 9.0         # Consider obstacles within 9 m for costmap
-          obstacle_min_range: 0.0
+          topic: /scan             # Input topic for this observation source
+          data_type: "LaserScan"   # Message type used by the observation source
+          max_obstacle_height: 2.0 # Maximum obstacle height (meters) to consider
+          clearing: True           # Whether observations clear free space by ray tracing
+          marking: True            # Whether observations mark detected obstacles
+          raytrace_max_range: 10.0 # Maximum distance (meters) for clearing free space
+          raytrace_min_range: 0.0  # Minimum distance (meters) for clearing free space
+          obstacle_max_range: 9.0  # Maximum distance (meters) for marking obstacles
+          obstacle_min_range: 0.0  # Minimum distance (meters) for marking obstacles
       static_layer:
-        map_subscribe_transient_local: True
-      always_send_full_costmap: True
+        map_subscribe_transient_local: True # Whether to request retained map messages with transient-local QoS
+      always_send_full_costmap: True        # Whether to publish full maps instead of incremental updates
   local_costmap_client:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: False # Whether to use simulation time from /clock
   local_costmap_rclcpp_node:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: False # Whether to use simulation time from /clock
 
-# =============================================================================
-# Global Costmap – resolution MUST match your saved map (0.04 m)
-# =============================================================================
+################################################################################
+# GLOBAL COSTMAP
+################################################################################
+
 global_costmap:
   global_costmap:
     ros__parameters:
-      update_frequency: 5.0
-      publish_frequency: 2.0
-      global_frame: map
-      robot_base_frame: base_link
-      use_sim_time: False
-      robot_radius: 0.3
-      resolution: 0.025                    # Matches your map
-      track_unknown_space: true
-      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      publish_frequency: 2.0                                         # Costmap publication frequency (Hz)
+      update_frequency: 5.0                                          # Costmap update frequency (Hz)
+      global_frame: map                                              # Reference frame used by this component
+      robot_base_frame: base_link                                    # Robot base frame
+      use_sim_time: False                                            # Whether to use simulation time from /clock
+      robot_radius: 0.3                                              # Radius (meters) used when no polygon footprint is supplied
+      resolution: 0.025                                              # Costmap cell size (meters)
+      track_unknown_space: true                                      # Whether to preserve unobserved cells as unknown
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"] # Ordered list of costmap layers to load
       obstacle_layer:
-        plugin: "nav2_costmap_2d::ObstacleLayer"
-        enabled: True
-        observation_sources: scan
+        plugin: "nav2_costmap_2d::ObstacleLayer" # Plugin implementation class
+        enabled: True                            # Whether this plugin is enabled
+        observation_sources: scan                # Names of sensor sources used by this layer
         scan:
-          topic: /scan
-          max_obstacle_height: 2.0
-          clearing: True
-          marking: True
-          data_type: "LaserScan"
-          raytrace_max_range: 8.0
-          raytrace_min_range: 0.0
-          obstacle_max_range: 6.0
-          obstacle_min_range: 0.0
+          topic: /scan             # Input topic for this observation source
+          data_type: "LaserScan"   # Message type used by the observation source
+          max_obstacle_height: 2.0 # Maximum obstacle height (meters) to consider
+          clearing: True           # Whether observations clear free space by ray tracing
+          marking: True            # Whether observations mark detected obstacles
+          raytrace_max_range: 8.0  # Maximum distance (meters) for clearing free space
+          raytrace_min_range: 0.0  # Minimum distance (meters) for clearing free space
+          obstacle_max_range: 6.0  # Maximum distance (meters) for marking obstacles
+          obstacle_min_range: 0.0  # Minimum distance (meters) for marking obstacles
       static_layer:
-        plugin: "nav2_costmap_2d::StaticLayer"
-        map_subscribe_transient_local: True
+        plugin: "nav2_costmap_2d::StaticLayer" # Plugin implementation class
+        map_subscribe_transient_local: True    # Whether to request retained map messages with transient-local QoS
       inflation_layer:
-        plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.35            # Global path stays far from walls
-      always_send_full_costmap: True
+        plugin: "nav2_costmap_2d::InflationLayer" # Plugin implementation class
+        cost_scaling_factor: 3.0                  # Exponential decay factor for inflated obstacle costs
+        inflation_radius: 0.35                    # Distance (meters) over which obstacle costs are inflated
+      always_send_full_costmap: True              # Whether to publish full maps instead of incremental updates
   global_costmap_client:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: False # Whether to use simulation time from /clock
   global_costmap_rclcpp_node:
     ros__parameters:
-      use_sim_time: False
+      use_sim_time: False # Whether to use simulation time from /clock
 
-# =============================================================================
-# Map Server & Saver
-# =============================================================================
+################################################################################
+# MAP SERVER
+################################################################################
+
 map_server:
   ros__parameters:
-    use_sim_time: False
-    yaml_filename: "map.yaml"   # Update this to your actual map file
-    map_topic: /map
-    frame_id: map
+    use_sim_time: False       # Whether to use simulation time from /clock
+    yaml_filename: "map.yaml" # Path to the map metadata YAML file
+    map_topic: /map           # Occupancy map topic
+    frame_id: map             # Frame assigned to the published map
+
+################################################################################
+# MAP SAVER
+################################################################################
 
 map_saver:
   ros__parameters:
-    use_sim_time: False
-    save_map_timeout: 5.0
-    free_thresh_default: 0.25
-    occupied_thresh_default: 0.65
-    map_subscribe_transient_local: True
+    use_sim_time: False                 # Whether to use simulation time from /clock
+    save_map_timeout: 5.0               # Maximum wait (seconds) for saving a map
+    free_thresh_default: 0.25           # Default probability threshold for classifying free cells
+    occupied_thresh_default: 0.65       # Default probability threshold for classifying occupied cells
+    map_subscribe_transient_local: True # Whether to request retained map messages with transient-local QoS
 
-# =============================================================================
-# Planner Server – global path planning
-# =============================================================================
+################################################################################
+# PLANNER SERVER
+################################################################################
+
 planner_server:
   ros__parameters:
-    expected_planner_frequency: 30.0
-    use_sim_time: False
-    planner_plugins: ["GridBased"]
+    expected_planner_frequency: 30.0 # Expected planning frequency (Hz) for performance monitoring
+    use_sim_time: False              # Whether to use simulation time from /clock
+    planner_plugins: ["GridBased"]   # Global planner plugin identifiers
     GridBased:
-      plugin: "nav2_navfn_planner/NavfnPlanner"
-      tolerance: 0.3
-      use_astar: false
-      allow_unknown: true
+      plugin: "nav2_navfn_planner/NavfnPlanner" # Plugin implementation class
+      tolerance: 0.3                            # Allowed distance (meters) from an unreachable goal
+      use_astar: false                          # Whether to use A* search instead of Dijkstra search
+      allow_unknown: true                       # Whether the planner may traverse unknown map cells
 
 planner_server_rclcpp_node:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
 
-# =============================================================================
-# Behavior Server – ONLY backup + wait (no spin to avoid skidding)
-# =============================================================================
+################################################################################
+# BEHAVIOR SERVER
+################################################################################
+
 behavior_server:
   ros__parameters:
-    costmap_topic: local_costmap/costmap_raw
-    footprint_topic: local_costmap/published_footprint
-    cycle_frequency: 10.0
-    behavior_plugins: ["backup", "wait"]   # Spin removed – we only reverse
+    costmap_topic: local_costmap/costmap_raw           # Input costmap topic used by recovery behaviors
+    footprint_topic: local_costmap/published_footprint # Input topic for the robot footprint
+    cycle_frequency: 10.0                              # Behavior execution frequency (Hz)
+    behavior_plugins: ["backup", "wait"]               # Recovery behavior plugin identifiers
     backup:
-      plugin: "osracer_aggressive_backup/AggressiveBackUp"
-      default_distance: 0.6
-      default_speed: 0.3
-      odom_topic: odometry/filtered
-      stopped_velocity_threshold: 0.03
-      fallback_recovery_direction: backward
-      enable_second_phase: false
-      scan_topic: scan
-      scan_base_frame: base_link
-      first_phase_distance_ratio: 0.45
-      second_phase_distance_ratio: 0.55
-      min_exit_clearance: 0.45
-      front_sector_deg: 35.0
-      rear_sector_deg: 35.0
-      scan_timeout: 0.35
-      clear_local_costmap: true
-      clear_global_costmap: false
-      local_clear_service: local_costmap/clear_entirely_local_costmap
-      global_clear_service: global_costmap/clear_entirely_global_costmap
-      costmap_clear_wait_ms: 150.0
+      plugin: "osracer_aggressive_backup/AggressiveBackUp"               # Plugin implementation class
+      scan_topic: scan                                                   # Input LIDAR scan topic
+      odom_topic: odometry/filtered                                      # Input odometry topic
+      scan_base_frame: base_link                                         # Reference frame for recovery scan processing
+      default_distance: 0.6                                              # Configured default recovery travel distance (meters)
+      default_speed: 0.3                                                 # Configured default recovery speed (m/s)
+      stopped_velocity_threshold: 0.03                                   # Speed threshold (m/s) for detecting a stopped vehicle
+      fallback_recovery_direction: backward                              # Fallback travel direction for the custom recovery
+      enable_second_phase: false                                         # Whether to enable the custom recovery's second phase
+      first_phase_distance_ratio: 0.45                                   # Fraction of recovery distance assigned to the first phase
+      second_phase_distance_ratio: 0.55                                  # Fraction of recovery distance assigned to the second phase
+      min_exit_clearance: 0.45                                           # Configured minimum recovery exit clearance (meters)
+      front_sector_deg: 35.0                                             # Front scan sector angle (degrees)
+      rear_sector_deg: 35.0                                              # Rear scan sector angle (degrees)
+      scan_timeout: 0.35                                                 # Configured LIDAR scan timeout (seconds)
+      clear_local_costmap: true                                          # Whether recovery requests local costmap clearing
+      clear_global_costmap: false                                        # Whether recovery requests global costmap clearing
+      local_clear_service: local_costmap/clear_entirely_local_costmap    # Service used to clear the local costmap
+      global_clear_service: global_costmap/clear_entirely_global_costmap # Service used to clear the global costmap
+      costmap_clear_wait_ms: 150.0                                       # Configured costmap-clearing wait (milliseconds)
     wait:
-      plugin: "nav2_behaviors/Wait"
-      wait_duration: 2.0                   # Pause 2 s to let costmap update
-    global_frame: odom
-    robot_base_frame: base_link
-    transform_tolerance: 0.1
-    use_sim_time: False
-    simulate_ahead_time: 2.0
-    max_rotational_vel: 1.0
-    min_rotational_vel: 0.4
-    rotational_acc_lim: 3.2
+      plugin: "nav2_behaviors/Wait" # Plugin implementation class
+      wait_duration: 2.0            # Configured wait duration (seconds)
+    global_frame: odom              # Reference frame used by this component
+    robot_base_frame: base_link     # Robot base frame
+    transform_tolerance: 0.1        # Transform time tolerance (seconds)
+    use_sim_time: False             # Whether to use simulation time from /clock
+    simulate_ahead_time: 2.0        # Lookahead time (seconds) for behavior collision checking
+    max_rotational_vel: 1.0         # Maximum rotational speed (rad/s) for supported behaviors
+    min_rotational_vel: 0.4         # Minimum rotational speed (rad/s) for supported behaviors
+    rotational_acc_lim: 3.2         # Rotational acceleration limit (rad/s^2)
 
-# =============================================================================
-# Robot State Publisher & Waypoint Follower
-# =============================================================================
+################################################################################
+# ROBOT STATE PUBLISHER
+################################################################################
+
 robot_state_publisher:
   ros__parameters:
-    use_sim_time: False
+    use_sim_time: False # Whether to use simulation time from /clock
+
+################################################################################
+# WAYPOINT FOLLOWER
+################################################################################
 
 waypoint_follower:
   ros__parameters:
-    loop_rate: 20
-    stop_on_failure: false
-    waypoint_task_executor_plugin: "wait_at_waypoint"
+    loop_rate: 20                                     # Waypoint follower polling frequency (Hz)
+    stop_on_failure: false                            # Whether to stop after a waypoint navigation failure
+    waypoint_task_executor_plugin: "wait_at_waypoint" # Plugin identifier for actions performed at waypoints
     wait_at_waypoint:
-      plugin: "nav2_waypoint_follower::WaitAtWaypoint"
-      enabled: True
-      waypoint_pause_duration: 200
+      plugin: "nav2_waypoint_follower::WaitAtWaypoint" # Plugin implementation class
+      enabled: True                                    # Whether this plugin is enabled
+      waypoint_pause_duration: 200                     # Pause duration (milliseconds) at each waypoint
