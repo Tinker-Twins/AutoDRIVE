@@ -1,81 +1,135 @@
+################################################################################
+
+# Copyright (c) 2026, Tinker Twins, AutoDRIVE Ecosystem
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+################################################################################
+
 slam_toolbox:
   ros__parameters:
-    # ===== Ceres Solver (Robust & Precise) =====
-    solver_plugin: solver_plugins::CeresSolver
-    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY   # Best accuracy for small-to-medium maps
-    ceres_preconditioner: SCHUR_JACOBI
-    ceres_trust_strategy: LEVENBERG_MARQUARDT
-    ceres_dogleg_type: TRADITIONAL_DOGLEG
-    ceres_loss_function: CauchyLoss               # Robust to outliers (e.g., moving objects)
+    ############################################################################
+    # CERES SOLVER
+    ############################################################################
 
-    # ===== Frames & Topics =====
-    odom_frame: odom
-    map_frame: map
-    base_frame: base_footprint
-    map_name: /map
-    scan_topic: /scan
-    use_map_saver: true
-    mode: mapping                                 # Set to "localization" for production
+    solver_plugin: solver_plugins::CeresSolver  # Plugin used to optimize the pose graph
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY # Linear system solver used by Ceres
+    ceres_preconditioner: SCHUR_JACOBI          # Preconditioner for the Ceres linear solver
+    ceres_trust_strategy: LEVENBERG_MARQUARDT   # Trust-region strategy for nonlinear optimization
+    ceres_dogleg_type: TRADITIONAL_DOGLEG       # Dogleg variant, when the dogleg strategy is selected
+    ceres_loss_function: CauchyLoss             # Loss function used to reduce the influence of outliers
 
-    # ===== Core Timing & Resolution =====
-    debug_logging: false
-    throttle_scans: 1                             # Process every scan (30 Hz is fine for Ceres at low speed)
-    transform_publish_period: 0.02                # 50 Hz TF broadcast – matches your 200 Hz odometry rhythm
-    map_update_interval: 1.5                      # Refresh global map every 1.5 s (smooth but not CPU-hungry)
-    resolution: 0.025                             # 2.5 cm grid – ultra‑sharp walls, fully justified by slow speed
-    restamp_tf: false
-    min_laser_range: 0.15                         # Filter out robot chassis reflections (adjust to your lidar's blind zone)
-    max_laser_range: 25.0                         # Use the full 25 m range
-    minimum_time_interval: 0.2                    # Minimum 0.2 s between processed scans
-    transform_timeout: 0.1                        # 100 ms timeout – discard stale transforms quickly
-    tf_buffer_duration: 20.0                      # Keep 20 s of TF history for loop closures
-    stack_size_to_use: 40000000                   # 40 MB stack for large matrix operations
-    enable_interactive_mode: true                 # Allow dynamic rerouting via RViz
+    ############################################################################
+    # FRAMES AND TOPICS
+    ############################################################################
 
-    # ===== Scan Matching & Keyframe Insertion =====
-    use_scan_matching: true
-    use_scan_barycenter: true
-    # Aggressive insertion because we move slowly and want dense keyframes
-    minimum_travel_distance: 0.08                 # Insert keyframe every 8 cm (~1/3 wheelbase)
-    minimum_travel_heading: 0.12                  # Insert keyframe every ~7° heading change – tight corners
-    scan_buffer_size: 15                          # Keep 15 keyframes for local map matching
-    scan_buffer_maximum_scan_distance: 12.0       # Match against scans up to 12 m away
+    odom_frame: odom           # Odometry frame
+    map_frame: map             # Map frame
+    base_frame: base_footprint # Robot base frame
+    map_name: /map             # Map topic
+    scan_topic: /scan          # LIDAR topic
+    use_map_saver: true        # Whether to enable the map-saving interface
+    mode: mapping              # SLAM operation mode (mapping or localization)
 
-    # ===== Local Loop Closure (Fine Matching) =====
-    link_match_minimum_response_fine: 0.1         # Lower threshold – odometry is good, accept slightly noisier links
-    link_scan_maximum_distance: 2.0               # Search within 2 m for local loop closure
+    ############################################################################
+    # CORE TIMING AND RESOLUTION
+    ############################################################################
 
-    # ===== Global Loop Closure =====
-    do_loop_closing: true
-    loop_search_maximum_distance: 8.0             # Search for loops up to 8 m away (good for 25 m lidar)
-    loop_match_minimum_chain_size: 10
-    loop_match_maximum_variance_coarse: 3.0
-    loop_match_minimum_response_coarse: 0.35
-    loop_match_minimum_response_fine: 0.45
+    debug_logging: false           # Whether to enable debug messages
+    throttle_scans: 1              # Process one out of every N scans in synchronous mode
+    transform_publish_period: 0.02 # Interval (seconds) between map-to-odometry TF broadcasts
+    map_update_interval: 1.5       # Interval (seconds) between occupancy map updates
+    resolution: 0.025              # Occupancy grid cell size (meters)
+    restamp_tf: false              # Whether to stamp TF with the current time instead of scan time
+    min_laser_range: 0.15          # Minimum LIDAR range (meters) used for mapping
+    max_laser_range: 25.0          # Maximum LIDAR range (meters) used for mapping
+    minimum_time_interval: 0.2     # Minimum time (seconds) between scans in synchronous mode
+    transform_timeout: 0.1         # Maximum wait (seconds) for required transforms
+    tf_buffer_duration: 20.0       # Duration (seconds) of stored transform history
+    stack_size_to_use: 40000000    # Stack size (bytes) used for serialization operations
+    enable_interactive_mode: true  # Whether to retain data for interactive graph editing
 
-    # ===== Correlation Search (Tightened for precise odometry) =====
-    # Since odometry is very accurate at 1 m/s, we don't need a huge brute‑force window
-    correlation_search_space_dimension: 0.4       # ±0.4 m search window – saves CPU while maintaining precision
-    correlation_search_space_resolution: 0.01     # 1 cm search step – very fine
-    correlation_search_space_smear_deviation: 0.08
+    ############################################################################
+    # SCAN MATCHING AND KEYFRAME INSERTION
+    ############################################################################
 
-    # ===== Loop Closure Search Space =====
-    loop_search_space_dimension: 8.0              # ±8 m for global loop detection
-    loop_search_space_resolution: 0.05            # 5 cm step
-    loop_search_space_smear_deviation: 0.03
+    use_scan_matching: true                 # Whether to refine pose estimates by matching LIDAR scans
+    use_scan_barycenter: true               # Whether to use scan centroids for matching
+    minimum_travel_distance: 0.08           # Minimum translation (meters) before adding a new scan
+    minimum_travel_heading: 0.12            # Minimum rotation (radians) before adding a new scan
+    scan_buffer_size: 15                    # Number of recent scans retained for matching
+    scan_buffer_maximum_scan_distance: 12.0 # Maximum distance (meters) for scans in the local buffer
 
-    # ===== Penalty Parameters (trust odometry more) =====
-    # Lower penalties mean we rely less on the scan matcher to correct large errors,
-    # because the odometry is already extremely trustworthy.
-    distance_variance_penalty: 0.3
-    angle_variance_penalty: 0.5
+    ############################################################################
+    # LOCAL LOOP CLOSURE
+    ############################################################################
 
-    # ===== Angle Search Parameters =====
-    fine_search_angle_offset: 0.00349             # ~0.2° – fine angular resolution
-    coarse_search_angle_offset: 0.349             # ~20° – coarse angular range
-    coarse_angle_resolution: 0.0349               # ~2° step in coarse search
-    minimum_angle_penalty: 0.9
-    minimum_distance_penalty: 0.5
-    use_response_expansion: true
-    min_pass_through: 2
-    occupancy_threshold: 0.10                     # Slightly lower threshold to make maps clearer
+    link_match_minimum_response_fine: 0.1 # Minimum fine-match score for accepting a scan link
+    link_scan_maximum_distance: 2.0       # Maximum distance (meters) for linking nearby scans
+
+    ############################################################################
+    # GLOBAL LOOP CLOSURE
+    ############################################################################
+
+    do_loop_closing: true                    # Whether to search for and close loops in the pose graph
+    loop_search_maximum_distance: 8.0        # Maximum distance (meters) for loop-closure candidates
+    loop_match_minimum_chain_size: 10        # Minimum number of linked scans in a loop candidate
+    loop_match_maximum_variance_coarse: 3.0  # Maximum accepted variance of a coarse loop match
+    loop_match_minimum_response_coarse: 0.35 # Minimum score for accepting a coarse loop match
+    loop_match_minimum_response_fine: 0.45   # Minimum score for accepting a fine loop match
+
+    ############################################################################
+    # CORRELATION SEARCH
+    ############################################################################
+
+    correlation_search_space_dimension: 0.4        # Width (meters) of the local matching search area
+    correlation_search_space_resolution: 0.01      # Grid spacing (meters) for local matching
+    correlation_search_space_smear_deviation: 0.08 # Smearing standard deviation (meters) for local matching
+
+    ############################################################################
+    # LOOP CLOSURE SEARCH SPACE
+    ############################################################################
+
+    loop_search_space_dimension: 8.0        # Width (meters) of the loop-closure matching search area
+    loop_search_space_resolution: 0.05      # Grid spacing (meters) for loop-closure matching
+    loop_search_space_smear_deviation: 0.03 # Smearing standard deviation (meters) for loop matching
+
+    ############################################################################
+    # PENALTY TERMS
+    ############################################################################
+
+    distance_variance_penalty: 0.3 # Distance variance used to penalize displacement from odometry
+    angle_variance_penalty: 0.5    # Angular variance used to penalize deviation from odometry
+
+    ############################################################################
+    # ANGLE SEARCH
+    ############################################################################
+
+    fine_search_angle_offset: 0.00349 # Angular extent (radians) of the fine search
+    coarse_search_angle_offset: 0.349 # Angular extent (radians) of the coarse search
+    coarse_angle_resolution: 0.0349   # Angular step (radians) for the coarse search
+    minimum_angle_penalty: 0.9        # Lower bound on the angular match penalty factor
+    minimum_distance_penalty: 0.5     # Lower bound on the distance match penalty factor
+    use_response_expansion: true      # Whether to expand the search when the initial response is weak
+    min_pass_through: 2               # Minimum cell observations required for occupancy classification
+    occupancy_threshold: 0.10         # Occupied-hit fraction threshold for marking a cell occupied
