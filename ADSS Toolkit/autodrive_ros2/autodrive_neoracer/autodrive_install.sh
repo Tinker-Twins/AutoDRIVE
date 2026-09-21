@@ -127,7 +127,6 @@ pip3 install "${PIP_FLAGS[@]}" luma.led_matrix
 echo ">> [3/6] Setting Up User Environment"
 
 # Emulate Jetson thermal management system
-
 JETSON_THERMAL="/jetson_thermal"
 mkdir -p "$JETSON_THERMAL"
 zones=(
@@ -151,21 +150,19 @@ done
 echo "Jetson thermal filesystem created:"
 find "$JETSON_THERMAL" -type f -print
 
-
-
+# Setup development environment
 sudo -u "$TARGET_USER" bash <<USEREOF
+
 set -e
 cd "$HOME_DIR"
 
 # FastDDS UDP-only profile: prevents one-way silent failures caused by stale or
-# cross-user shared-memory segments (especially on WSL2)
-
+# cross-user shared-memory segments
 cp "$SCRIPT_DIR/fastdds_udp.xml" "$HOME_DIR/fastdds_udp.xml"
 
-# Student library + labs, laid out exactly as setup_jupyter.sh does on the car:
+# Student library and labs, laid out exactly as on the vehicle physical twin:
 # ~/jupyter_ws/neoracer-os/{library,labs} with the library selected through a
 # racecar_student.pth in the user site-packages.
-
 NEO_OS="$HOME_DIR/jupyter_ws/neoracer-os"
 TMP=\$(mktemp -d)
 git clone --depth 1 --branch main https://github.com/Neobotics-Foundation-Inc/racecar-neo-library "\$TMP/lib"
@@ -177,104 +174,68 @@ rm -rf "\$TMP/labs/.git"
 mkdir -p "\$NEO_OS/labs"
 cp -r "\$TMP/labs/." "\$NEO_OS/labs/"
 rm -rf "\$TMP"
-cp "$SCRIPT_DIR/scripts/disparity_extender.py" "\$NEO_OS/labs/"
-
-# AutoDRIVE-specific: the wall follower's RB deadman guards fragile hardware;
-# AutoDRIVE has none, so disable it in THIS copy. The repository default stays True.
-
-[ -f "\$NEO_OS/labs/ultimate-wall-follower/wall_follower.py" ] && \
-  sed -i "s/^REQUIRE_DEADMAN = True/REQUIRE_DEADMAN = False/" \
-    "\$NEO_OS/labs/ultimate-wall-follower/wall_follower.py"
 SITE=\$(python3 -c "import site; print(site.getusersitepackages())")
 mkdir -p "\$SITE"
 echo "\$NEO_OS/library" > "\$SITE/racecar_student.pth"
 
-# ROS 2 workspace: the AutoDRIVE bridge plus the REAL driver package, whose mux
-# and throttle nodes run unmodified (autodrive.launch.py starts them).
-
+# Create ROS 2 workspace for autodrive_neoracer and neoracer_ros2_driver packages.
 mkdir -p ros2_ws/src
 
-# This script ships in two layouts: AutoDRIVE's Devkit/ (package in
-# an autodrive_neoracer/ subdirectory) and the AutoDRIVE-Devkit toolkit
-# (package.xml beside this script). Link whichever holds the package.
+# autodrive_neoracer
+# Create a symbolic link (symlink) named autodrive_neoracer inside the ROS 2 workspace
+# source directory, pointing it directly to the current script directory.
+ln -sfn "$SCRIPT_DIR" ros2_ws/src/autodrive_neoracer
 
-if [ -f "$SCRIPT_DIR/package.xml" ]; then
-    ln -sfn "$SCRIPT_DIR" ros2_ws/src/autodrive_neoracer
-else
-    ln -sfn "$SCRIPT_DIR/autodrive_neoracer" ros2_ws/src/autodrive_neoracer
-fi
+# neoracer_ros2_driver
+# Clone neoracer_ros2_driver and create a symlink named neoracer_ros2_driver inside the
+# ROS 2 workspace source directory, pointing it directly to the current script directory.
 [ -d "$HOME_DIR/neoracer_ros2_driver" ] || \
   git clone --depth 1 https://github.com/Neobotics-Foundation-Inc/neoracer_ros2_driver.git "$HOME_DIR/neoracer_ros2_driver"
-
-# Repo root, not the inner package dir: the car keeps the whole repo at
-# src/neoracer_ros2_driver so scripts/racecar-tool.sh resolves from the same
-# path. colcon discovers the nested package either way.
-
 ln -sfn "$HOME_DIR/neoracer_ros2_driver" ros2_ws/src/neoracer_ros2_driver
+
+# Build packages in ROS 2 workspace
 source /opt/ros/humble/setup.bash
 cd ros2_ws && colcon build --symlink-install --packages-select autodrive_neoracer neoracer_ros2_driver
 cd "$HOME_DIR"
 
-# osracer vendor stack. Pinned to a commit on the vendor's product/neo line:
-# osrbot has deleted branches under us before (dev, 2026-08), and AutoDRIVE
-# must build the tree it was validated against. Bump deliberately.
-
+# Create & build workspace for osracer stack (pinned to a commit on the vendor's product/neo branch).
 mkdir -p osracer_ws/src
 [ -d osracer_ws/src/osracer ] || \
   git clone -q --recurse-submodules --single-branch --branch product/neo https://github.com/osrbot/osracer.git osracer_ws/src/osracer
 cd osracer_ws && colcon build --symlink-install
 cd "$HOME_DIR"
 
-# launchers (fallbacks; the canonical workflow is the bashrc aliases below)
-
-cp "$SCRIPT_DIR/start_autodrive_bridge.sh" "$HOME_DIR/start_autodrive_bridge.sh"
-cp "$SCRIPT_DIR/run_autodrive_lab.sh" "$HOME_DIR/run_autodrive_lab.sh"
-chmod +x "$HOME_DIR/start_autodrive_bridge.sh" "$HOME_DIR/run_autodrive_lab.sh"
-
-# Jetson-parity shell environment: same structure as the real NeoRacer, where
-# .bashrc sources ROS + workspace + library and 'teleop' is a launch alias.
-
-if ! grep -q "NeoRacer AutoDRIVE" "$HOME_DIR/.bashrc"; then
+# Jetson-parity shell environment: same structure as the vehicle physical twin.
+if ! grep -q "AutoDRIVE-NeoRacer" "$HOME_DIR/.bashrc"; then
 cat >> "$HOME_DIR/.bashrc" <<'BLOCK'
 
-# >>> NeoRacer AutoDRIVE (mirrors the Jetson bashrc) >>>
+# >>> AutoDRIVE-NeoRacer >>>
 
+# Source the development environment
 source /opt/ros/humble/setup.bash
-
-# osracer underlay BENEATH the neoracer overlay, same order as the car's
-# launch_autonomy.sh
-# NOTE: this BLOCK sits inside the outer USEREOF heredoc, which expands
-# variables as root - every literal-$HOME below must stay escaped.
-
-[ -f \$HOME/osracer_ws/install/setup.bash ] && source \$HOME/osracer_ws/install/setup.bash
+source \$HOME/osracer_ws/install/setup.bash
 source \$HOME/ros2_ws/install/setup.bash
+
+# Export DDS profile
 export FASTRTPS_DEFAULT_PROFILES_FILE=\$HOME/fastdds_udp.xml
 
-# For every shell to default to UDP-only DDS (optional)
-# echo 'export FASTRTPS_DEFAULT_PROFILES_FILE=\$HOME/fastdds_udp.xml' >> ~/.bashrc
-# source ~/.bashrc
+# Alias to bring up autodrive_bridge & required neoracer_ros2_driver components.
+alias autodrive-bringup='ros2 launch autodrive_neoracer autodrive.launch.py'
 
-# 'teleop' on the car brings up the driver; 'autodrive' brings up the
-# AutoDRIVE bridge + mux + throttle.
-
-alias autodrive='ros2 launch autodrive_neoracer autodrive.launch.py'
-
-# the car's autonomy graph with ground-truth TF (slam:=true / nav:=true opt-in)
-
+# Alias to launch interfaces, TF, and nodes required for autonomy (slam/nav opt-in).
 alias autodrive-autonomy='ros2 launch autodrive_neoracer autonomy.launch.py'
 
-# AutoDRIVE's equivalent of pressing START on the gamepad
+# Alias to emulate pressing START on the (virtual) gamepad.
+alias autodrive-start='ros2 topic pub --times 6 -r 2 /joy sensor_msgs/msg/Joy "{axes: [0,0,0,0,0,0,0,0], buttons: [0,0,0,0,0,0,0,1,0,0,0]}" >/dev/null 2>&1; ros2 topic pub --times 2 -r 2 /joy sensor_msgs/msg/Joy "{axes: [0,0,0,0,0,0,0,0], buttons: [0,0,0,0,0,0,0,0,0,0,0]}" >/dev/null 2>&1; echo "START pressed"'
 
-alias press-start='ros2 topic pub --times 6 -r 2 /joy sensor_msgs/msg/Joy "{axes: [0,0,0,0,0,0,0,0], buttons: [0,0,0,0,0,0,0,1,0,0,0]}" >/dev/null 2>&1; ros2 topic pub --times 2 -r 2 /joy sensor_msgs/msg/Joy "{axes: [0,0,0,0,0,0,0,0], buttons: [0,0,0,0,0,0,0,0,0,0,0]}" >/dev/null 2>&1; echo "START pressed"'
+# <<< AutoDRIVE-NeoRacer <<<
 
-# <<< NeoRacer AutoDRIVE <<<
-
-# NeoRacer - shell tool
-
+# Setup the NeoRacer shell tool.
 [ -f "\$HOME/ros2_ws/src/neoracer_ros2_driver/scripts/racecar-tool.sh" ] && \
     source "\$HOME/ros2_ws/src/neoracer_ros2_driver/scripts/racecar-tool.sh"
 BLOCK
 fi
+
 USEREOF
 
 ################################################################################
@@ -318,36 +279,15 @@ done
 
 ################################################################################
 
-echo ">> [6/6] Service manager"
-# Services replicate the physical car's operational surface. systemd is used
-# on a normal Ubuntu install; Docker uses the supervisord backend below. Each
-# unit still wraps one unchanged foreground command.
+echo ">> [6/6] Setting Up Services"
+# Services replicate the physical twin's operational surface. `systemd` is used
+# on a bare-metal Ubuntu install; Docker uses the `supervisord` backend instead.
 if [ -d /run/systemd/system ]; then
-    bash "$SCRIPT_DIR/autodrive_services.sh"
+    bash "$SCRIPT_DIR/autodrive_systemd.sh"
 else
-    bash "$SCRIPT_DIR/autodrive_supervisor.sh"
+    bash "$SCRIPT_DIR/autodrive_supervisord.sh"
 fi
 
-echo "Done."
-# Inside a container, hostname -I reports the container's internal address,
-# which the AutoDRIVE host cannot reach; the docker-published port on the
-# host is the real endpoint.
-if [ -d /run/systemd/system ]; then
-    IP=$(hostname -I | awk '{print $1}')
-else
-    IP="the Docker host's address (port 4567 is published; localhost works on the same machine)"
-fi
-cat <<DONE
-==============================================================================
- AutoDRIVE-NeoRacer Development Environment Ready!
+################################################################################
 
- 1) AutoDRIVE Simulator (Windows host): open the AutoDRIVE project in Unity,
-    select scene 'NeoRacer - Test', press Play, then
-    Connect to  $IP : 4567  and set Driving Mode: Autonomous.
-    (Native Ubuntu: use 127.0.0.1)
-
- 2) AutoDRIVE:  ~/start_autodrive_bridge.sh (bridge + real mux/throttle)
- 3) Autonomy:   ~/run_autodrive_lab.sh      (racecar_core lab; any lab from
-                ~/jupyter_ws/neoracer-os/labs works, e.g. lab_e wall follower)
-==============================================================================
-DONE
+echo "AutoDRIVE-NeoRacer Development Environment Ready!"
