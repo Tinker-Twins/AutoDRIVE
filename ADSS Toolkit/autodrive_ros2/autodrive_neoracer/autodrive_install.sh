@@ -280,13 +280,9 @@ done
 ################################################################################
 
 echo ">> [6/6] Setting Up Services"
-# Services replicate the physical twin's operational surface. `systemd` is used
-# on a bare-metal Ubuntu install; Docker uses the `supervisord` backend instead.
-if [ -d /run/systemd/system ]; then
-    bash "$SCRIPT_DIR/autodrive_systemd.sh"
-else
-    bash "$SCRIPT_DIR/autodrive_supervisord.sh"
-fi
+
+# Services replicate the physical twin's operational surface.
+bash "$SCRIPT_DIR/autodrive_services.sh"
 
 ################################################################################
 
