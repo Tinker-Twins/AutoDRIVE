@@ -33,7 +33,7 @@
 # This node emulates the hardware I/O of neoracer_ros2_driver (ESP32-S3, LakiBeam1,
 # USB-Camera); the mux_node and throttle_node from the driver package run unmodified
 # alongside it (along with the gamepad_node and inference_node). This way, the digital
-# twin exercises the same chain of command as the physical twin of the car:
+# twin exercises the same chain of command as the physical twin of the vehicle:
 # /drive --> mux_node --> /mux_out --> throttle_node --> /motor
 # Existing dashboards/demos/labs for neoracer & racecar-neo work unchanged.
 
@@ -61,6 +61,7 @@ import signal # Asynchronous event signals
 import threading # Thread-based parallelism
 import traceback # Stack trace formatting
 from scipy.spatial.transform import Rotation # Rotation matrix
+import queue # FIFO queue
 
 #########################################################
 # REAL2SIM PARAMETER MAPPING
@@ -69,7 +70,7 @@ from scipy.spatial.transform import Rotation # Rotation matrix
 # Speed:
 # - /motor speed matches neoracer_ros2_driver with a range of +/-6 m/s.
 # - The ESP32-S3 on the physical twin closes the speed control loop, while
-# this node uses feedforward + proportional control on measured speed to
+# this node uses feedforward + feedback (PID) control on measured speed to
 # reproduce the physical twin's closed-loop behavior.
 #
 # Steering:
@@ -105,12 +106,61 @@ from scipy.spatial.transform import Rotation # Rotation matrix
 # clockwise; no-return = 0.0 & rear blind sector (between 135° and 225°) returns 0.0.
 
 MAX_SPEED_MPS = 6.0 # DBW speed limit for the drive motor (m/s)
-SPEED_CTRL_KP = 0.5 # Proportional gain of the speed controller
+SPEED_CTRL_KP = 0.50 # Proportional gain of the speed controller
+SPEED_CTRL_KI = 0.01 # Integral gain of the speed controller
+SPEED_CTRL_KD = 0.01 # Derivative gain of the speed controller
+SPEED_CTRL_KS = 5 # Saturation constant of the speed controller
 MAX_STEER_PWM = 0.625 # SBW limit based on servo pulse swing (ms)
 LIDAR_SCAN_SIZE = 1440 # 360 deg sweep at 0.25 deg resolution (bins)
 LIDAR_SCAN_RATE = 30.0 # LIDAR scan frequency (Hz)
 BATTERY_V_MIN = 10.8 # Minimum 3S LiPo voltage (V)
 BATTERY_V_MAX = 12.6 # Maximum 3S LiPo voltage (V)
+
+#########################################################
+# PID CONTROLLER
+#########################################################
+
+class PID_Controller:
+    '''
+    Generates control action taking into account instantaneous error (proportional action),
+    accumulated error (integral action) and rate of change of error (derivative action).
+    '''
+    def __init__(self, kP, kI, kD, kS):
+        self.kP       = kP # Proportional gain
+        self.kI       = kI # Integral gain
+        self.kD       = kD # Derivative gain
+        self.kS       = kS # Saturation constant (error history buffer size)
+        self.err_int  = 0 # Error integral
+        self.err_dif  = 0 # Error difference
+        self.err_prev = 0 # Previous error
+        self.err_hist = queue.Queue(self.kS) # Limited buffer of error history
+        self.t_prev   = 0 # Previous time
+
+    def control(self, err, t, kP=None, kI=None, kD=None):
+        '''
+        Generate PID controller output.
+        :param err: Instantaneous error in control variable w.r.t. setpoint
+        :param t  : Current timestamp
+        :return u : PID controller output
+        '''
+        kP = self.kP if kP is None else kP
+        kI = self.kI if kI is None else kI
+        kD = self.kD if kD is None else kD
+        # Timestep
+        if self.t_prev == 0:
+            dt = 1
+        else:
+            dt = t - self.t_prev
+        if dt > 0.0:
+            self.err_hist.put(err) # Update error history
+            self.err_int += err # Integrate error
+            if self.err_hist.full(): # Jacketing logic to prevent integral windup
+                self.err_int -= self.err_hist.get() # Rolling FIFO buffer
+            self.err_dif = (err - self.err_prev) # Error difference
+            u = (kP * err) + (kI * self.err_int * dt) + (kD * self.err_dif / dt) # PID control law
+            self.err_prev = err # Update previous error term
+            self.t_prev = t # Update timestamp
+            return u # Control signal
 
 #########################################################
 # ROS 2 MESSAGE GENERATING FUNCTIONS
@@ -187,18 +237,30 @@ class AutoDRIVE_Bridge(Node):
         self.joy_btn_state = -1
 
         # ROS 2 node parameters
-        self.declare_parameter('throttle_sign', 1.0)
-        self.declare_parameter('steering_sign', 1.0)
         self.declare_parameter('battery_voltage', 12.6)
         self.declare_parameter('magnetic_field_e', -2.8222e-6)  # Magnetic field parameters are based on the WMMHR (2024-2029) model for CU-ICAR
         self.declare_parameter('magnetic_field_n', 22.4546e-6)  # (Lat: 34.81497238768911 deg, Lon: -82.3255659545739 deg, Alt: 299 m) in Tesla
         self.declare_parameter('magnetic_field_u', -42.8711e-6) # expressed in the ENU (East-North-Up) coordinate system.
-        self.throttle_sign = self.get_parameter('throttle_sign').value
-        self.steering_sign = self.get_parameter('steering_sign').value
+        self.declare_parameter('speed_ctrl_kP', SPEED_CTRL_KP)
+        self.declare_parameter('speed_ctrl_kI', SPEED_CTRL_KI)
+        self.declare_parameter('speed_ctrl_kD', SPEED_CTRL_KD)
+        self.declare_parameter('throttle_sign', 1.0)
+        self.declare_parameter('steering_sign', 1.0)
         self.battery_voltage = self.get_parameter('battery_voltage').value
         self.magnetic_field_e = self.get_parameter('magnetic_field_e').value
         self.magnetic_field_n = self.get_parameter('magnetic_field_n').value
         self.magnetic_field_u = self.get_parameter('magnetic_field_u').value
+        self.speed_ctrl_kP = self.get_parameter('speed_ctrl_kP').value
+        self.speed_ctrl_kI = self.get_parameter('speed_ctrl_kI').value
+        self.speed_ctrl_kD = self.get_parameter('speed_ctrl_kD').value
+        self.throttle_sign = self.get_parameter('throttle_sign').value
+        self.steering_sign = self.get_parameter('steering_sign').value
+
+        # Speed controller
+        self.speed_controller = PID_Controller(self.speed_ctrl_kP,
+                                               self.speed_ctrl_kI,
+                                               self.speed_ctrl_kD,
+                                               SPEED_CTRL_KS) # PID controller object initialized with kP, kI, kD, kS
 
         # Publishers and subscribers (QoS matching the neoracer_ros2_driver)
         self.create_subscription(AckermannDriveStamped, '/motor', self.callback_motor, qos_profile_sensor_data)
@@ -217,13 +279,18 @@ class AutoDRIVE_Bridge(Node):
         self.create_timer(0.1, self.publish_joy) # 10 Hz
         self.create_timer(2.0, self.publish_battery) # 0.5 Hz
         self.create_timer(0.05, self.publish_mag) # 20 Hz
+        self.create_timer(0.1, self.update_parameters) # 10 Hz
 
     # ROS 2 subscriber callbacks
     def callback_motor(self, msg):
-        self.target_speed = self.throttle_sign * max(-1.0, min(1.0, msg.drive.speed)) * MAX_SPEED_MPS
+        self.target_speed = max(-1.0, min(1.0, msg.drive.speed)) * MAX_SPEED_MPS
         feedforward = self.target_speed / MAX_SPEED_MPS
-        proportional = SPEED_CTRL_KP * (self.target_speed - self.actual_speed) / MAX_SPEED_MPS
-        self.throttle_cmd = max(-1.0, min(1.0, feedforward + proportional))
+        feedback_pid = self.speed_controller.control(self.target_speed - self.actual_speed,
+                                                     self.get_clock().now().nanoseconds * 1e-9,
+                                                     self.speed_ctrl_kP,
+                                                     self.speed_ctrl_kI,
+                                                     self.speed_ctrl_kD) / MAX_SPEED_MPS
+        self.throttle_cmd = self.throttle_sign * max(-1.0, min(1.0, feedforward + feedback_pid))
         self.steering_cmd = self.steering_sign * max(-1.0, min(1.0, msg.drive.steering_angle / MAX_STEER_PWM))
 
     def callback_dotmatrix(self, msg):
@@ -298,13 +365,29 @@ class AutoDRIVE_Bridge(Node):
         self.linear_velocity = np.fromstring(data["V1 Linear Velocity"], dtype=float, sep=' ')
         self.angular_velocity = np.fromstring(data["V1 Angular Velocity"], dtype=float, sep=' ')
         self.linear_acceleration = np.fromstring(data["V1 Linear Acceleration"], dtype=float, sep=' ')
-        self.actual_speed = float(np.hypot(self.linear_velocity[0], self.linear_velocity[1]))
+        self.actual_speed = self.linear_velocity[0]
         stamp = self.get_clock().now().to_msg()
         self.pub_encoder.publish(Float32(data=self.actual_speed))
         self.pub_imu.publish(create_imu_msg(stamp, self.orientation, self.angular_velocity, self.linear_acceleration))
         self.pub_odom.publish(create_odom_msg(stamp, self.position, self.orientation, self.linear_velocity))
         self.pub_lidar.publish(create_laserscan_msg(stamp, np.fromstring(gzip.decompress(base64.b64decode(data["V1 LIDAR Range Array"])).decode('utf-8'), sep='\n')))
         self.pub_camera.publish(create_image_msg(stamp, base64.b64decode(data['V1 Front Camera Image'])))
+
+    # ROS 2 parameter updates
+    def update_parameters(self):
+        names = (
+            'battery_voltage',
+            'magnetic_field_e',
+            'magnetic_field_n',
+            'magnetic_field_u',
+            'speed_ctrl_kP',
+            'speed_ctrl_kI',
+            'speed_ctrl_kD',
+            'throttle_sign',
+            'steering_sign',
+        )
+        for parameter in self.get_parameters(names):
+            setattr(self, parameter.name, parameter.value)
 
 #########################################################
 # WEBSOCKET SERVER INFRASTRUCTURE
