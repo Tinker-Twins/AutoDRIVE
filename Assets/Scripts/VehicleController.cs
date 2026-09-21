@@ -165,7 +165,6 @@ public class VehicleController : MonoBehaviour
     private void Drive()
   	{
         //Debug.Log("RPM: " + (RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/2); // Average wheel speed (RPM)
-        //Debug.Log("Speed: " + (Mathf.PI*0.065)*((RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/120)); // Average vehicle speed (m/s)
 
         if(DrivingMode == 0) DriveTorque = ThrottleLimit*ThrottleInput*MotorTorque; // Manual Driving
         else DriveTorque = ThrottleLimit*AutonomousThrottle*MotorTorque; // Autonomous Driving
@@ -264,7 +263,6 @@ public class VehicleController : MonoBehaviour
     private void ExtendedDifferentialDrive()
   	{
         //Debug.Log("RPM: " + (RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/2); // Average wheel speed (RPM)
-        //Debug.Log("Speed: " + (Mathf.PI*0.065)*((RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/120)); // Average vehicle speed (m/s)
 
         if (DrivingMode == 0) linearInput = ThrottleInput; // Manual Driving
         else linearInput = AutonomousThrottle; // Autonomous Driving

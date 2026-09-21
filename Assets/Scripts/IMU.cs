@@ -99,7 +99,7 @@ public class IMU : MonoBehaviour
 
         // Linear Acceleration (m/s^2)
         CurrentVelocity = VehicleRigidBody.velocity;
-        LinearAcceleration = (CurrentVelocity - PreviousVelocity)/(Time.deltaTime) + g;
+        LinearAcceleration = (CurrentVelocity - PreviousVelocity)/(Time.deltaTime) - g;
         LocalAcceleration = VehicleRigidBody.transform.InverseTransformDirection(LinearAcceleration);
         PreviousVelocity = CurrentVelocity;
         LinearAccelerationArray[0] = LocalAcceleration.z;

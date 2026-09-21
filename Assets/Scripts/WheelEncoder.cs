@@ -12,9 +12,8 @@ public class WheelEncoder : MonoBehaviour
     */
 
     public WheelCollider Wheel;
-    public WheelCollider Wheel2; // optional: average two wheels, e.g. a single motor encoder upstream of a differential
     public int PPR;
-    public int GearRatio;
+    public float GearRatio;
 
     private float RPS = 0f;
     public float TotalRevolutions = 0f;
@@ -57,18 +56,18 @@ public class WheelEncoder : MonoBehaviour
     void FixedUpdate()
     {
         // ENCODER TICKS
-        RPS = (Wheel2 == null ? Wheel.rpm : (Wheel.rpm + Wheel2.rpm)*0.5f)/60f; // Read the current wheel RPM (or differential average) and convert to RPS
+        RPS = Wheel.rpm/60f; // Read the current wheel RPM and convert to RPS
         TotalRevolutions += RPS * Time.deltaTime; // Scale by time since the last frame and add to the total revolutions
         TotalTicks = (int)(TotalRevolutions*PPR*GearRatio); // Compute ticks of the encoder
-        //Debug.Log("Encoder Ticks: " + TotalTicks);
+        // Debug.Log("Encoder Ticks: " + TotalTicks);
 
         // WHEEL ANGLE
         TotalAngle = ((TotalTicks*2*Mathf.PI)/(PPR*GearRatio)); // Angle turned by the wheel (rad)
-        //Debug.Log("Wheel Angle: " + TotalAngle);
+        // Debug.Log("Wheel Angle: " + TotalAngle);
 
         // VELOCITY FROM WHEEL SPEED (RPM)
-        VelocityFromRPM = (Mathf.PI*0.065f*RPS);
-        //Debug.Log("Velocity From RPM: " + VelocityFromRPM);
+        VelocityFromRPM = (2f*Mathf.PI*Wheel.radius*RPS);
+        // Debug.Log("Velocity From RPM: " + VelocityFromRPM);
 
         // VELOCITY FROM ENCODER TICKS
         // Shifting Average Filter
@@ -76,7 +75,7 @@ public class WheelEncoder : MonoBehaviour
         {
             VelocityBuffer.Dequeue();
         }
-        VelocityBuffer.Enqueue(((TotalTicks - PrevTotalTicks)/Time.deltaTime)*(0.000106356f)); // (360/1920)*(Mathf.PI/180)*(0.065/2) = 1.06356e-4
+        VelocityBuffer.Enqueue(((TotalTicks - PrevTotalTicks)/Time.deltaTime)*((360f/(PPR*GearRatio))*(Mathf.PI/180f)*(Wheel.radius)));
         PrevTotalTicks = TotalTicks;
         VelocitySum = 0;
         foreach (float Velocity in VelocityBuffer)
@@ -84,6 +83,6 @@ public class WheelEncoder : MonoBehaviour
             VelocitySum += Velocity;
         }
         VelocityFromTicks = VelocitySum/VelocityBufferLimit;
-        //Debug.Log("Velocity From Ticks: " + VelocityFromTicks);
+        // Debug.Log("Velocity From Ticks: " + VelocityFromTicks);
     }
 }

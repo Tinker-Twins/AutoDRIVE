@@ -1,11 +1,136 @@
 fileFormatVersion: 2
-guid: b9857cb8bbca90d45bd6877a0fe0e1d7
+guid: 563debff13ee1cd44b75c9965754c5a3
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #44
+    second: {fileID: 2100000, guid: 19d37c0bf2fce654d8e0524a0bc9d11a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black high gloss plastic
+    second: {fileID: 2100000, guid: 938eb75db89c0b545b7d0aab2fa0da72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black low gloss plastic
+    second: {fileID: 2100000, guid: 41d7755d4e654484b8206d92f36f5e36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black medium gloss plastic
+    second: {fileID: 2100000, guid: 7745f70d026548840973b91dcd83e169, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black satin finish plastic
+    second: {fileID: 2100000, guid: 9fc73465bbe2ac7418bc983efb60a2d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: black spray paint
+    second: {fileID: 2100000, guid: 6d36f71893a058b4ca5b45af09861dec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: candy apple red
+    second: {fileID: 2100000, guid: 00655a7e3a3aea04ebda6e049be95618, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark powdercoat
+    second: {fileID: 2100000, guid: 7921195690e881d44a7e32963e3d0879, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: green low gloss plastic
+    second: {fileID: 2100000, guid: 564eab18864a27b4e8dd95066cea21a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light grey low gloss plastic
+    second: {fileID: 2100000, guid: 6f7a45c813e1c5546a3b5f1d8fc99cf6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte aluminum
+    second: {fileID: 2100000, guid: f095a88e7c854a249906ea0ed787032c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte brass
+    second: {fileID: 2100000, guid: 76f6a9e1109c65340a02dcc9375a343c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: matte rubber
+    second: {fileID: 2100000, guid: 7abbf3dff70b9424ea259d2a76ed4de5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polished aluminum
+    second: {fileID: 2100000, guid: 7ed84bfea1312f24882afa24bd4ed0f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polished brass
+    second: {fileID: 2100000, guid: 8a4a04ca5f6eb5e4fa6f310a3fb8dcdd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polished steel
+    second: {fileID: 2100000, guid: 872464c9a84e9c0468d0e06ff39606d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red led
+    second: {fileID: 2100000, guid: 8842d3cfa33e71c46b7c22e71efe3b8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red low gloss plastic
+    second: {fileID: 2100000, guid: 8aba99dbc16ef064ba3f60f0a5a4c3b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red satin finish plastic
+    second: {fileID: 2100000, guid: de1e810fbc7dc2b4f98e5ca2e80034cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: textured rubber
+    second: {fileID: 2100000, guid: 97fe896300a6976468afa80b047ff567, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: translucent plastic
+    second: {fileID: 2100000, guid: 863f98b4b6142894eb56bfafeed321fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white high gloss plastic
+    second: {fileID: 2100000, guid: 72692608487734541a8e61e2c954cf90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white low gloss plastic
+    second: {fileID: 2100000, guid: 66b59ce2dbdedd54db14c16791c336d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow low gloss plastic
+    second: {fileID: 2100000, guid: 040c19d5a79d65c4795b89c599ab9d46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow soft touch plastic
+    second: {fileID: 2100000, guid: d92df3865d8ae1945b8e2b749a13e988, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
