@@ -47,6 +47,8 @@ from nav_msgs.msg import Odometry # Odometry message class
 
 # Python module imports
 import logging # Logging module for structured log messages
+import fcntl # Cross-process lock shared with the container service wrapper
+from contextlib import contextmanager # Scoped recovery lock
 import os # Operating system interfaces for file and process management
 from pathlib import Path # Object-oriented filesystem paths
 import shutil # High-level file operations and shell utilities
@@ -65,6 +67,8 @@ INFERENCE_GRACE_SECONDS = 180.0
 # Service recovery timing
 RESTART_COOLDOWN_SECONDS = 30.0
 PORT_RELEASE_TIMEOUT_SECONDS = 10.0
+SUPERVISOR_CONF = '/etc/supervisor/conf.d/neoracer.conf'
+SERVICE_RUNTIME = Path('/run/neoracer-supervisor')
 
 # AutoDRIVE connection health
 AUTODRIVE_PORT = 4567
@@ -128,6 +132,7 @@ class AutoDRIVE_Watchdog(Node):
         self.last_state = {}
         self.last_restart = 0.0
         self.last_autodrive_data = None
+        self.previous_service_state = None
 
         # Any message from these AutoDRIVE streams proves that the
         # simulator connection is actively delivering vehicle data.
@@ -179,17 +184,59 @@ class AutoDRIVE_Watchdog(Node):
             ]
         return ['systemctl', action, 'neoracer-teleop']
 
-    def service_is_running(self):
-        """Return whether the neoracer-teleop service is running."""
-        result = subprocess.run(
-            self.service_command('status'),
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        if os.path.exists('/etc/supervisor/conf.d/neoracer.conf'):
-            return result.returncode == 0 and 'RUNNING' in result.stdout
-        return result.returncode == 0
+    def service_state(self):
+        """Distinguish administrative stops, transitions, failures and query errors."""
+        supervisor = os.path.exists(SUPERVISOR_CONF)
+        command = self.service_command('status') if supervisor else [
+            'systemctl', 'show', 'neoracer-teleop', '--property=ActiveState', '--value',
+        ]
+        try:
+            result = subprocess.run(command, capture_output=True, text=True,
+                                    check=False, timeout=5)
+        except (OSError, subprocess.TimeoutExpired):
+            return 'UNKNOWN'
+        if supervisor:
+            # supervisorctl returns nonzero for valid non-running states too.
+            fields = result.stdout.split()
+            states = {'STOPPED', 'STOPPING', 'STARTING', 'BACKOFF',
+                      'RUNNING', 'EXITED', 'FATAL'}
+            if len(fields) >= 2 and fields[0] == 'neoracer-teleop' and fields[1] in states:
+                return fields[1]
+            return 'UNKNOWN'
+        if result.returncode != 0:
+            return 'UNKNOWN'
+        return {'active': 'RUNNING', 'inactive': 'STOPPED', 'failed': 'FATAL',
+                'activating': 'STARTING', 'deactivating': 'STOPPING',
+                'reloading': 'STARTING'}.get(result.stdout.strip(), 'UNKNOWN')
+
+    def manually_stopped(self):
+        """Manual stop intent is separate from enable/disable startup preferences."""
+        return (os.path.exists(SUPERVISOR_CONF)
+                and (SERVICE_RUNTIME / 'teleop.manually-stopped').exists())
+
+    @contextmanager
+    def recovery_lock(self):
+        """Serialize container recovery with explicit CLI service operations."""
+        if not os.path.exists(SUPERVISOR_CONF):
+            yield True
+            return
+        try:
+            # Setup owns creation/permissions; missing setup must not trigger recovery.
+            lock = (SERVICE_RUNTIME / 'teleop.lock').open('a')
+        except OSError as error:
+            self.report('recovery_lock', f'AutoDRIVE Recovery deferred: {error}', logging.WARNING)
+            yield False
+            return
+        with lock:
+            try:
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                yield False
+                return
+            try:
+                yield True
+            finally:
+                fcntl.flock(lock, fcntl.LOCK_UN)
 
     @staticmethod
     def autodrive_port_is_open():
@@ -242,6 +289,15 @@ class AutoDRIVE_Watchdog(Node):
         return not self.autodrive_port_is_open()
 
     def restart_service(self, reason):
+        """Recheck intent under the lock before starting a recovery transaction."""
+        with self.recovery_lock() as acquired:
+            if not acquired or self.manually_stopped():
+                return
+            if self.service_state() not in ('RUNNING', 'EXITED', 'FATAL'):
+                return
+            self._restart_service(reason)
+
+    def _restart_service(self, reason):
         """Safely restart neoracer-teleop service after releasing AutoDRIVE Bridge port."""
         now = time.monotonic()
         if now - self.last_restart < RESTART_COOLDOWN_SECONDS:
@@ -271,10 +327,16 @@ class AutoDRIVE_Watchdog(Node):
         if not self.close_autodrive_port():
             self.report(
                 'restart_error',
-                'AutoDRIVE Recovery Error: TCP port {AUTODRIVE_PORT} '
+                f'AutoDRIVE Recovery Error: TCP port {AUTODRIVE_PORT} '
                 'remained occupied; neoracer-teleop was not restarted',
                 logging.ERROR,
             )
+            self.last_restart = now
+            return
+
+        # A manual stop can arrive while port cleanup is in progress.
+        if self.manually_stopped():
+            self.report('restart', 'AutoDRIVE Recovery cancelled: teleop was manually stopped')
             self.last_restart = now
             return
 
@@ -291,6 +353,8 @@ class AutoDRIVE_Watchdog(Node):
                 logging.ERROR,
             )
         else:
+            self.started_at = time.monotonic()
+            self.last_autodrive_data = None
             self.report(
                 'restart',
                 'AutoDRIVE Recovery OK: Restarted neoracer-teleop successfully',
@@ -300,15 +364,27 @@ class AutoDRIVE_Watchdog(Node):
 
     def check(self):
         """Check required AutoDRIVE-NeoRacer nodes and topics once."""
+        state = self.service_state()
+        previous = self.previous_service_state
+        self.previous_service_state = state
+        if self.manually_stopped() or state in ('STOPPED', 'STOPPING', 'STARTING', 'BACKOFF', 'UNKNOWN'):
+            self.started_at = time.monotonic()
+            self.last_autodrive_data = None
+            self.report('service_state', f'AutoDRIVE Watchdog: teleop {state}; recovery deferred',
+                        logging.WARNING if state == 'UNKNOWN' else logging.INFO)
+            return
+        if state == 'RUNNING' and previous not in (None, 'RUNNING'):
+            self.started_at = time.monotonic()
+        self.report('service_state', f'AutoDRIVE Watchdog: teleop {state}')
         age = time.monotonic() - self.started_at
 
         # Allow ROS discovery and launch processes to settle after startup.
         if age < STARTUP_GRACE_SECONDS:
             return
 
-        # Recover immediately when the service manager reports neoracer-teleop stopped.
-        if not self.service_is_running():
-            self.restart_service('neoracer-teleop is not running')
+        # Only terminal failures warrant recovery; administrative stops are respected.
+        if state in ('EXITED', 'FATAL'):
+            self.restart_service(f'neoracer-teleop is {state}')
             return
 
         # Required runtime nodes are restart-worthy failures.
@@ -325,6 +401,7 @@ class AutoDRIVE_Watchdog(Node):
                 logging.WARNING,
             )
             self.restart_service(reason)
+            return # Do not use the pre-recovery graph snapshot for further checks.
         else:
             self.report(
                 'required_nodes',
