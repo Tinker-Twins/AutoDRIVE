@@ -55,7 +55,6 @@ setup(
             'autodrive_bridge = autodrive_neoracer.autodrive_bridge:main',
             'autodrive_watchdog = autodrive_neoracer.autodrive_watchdog:main',
             'teleop_keyboard = nodes.teleop_keyboard:main',
-            'disparity_extender = nodes.disparity_extender:main',
         ],
     },
 )
