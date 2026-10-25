@@ -164,15 +164,15 @@ The automated bringup enables convenient latching to user-implemented ROS 2 node
     ```
     racecar service start <dashboard_name>
     ```
-    | Lab Dashboard | Run Directly | Start Service | URL |
-    |---|---|---|---|
-    | `wallfollow` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/wallfollow_dashboard/wallfollow.py` | `racecar service start wallfollow` | http://localhost:8081 |
-    | `camlabel` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/camlabel_dashboard/camlabel.py` | `racecar service start camlabel` | http://localhost:8082 |
-    | `pursuit` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/pursuit_dashboard/pursuit.py` | `racecar service start pursuit` | http://localhost:8083 |
-    | `eps` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/eps_dashboard/eps.py` | `racecar service start eps` | http://localhost:8084 |
-    | `smartfollow` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/smartfollow_dashboard/smartfollow.py` | `racecar service start smartfollow` | http://localhost:8085 |
-    | `linefollow` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/linefollow_dashboard/linefollow.py` | `racecar service start linefollow` | http://localhost:8086 |
-    | `webteleop` | `python3 ~/neoracer_ros2_driver/scripts/dashboards/teleop_dashboard/teleop.py` | `racecar service start webteleop` | http://localhost:8087 |
+| <sub>Lab Dashboard</sub> | <sub>Run Directly</sub> | <sub>Start Service</sub> | <sub>URL</sub> |
+|--------------------------|-------------------------|--------------------------|----------------|
+| <sub>`wallfollow`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/wallfollow_dashboard/wallfollow.py`</sub> | <sub>`racecar service start wallfollow`</sub> | <sub>http://localhost:8081</sub> |
+| <sub>`camlabel`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/camlabel_dashboard/camlabel.py`</sub> | <sub>`racecar service start camlabel`</sub> | <sub>http://localhost:8082</sub> |
+| <sub>`pursuit`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/pursuit_dashboard/pursuit.py`</sub> | <sub>`racecar service start pursuit`</sub> | <sub>http://localhost:8083</sub> |
+| <sub>`eps`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/eps_dashboard/eps.py`</sub> | <sub>`racecar service start eps`</sub> | <sub>http://localhost:8084</sub> |
+| <sub>`smartfollow`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/smartfollow_dashboard/smartfollow.py`</sub> | <sub>`racecar service start smartfollow`</sub> | <sub>http://localhost:8085</sub> |
+| <sub>`linefollow`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/linefollow_dashboard/linefollow.py`</sub> | <sub>`racecar service start linefollow`</sub> | <sub>http://localhost:8086</sub> |
+| <sub>`webteleop`</sub> | <sub>`python3 ~/neoracer_ros2_driver/scripts/dashboards/teleop_dashboard/teleop.py`</sub> | <sub>`racecar service start webteleop`</sub> | <sub>http://localhost:8087</sub> |
 
 ## Autonomy
 
