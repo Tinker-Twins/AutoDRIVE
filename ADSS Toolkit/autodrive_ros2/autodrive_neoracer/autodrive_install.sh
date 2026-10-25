@@ -88,6 +88,8 @@ sudo apt update && apt install -y --no-install-recommends \
   ros-humble-robot-localization \
   ros-humble-imu-complementary-filter \
   ros-humble-slam-toolbox \
+  ros-humble-cartographer \
+  ros-humble-cartographer-ros \
   ros-humble-libg2o \
   ros-humble-navigation2 \
   ros-humble-nav2-bringup \

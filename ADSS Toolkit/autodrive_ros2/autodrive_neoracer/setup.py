@@ -46,7 +46,8 @@ setup(
         (os.path.join('share', package_name, 'maps'), glob('maps/*.pgm')), # Map image files
     ],
     install_requires=['setuptools'],
-    zip_safe=True,maintainer='Chinmay Vilas Samak' 'Tanmay Vilas Samak',
+    zip_safe=True,
+    maintainer='Chinmay Vilas Samak' 'Tanmay Vilas Samak',
     maintainer_email='csamak@clemson.edu' 'tsamak@clemson.edu',
     description='AutoDRIVE Ecosystem ROS 2 Package for NeoRacer',
     license='BSD',

@@ -77,7 +77,6 @@ AUTODRIVE_DATA_TIMEOUT_SECONDS = 5.0
 # Missing nodes trigger recovery
 REQUIRED_NODES = {
     'autodrive_bridge',
-    'foxglove_bridge',
     'gamepad_node',
     'mux_node',
     'throttle_node',
