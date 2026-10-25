@@ -41,13 +41,13 @@ Existing dashboards, code, packages, demos, labs, etc. for [`neoracer_ros2_drive
 ## Requirements
 
 - The setup has been developed and tested on [Ubuntu 22.04](https://ubuntu.com) with [ROS 2 Humble](https://docs.ros.org/en/humble/index.html).
-  > [!NOTE]
-  > Ubuntu 22.04 + ROS 2 Humble is a deliberate choice since the same distro runs on the physical vehicle, so all the tooling and codebase works unmodified across the digital and physical twins.
+> [!NOTE]
+> Ubuntu 22.04 + ROS 2 Humble is a deliberate choice since the same distro runs on the physical vehicle, so all the tooling and codebase works unmodified across the digital and physical twins.
 - A [containerized version](https://hub.docker.com/r/autodriveecosystem/autodrive_neoracer_api) of the setup has been released and tested to work on [Ubuntu 22.04](https://ubuntu.com), as well as [Windows (WSL 2 + Ubuntu 22.04)](https://learn.microsoft.com/en-us/windows/wsl) and [macOS](https://www.apple.com/os/macos), with [known limitations](docker_limitations.md).
-  > [!NOTE]
-  > The containerized workflow assumes that:
-  > - [Docker](https://docs.docker.com/engine/install) is installed.
-  > - If the container is to take advantage of an NVIDIA GPU, the host machine has been properly configured by installing the necessary NVIDIA GPU drivers and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html).
+> [!NOTE]
+> The containerized workflow assumes that:
+> - [Docker](https://docs.docker.com/engine/install) is installed.
+> - If the container is to take advantage of an NVIDIA GPU, the host machine has been properly configured by installing the necessary NVIDIA GPU drivers and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/index.html).
 
 ## Installation
 
@@ -149,17 +149,17 @@ The automated bringup enables convenient latching to user-implemented ROS 2 node
     ```
     ros2 run <your_ros2_package> <your_ros2_node>
     ```
-    > [!NOTE]
-    > The `autodrive_neoracer` package ships with `teleop_keyboard` node executable:
-    > ```
-    > ros2 run autodrive_neoracer teleop_keyboard
-    > ```
+> [!NOTE]
+> The `autodrive_neoracer` package ships with `teleop_keyboard` node executable:
+> ```
+> ros2 run autodrive_neoracer teleop_keyboard
+> ```
   - Run Python (lab) code `<your_python_code>.py` compatible with `racecar-neo-library` library:
     ```
     python3 ~/jupyter_ws/neoracer-os/labs/<your_python_code>.py
     ```
-    > [!NOTE]
-    > The `autodrive_bridge` emulates START automatically. Every lab in `~/jupyter_ws/neoracer-os/labs/` or custom code developed (via JupyterLab) using the `racecar_core` module of the `racecar-neo-library` runs identically on the digital and physical twins of the vehicle.
+> [!NOTE]
+> The `autodrive_bridge` emulates START automatically. Every lab in `~/jupyter_ws/neoracer-os/labs/` or custom code developed (via JupyterLab) using the `racecar_core` module of the `racecar-neo-library` runs identically on the digital and physical twins of the vehicle.
   - Run lab dashboard compatible with `neoracer_ros2_driver`:
     ```
     racecar service start <dashboard_name>
