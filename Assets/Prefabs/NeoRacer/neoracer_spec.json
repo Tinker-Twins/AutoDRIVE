@@ -1,0 +1,153 @@
+{
+ "source": "neoracer-mujoco v0.36.0 (8273822)",
+ "frame": "+X forward, +Y left, +Z up, from the middle of the wheelbase on the axle line; SI units",
+ "timestep": 0.002777777777777778,
+ "body": {
+  "mass": 2.9999999999999996,
+  "center_of_mass": [
+   0.00047940000000001236,
+   -2.217761248973565e-19,
+   0.026114267719434914
+  ],
+  "inertia": [
+   [
+    0.007315192891387965,
+    6.972179805643255e-21,
+    2.249186009424896e-05
+   ],
+   [
+    6.972179805643255e-21,
+    0.015377786969900024,
+    1.2151170978013044e-20
+   ],
+   [
+    2.2491860094248957e-05,
+    1.2151170978013053e-20,
+    0.020068511324356705
+   ]
+  ]
+ },
+ "outline": {
+  "corners": [
+   [
+    -0.22377,
+    -0.0849
+   ],
+   [
+    -0.151,
+    -0.11798
+   ],
+   [
+    0.15154,
+    -0.12352
+   ],
+   [
+    0.25531,
+    -0.0804
+   ],
+   [
+    0.25967,
+    0.0754
+   ],
+   [
+    0.15223,
+    0.11751
+   ],
+   [
+    -0.15198,
+    0.11755
+   ],
+   [
+    -0.22377,
+    0.08489
+   ]
+  ],
+  "bottom": -0.013479955461339257,
+  "top": 0.17048004453866075
+ },
+ "resting_heights": {
+  "tub_underside": 0.028,
+  "lidar_top": 0.214,
+  "axle_drop": 0.0095
+ },
+ "wheels": {
+  "half_wheelbase": 0.14382,
+  "half_track": 0.112,
+  "radius": 0.0425,
+  "mass": 0.0587,
+  "drive_damping": 0.0005,
+  "friction": 1.5
+ },
+ "camera": {
+  "position": [
+   0.1692,
+   -1.5222873084423123e-19,
+   0.07215004453866074
+  ],
+  "fov_degrees": 130.0,
+  "width": 640,
+  "height": 480,
+  "fps": 60.0
+ },
+ "lidar": {
+  "position": [
+   -0.04419999999999999,
+   -1.5222873084423123e-19,
+   0.12945004453866074
+  ],
+  "scan_rate": 30.0,
+  "resolution_degrees": 0.25,
+  "field_degrees": 270.0,
+  "range": 25.0
+ },
+ "imu": {
+  "position": [
+   1.3159031082570548e-17,
+   -1.5222873084423123e-19,
+   0.028400044538660744
+  ],
+  "rate": 200.0
+ },
+ "suspension": {
+  "stiffness": 600.0,
+  "damping": 25.0,
+  "droop": 0.01,
+  "jounce": 0.015
+ },
+ "motor": {
+  "rated_voltage": 12.0,
+  "stall_torque": 0.207,
+  "free_speed": 1151.92,
+  "gear": 10.55,
+  "battery_voltage": 11.1
+ },
+ "servo": {
+  "voltage": 6.0,
+  "stall_torque": 1.99442,
+  "free_speed": 7.99757,
+  "kp": 50.0,
+  "kd": 1.0,
+  "voltage_limit": 6.0,
+  "lock": 0.440491,
+  "latency": 0.052,
+  "inertia": 0.006077789648958333,
+  "damping": 0.003,
+  "frictionloss": 0.03
+ },
+ "speed_loop": {
+  "period": 0.02,
+  "filter": 0.15,
+  "kp": 447.0,
+  "ki": 4.7,
+  "kd": 4.7,
+  "integral_limit": 1000.0,
+  "error_deadband": 0.05,
+  "stop_speed": 0.05,
+  "feed_forward": 68.0,
+  "deadband": 90.0,
+  "feed_forward_limit": 500.0,
+  "pulse_limit": 500.0,
+  "full_throttle_pulse": 500.0,
+  "max_speed": 6.0
+ }
+}
