@@ -118,10 +118,12 @@ public class ResetManager : MonoBehaviour
         }
         else
         {
-            // Re-enable vehicle dynamics
+            // Re-enable vehicle dynamics, except for vehicles posed by co-simulation:
+            // a posed vehicle left dynamic falls and springs between poses, and hits
+            // the racetrack (respawning it at a checkpoint) wherever its pose crosses a wall
             for (int i = 0; i < Vehicles.Length; i++)
             {
-                VehicleRigidBodies[i].isKinematic = false;
+                VehicleRigidBodies[i].isKinematic = CoSimManagers[i].enabled;
             }
         }
     }
