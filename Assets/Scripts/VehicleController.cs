@@ -17,8 +17,8 @@ public class VehicleController : MonoBehaviour
     defined by the wheelbase and track width parameters.
     */
 
-    private float ThrottleInput;
-    private float SteeringInput;
+    protected float ThrottleInput;
+    protected float SteeringInput;
 
     public enum InputType { Default, F710, Xbox, G29 };
     public InputType HMIType = InputType.Default; // Set input type
@@ -48,9 +48,9 @@ public class VehicleController : MonoBehaviour
     [Range(-1,1)] public float AutonomousSteering = 0;
     public int DrivingMode = 0; // Driving mode: 0 is manual, 1 is autonomous
 
-    private float DriveTorque = 0; // N-m
+    protected float DriveTorque = 0; // N-m
     private float BrakeTorque = 0; // N-m
-    private float SteeringAngle = 0; // deg
+    protected float SteeringAngle = 0; // deg
     private bool MouseHold;
 	private float MouseStart;
 
@@ -78,7 +78,7 @@ public class VehicleController : MonoBehaviour
         set { AutonomousSteering = Mathf.Clamp(value, -1.0f, 1.0f); }
     }
 
-    void Start()
+    protected virtual void Start()
     {
         VehicleRigidBody.centerOfMass = COM; // Set COM
     }
@@ -117,7 +117,7 @@ public class VehicleController : MonoBehaviour
         }
   	}
 
-  	private void Steer()
+  	protected virtual void Steer()
   	{
         if(DrivingMode == 0) SteeringAngle = -SteeringInput*SteeringLimit; // Manual Driving
         else // Autonomous Driving
@@ -162,7 +162,7 @@ public class VehicleController : MonoBehaviour
         }
   	}
 
-    private void Drive()
+    protected virtual void Drive()
   	{
         //Debug.Log("RPM: " + (RearLeftWheelCollider.rpm + RearRightWheelCollider.rpm)/2); // Average wheel speed (RPM)
 

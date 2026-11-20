@@ -5151,7 +5151,8 @@ MonoBehaviour:
   Weather: []
   TimeOfDayAPI: 0
   TimeOfDay: []
-  CoSimManagers: []
+  CoSimManagers:
+  - {fileID: 572118103869114672}
   ResetManagers:
   - {fileID: 3444321734682654869}
   VehicleRigidBodies:

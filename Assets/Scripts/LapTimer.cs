@@ -13,6 +13,7 @@ public class LapTimer : MonoBehaviour
 
     public string RacetrackName; // Exact name of the racetrack gameobject
     public Transform[] Checkpoints; // Array of transforms of all checkpoints
+    public float RespawnLift = 0; // m the vehicle respawns above a checkpoint, along its up
     public int CurrentCheckpoint = 0;
     public int PreviousCheckpoint = 0;
     public int CollisionCount = 0; // Collision count
@@ -72,7 +73,7 @@ public class LapTimer : MonoBehaviour
         SavedCheckpoint = Checkpoints[CheckpointCount%Checkpoints.Length];
 
         // Reset pose
-        gameObject.transform.position = SavedCheckpoint.position;
+        gameObject.transform.position = SavedCheckpoint.position + SavedCheckpoint.up * RespawnLift;
         gameObject.transform.rotation = SavedCheckpoint.rotation;
 
         // Update clooision flag and count
